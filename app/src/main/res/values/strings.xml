@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="no_internet">nointernet\n</string>
+    <string name="network_error">network error\n</string>
 </resources>
