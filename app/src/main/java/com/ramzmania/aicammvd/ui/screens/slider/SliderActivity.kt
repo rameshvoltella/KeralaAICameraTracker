@@ -1,5 +1,8 @@
 package com.ramzmania.aicammvd.ui.screens.slider
 
+import android.os.Bundle
+import android.view.View
+import android.view.ViewTreeObserver
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -37,11 +40,17 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     override fun getViewModelClass() = SliderViewModel::class.java
 
     override fun observeViewModel() {
-        installSplashScreen()
+
 
     }
     override fun observeActivity() {
     }
+
+    override fun setsplash() {
+        Thread.sleep(3000)
+        installSplashScreen()
+    }
+
 
     @Composable
     override fun setContent() {

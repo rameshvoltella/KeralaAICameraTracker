@@ -18,16 +18,19 @@ abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivit
 
     abstract fun observeViewModel()
     abstract fun observeActivity()
+    abstract fun setsplash()
 //    abstract fun observeBeforeOnCreate()
     open fun observeActivityWithInstance(savedInstanceState: Bundle?) {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("init", "initialized")
-        initViewModel()
+        setsplash()
         setContent {
             setContent()
         }
+        initViewModel()
+
         observeViewModel()
         observeActivityWithInstance(savedInstanceState)
         observeActivity()
