@@ -7,7 +7,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 
 import androidx.lifecycle.ViewModelProvider
-import dagger.hilt.android.AndroidEntryPoint
 
 abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivity() {
 
@@ -18,14 +17,14 @@ abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivit
 
     abstract fun observeViewModel()
     abstract fun observeActivity()
-    abstract fun setsplash()
+    abstract fun beforeOnContent()
 //    abstract fun observeBeforeOnCreate()
     open fun observeActivityWithInstance(savedInstanceState: Bundle?) {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("init", "initialized")
-        setsplash()
+        beforeOnContent()
         setContent {
             setContent()
         }

@@ -46,7 +46,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     override fun observeActivity() {
     }
 
-    override fun setsplash() {
+    override fun beforeOnContent() {
         Thread.sleep(3000)
         installSplashScreen()
     }

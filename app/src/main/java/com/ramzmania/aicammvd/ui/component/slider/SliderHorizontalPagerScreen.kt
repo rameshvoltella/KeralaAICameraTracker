@@ -54,7 +54,7 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>) {
                         .padding(20.dp) // Add padding to the button
                         .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                 ) {
-                    Text("Your Button Text")
+                    Text("Let's Go")
                 }
 
             }
