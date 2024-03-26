@@ -1,18 +1,13 @@
-package com.ramzmania.aicammvd.viewmodel.slider
+package com.ramzmania.aicammvd.ui.component.slider
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ramzmania.aicammvd.ui.base.BaseViewModel
-import com.ramzmania.aicammvd.ui.base.ContextModule
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
-@HiltViewModel
-class SliderViewModel @Inject
-constructor(componentContext: ContextModule
-) : BaseViewModel() {
+
+class SliderViewModel : ViewModel() {
     private val _isLoading = MutableStateFlow(true)
     val isLoading = _isLoading.asStateFlow()
 

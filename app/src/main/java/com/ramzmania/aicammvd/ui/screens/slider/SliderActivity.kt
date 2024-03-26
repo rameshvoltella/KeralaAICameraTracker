@@ -21,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
@@ -33,11 +34,12 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SliderActivity : BaseComposeActivity<SliderViewModel>() {
-    override fun getViewModelClass()=SliderViewModel::class.java
+    override fun getViewModelClass() = SliderViewModel::class.java
 
     override fun observeViewModel() {
-    }
+        installSplashScreen()
 
+    }
     override fun observeActivity() {
     }
 
@@ -57,40 +59,56 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
 
- /*   @Preview(showBackground = true)
-    @Composable
-    fun GreetingPreview() {
-        Column {
-            OnboardingUI(centerImage = "R.drawable.f", imageDesc = "kona", introtxt = "kona")
+    /*   @Preview(showBackground = true)
+       @Composable
+       fun GreetingPreview() {
+           Column {
+               OnboardingUI(centerImage = "R.drawable.f", imageDesc = "kona", introtxt = "kona")
 
-//            Greeting("Androidsherikkum")
-//            ComposeArticle("Rajavu","dfbljwebfjbwejbfjhbefjhw","body2", R.drawable.ic_livevideo_doubt)
-        }
-    }*/
+   //            Greeting("Androidsherikkum")
+   //            ComposeArticle("Rajavu","dfbljwebfjbwejbfjhbefjhw","body2", R.drawable.ic_livevideo_doubt)
+           }
+       }*/
 
-   /* @Composable
-    fun OnboardingUI(centerImage: String, imageDesc: String, introtxt: String) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Red)
-        ) {
-            Box(contentAlignment = Alignment.Center) {
-                CenterImage(image = centerImage, imageDesc = imageDesc)
-                Text(text = introtxt)
-            }
-        }
-    }*/
+    /* @Composable
+     fun OnboardingUI(centerImage: String, imageDesc: String, introtxt: String) {
+         Column(
+             modifier = Modifier
+                 .fillMaxSize()
+                 .background(Color.Red)
+         ) {
+             Box(contentAlignment = Alignment.Center) {
+                 CenterImage(image = centerImage, imageDesc = imageDesc)
+                 Text(text = introtxt)
+             }
+         }
+     }*/
 
-    fun generateSliderContentData(): List<SliderContentData> {
+    private fun generateSliderContentData(): List<SliderContentData> {
         val dataList = mutableListOf<SliderContentData>()
-        repeat(10) { index ->
-            val title = "Title ${index + 1}"
-            val subtitle = "Subtitle ${index + 1}"
-            // Assuming you have some drawable resources named ic_image1, ic_image2, ..., ic_image10
-            val imageResource = R.drawable.ic_livevideo_doubt
-            dataList.add(SliderContentData(title, subtitle, imageResource))
-        }
+        dataList.add(
+            SliderContentData(
+                "AIWatch",
+                "Empowering Safe Driving with AI Camera Detection",
+                R.drawable.cam_one
+            )
+        )
+        dataList.add(
+            SliderContentData(
+                "DriveGuard",
+                "Stay Alert, Drive Safe: AI Camera Detection at Your Service",
+                R.drawable.cam_location
+            )
+        )
+        dataList.add(
+            SliderContentData(
+                "SmartLens",
+                "AI Eyes on the Road: Warning Drivers Before the Camera Zone",
+                R.drawable.came_two
+            )
+        )
+
+
         return dataList
     }
 

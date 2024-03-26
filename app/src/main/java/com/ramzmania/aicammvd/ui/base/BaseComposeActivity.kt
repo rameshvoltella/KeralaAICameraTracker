@@ -18,6 +18,7 @@ abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivit
 
     abstract fun observeViewModel()
     abstract fun observeActivity()
+//    abstract fun observeBeforeOnCreate()
     open fun observeActivityWithInstance(savedInstanceState: Bundle?) {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
