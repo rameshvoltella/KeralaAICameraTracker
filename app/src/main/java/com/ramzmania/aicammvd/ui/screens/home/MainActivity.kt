@@ -39,8 +39,8 @@ class MainActivity : BaseComposeActivity<SliderViewModel>() {
 
     override fun beforeOnContent() {
 
-        Thread.sleep(3000)
-        installSplashScreen()
+//        Thread.sleep(3000)
+//        installSplashScreen()
     }
 
 
@@ -53,7 +53,7 @@ class MainActivity : BaseComposeActivity<SliderViewModel>() {
                 color = MaterialTheme.colorScheme.background
             ) {
 //                    Greeting("Android")
-                OnboardingUI(centerImage = "R.drawable.f", imageDesc = "kona", introtxt = "kona")
+                OnboardingUI(centerImage = "R.drawable.f", imageDesc = "kona", introtxt = "comming soon")
 
             }
         }

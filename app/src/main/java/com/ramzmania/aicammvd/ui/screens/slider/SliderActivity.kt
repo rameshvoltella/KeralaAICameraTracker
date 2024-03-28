@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
+import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
@@ -45,6 +46,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     @Composable
     override fun setContent() {
         val dataList = generateSliderContentData()
+        val navController = rememberNavController()
         MyApplicationTheme {
            // setStatusBarColorColor(Color.Green)
             // A surface container using the 'background' color from the theme
@@ -52,7 +54,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background // Updated MaterialTheme.colorScheme to MaterialTheme.colors
             ) {
-                HorizontalPagerWithLinesIndicatorScreen(dataList = dataList)
+                HorizontalPagerWithLinesIndicatorScreen(dataList = dataList,this)
 
             }
         }
@@ -104,7 +106,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
             SliderContentData(
                 "SmartLens",
                 "AI Eyes on the Road: Warning Drivers Before the Camera Zone",
-                R.drawable.came_two
+                R.drawable.came_new
             )
         )
 

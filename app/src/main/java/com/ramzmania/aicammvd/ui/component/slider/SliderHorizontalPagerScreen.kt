@@ -1,5 +1,9 @@
 package com.ramzmania.aicammvd.ui.component.slider
 
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -24,11 +28,12 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
+import com.ramzmania.aicammvd.ui.screens.home.MainActivity
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>) {
+fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, activityContext: Activity) {
 
     val pagerState = rememberPagerState(pageCount = { dataList.size })
     val backgroundColor = when (pagerState.currentPage) {
@@ -44,45 +49,49 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>) {
         Box(modifier = Modifier) {
             BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
 
-            HorizontalPager(state = pagerState) { page ->
-                Box(
-                    Modifier
-                        .pagerFadeTransition(page, pagerState)
-                        .fillMaxSize()
-                ) {
-                    SlideViewpagerItem(
-                        dataList[page].imageResource, dataList[page].title,
-                        dataList[page].subtitleData, pagerState.currentPage
-                    )
+                HorizontalPager(state = pagerState) { page ->
+                    Box(
+                        Modifier
+                            .pagerFadeTransition(page, pagerState)
+                            .fillMaxSize()
+                    ) {
+                        SlideViewpagerItem(
+                            dataList[page].imageResource, dataList[page].title,
+                            dataList[page].subtitleData, pagerState.currentPage
+                        )
+                    }
                 }
-            }
 
                 if (pagerState.currentPage == 2) {
-                Button(
-                    onClick = { /* Handle button click */ },
-                    modifier = Modifier
-                        .padding(30.dp) // Add padding to the button
-                        .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
-                ) {
-                    Text("Let's Go")
-                }
+                    Button(
+                        onClick = {
+                            activityContext.startActivity(Intent(activityContext, MainActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK))
+                            (activityContext as? Activity)?.finish() // Finish the current activity
+                        },
+                        modifier = Modifier
+                            .padding(30.dp) // Add padding to the button
+                            .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
+                    ) {
+                        Text("Let's Go")
+                    }
 
-            }
-            ViewPagerLinesIndicator(
-                modifier = Modifier
-                    .height(24.dp)
-                    .padding(start = 4.dp)
-                    .fillMaxWidth()
-                    .align(Alignment.BottomCenter),
-                pageCount = dataList.size,
-                currentPageIteration = pagerState.currentPage
-            )
+                }
+                ViewPagerLinesIndicator(
+                    modifier = Modifier
+                        .height(24.dp)
+                        .padding(start = 4.dp)
+                        .fillMaxWidth()
+                        .align(Alignment.BottomCenter),
+                    pageCount = dataList.size,
+                    currentPageIteration = pagerState.currentPage
+                )
 
 
             }
         }
     }
 }
+
 @OptIn(ExperimentalFoundationApi::class)
 fun Modifier.pagerFadeTransition(page: Int, pagerState: PagerState) =
     graphicsLayer {

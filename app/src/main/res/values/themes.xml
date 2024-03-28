@@ -3,10 +3,10 @@
 
     <style name="Theme.AiCameraApplication" parent="android:Theme.Material.Light.NoActionBar" >
         <!-- Customize your light theme here. -->
-        <item name="android:statusBarColor">@color/purple_500</item>
+        <item name="android:statusBarColor">@color/white</item>
     </style>
     <style name="Theme.MySplash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/purple_500</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_shopping_cart_24</item>
         <item name="postSplashScreenTheme">@style/Theme.AiCameraApplication</item>
         <item name="windowSplashScreenAnimationDuration">10000</item>
@@ -15,8 +15,8 @@
     <style name="Theme.AiCameraSplashScreen" parent="Theme.AiCameraApplication" />
 
     <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/purple_500</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/cam_location</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/app_mvd_round</item>
         <item name="postSplashScreenTheme">@style/Theme.AiCameraApplication</item>
     </style>
 </resources>
