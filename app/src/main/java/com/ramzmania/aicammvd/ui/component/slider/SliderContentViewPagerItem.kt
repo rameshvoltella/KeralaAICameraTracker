@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,7 +48,10 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
             ) {
                 Text(text = title,
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
+
                 )
 
                 GlideImage(
@@ -66,7 +70,11 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
 //            )
 
                 Text(text = subtitle,fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium)
+                    fontWeight = FontWeight.Medium,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
+
+                )
 
 
 

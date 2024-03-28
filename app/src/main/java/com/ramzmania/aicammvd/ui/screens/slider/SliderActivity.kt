@@ -1,36 +1,23 @@
 package com.ramzmania.aicammvd.ui.screens.slider
 
-import android.os.Bundle
-import android.view.View
-import android.view.ViewTreeObserver
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
+import android.app.Activity
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.NavController
+import androidx.core.view.WindowCompat
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
-import com.ramzmania.aicammvd.ui.component.slider.ViewPagerLinesIndicator
 import com.ramzmania.aicammvd.ui.theme.MyApplicationTheme
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,12 +30,15 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
 
 
     }
+
     override fun observeActivity() {
     }
 
     override fun beforeOnContent() {
         Thread.sleep(3000)
         installSplashScreen()
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
+
     }
 
 
@@ -56,6 +46,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     override fun setContent() {
         val dataList = generateSliderContentData()
         MyApplicationTheme {
+           // setStatusBarColorColor(Color.Green)
             // A surface container using the 'background' color from the theme
             Surface(
                 modifier = Modifier.fillMaxSize(),
@@ -121,4 +112,17 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
         return dataList
     }
 
+    @Composable
+    fun setStatusBarColorColor(color: Color) {
+
+        val view = LocalView.current
+        if (!view.isInEditMode) {
+            LaunchedEffect(key1 = true)
+            {
+                val window = (view.context as Activity).window
+                window.statusBarColor = color.toArgb()
+            }
+
+        }
+    }
 }

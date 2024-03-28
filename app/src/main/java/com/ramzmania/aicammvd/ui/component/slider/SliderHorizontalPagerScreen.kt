@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -17,10 +18,13 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
+import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
+import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -41,17 +45,23 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>) {
             BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
 
             HorizontalPager(state = pagerState) { page ->
-                SlideViewpagerItem(
-                    dataList[page].imageResource, dataList[page].title,
-                    dataList[page].subtitleData,pagerState.currentPage
-                )
+                Box(
+                    Modifier
+                        .pagerFadeTransition(page, pagerState)
+                        .fillMaxSize()
+                ) {
+                    SlideViewpagerItem(
+                        dataList[page].imageResource, dataList[page].title,
+                        dataList[page].subtitleData, pagerState.currentPage
+                    )
+                }
             }
 
                 if (pagerState.currentPage == 2) {
                 Button(
                     onClick = { /* Handle button click */ },
                     modifier = Modifier
-                        .padding(20.dp) // Add padding to the button
+                        .padding(30.dp) // Add padding to the button
                         .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                 ) {
                     Text("Let's Go")
@@ -73,3 +83,10 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>) {
         }
     }
 }
+@OptIn(ExperimentalFoundationApi::class)
+fun Modifier.pagerFadeTransition(page: Int, pagerState: PagerState) =
+    graphicsLayer {
+        val pageOffset = pagerState.calculateCurrentOffsetForPage(page)
+        translationX = pageOffset * size.width
+        alpha = 1 - pageOffset.absoluteValue
+    }

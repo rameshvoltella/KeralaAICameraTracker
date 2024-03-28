@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -23,7 +24,7 @@ fun ViewPagerLinesIndicator(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.Start
+        horizontalArrangement = Arrangement.Center
     ) {
         repeat(pageCount) { iteration ->
 
@@ -33,7 +34,8 @@ fun ViewPagerLinesIndicator(
                     .padding(4.dp)
                     .clip(RoundedCornerShape(2.dp))
                     .background(color)
-                    .weight(1f)
+//                    .weight(1f)
+                    .width(20.dp)
                     .height(4.dp)
             )
         }
@@ -43,5 +45,5 @@ fun ViewPagerLinesIndicator(
 @Preview
 @Composable
 private fun ViewPagerLinesIndicatorPreview() {
-    ViewPagerLinesIndicator(pageCount = 5, currentPageIteration = 2)
+    ViewPagerLinesIndicator(pageCount = 2, currentPageIteration = 2)
 }
