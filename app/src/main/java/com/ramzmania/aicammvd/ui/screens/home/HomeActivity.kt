@@ -1,5 +1,7 @@
 package com.ramzmania.aicammvd.ui.screens.home
 
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,9 +19,8 @@ import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeActivity:BaseComposeActivity<HomeViewModel>()
-{
-    override fun getViewModelClass()=HomeViewModel::class.java
+class HomeActivity : BaseComposeActivity<HomeViewModel>() {
+    override fun getViewModelClass() = HomeViewModel::class.java
 
     override fun observeViewModel() {
     }
@@ -28,15 +29,19 @@ class HomeActivity:BaseComposeActivity<HomeViewModel>()
     }
 
     override fun beforeOnContent() {
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
+
     }
 
     @Composable
     override fun setContent() {
 
         AiCameraApplicationTheme {
-            Surface(modifier = Modifier
-                .fillMaxSize()
-                .background(Color.Yellow)) {
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Yellow)
+            ) {
 
                 basicHomeLayer()
             }

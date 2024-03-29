@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -35,7 +36,10 @@ fun HomeLocationItem(centerImage: Int) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.brown_black))
+
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -51,7 +55,10 @@ fun HomeLocationItem(centerImage: Int) {
                     imagePainter,
                     contentDescription = "",
                     contentScale = ContentScale.Crop,
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .padding(20.dp)
+                        .width(100.dp)
+                        .height(100.dp)
                 )
 //            GlideImage(
 //                painter = imagePainter,
@@ -59,9 +66,6 @@ fun HomeLocationItem(centerImage: Int) {
 //                contentScale = ContentScale.Crop,
 //                modifier = Modifier.padding(20.dp).width(100.dp).height(100.dp)
 //            )
-
-
-
 
 
             }
