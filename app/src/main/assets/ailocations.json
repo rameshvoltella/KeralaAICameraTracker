@@ -1,0 +1,5674 @@
+[
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
+    "District": "Thiruvananthapuram",
+    "Location": "Parassala",
+    "Lat": 8.3150151,
+    "Long": 77.1287226,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-2",
+    "District": "Thiruvananthapuram",
+    "Location": "Pambukala",
+    "Lat": 8.3254417,
+    "Long": 77.0641614,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-3",
+    "District": "Thiruvananthapuram",
+    "Location": "Kovalam Jn",
+    "Lat": 8.399849392,
+    "Long": 76.98087696,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-4",
+    "District": "Thiruvananthapuram",
+    "Location": "Neyyattinkara_2",
+    "Lat": 8.4078907,
+    "Long": 77.0794932,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-5",
+    "District": "Thiruvananthapuram",
+    "Location": "Neyyattinkara_1",
+    "Lat": 8.4080435,
+    "Long": 77.0792108,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-6",
+    "District": "Thiruvananthapuram",
+    "Location": "Thozhukkal",
+    "Lat": 8.4167193,
+    "Long": 77.0803191,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-7",
+    "District": "Thiruvananthapuram",
+    "Location": "Balaramapuram_1",
+    "Lat": 8.4263583,
+    "Long": 77.038985,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-8",
+    "District": "Thiruvananthapuram",
+    "Location": "Balaramapuram_2",
+    "Lat": 8.427158591,
+    "Long": 77.03957643,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-9",
+    "District": "Thiruvananthapuram",
+    "Location": "Pallichal Jn",
+    "Lat": 8.443115896,
+    "Long": 77.01732215,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-10",
+    "District": "Thiruvananthapuram",
+    "Location": "Thiruvallom",
+    "Lat": 8.4431921,
+    "Long": 76.9524799,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-11",
+    "District": "Thiruvananthapuram",
+    "Location": "Kumarichantha",
+    "Lat": 8.45163636,
+    "Long": 76.9470077,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-12",
+    "District": "Thiruvananthapuram",
+    "Location": "Vellayani Jn",
+    "Lat": 8.4590336,
+    "Long": 76.9973992,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-13",
+    "District": "Thiruvananthapuram",
+    "Location": "Vellayani Jn_2",
+    "Lat": 8.459099405,
+    "Long": 76.99749157,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-14",
+    "District": "Thiruvananthapuram",
+    "Location": "Manacaud Jn",
+    "Lat": 8.4719437,
+    "Long": 76.9481288,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-15",
+    "District": "Thiruvananthapuram",
+    "Location": "Eenjakkal_1",
+    "Lat": 8.480571432,
+    "Long": 76.93514396,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-16",
+    "District": "Thiruvananthapuram",
+    "Location": "Eenjakkal_2",
+    "Lat": 8.480781673,
+    "Long": 76.93591442,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-17",
+    "District": "Thiruvananthapuram",
+    "Location": "Killipalam, near PRS hopspital",
+    "Lat": 8.481339441,
+    "Long": 76.9595876,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-18",
+    "District": "Thiruvananthapuram",
+    "Location": "Killipalam",
+    "Lat": 8.481502261,
+    "Long": 76.95821229,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-19",
+    "District": "Thiruvananthapuram",
+    "Location": "Power house road",
+    "Lat": 8.484994424,
+    "Long": 76.95298903,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-20",
+    "District": "Thiruvananthapuram",
+    "Location": "East fort stretch",
+    "Lat": 8.48596404,
+    "Long": 76.94781505,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-21",
+    "District": "Thiruvananthapuram",
+    "Location": "Thambanoor",
+    "Lat": 8.4870139,
+    "Long": 76.9521384,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-22",
+    "District": "Thiruvananthapuram",
+    "Location": "Malayinkeezh",
+    "Lat": 8.4875062,
+    "Long": 77.0364776,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-23",
+    "District": "Thiruvananthapuram",
+    "Location": "Kaithamukk",
+    "Lat": 8.489562938,
+    "Long": 76.94019489,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-24",
+    "District": "Thiruvananthapuram",
+    "Location": "MG Road",
+    "Lat": 8.490216194,
+    "Long": 76.9473004,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-25",
+    "District": "Thiruvananthapuram",
+    "Location": "Poojapura",
+    "Lat": 8.4910375,
+    "Long": 76.9738924,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-26",
+    "District": "Thiruvananthapuram",
+    "Location": "All saints",
+    "Lat": 8.494618515,
+    "Long": 76.9098068,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-27",
+    "District": "Thiruvananthapuram",
+    "Location": "All saints_2",
+    "Lat": 8.494954755,
+    "Long": 76.90943129,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-28",
+    "District": "Thiruvananthapuram",
+    "Location": "Pettah",
+    "Lat": 8.49520478,
+    "Long": 76.92757811,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-29",
+    "District": "Thiruvananthapuram",
+    "Location": "Vettukadu",
+    "Lat": 8.4965309,
+    "Long": 76.8987359,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-31",
+    "District": "Thiruvananthapuram",
+    "Location": "Holy Angels Convent road",
+    "Lat": 8.498014727,
+    "Long": 76.94286201,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-32",
+    "District": "Thiruvananthapuram",
+    "Location": "AKG center",
+    "Lat": 8.500406184,
+    "Long": 76.94618963,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-33",
+    "District": "Thiruvananthapuram",
+    "Location": "Mangattukadav",
+    "Lat": 8.5004297,
+    "Long": 77.0062457,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-34",
+    "District": "Thiruvananthapuram",
+    "Location": "Vazhuthacaud, WC jn",
+    "Lat": 8.5004554,
+    "Long": 76.9582906,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-35",
+    "District": "Thiruvananthapuram",
+    "Location": "Palayam, near AKG center",
+    "Lat": 8.500657531,
+    "Long": 76.94628283,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-SVDS-01-36",
+    "District": "Thiruvananthapuram",
+    "Location": "Chakka bypass",
+    "Lat": 8.5021486,
+    "Long": 76.9127634,
+    "Type": "SVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-37",
+    "District": "Thiruvananthapuram",
+    "Location": "Palayam",
+    "Lat": 8.502110568,
+    "Long": 76.95008822,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-38",
+    "District": "Thiruvananthapuram",
+    "Location": "Kattakada_3",
+    "Lat": 8.5023271,
+    "Long": 77.0718469,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-39",
+    "District": "Thiruvananthapuram",
+    "Location": "Edapazhanji Bridge",
+    "Lat": 8.5045791,
+    "Long": 76.9705438,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-40",
+    "District": "Thiruvananthapuram",
+    "Location": "Kattakada_1",
+    "Lat": 8.5060175,
+    "Long": 77.079171,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-41",
+    "District": "Thiruvananthapuram",
+    "Location": "Kattakada_2",
+    "Lat": 8.5074106,
+    "Long": 77.0869781,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-42",
+    "District": "Thiruvananthapuram",
+    "Location": "Kundamankadavu_2",
+    "Lat": 8.5088349,
+    "Long": 77.0033788,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-43",
+    "District": "Thiruvananthapuram",
+    "Location": "Kundamankadavu_1",
+    "Lat": 8.509155,
+    "Long": 77.0048124,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-44",
+    "District": "Thiruvananthapuram",
+    "Location": "Veli",
+    "Lat": 8.5123626,
+    "Long": 76.8908583,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-45",
+    "District": "Thiruvananthapuram",
+    "Location": "KIMS Hopspital Jn, Venpalavattam",
+    "Lat": 8.513192199,
+    "Long": 76.91054508,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-46",
+    "District": "Thiruvananthapuram",
+    "Location": "Venpalavattom near KIMS",
+    "Lat": 8.5140597,
+    "Long": 76.913645,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-47",
+    "District": "Thiruvananthapuram",
+    "Location": "Venpalavattam, Poonthi road",
+    "Lat": 8.5141757,
+    "Long": 76.9136729,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-48",
+    "District": "Thiruvananthapuram",
+    "Location": "Vilappilsala",
+    "Lat": 8.5218664,
+    "Long": 77.0346773,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-49",
+    "District": "Thiruvananthapuram",
+    "Location": "Pattom",
+    "Lat": 8.5230483,
+    "Long": 76.9407198,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-50",
+    "District": "Thiruvananthapuram",
+    "Location": "Kottamukk,Aakkulam",
+    "Lat": 8.5230868,
+    "Long": 76.9122663,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-51",
+    "District": "Thiruvananthapuram",
+    "Location": "Pulimood Jn, Vattiyoorkav",
+    "Lat": 8.5235036,
+    "Long": 76.9862784,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-52",
+    "District": "Thiruvananthapuram",
+    "Location": "Pattom(PVDS)",
+    "Lat": 8.526084221,
+    "Long": 76.93893425,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-53",
+    "District": "Thiruvananthapuram",
+    "Location": "Kallikkaad",
+    "Lat": 8.5294323,
+    "Long": 77.1232054,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-54",
+    "District": "Thiruvananthapuram",
+    "Location": "Ulloor",
+    "Lat": 8.529678,
+    "Long": 76.9326316,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-01-55",
+    "District": "Thiruvananthapuram",
+    "Location": "Ambalamukk",
+    "Lat": 8.529742424,
+    "Long": 76.96094949,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-56",
+    "District": "Thiruvananthapuram",
+    "Location": "Poovachal",
+    "Lat": 8.5347751,
+    "Long": 77.0867638,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-57",
+    "District": "Thiruvananthapuram",
+    "Location": "Puliyarakonam",
+    "Lat": 8.5354007,
+    "Long": 77.0161863,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-SVDS-01-58",
+    "District": "Thiruvananthapuram",
+    "Location": "Bypass near UST Global",
+    "Lat": 8.537797443,
+    "Long": 76.87918805,
+    "Type": "SVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-59",
+    "District": "Thiruvananthapuram",
+    "Location": "Vazhayila, To Peroorkada",
+    "Lat": 8.5426433,
+    "Long": 76.9711209,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-60",
+    "District": "Thiruvananthapuram",
+    "Location": "Nettayam",
+    "Lat": 8.5437866,
+    "Long": 76.9876427,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-61",
+    "District": "Thiruvananthapuram",
+    "Location": "Vazhayila, To Nedumangadu",
+    "Lat": 8.5450854,
+    "Long": 76.9727058,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-62",
+    "District": "Thiruvananthapuram",
+    "Location": "Kottamughal_1",
+    "Lat": 8.5521029,
+    "Long": 76.9423557,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-63",
+    "District": "Thiruvananthapuram",
+    "Location": "Kottamughal_2",
+    "Lat": 8.5522066,
+    "Long": 76.9426095,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-64",
+    "District": "Thiruvananthapuram",
+    "Location": "Mannanthala, Pothencode road",
+    "Lat": 8.5607153,
+    "Long": 76.9434491,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-65",
+    "District": "Thiruvananthapuram",
+    "Location": "Mannanthala, Peroorkada road",
+    "Lat": 8.5607214,
+    "Long": 76.9434257,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-66",
+    "District": "Thiruvananthapuram",
+    "Location": "Paravankunnu Jn.",
+    "Lat": 8.5678039,
+    "Long": 76.8733965,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-67",
+    "District": "Thiruvananthapuram",
+    "Location": "Vettroad, towards Pothencode",
+    "Lat": 8.5824067,
+    "Long": 76.8638977,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-68",
+    "District": "Thiruvananthapuram",
+    "Location": "Vettroad, Pothencode road",
+    "Lat": 8.5844392,
+    "Long": 76.8704745,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-69",
+    "District": "Thiruvananthapuram",
+    "Location": "Vattappara_1",
+    "Lat": 8.5928899,
+    "Long": 76.9525046,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-70",
+    "District": "Thiruvananthapuram",
+    "Location": "Vattappara",
+    "Lat": 8.5930096,
+    "Long": 76.9514364,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-71",
+    "District": "Thiruvananthapuram",
+    "Location": "Nedumangad, Peroorkada road",
+    "Lat": 8.6006022,
+    "Long": 76.9959209,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-72",
+    "District": "Thiruvananthapuram",
+    "Location": "Nedumangadu, Kulavikkonam",
+    "Lat": 8.6015071,
+    "Long": 77.0076317,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-73",
+    "District": "Thiruvananthapuram",
+    "Location": "Nedumangadu, Ponmudi road",
+    "Lat": 8.6078024,
+    "Long": 77.0054544,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-74",
+    "District": "Thiruvananthapuram",
+    "Location": "Nedumangadu",
+    "Lat": 8.614673,
+    "Long": 76.9977609,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-75",
+    "District": "Thiruvananthapuram",
+    "Location": "Nedumangadu Vembayam road",
+    "Lat": 8.6161716,
+    "Long": 76.9898788,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-76",
+    "District": "Thiruvananthapuram",
+    "Location": "MC road, Venjaramood",
+    "Lat": 8.6712494,
+    "Long": 76.9114421,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-77",
+    "District": "Thiruvananthapuram",
+    "Location": "Thandrampoyka",
+    "Lat": 8.6871302,
+    "Long": 76.9067379,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-78",
+    "District": "Thiruvananthapuram",
+    "Location": "Mama Moonnumukku, Attingal",
+    "Lat": 8.6883583,
+    "Long": 76.8238267,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-79",
+    "District": "Thiruvananthapuram",
+    "Location": "Kizhakkenalumukk, Attingal",
+    "Lat": 8.6951859,
+    "Long": 76.817494,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-80",
+    "District": "Thiruvananthapuram",
+    "Location": "Kacherinada, Attingal Jn",
+    "Lat": 8.6981355,
+    "Long": 76.8136267,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-81",
+    "District": "Thiruvananthapuram",
+    "Location": "Alamcode Jn",
+    "Lat": 8.721520048,
+    "Long": 76.81288954,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-82",
+    "District": "Thiruvananthapuram",
+    "Location": "Karet",
+    "Lat": 8.7273407,
+    "Long": 76.8983141,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-83",
+    "District": "Thiruvananthapuram",
+    "Location": "Varkala Sivagiri roundabout",
+    "Lat": 8.7319773,
+    "Long": 76.7316021,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-84",
+    "District": "Thiruvananthapuram",
+    "Location": "Varkala Sivagiri roundabout_2",
+    "Lat": 8.7320087,
+    "Long": 76.7316126,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-85",
+    "District": "Thiruvananthapuram",
+    "Location": "Varkala, railway station road",
+    "Lat": 8.7494784,
+    "Long": 76.7143884,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-86",
+    "District": "Thiruvananthapuram",
+    "Location": "Varkala road, Kallambalam",
+    "Lat": 8.7618969,
+    "Long": 76.7877894,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-87",
+    "District": "Thiruvananthapuram",
+    "Location": "Kilimanoor",
+    "Lat": 8.7681143,
+    "Long": 76.8851514,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-88",
+    "District": "Thiruvananthapuram",
+    "Location": "Navaikulam_2",
+    "Lat": 8.7961101,
+    "Long": 76.7691311,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-89",
+    "District": "Thiruvananthapuram",
+    "Location": "Navaikulam_1",
+    "Lat": 8.7961348,
+    "Long": 76.7692244,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-90",
+    "District": "Thiruvananthapuram",
+    "Location": "Kallambalam, Kilimanoor road",
+    "Lat": 8.7964798,
+    "Long": 76.7688777,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-92",
+    "District": "Kollam",
+    "Location": "Parippally Jn, towards Paravoor",
+    "Lat": 8.8125148,
+    "Long": 76.7585943,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-93",
+    "District": "Kollam",
+    "Location": "Madathara Jn, Thenmala road",
+    "Lat": 8.8178617,
+    "Long": 77.0146428,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-94",
+    "District": "Kollam",
+    "Location": "Nilamel Jn, Parippally road",
+    "Lat": 8.8236526,
+    "Long": 76.8811416,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-95",
+    "District": "Kollam",
+    "Location": "Hospital Jn, Kadakkal, Kulathupuzha road",
+    "Lat": 8.826195,
+    "Long": 76.917526,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-96",
+    "District": "Kollam",
+    "Location": "Ooranvila, Chathannoor, bus stand Jn",
+    "Lat": 8.8586276,
+    "Long": 76.7235559,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-97",
+    "District": "Kollam",
+    "Location": "Thirumukk Jn, Chathannoor",
+    "Lat": 8.8617743,
+    "Long": 76.7065132,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-98",
+    "District": "Kollam",
+    "Location": "Kottiyam Jn, towards Kollam",
+    "Lat": 8.8659031,
+    "Long": 76.671286,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-99",
+    "District": "Kollam",
+    "Location": "Kottiyam Jn, Kannanalloor road",
+    "Lat": 8.8660198,
+    "Long": 76.6709043,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-100",
+    "District": "Kollam",
+    "Location": "Chadayamangalam",
+    "Lat": 8.8736165,
+    "Long": 76.8695075,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-101",
+    "District": "Kollam",
+    "Location": "Oyoor Jn, Poyappally road",
+    "Lat": 8.8747709,
+    "Long": 76.7738671,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-102",
+    "District": "Kollam",
+    "Location": "SN College Jn",
+    "Lat": 8.8810515,
+    "Long": 76.6003846,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-103",
+    "District": "Kollam",
+    "Location": "Kollam railway station, Karbala to Chinnakkada road",
+    "Lat": 8.8856396,
+    "Long": 76.5966519,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-104",
+    "District": "Kollam",
+    "Location": "Kannanalloor Jn, Kundara road",
+    "Lat": 8.8949073,
+    "Long": 76.6819167,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-105",
+    "District": "Kollam",
+    "Location": "Ayoor, Trivandrum road",
+    "Lat": 8.8955354,
+    "Long": 76.8620022,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-106",
+    "District": "Kollam",
+    "Location": "Mukhathala, Kollam road",
+    "Lat": 8.8972983,
+    "Long": 76.6666695,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-107",
+    "District": "Kollam",
+    "Location": "Palakadavu",
+    "Lat": 8.9024596,
+    "Long": 76.6204293,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-108",
+    "District": "Kollam",
+    "Location": "Kulathooppuzha Jn, Madathara road",
+    "Lat": 8.9038094,
+    "Long": 77.0574798,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-109",
+    "District": "Kollam",
+    "Location": "Ramankulangara, Kollam road",
+    "Lat": 8.9047572,
+    "Long": 76.5622133,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-110",
+    "District": "Kollam",
+    "Location": "Pooyappally, Oyoor road",
+    "Lat": 8.9065533,
+    "Long": 76.7623571,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-SVDS-02-111",
+    "District": "Kollam",
+    "Location": "Mangad",
+    "Lat": 8.91462187,
+    "Long": 76.61587257,
+    "Type": "SVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-112",
+    "District": "Kollam",
+    "Location": "Karikkod, Kundara road",
+    "Lat": 8.9168397,
+    "Long": 76.6325294,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-SVDS-02-113",
+    "District": "Kollam",
+    "Location": "Kureepuzha",
+    "Lat": 8.922098891,
+    "Long": 76.58296455,
+    "Type": "SVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-114",
+    "District": "Kollam",
+    "Location": "Vadakke Jn, Nedumoncavu",
+    "Lat": 8.924849,
+    "Long": 76.7361317,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-115",
+    "District": "Kollam",
+    "Location": "Anchal Jn, Kulathupuzha road",
+    "Lat": 8.9274682,
+    "Long": 76.9133146,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-116",
+    "District": "Kollam",
+    "Location": "Sakthikulangara",
+    "Lat": 8.9296026,
+    "Long": 76.5495661,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-117",
+    "District": "Kollam",
+    "Location": "Pavoor Vayal Jn",
+    "Lat": 8.9367684,
+    "Long": 76.613282,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-118",
+    "District": "Kollam",
+    "Location": "Vettuthara Jn",
+    "Lat": 8.9418012,
+    "Long": 76.5391648,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-119",
+    "District": "Kollam",
+    "Location": "Odanavattom",
+    "Lat": 8.9450739,
+    "Long": 76.7718315,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-120",
+    "District": "Kollam",
+    "Location": "Mukkada, Kundara road",
+    "Lat": 8.9592251,
+    "Long": 76.6767568,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-121",
+    "District": "Kollam",
+    "Location": "Thenmala Jn Chenkotta road",
+    "Lat": 8.967804954,
+    "Long": 77.07041077,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-122",
+    "District": "Kollam",
+    "Location": "Ezhukone, Kottarakkara road",
+    "Lat": 8.9806723,
+    "Long": 76.7213028,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-123",
+    "District": "Kollam",
+    "Location": "Karikkam, Kottarakkara road",
+    "Lat": 8.992999,
+    "Long": 76.7920006,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-124",
+    "District": "Kollam",
+    "Location": "Titanium Jn, Sasthamkotta road",
+    "Lat": 9.000891,
+    "Long": 76.5353628,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-125",
+    "District": "Kollam",
+    "Location": "Randu road Jn",
+    "Lat": 9.0020333,
+    "Long": 76.6628836,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-126",
+    "District": "Kollam",
+    "Location": "Market Jn Kottarakkara, Puthoor road",
+    "Lat": 9.0063966,
+    "Long": 76.7721014,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-127",
+    "District": "Kollam",
+    "Location": "Punaloor, Kottarakkara road",
+    "Lat": 9.0176838,
+    "Long": 76.9255281,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-128",
+    "District": "Kollam",
+    "Location": "Karalimukk Jn",
+    "Lat": 9.0243105,
+    "Long": 76.606057,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-129",
+    "District": "Kollam",
+    "Location": "Kunnikode, Kottarakkara road",
+    "Lat": 9.0262467,
+    "Long": 76.8508431,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-130",
+    "District": "Kollam",
+    "Location": "Puthoor, Kottarakkara road",
+    "Lat": 9.0416382,
+    "Long": 76.7151043,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-131",
+    "District": "Kollam",
+    "Location": "Mynagappally - Sasthamkotta road",
+    "Lat": 9.0423429,
+    "Long": 76.585005,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-132",
+    "District": "Kollam",
+    "Location": "Sasthamkotta",
+    "Lat": 9.0432876,
+    "Long": 76.625558,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-133",
+    "District": "Kollam",
+    "Location": "Karunagappally Jn",
+    "Lat": 9.0484933,
+    "Long": 76.5363593,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-134",
+    "District": "Kollam",
+    "Location": "Bharanikavu Jn",
+    "Lat": 9.0595063,
+    "Long": 76.6391344,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-135",
+    "District": "Kollam",
+    "Location": "Nediyavila Jn",
+    "Lat": 9.061752,
+    "Long": 76.6746959,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-136",
+    "District": "Kollam",
+    "Location": "Patharam. High School Jn. Karunagappally road",
+    "Lat": 9.0751864,
+    "Long": 76.6050413,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-137",
+    "District": "Kollam",
+    "Location": "Puthiyakavu Jn",
+    "Lat": 9.0781564,
+    "Long": 76.5316868,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-138",
+    "District": "Kollam",
+    "Location": "Alappat Jn, Kulakkada",
+    "Lat": 9.0803718,
+    "Long": 76.7529852,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-139",
+    "District": "Kollam",
+    "Location": "Thazhava Jn",
+    "Lat": 9.0875852,
+    "Long": 76.5543571,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-140",
+    "District": "Kollam",
+    "Location": "Chakkuvally Jn",
+    "Lat": 9.0886587,
+    "Long": 76.6382357,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-141",
+    "District": "Kollam",
+    "Location": "Pathanapuram",
+    "Lat": 9.0888818,
+    "Long": 76.8560478,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-02-142",
+    "District": "Kollam",
+    "Location": "Oachira Bypass Jn,",
+    "Lat": 9.1293042,
+    "Long": 76.5153318,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-143",
+    "District": "Pathanamthitta",
+    "Location": "Kadampanad Jn, Eanath road",
+    "Lat": 9.0919576,
+    "Long": 76.6865217,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-144",
+    "District": "Pathanamthitta",
+    "Location": "Enath, Adoor MC road",
+    "Lat": 9.0930627,
+    "Long": 76.753298,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-145",
+    "District": "Pathanamthitta",
+    "Location": "Kalanjoor Jn, Elamannoor - Paadam road",
+    "Lat": 9.120333726,
+    "Long": 76.85105704,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-146",
+    "District": "Pathanamthitta",
+    "Location": "Nellimuttilpadi Jn, Sasthamkotta road",
+    "Lat": 9.1396588,
+    "Long": 76.733111,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-147",
+    "District": "Pathanamthitta",
+    "Location": "Ezhamkulam Jn, Adoor road",
+    "Lat": 9.1449214,
+    "Long": 76.7681462,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-148",
+    "District": "Pathanamthitta",
+    "Location": "Adoor Jn",
+    "Lat": 9.152474357,
+    "Long": 76.73564393,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-149",
+    "District": "Pathanamthitta",
+    "Location": "High school Jn, Adoor",
+    "Lat": 9.161539215,
+    "Long": 76.72083948,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-150",
+    "District": "Pathanamthitta",
+    "Location": "Anandapally Jn, Pathanamthitta road",
+    "Lat": 9.1763663,
+    "Long": 76.7415494,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-151",
+    "District": "Pathanamthitta",
+    "Location": "Pandalam Medical mission Jn",
+    "Lat": 9.216957047,
+    "Long": 76.68110758,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-152",
+    "District": "Pathanamthitta",
+    "Location": "Konni, Pathanapuram road",
+    "Lat": 9.221877207,
+    "Long": 76.85094573,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-153",
+    "District": "Pathanamthitta",
+    "Location": "Pandalam, Kaippattoor road",
+    "Lat": 9.223665948,
+    "Long": 76.68318529,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-154",
+    "District": "Pathanamthitta",
+    "Location": "MC road, Kulanada",
+    "Lat": 9.242484078,
+    "Long": 76.67236827,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-155",
+    "District": "Pathanamthitta",
+    "Location": "Omallur, Puthenpeedika, Pathanamthitta road",
+    "Lat": 9.254415318,
+    "Long": 76.76195439,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-156",
+    "District": "Pathanamthitta",
+    "Location": "Pathanamthitta Stadium Jn",
+    "Lat": 9.26127506,
+    "Long": 76.78206794,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-157",
+    "District": "Pathanamthitta",
+    "Location": "Parumala Church Junction",
+    "Lat": 9.326112,
+    "Long": 76.53661,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-158",
+    "District": "Pathanamthitta",
+    "Location": "Aban Jn, Sabarimala road",
+    "Lat": 9.265480185,
+    "Long": 76.79015882,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-159",
+    "District": "Pathanamthitta",
+    "Location": "Elanthoor Jn, Kozhancheri road",
+    "Lat": 9.3000101,
+    "Long": 76.7298612,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-160",
+    "District": "Pathanamthitta",
+    "Location": "Chittar Jn, Thannithod road. Near bus stand",
+    "Lat": 9.32961267,
+    "Long": 76.92585547,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-161",
+    "District": "Pathanamthitta",
+    "Location": "Kozhanchery. Thiruvalla road. Near bridge",
+    "Lat": 9.337144186,
+    "Long": 76.7062382,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-162",
+    "District": "Pathanamthitta",
+    "Location": "Vadasserikkara, Chittar road",
+    "Lat": 9.3372718,
+    "Long": 76.8272158,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-163",
+    "District": "Pathanamthitta",
+    "Location": "Kuttoor, Thiruvalla MCroad",
+    "Lat": 9.357776036,
+    "Long": 76.58901528,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-164",
+    "District": "Pathanamthitta",
+    "Location": "Valanjavattom, Kavumbhagam - Mavelikkara road -",
+    "Lat": 9.358736388,
+    "Long": 76.54154856,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-165",
+    "District": "Pathanamthitta",
+    "Location": "Blockpady",
+    "Lat": 9.3619815,
+    "Long": 76.7769622,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-166",
+    "District": "Pathanamthitta",
+    "Location": "Perunad Market Jn,",
+    "Lat": 9.367490594,
+    "Long": 76.8494115,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-167",
+    "District": "Pathanamthitta",
+    "Location": "Podiyadi - Nedumbaram, Ambalapuzha (Edathua) - Thiruvalla road",
+    "Lat": 9.367994079,
+    "Long": 76.53536808,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-168",
+    "District": "Pathanamthitta",
+    "Location": "Perumbuzha, Ranni, Pathanamthitta road",
+    "Lat": 9.3794648,
+    "Long": 76.7796609,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-169",
+    "District": "Pathanamthitta",
+    "Location": "Cross Jn, Thiruvalla",
+    "Lat": 9.380888604,
+    "Long": 76.57468557,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-170",
+    "District": "Pathanamthitta",
+    "Location": "Idinjillam(Kavumbhagam Road)",
+    "Lat": 9.408548,
+    "Long": 76.549922,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-171",
+    "District": "Pathanamthitta",
+    "Location": "Angadimukk, Ranni. Kozhancheri road",
+    "Lat": 9.3827545,
+    "Long": 76.7793253,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-172",
+    "District": "Pathanamthitta",
+    "Location": "Eraviperur, Thiruvalla road",
+    "Lat": 9.382892869,
+    "Long": 76.63860731,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-173",
+    "District": "Pathanamthitta",
+    "Location": "Thadiyoor, Thiruvalla road",
+    "Lat": 9.383039079,
+    "Long": 76.70694429,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-174",
+    "District": "Pathanamthitta",
+    "Location": "Ittiyappara, Ranni",
+    "Lat": 9.384907708,
+    "Long": 76.78373929,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-175",
+    "District": "Pathanamthitta",
+    "Location": "Thottabhagam, Thiruvalla road",
+    "Lat": 9.385840861,
+    "Long": 76.61077838,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-176",
+    "District": "Pathanamthitta",
+    "Location": "Bypass road, Changanassery Road",
+    "Lat": 9.388378985,
+    "Long": 76.57820966,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-178",
+    "District": "Pathanamthitta",
+    "Location": "Chilanga Jn",
+    "Lat": 9.391943839,
+    "Long": 76.57780398,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-179",
+    "District": "Pathanamthitta",
+    "Location": "Perunthuruthi, Thiruvalla - Changanassery road",
+    "Lat": 9.4064875,
+    "Long": 76.5597525,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-180",
+    "District": "Pathanamthitta",
+    "Location": "Chalappaly, Mallappally road",
+    "Lat": 9.416454894,
+    "Long": 76.72854949,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-181",
+    "District": "Pathanamthitta",
+    "Location": "Mandamaruthi Jn, Ponkunnam road",
+    "Lat": 9.421429464,
+    "Long": 76.79758955,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-182",
+    "District": "Pathanamthitta",
+    "Location": "Vechoochira, Mannadisala Navodaya school road",
+    "Lat": 9.431753782,
+    "Long": 76.85190696,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-183",
+    "District": "Pathanamthitta",
+    "Location": "Kunnanthanam Jn, Mallappally road",
+    "Lat": 9.434784043,
+    "Long": 76.61206283,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-184",
+    "District": "Pathanamthitta",
+    "Location": "Mallapally, Thiruvalla road",
+    "Lat": 9.443949079,
+    "Long": 76.6511758,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-185",
+    "District": "Pathanamthitta",
+    "Location": "Chungapara Jn, Mallappally road",
+    "Lat": 9.45162396,
+    "Long": 76.74552318,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-03-186",
+    "District": "Pathanamthitta",
+    "Location": "Nedungadappally, Changanassery road",
+    "Lat": 9.4627189,
+    "Long": 76.6380813,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-187",
+    "District": "Alappuzha",
+    "Location": "Mukkada jn",
+    "Lat": 9.151489277,
+    "Long": 76.51384301,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-188",
+    "District": "Alappuzha",
+    "Location": "Kayamkulam Govt Hospital Rd",
+    "Lat": 9.171988,
+    "Long": 76.498481,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-189",
+    "District": "Alappuzha",
+    "Location": "Charumoodu",
+    "Lat": 9.1748553,
+    "Long": 76.6124068,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-190",
+    "District": "Alappuzha",
+    "Location": "Pullukulangara",
+    "Lat": 9.1760545,
+    "Long": 76.4732807,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-191",
+    "District": "Alappuzha",
+    "Location": "Kattanam",
+    "Lat": 9.1764854,
+    "Long": 76.5629889,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-192",
+    "District": "Alappuzha",
+    "Location": "Kuttitheruvu jn",
+    "Lat": 9.176729,
+    "Long": 76.5257847,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-193",
+    "District": "Alappuzha",
+    "Location": "Muthukulam high school junction",
+    "Lat": 9.2136987,
+    "Long": 76.4614916,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-194",
+    "District": "Alappuzha",
+    "Location": "mangam kuzhiyil",
+    "Lat": 9.2348281,
+    "Long": 76.5898527,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-195",
+    "District": "Alappuzha",
+    "Location": "Thattarambalam",
+    "Lat": 9.2473627,
+    "Long": 76.5205897,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-196",
+    "District": "Alappuzha",
+    "Location": "Choondupalaka junction muttom",
+    "Lat": 9.2513432,
+    "Long": 76.4879771,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-197",
+    "District": "Alappuzha",
+    "Location": "Kollakadavu",
+    "Lat": 9.252497346,
+    "Long": 76.5856424,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-198",
+    "District": "Alappuzha",
+    "Location": "Michel junction",
+    "Lat": 9.2531055,
+    "Long": 76.5403902,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-199",
+    "District": "Alappuzha",
+    "Location": "Thrickunnappuzha",
+    "Lat": 9.258257,
+    "Long": 76.415632,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-200",
+    "District": "Alappuzha",
+    "Location": "Ikya Junction",
+    "Lat": 9.177174,
+    "Long": 76.4849,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-201",
+    "District": "Alappuzha",
+    "Location": "Madhava junction",
+    "Lat": 9.283838795,
+    "Long": 76.45450585,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-202",
+    "District": "Alappuzha",
+    "Location": "Mulakuzha",
+    "Lat": 9.3011009,
+    "Long": 76.6315041,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-203",
+    "District": "Alappuzha",
+    "Location": "Nangyarkulangara(Thrikkunnapuzha Road)",
+    "Lat": 9.259619,
+    "Long": 76.460688,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-204",
+    "District": "Alappuzha",
+    "Location": "Marketjuncion,kacheri junction",
+    "Lat": 9.31364889,
+    "Long": 76.61914151,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-205",
+    "District": "Alappuzha",
+    "Location": "Veeyapuram",
+    "Lat": 9.3184482,
+    "Long": 76.4594956,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-206",
+    "District": "Alappuzha",
+    "Location": "Mannaar",
+    "Lat": 9.3256887,
+    "Long": 76.5322876,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-207",
+    "District": "Alappuzha",
+    "Location": "Kallisseri",
+    "Lat": 9.3363559,
+    "Long": 76.6033317,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-208",
+    "District": "Alappuzha",
+    "Location": "Edathua",
+    "Lat": 9.3634802,
+    "Long": 76.4762779,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-209",
+    "District": "Alappuzha",
+    "Location": "Thottappalli",
+    "Lat": 9.315957,
+    "Long": 76.387853,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-210",
+    "District": "Alappuzha",
+    "Location": "Ambalappuzha(Edathua Road)",
+    "Lat": 9.383509,
+    "Long": 76.357872,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-211",
+    "District": "Alappuzha",
+    "Location": "Valanjavazhi(SN Kavala)",
+    "Lat": 9.401926,
+    "Long": 76.357819,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-212",
+    "District": "Alappuzha",
+    "Location": "Kaichoondy",
+    "Lat": 9.512952,
+    "Long": 76.3382155,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-213",
+    "District": "Alappuzha",
+    "Location": "Kaithavan, kalarcode",
+    "Lat": 9.4704225,
+    "Long": 76.3443066,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-214",
+    "District": "Alappuzha",
+    "Location": "Valiyakulam junction",
+    "Lat": 9.4818996,
+    "Long": 76.3313591,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-215",
+    "District": "Alappuzha",
+    "Location": "Zackariya bazar",
+    "Lat": 9.4919314,
+    "Long": 76.3263084,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-216",
+    "District": "Alappuzha",
+    "Location": "Power house bridge",
+    "Lat": 9.5005718,
+    "Long": 76.328774,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-217",
+    "District": "Alappuzha",
+    "Location": "District court alappuzha",
+    "Lat": 9.502623,
+    "Long": 76.3415061,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-218",
+    "District": "Alappuzha",
+    "Location": "Valyachudukaad",
+    "Lat": 9.475753,
+    "Long": 76.337596,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-219",
+    "District": "Alappuzha",
+    "Location": "Irumbu Paalam",
+    "Lat": 9.496021,
+    "Long": 76.338934,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-220",
+    "District": "Alappuzha",
+    "Location": "Muhamma",
+    "Lat": 9.604249436,
+    "Long": 76.35916572,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-221",
+    "District": "Alappuzha",
+    "Location": "Thannermukkom bund",
+    "Lat": 9.677170769,
+    "Long": 76.39267389,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-222",
+    "District": "Alappuzha",
+    "Location": "Cherthala court junction",
+    "Lat": 9.690197053,
+    "Long": 76.34328235,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-223",
+    "District": "Alappuzha",
+    "Location": "Kattoor",
+    "Lat": 9.566642,
+    "Long": 76.308784,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-224",
+    "District": "Alappuzha",
+    "Location": "Shaktheeswaran Junction",
+    "Lat": 9.695453,
+    "Long": 76.325799,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-225",
+    "District": "Alappuzha",
+    "Location": "thuravoor td junction",
+    "Lat": 9.7681592,
+    "Long": 76.3186806,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-226",
+    "District": "Alappuzha",
+    "Location": "Thyckattushery ferry",
+    "Lat": 9.775303248,
+    "Long": 76.33569639,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-04-227",
+    "District": "Alappuzha",
+    "Location": "Arookutti bridge",
+    "Lat": 9.869442701,
+    "Long": 76.32134791,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-228",
+    "District": "Kottayam",
+    "Location": "Laikadu bridge – 1",
+    "Lat": 9.429684644,
+    "Long": 76.54460393,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-229",
+    "District": "Kottayam",
+    "Location": "Laikadu Bridge – 2",
+    "Lat": 9.429820249,
+    "Long": 76.54453553,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-230",
+    "District": "Kottayam",
+    "Location": "Kattachira",
+    "Lat": 9.676098,
+    "Long": 76.589123,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-231",
+    "District": "Kottayam",
+    "Location": "Parelappally church",
+    "Lat": 9.456794,
+    "Long": 76.552288,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-232",
+    "District": "Kottayam",
+    "Location": "Kannanperoor bridge – 1",
+    "Lat": 9.4698699,
+    "Long": 76.5295594,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-233",
+    "District": "Kottayam",
+    "Location": "Kannanperoor bridge – 2",
+    "Lat": 9.4704057,
+    "Long": 76.5294309,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-234",
+    "District": "Kottayam",
+    "Location": "Karukachal – 1",
+    "Lat": 9.5007746,
+    "Long": 76.635727,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-235",
+    "District": "Kottayam",
+    "Location": "Karukachal – 2",
+    "Lat": 9.504676691,
+    "Long": 76.64065551,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-236",
+    "District": "Kottayam",
+    "Location": "Kanjirappally",
+    "Lat": 9.5603616,
+    "Long": 76.8106445,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-237",
+    "District": "Kottayam",
+    "Location": "Near Police station, Ponkunnam, KK road",
+    "Lat": 9.5621733,
+    "Long": 76.7721317,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-238",
+    "District": "Kottayam",
+    "Location": "Ponkunnam Police station Pala road",
+    "Lat": 9.5641394,
+    "Long": 76.7622764,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-239",
+    "District": "Kottayam",
+    "Location": "Kodimatha - 2, Manipuzha",
+    "Lat": 9.566053765,
+    "Long": 76.51861466,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-240",
+    "District": "Kottayam",
+    "Location": "Pala Road - Ponkunnam",
+    "Lat": 9.5687085,
+    "Long": 76.7533038,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-241",
+    "District": "Kottayam",
+    "Location": "Kodimatha – 1",
+    "Lat": 9.5727248,
+    "Long": 76.5196126,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-242",
+    "District": "Kottayam",
+    "Location": "Kottayam Kumaly road",
+    "Lat": 9.5883523,
+    "Long": 76.539343,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-243",
+    "District": "Kottayam",
+    "Location": "KK road Kanjikuzhi",
+    "Lat": 9.5885892,
+    "Long": 76.5364632,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-244",
+    "District": "Kottayam",
+    "Location": "Kottayam Kumarakom road – 1",
+    "Lat": 9.5946188,
+    "Long": 76.5208013,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-245",
+    "District": "Kottayam",
+    "Location": "Kottayam Kumarakom road – 2",
+    "Lat": 9.5951792,
+    "Long": 76.5176962,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-246",
+    "District": "Kottayam",
+    "Location": "Nagampadom bridge – 1",
+    "Lat": 9.5987549,
+    "Long": 76.528686,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-247",
+    "District": "Kottayam",
+    "Location": "Nagampadom bridge – 2",
+    "Lat": 9.6104973,
+    "Long": 76.5333283,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-248",
+    "District": "Kottayam",
+    "Location": "St. Joseph church, Paika town – 2",
+    "Lat": 9.653175887,
+    "Long": 76.72407959,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-249",
+    "District": "Kottayam",
+    "Location": "Central junction – 2",
+    "Lat": 9.664478133,
+    "Long": 76.55377742,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-250",
+    "District": "Kottayam",
+    "Location": "St. Joseph church, Paika town – 1",
+    "Lat": 9.674031945,
+    "Long": 76.69993635,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-251",
+    "District": "Kottayam",
+    "Location": "Central junction – 1",
+    "Lat": 9.6784259,
+    "Long": 76.5579359,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-252",
+    "District": "Kottayam",
+    "Location": "Aaniyilapp, Eerattupetta",
+    "Lat": 9.679143,
+    "Long": 76.7883634,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-253",
+    "District": "Kottayam",
+    "Location": "Aruvithura church - 1, Erattupetta",
+    "Lat": 9.6856967,
+    "Long": 76.7770483,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-254",
+    "District": "Kottayam",
+    "Location": "Aruvithura Church - 2, Earttupetta",
+    "Lat": 9.6861883,
+    "Long": 76.77715,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-255",
+    "District": "Kottayam",
+    "Location": "Near Mubarak Masjid, Nadaykkal",
+    "Lat": 9.6902408,
+    "Long": 76.7862001,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-257",
+    "District": "Kottayam",
+    "Location": "Masjid noor juma masjid, Erattupetta 1",
+    "Lat": 9.6932172,
+    "Long": 76.7702609,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-258",
+    "District": "Kottayam",
+    "Location": "Masjid Noor Juma Masjid, Erattupetta 2",
+    "Lat": 9.694570762,
+    "Long": 76.76719274,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-259",
+    "District": "Kottayam",
+    "Location": "Ponkunnam Bridge – 2",
+    "Lat": 9.7044824,
+    "Long": 76.6840418,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-260",
+    "District": "Kottayam",
+    "Location": "Head post office Pala – 2",
+    "Lat": 9.7058014,
+    "Long": 76.6695493,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-261",
+    "District": "Kottayam",
+    "Location": "Ponkunnam Bridge – 1",
+    "Lat": 9.7096535,
+    "Long": 76.6825593,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-262",
+    "District": "Kottayam",
+    "Location": "Head post office Pala – 1",
+    "Lat": 9.709763291,
+    "Long": 76.6788096,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-263",
+    "District": "Kottayam",
+    "Location": "SRTO 1 Pala",
+    "Lat": 9.7115617,
+    "Long": 76.6993877,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-264",
+    "District": "Kottayam",
+    "Location": "SRTO 2 Pala",
+    "Lat": 9.7118116,
+    "Long": 76.6933798,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-265",
+    "District": "Kottayam",
+    "Location": "Near KSEB Pala - 1",
+    "Lat": 9.7172254,
+    "Long": 76.6827236,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-266",
+    "District": "Kottayam",
+    "Location": "RV junction Pala – 2",
+    "Lat": 9.71725,
+    "Long": 76.689245,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-267",
+    "District": "Kottayam",
+    "Location": "Near KSEB Pala – 2",
+    "Lat": 9.720274817,
+    "Long": 76.67952508,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-268",
+    "District": "Kottayam",
+    "Location": "RV Junction Pala – 1",
+    "Lat": 9.731908559,
+    "Long": 76.69260956,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-269",
+    "District": "Kottayam",
+    "Location": "Near Govt hospital Thalayolaparambu",
+    "Lat": 9.782885372,
+    "Long": 76.4550842,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-270",
+    "District": "Kottayam",
+    "Location": "Govt hospital junction",
+    "Lat": 9.78597031,
+    "Long": 76.45416252,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-05-271",
+    "District": "Kottayam",
+    "Location": "Near Thalappara junction",
+    "Lat": 9.7877782,
+    "Long": 76.4589748,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-272",
+    "District": "Idukki",
+    "Location": "GH road",
+    "Lat": 10.0882902,
+    "Long": 77.0602522,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-273",
+    "District": "Idukki",
+    "Location": "Munnar,theatre bazar",
+    "Lat": 10.07719032,
+    "Long": 77.0630119,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-274",
+    "District": "Idukki",
+    "Location": "Adimali 2",
+    "Lat": 10.0157731,
+    "Long": 76.9531487,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-275",
+    "District": "Idukki",
+    "Location": "Adimali 1",
+    "Lat": 10.01440244,
+    "Long": 76.94490921,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-276",
+    "District": "Idukki",
+    "Location": "Pooppara junction",
+    "Lat": 9.976697723,
+    "Long": 77.20877789,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-277",
+    "District": "Idukki",
+    "Location": "Rajakumari",
+    "Lat": 9.968620779,
+    "Long": 77.15131022,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-278",
+    "District": "Idukki",
+    "Location": "Rajakkad",
+    "Lat": 9.9629834,
+    "Long": 77.0994237,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-279",
+    "District": "Idukki",
+    "Location": "Murickassery",
+    "Lat": 9.91356247,
+    "Long": 77.00971037,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-280",
+    "District": "Idukki",
+    "Location": "Vengalloor",
+    "Lat": 9.912343441,
+    "Long": 76.69755958,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-281",
+    "District": "Idukki",
+    "Location": "muthalakodam",
+    "Lat": 9.910857217,
+    "Long": 76.73423443,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-282",
+    "District": "Idukki",
+    "Location": "Al azhar college",
+    "Lat": 9.908105043,
+    "Long": 76.7211201,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-283",
+    "District": "Idukki",
+    "Location": "Vengalloor 2",
+    "Lat": 9.9077899,
+    "Long": 76.7081101,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-284",
+    "District": "Idukki",
+    "Location": "Mangattu kavala",
+    "Lat": 9.902387925,
+    "Long": 76.72605067,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-285",
+    "District": "Idukki",
+    "Location": "Boys high school junction",
+    "Lat": 9.9004221,
+    "Long": 76.7212189,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-286",
+    "District": "Idukki",
+    "Location": "Kaarickode",
+    "Lat": 9.90026553,
+    "Long": 76.72958214,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-287",
+    "District": "Idukki",
+    "Location": "Kolani parackadavu",
+    "Lat": 9.8991448,
+    "Long": 76.6983965,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-288",
+    "District": "Idukki",
+    "Location": "Municipal park",
+    "Lat": 9.897289994,
+    "Long": 76.71179876,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-289",
+    "District": "Idukki",
+    "Location": "Manakkad junction",
+    "Lat": 9.896583841,
+    "Long": 76.70565952,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-290",
+    "District": "Idukki",
+    "Location": "Kanjiramattom junction",
+    "Lat": 9.895990975,
+    "Long": 76.71881273,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-291",
+    "District": "Idukki",
+    "Location": "Karimban",
+    "Lat": 9.89267487,
+    "Long": 76.9721809,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-292",
+    "District": "Idukki",
+    "Location": "Kolani",
+    "Lat": 9.888143246,
+    "Long": 76.69663087,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-293",
+    "District": "Idukki",
+    "Location": "Thopramkudy",
+    "Lat": 9.877691208,
+    "Long": 77.05638416,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-294",
+    "District": "Idukki",
+    "Location": "Mrala",
+    "Lat": 9.8575367,
+    "Long": 76.729575,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-295",
+    "District": "Idukki",
+    "Location": "Cheruthoni",
+    "Lat": 9.843387137,
+    "Long": 76.9847038,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-296",
+    "District": "Idukki",
+    "Location": "Nedumkandam",
+    "Lat": 9.839621896,
+    "Long": 77.15740319,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-297",
+    "District": "Idukki",
+    "Location": "Thankamani",
+    "Lat": 9.8382501,
+    "Long": 77.0394942,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-298",
+    "District": "Idukki",
+    "Location": "Kattappana 2 erattayar road",
+    "Lat": 9.760443133,
+    "Long": 77.11509168,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-299",
+    "District": "Idukki",
+    "Location": "Kattappana",
+    "Lat": 9.755893837,
+    "Long": 77.11893763,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-300",
+    "District": "Idukki",
+    "Location": "Kanchiyar",
+    "Lat": 9.745630929,
+    "Long": 77.07694028,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-301",
+    "District": "Idukki",
+    "Location": "Upputhura",
+    "Lat": 9.697227216,
+    "Long": 77.02065345,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-302",
+    "District": "Idukki",
+    "Location": "Anackara",
+    "Lat": 9.662839752,
+    "Long": 77.15958249,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-303",
+    "District": "Idukki",
+    "Location": "Wagamon",
+    "Lat": 9.6498758,
+    "Long": 76.9263138,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-304",
+    "District": "Idukki",
+    "Location": "1st mile",
+    "Lat": 9.618762107,
+    "Long": 77.15818606,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-305",
+    "District": "Idukki",
+    "Location": "Kuttikanam Elappara road Pallickunn",
+    "Lat": 9.61081595,
+    "Long": 76.9689827,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-306",
+    "District": "Idukki",
+    "Location": "Kumily",
+    "Lat": 9.606601151,
+    "Long": 77.1634271,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-307",
+    "District": "Idukki",
+    "Location": "Kuttikanam(Kuttikanam Mundakayam road)",
+    "Lat": 9.579294929,
+    "Long": 76.97063595,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-308",
+    "District": "Idukki",
+    "Location": "Vandiperiyar",
+    "Lat": 9.571476784,
+    "Long": 77.08882179,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-06-309",
+    "District": "Idukki",
+    "Location": "Mundakkayam(Mundakayam Kuttikanam road)",
+    "Lat": 9.5389935,
+    "Long": 76.9010992,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-310",
+    "District": "Ernakulam",
+    "Location": "Aryankavu",
+    "Lat": 9.8481617,
+    "Long": 76.4095606,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-311",
+    "District": "Ernakulam",
+    "Location": "Puthenkavu",
+    "Lat": 9.857015711,
+    "Long": 76.38364255,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-312",
+    "District": "Ernakulam",
+    "Location": "Aroor  Thoppumpadi  road",
+    "Lat": 9.887245502,
+    "Long": 76.29822023,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-313",
+    "District": "Ernakulam",
+    "Location": "Kumbalam Panangad bridge",
+    "Lat": 9.910791162,
+    "Long": 76.31650921,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-314",
+    "District": "Ernakulam",
+    "Location": "Aroor",
+    "Lat": 9.914415886,
+    "Long": 76.58340879,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-315",
+    "District": "Ernakulam",
+    "Location": "Nettoor",
+    "Lat": 9.915166257,
+    "Long": 76.31679989,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-316",
+    "District": "Ernakulam",
+    "Location": "Udyamperoor",
+    "Lat": 9.917132338,
+    "Long": 76.36263315,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-317",
+    "District": "Ernakulam",
+    "Location": "Near Alexander Parampithara bridge",
+    "Lat": 9.9294878,
+    "Long": 76.29045,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-318",
+    "District": "Ernakulam",
+    "Location": "Parippu jn",
+    "Lat": 9.935489681,
+    "Long": 76.25284564,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-319",
+    "District": "Ernakulam",
+    "Location": "Thiruvankulam",
+    "Lat": 9.9456043,
+    "Long": 76.3697717,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-320",
+    "District": "Ernakulam",
+    "Location": "Karigachira",
+    "Lat": 9.952463981,
+    "Long": 76.35868125,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-321",
+    "District": "Ernakulam",
+    "Location": "Aavoli",
+    "Lat": 9.954176883,
+    "Long": 76.62787311,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-322",
+    "District": "Ernakulam",
+    "Location": "Anicadu",
+    "Lat": 9.9620057,
+    "Long": 76.6176238,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-323",
+    "District": "Ernakulam",
+    "Location": "Irumbanam",
+    "Lat": 9.965175,
+    "Long": 76.357405,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-324",
+    "District": "Ernakulam",
+    "Location": "Valakom",
+    "Lat": 9.9782523,
+    "Long": 76.5302171,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-325",
+    "District": "Ernakulam",
+    "Location": "Mudickal",
+    "Lat": 9.978715937,
+    "Long": 76.57932378,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-326",
+    "District": "Ernakulam",
+    "Location": "Muvattupuzha pvt bus stand",
+    "Lat": 9.979156759,
+    "Long": 76.58680648,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-07-327",
+    "District": "Ernakulam",
+    "Location": "Marine drive",
+    "Lat": 9.980284402,
+    "Long": 76.27557904,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-328",
+    "District": "Ernakulam",
+    "Location": "Kaalamukku",
+    "Lat": 9.9853721,
+    "Long": 76.2407218,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-329",
+    "District": "Ernakulam",
+    "Location": "Kadathi",
+    "Lat": 9.9862008,
+    "Long": 76.5659816,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-330",
+    "District": "Ernakulam",
+    "Location": "Kakkadasseri",
+    "Lat": 9.997385143,
+    "Long": 76.59879595,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-331",
+    "District": "Ernakulam",
+    "Location": "Vazhappally",
+    "Lat": 9.997955372,
+    "Long": 76.57208115,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-332",
+    "District": "Ernakulam",
+    "Location": "Pattimattom",
+    "Lat": 10.02408381,
+    "Long": 76.45411827,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-333",
+    "District": "Ernakulam",
+    "Location": "Njarackal",
+    "Lat": 10.03852724,
+    "Long": 76.21974785,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-334",
+    "District": "Ernakulam",
+    "Location": "Mannoor",
+    "Lat": 10.0449882,
+    "Long": 76.53393,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-336",
+    "District": "Ernakulam",
+    "Location": "Oonukal",
+    "Lat": 10.0522005,
+    "Long": 76.70564611,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-337",
+    "District": "Ernakulam",
+    "Location": "Vimalagiri College junction",
+    "Lat": 10.05898524,
+    "Long": 76.61548533,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-338",
+    "District": "Ernakulam",
+    "Location": "Kozhippalli",
+    "Lat": 10.06020471,
+    "Long": 76.63584363,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-339",
+    "District": "Ernakulam",
+    "Location": "Arackapadi",
+    "Lat": 10.06435431,
+    "Long": 76.46179743,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-340",
+    "District": "Ernakulam",
+    "Location": "Kothamangalam Govt hospital",
+    "Lat": 10.06630893,
+    "Long": 76.61727369,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-341",
+    "District": "Ernakulam",
+    "Location": "Nangeli padi",
+    "Lat": 10.06983322,
+    "Long": 76.60161965,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-342",
+    "District": "Ernakulam",
+    "Location": "Varappuzha bridge – 1",
+    "Lat": 10.07711176,
+    "Long": 76.27662007,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-343",
+    "District": "Ernakulam",
+    "Location": "Varappuzha bridge – 2",
+    "Lat": 10.07929935,
+    "Long": 76.27416048,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-344",
+    "District": "Ernakulam",
+    "Location": "Odackali",
+    "Lat": 10.0893592,
+    "Long": 76.5643124,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-345",
+    "District": "Ernakulam",
+    "Location": "Thaqua nagar Thandekad",
+    "Lat": 10.09694676,
+    "Long": 76.45036854,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-346",
+    "District": "Ernakulam",
+    "Location": "Koonammavu",
+    "Lat": 10.10128865,
+    "Long": 76.2653501,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-347",
+    "District": "Ernakulam",
+    "Location": "Cherukunnam",
+    "Lat": 10.1014788,
+    "Long": 76.5417965,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-348",
+    "District": "Ernakulam",
+    "Location": "Paathipalam",
+    "Lat": 10.10773107,
+    "Long": 76.47571106,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-349",
+    "District": "Ernakulam",
+    "Location": "Perumbavoor signal MC road",
+    "Lat": 10.11142885,
+    "Long": 76.47907086,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-350",
+    "District": "Ernakulam",
+    "Location": "AM road Perumbavoor – 2",
+    "Lat": 10.11452785,
+    "Long": 76.47011496,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-351",
+    "District": "Ernakulam",
+    "Location": "Iringol",
+    "Lat": 10.11558109,
+    "Long": 76.5008799,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-352",
+    "District": "Ernakulam",
+    "Location": "AM road Perumbavoor – 1",
+    "Lat": 10.11615837,
+    "Long": 76.48461901,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-353",
+    "District": "Ernakulam",
+    "Location": "Muvattupuzha KSRTC junction",
+    "Lat": 10.11660098,
+    "Long": 76.44559488,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-354",
+    "District": "Ernakulam",
+    "Location": "Kaduval jn",
+    "Lat": 10.12299557,
+    "Long": 76.47338625,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-355",
+    "District": "Ernakulam",
+    "Location": "Cherayi padam",
+    "Lat": 10.14111319,
+    "Long": 76.20319828,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-356",
+    "District": "Ernakulam",
+    "Location": "Perumpadanna North Paravoor",
+    "Lat": 10.1411133,
+    "Long": 76.2031983,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-357",
+    "District": "Ernakulam",
+    "Location": "Mannam",
+    "Lat": 10.14620795,
+    "Long": 76.25461958,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-358",
+    "District": "Ernakulam",
+    "Location": "Thamara valavu North Paravoor",
+    "Lat": 10.14982443,
+    "Long": 76.24219224,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-359",
+    "District": "Ernakulam",
+    "Location": "Manjali bridge",
+    "Lat": 10.15340028,
+    "Long": 76.27307452,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-360",
+    "District": "Ernakulam",
+    "Location": "Athani",
+    "Lat": 10.1556682,
+    "Long": 76.35283504,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-361",
+    "District": "Ernakulam",
+    "Location": "Nayathodu, Mattor  airport  road",
+    "Lat": 10.1635835,
+    "Long": 76.4037938,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-362",
+    "District": "Ernakulam",
+    "Location": "Mattoor",
+    "Lat": 10.17006547,
+    "Long": 76.43074952,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-363",
+    "District": "Ernakulam",
+    "Location": "Kalady Malayattoor road",
+    "Lat": 10.1702164,
+    "Long": 76.4449203,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-364",
+    "District": "Ernakulam",
+    "Location": "Malliankara",
+    "Lat": 10.1742599,
+    "Long": 76.181373,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-365",
+    "District": "Ernakulam",
+    "Location": "TELK – 2",
+    "Lat": 10.1780564,
+    "Long": 76.3781394,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-366",
+    "District": "Ernakulam",
+    "Location": "TELK - 1",
+    "Lat": 10.17805652,
+    "Long": 76.37815006,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-367",
+    "District": "Ernakulam",
+    "Location": "Moothakunnam",
+    "Lat": 10.1828053,
+    "Long": 76.2048861,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-368",
+    "District": "Ernakulam",
+    "Location": "Vengoor",
+    "Lat": 10.18397303,
+    "Long": 76.40595518,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-07-369",
+    "District": "Ernakulam",
+    "Location": "Angamaly nh jn",
+    "Lat": 10.19297151,
+    "Long": 76.38687462,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-370",
+    "District": "Ernakulam",
+    "Location": "Angadikadvu",
+    "Lat": 10.19672737,
+    "Long": 76.38265617,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-371",
+    "District": "Ernakulam",
+    "Location": "Kidangoor",
+    "Lat": 10.1984172,
+    "Long": 76.39603738,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-372",
+    "District": "Ernakulam",
+    "Location": "Karayamparambu – 1",
+    "Lat": 10.2053278,
+    "Long": 76.3825742,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-07-373",
+    "District": "Ernakulam",
+    "Location": "Karayamparambu – 2",
+    "Lat": 10.20556809,
+    "Long": 76.38207179,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-374",
+    "District": "Thrissur",
+    "Location": "Valiyapanikan Thuruth",
+    "Lat": 10.19681185,
+    "Long": 76.20065186,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-375",
+    "District": "Thrissur",
+    "Location": "Methala (Actual Location Arakulam)",
+    "Lat": 10.2125041,
+    "Long": 76.197451,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-376",
+    "District": "Thrissur",
+    "Location": "Ubazar-Eriyad",
+    "Lat": 10.22819541,
+    "Long": 76.17450569,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-377",
+    "District": "Thrissur",
+    "Location": "North nada-Kodungalloor",
+    "Lat": 10.2284536,
+    "Long": 76.1983165,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-378",
+    "District": "Thrissur",
+    "Location": "Maala",
+    "Lat": 10.24056295,
+    "Long": 76.2714994,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-379",
+    "District": "Thrissur",
+    "Location": "Karupadanna(Konathkunn)",
+    "Lat": 10.2755239,
+    "Long": 76.2102196,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-380",
+    "District": "Thrissur",
+    "Location": "Mathilmoola",
+    "Lat": 10.28143994,
+    "Long": 76.17075965,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-381",
+    "District": "Thrissur",
+    "Location": "Mathilakam",
+    "Lat": 10.293174,
+    "Long": 76.1608167,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-08-382",
+    "District": "Thrissur",
+    "Location": "Thriprayar Temple Gate",
+    "Lat": 10.414214,
+    "Long": 76.113296,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-385",
+    "District": "Thrissur",
+    "Location": "Edathirinji-Irinjalakuda",
+    "Lat": 10.34083974,
+    "Long": 76.20320264,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-386",
+    "District": "Thrissur",
+    "Location": "RS road-Irinjalakuda(Don bosco view road)",
+    "Lat": 10.3436783,
+    "Long": 76.22512,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-08-387",
+    "District": "Thrissur",
+    "Location": "Irinjalakuda",
+    "Lat": 10.34706886,
+    "Long": 76.21238217,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-388",
+    "District": "Thrissur",
+    "Location": "SN Nagar-Irinjalakuda",
+    "Lat": 10.357114,
+    "Long": 76.218667,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-389",
+    "District": "Thrissur",
+    "Location": "Valappad",
+    "Lat": 10.39669516,
+    "Long": 76.11572977,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-391",
+    "District": "Thrissur",
+    "Location": "Thalikulam",
+    "Lat": 10.43997236,
+    "Long": 76.09513946,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-392",
+    "District": "Thrissur",
+    "Location": "Vadanappalli-Puthukulangara",
+    "Lat": 10.46192044,
+    "Long": 76.08393185,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-393",
+    "District": "Thrissur",
+    "Location": "Arimbur",
+    "Lat": 10.49768549,
+    "Long": 76.15175217,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-394",
+    "District": "Thrissur",
+    "Location": "Kuriyachira",
+    "Lat": 10.49837218,
+    "Long": 76.22837048,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-395",
+    "District": "Thrissur",
+    "Location": "Chettupuzha Bridge",
+    "Lat": 10.4988487,
+    "Long": 76.1642427,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-396",
+    "District": "Thrissur",
+    "Location": "Ancherichira",
+    "Lat": 10.50474055,
+    "Long": 76.24681268,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-397",
+    "District": "Thrissur",
+    "Location": "Nadathara 2",
+    "Lat": 10.51333723,
+    "Long": 76.25843402,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-398",
+    "District": "Thrissur",
+    "Location": "Nadathara NH",
+    "Lat": 10.51386466,
+    "Long": 76.25835221,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-399",
+    "District": "Thrissur",
+    "Location": "Nellikkunn",
+    "Lat": 10.51391147,
+    "Long": 76.24358699,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-08-400",
+    "District": "Thrissur",
+    "Location": "Civil line road 2",
+    "Lat": 10.52184762,
+    "Long": 76.19932014,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-401",
+    "District": "Thrissur",
+    "Location": "Chettuva M E S center junction",
+    "Lat": 10.52432913,
+    "Long": 76.04994021,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-402",
+    "District": "Thrissur",
+    "Location": "Round West, Thrissur",
+    "Lat": 10.52482325,
+    "Long": 76.212008,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-403",
+    "District": "Thrissur",
+    "Location": "Kalathode",
+    "Lat": 10.52654461,
+    "Long": 76.2535695,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-08-404",
+    "District": "Thrissur",
+    "Location": "Poonkunnam",
+    "Lat": 10.53309666,
+    "Long": 76.20195039,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-08-405",
+    "District": "Thrissur",
+    "Location": "Patturaikkal",
+    "Lat": 10.53662332,
+    "Long": 76.21187456,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-406",
+    "District": "Thrissur",
+    "Location": "Puzhakkal",
+    "Lat": 10.54389471,
+    "Long": 76.18195117,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-407",
+    "District": "Thrissur",
+    "Location": "Peringavu, Viyyur",
+    "Lat": 10.54827988,
+    "Long": 76.21200632,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-408",
+    "District": "Thrissur",
+    "Location": "Vimala college",
+    "Lat": 10.55217815,
+    "Long": 76.22671589,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-409",
+    "District": "Thrissur",
+    "Location": "Manathala, Chavakkad",
+    "Lat": 10.58814761,
+    "Long": 76.01579871,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-410",
+    "District": "Thrissur",
+    "Location": "Thykkad, Guruvayur",
+    "Lat": 10.59864119,
+    "Long": 76.05300095,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-411",
+    "District": "Thrissur",
+    "Location": "Mulamkunnathukaavu(Killannur)",
+    "Lat": 10.59963,
+    "Long": 76.2106117,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-412",
+    "District": "Thrissur",
+    "Location": "Athani bypass(Thrissur-Ottapalam road)",
+    "Lat": 10.6201171,
+    "Long": 76.2170267,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-413",
+    "District": "Thrissur",
+    "Location": "Choondal",
+    "Lat": 10.63049213,
+    "Long": 76.08832229,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-414",
+    "District": "Thrissur",
+    "Location": "Kunnamkulam",
+    "Lat": 10.6463695,
+    "Long": 76.0658423,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-415",
+    "District": "Thrissur",
+    "Location": "Chowannur",
+    "Lat": 10.6546989,
+    "Long": 76.0801941,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-416",
+    "District": "Thrissur",
+    "Location": "Vellarakkad",
+    "Lat": 10.6773816,
+    "Long": 76.120344,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-417",
+    "District": "Thrissur",
+    "Location": "Porkulam",
+    "Lat": 10.68085605,
+    "Long": 76.07051142,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-419",
+    "District": "Thrissur",
+    "Location": "Aakkikavu - Perumbilavu",
+    "Lat": 10.6932856,
+    "Long": 76.0916377,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-420",
+    "District": "Thrissur",
+    "Location": "Chelakkara(Vazhakod-Alathur road)",
+    "Lat": 10.69563592,
+    "Long": 76.33140653,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-421",
+    "District": "Thrissur",
+    "Location": "Mulloorkara, Aattoor",
+    "Lat": 10.70844143,
+    "Long": 76.28029201,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-422",
+    "District": "Thrissur",
+    "Location": "Kadavaloor",
+    "Lat": 10.71822523,
+    "Long": 76.07257873,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-423",
+    "District": "Thrissur",
+    "Location": "Thiruvilwamala(Pazhayannoor-Lakkidi road)",
+    "Lat": 10.73031001,
+    "Long": 76.42706014,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-424",
+    "District": "Thrissur",
+    "Location": "Cheruthuruthy",
+    "Lat": 10.74907876,
+    "Long": 76.27474453,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-08-425",
+    "District": "Thrissur",
+    "Location": "Thalasseri, Aranattukara",
+    "Lat": 10.7507917,
+    "Long": 76.2115867,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-426",
+    "District": "Palakkad",
+    "Location": "Vadakkancheri",
+    "Lat": 10.58989959,
+    "Long": 76.4804941,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-427",
+    "District": "Palakkad",
+    "Location": "Ayinampadam",
+    "Lat": 10.59395717,
+    "Long": 76.59151945,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-428",
+    "District": "Palakkad",
+    "Location": "Valliyode",
+    "Lat": 10.59742512,
+    "Long": 76.49920151,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-429",
+    "District": "Palakkad",
+    "Location": "Mangalam Bridge",
+    "Lat": 10.59998314,
+    "Long": 76.4891563,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-430",
+    "District": "Palakkad",
+    "Location": "Vattekkad",
+    "Lat": 10.61083387,
+    "Long": 76.67523555,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-431",
+    "District": "Palakkad",
+    "Location": "Nedumani",
+    "Lat": 10.61190224,
+    "Long": 76.70605313,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-432",
+    "District": "Palakkad",
+    "Location": "Ayakkad",
+    "Lat": 10.61357631,
+    "Long": 76.47384088,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-433",
+    "District": "Palakkad",
+    "Location": "Keezhachira",
+    "Lat": 10.63236084,
+    "Long": 76.6939795,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-435",
+    "District": "Palakkad",
+    "Location": "Pazhayannur  Road,  Alathur",
+    "Lat": 10.6484858,
+    "Long": 76.5363474,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-436",
+    "District": "Palakkad",
+    "Location": "Thathamangalam – Pallimukk",
+    "Lat": 10.68264571,
+    "Long": 76.70019552,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-437",
+    "District": "Palakkad",
+    "Location": "BEML(Menom para Rd)",
+    "Lat": 10.794028,
+    "Long": 76.781087,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-438",
+    "District": "Palakkad",
+    "Location": "Paathikkal",
+    "Lat": 10.732129,
+    "Long": 76.641843,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-439",
+    "District": "Palakkad",
+    "Location": "Panayoor",
+    "Lat": 10.71366988,
+    "Long": 76.73400778,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-440",
+    "District": "Palakkad",
+    "Location": "Nalleppilly",
+    "Lat": 10.72734462,
+    "Long": 76.78069666,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-441",
+    "District": "Palakkad",
+    "Location": "Kinassery",
+    "Lat": 10.73392003,
+    "Long": 76.65445179,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-442",
+    "District": "Palakkad",
+    "Location": "Kadumthuruthy",
+    "Lat": 10.7390755,
+    "Long": 76.652642,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-444",
+    "District": "Palakkad",
+    "Location": "Kozhinjampara",
+    "Lat": 10.743509,
+    "Long": 76.83071516,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-445",
+    "District": "Palakkad",
+    "Location": "Vavanoor",
+    "Lat": 10.75958984,
+    "Long": 76.13053892,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-446",
+    "District": "Palakkad",
+    "Location": "Kottayi",
+    "Lat": 10.76072192,
+    "Long": 76.54409934,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-447",
+    "District": "Palakkad",
+    "Location": "Manapullikkavu",
+    "Lat": 10.76097719,
+    "Long": 76.66502774,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-448",
+    "District": "Palakkad",
+    "Location": "Koottupatha, Marutha road",
+    "Lat": 10.76757724,
+    "Long": 76.69448443,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-449",
+    "District": "Palakkad",
+    "Location": "Koduvayoor Rd, Kuzhalmantham",
+    "Lat": 10.716079,
+    "Long": 76.603115,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-450",
+    "District": "Palakkad",
+    "Location": "Chakkanthara",
+    "Lat": 10.76967962,
+    "Long": 76.63973115,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-09-451",
+    "District": "Palakkad",
+    "Location": "Ottappalam",
+    "Lat": 10.77293148,
+    "Long": 76.37481943,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-452",
+    "District": "Palakkad",
+    "Location": "Thenariparamb, Koduvayur-Thrippallur Rd",
+    "Lat": 10.646504,
+    "Long": 76.568361,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-453",
+    "District": "Palakkad",
+    "Location": "Mepparambu",
+    "Lat": 10.77562833,
+    "Long": 76.62854936,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-09-454",
+    "District": "Palakkad",
+    "Location": "Pathirippala(PVDS)",
+    "Lat": 10.77951052,
+    "Long": 76.47438806,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-455",
+    "District": "Palakkad",
+    "Location": "Pathirippala",
+    "Lat": 10.7803058,
+    "Long": 76.4764205,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-456",
+    "District": "Palakkad",
+    "Location": "Nellukuthamkulam",
+    "Lat": 10.67708,
+    "Long": 76.466931,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-457",
+    "District": "Palakkad",
+    "Location": "Chuvanna gate",
+    "Lat": 10.78598962,
+    "Long": 76.26103207,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-458",
+    "District": "Palakkad",
+    "Location": "Guruvayur road, Pattambi",
+    "Lat": 10.79846755,
+    "Long": 76.18004177,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-459",
+    "District": "Palakkad",
+    "Location": "Mitranandapuram-Lakkidi",
+    "Lat": 10.756351,
+    "Long": 76.436415,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-460",
+    "District": "Palakkad",
+    "Location": "Murikkumpatta",
+    "Lat": 10.80169901,
+    "Long": 76.40668441,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-461",
+    "District": "Palakkad",
+    "Location": "Parali check Post",
+    "Lat": 10.80181164,
+    "Long": 76.55282691,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-462",
+    "District": "Palakkad",
+    "Location": "Mele Pattambi",
+    "Lat": 10.80901247,
+    "Long": 76.1873015,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-463",
+    "District": "Palakkad",
+    "Location": "Pirayiri",
+    "Lat": 10.769897,
+    "Long": 76.617767,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-464",
+    "District": "Palakkad",
+    "Location": "Vallapuzha",
+    "Lat": 10.83965714,
+    "Long": 76.25115652,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-465",
+    "District": "Palakkad",
+    "Location": "Kongad",
+    "Lat": 10.86029328,
+    "Long": 76.50792707,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-466",
+    "District": "Palakkad",
+    "Location": "Cherpalassery",
+    "Lat": 10.88163489,
+    "Long": 76.31849103,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-467",
+    "District": "Palakkad",
+    "Location": "Thiruvazhiyode",
+    "Lat": 10.8947187,
+    "Long": 76.3881981,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-468",
+    "District": "Palakkad",
+    "Location": "Koppam Jn- Palakkad 100ft Rd",
+    "Lat": 10.781601,
+    "Long": 76.659033,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-469",
+    "District": "Palakkad",
+    "Location": "Kanjirani(Kongad-Sreekrishnapuram Rd)",
+    "Lat": 10.899751,
+    "Long": 76.530788,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-470",
+    "District": "Palakkad",
+    "Location": "Kallanchola(Ponnamkode-Karakurishi Rd)",
+    "Lat": 10.944476,
+    "Long": 76.514589,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-471",
+    "District": "Palakkad",
+    "Location": "Thenkara(Mannarkkad-Aanakatti Rd)",
+    "Lat": 10.99853,
+    "Long": 76.470079,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-472",
+    "District": "Palakkad",
+    "Location": "Nellipuzha(Mannarkad-Anakatti Rd)",
+    "Lat": 10.99674,
+    "Long": 76.46945,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-473",
+    "District": "Palakkad",
+    "Location": "Alanalloor",
+    "Lat": 11.00706753,
+    "Long": 76.3508093,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-09-474",
+    "District": "Palakkad",
+    "Location": "Kottappalla",
+    "Lat": 11.06053881,
+    "Long": 76.34816632,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-475",
+    "District": "Malappuram",
+    "Location": "Kootumuchi",
+    "Lat": 11.088412,
+    "Long": 75.868781,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-476",
+    "District": "Malappuram",
+    "Location": "Naduvattom",
+    "Lat": 10.76954491,
+    "Long": 76.01507083,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-477",
+    "District": "Malappuram",
+    "Location": "Kariparamba",
+    "Lat": 11.041908,
+    "Long": 75.898306,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-478",
+    "District": "Malappuram",
+    "Location": "Kavil padi ,Edappal",
+    "Lat": 10.80530982,
+    "Long": 76.00798007,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-479",
+    "District": "Malappuram",
+    "Location": "Parambilangadi",
+    "Lat": 10.987125,
+    "Long": 75.994884,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-480",
+    "District": "Malappuram",
+    "Location": "Perunthallur",
+    "Lat": 10.8424255,
+    "Long": 75.94499175,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-481",
+    "District": "Malappuram",
+    "Location": "Kadungathukund",
+    "Lat": 10.939883,
+    "Long": 75.982135,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-482",
+    "District": "Malappuram",
+    "Location": "Kuttikalathani",
+    "Lat": 10.925323,
+    "Long": 75.997456,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-483",
+    "District": "Malappuram",
+    "Location": "Kottapuram",
+    "Lat": 10.88131782,
+    "Long": 76.08574905,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-484",
+    "District": "Malappuram",
+    "Location": "Pulamanthole",
+    "Lat": 10.899838,
+    "Long": 76.1903065,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-485",
+    "District": "Malappuram",
+    "Location": "Thazhe palam, Tirur",
+    "Lat": 10.91664502,
+    "Long": 75.91820955,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-486",
+    "District": "Malappuram",
+    "Location": "Onappuda, Kulathoor",
+    "Lat": 10.941303,
+    "Long": 76.1495703,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-487",
+    "District": "Malappuram",
+    "Location": "Moonnakkal",
+    "Lat": 10.897823,
+    "Long": 76.077103,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-488",
+    "District": "Malappuram",
+    "Location": "Amminikkad, School padi",
+    "Lat": 10.967327,
+    "Long": 76.27398849,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-489",
+    "District": "Malappuram",
+    "Location": "Manathumangalam",
+    "Lat": 10.995808,
+    "Long": 76.222475,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-490",
+    "District": "Malappuram",
+    "Location": "Nadakkavu, Tanur",
+    "Lat": 10.9715196,
+    "Long": 75.8830613,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-491",
+    "District": "Malappuram",
+    "Location": "Perinthalmanna",
+    "Lat": 10.97393664,
+    "Long": 76.23663001,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-492",
+    "District": "Malappuram",
+    "Location": "Jubilee Jn, Angadippuram",
+    "Lat": 10.97585885,
+    "Long": 76.21210758,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-493",
+    "District": "Malappuram",
+    "Location": "padapparambu",
+    "Lat": 10.988062,
+    "Long": 76.1067626,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-494",
+    "District": "Malappuram",
+    "Location": "Thadathil valavu",
+    "Lat": 10.99082296,
+    "Long": 76.17673025,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-495",
+    "District": "Malappuram",
+    "Location": "Edarikode",
+    "Lat": 10.99208088,
+    "Long": 75.97984336,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-496",
+    "District": "Malappuram",
+    "Location": "Kodakkal",
+    "Lat": 10.851352,
+    "Long": 76.027689,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-497",
+    "District": "Malappuram",
+    "Location": "Chattiparambu",
+    "Lat": 10.99905923,
+    "Long": 76.0889117,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-498",
+    "District": "Malappuram",
+    "Location": "Puthur bridge",
+    "Lat": 11.00597653,
+    "Long": 76.01253413,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-499",
+    "District": "Malappuram",
+    "Location": "Perunthallur-2",
+    "Lat": 10.837815,
+    "Long": 75.946806,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-500",
+    "District": "Malappuram",
+    "Location": "Mankada, Verumpulakkal",
+    "Lat": 11.02756401,
+    "Long": 76.16978131,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-501",
+    "District": "Malappuram",
+    "Location": "Koottilangadi",
+    "Lat": 11.0338985,
+    "Long": 76.09980751,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-502",
+    "District": "Malappuram",
+    "Location": "Nooradi bridge",
+    "Lat": 11.03897515,
+    "Long": 76.06926989,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-503",
+    "District": "Malappuram",
+    "Location": "Parappanangadi",
+    "Lat": 11.04239156,
+    "Long": 75.86144663,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-504",
+    "District": "Malappuram",
+    "Location": "Kuttalur",
+    "Lat": 11.0522243,
+    "Long": 75.99224355,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-505",
+    "District": "Malappuram",
+    "Location": "KK Jn, Biyyam",
+    "Lat": 10.786412,
+    "Long": 75.951539,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-507",
+    "District": "Malappuram",
+    "Location": "Marancheri",
+    "Lat": 10.758934,
+    "Long": 75.966826,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-508",
+    "District": "Malappuram",
+    "Location": "Kolathuparamba(Kottakkal-Malappuram road)",
+    "Lat": 11.015905,
+    "Long": 76.014906,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-509",
+    "District": "Malappuram",
+    "Location": "Kodakkallu, Kunnumpuram",
+    "Lat": 11.07917815,
+    "Long": 75.94977245,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-510",
+    "District": "Malappuram",
+    "Location": "Pandikkad(Payyapramba)",
+    "Lat": 11.10368704,
+    "Long": 76.23009514,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-511",
+    "District": "Malappuram",
+    "Location": "Vazhaparapadi",
+    "Lat": 11.10831438,
+    "Long": 76.12163767,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-512",
+    "District": "Malappuram",
+    "Location": "Thurakkal, Manjeri",
+    "Lat": 11.1197107,
+    "Long": 76.1129682,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-513",
+    "District": "Malappuram",
+    "Location": "Kadappadi valluvampuram",
+    "Lat": 11.12736617,
+    "Long": 76.04756713,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-514",
+    "District": "Malappuram",
+    "Location": "Changaramkulam",
+    "Lat": 10.736071,
+    "Long": 76.028617,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-515",
+    "District": "Malappuram",
+    "Location": "Nelli parambu, Manjeri",
+    "Lat": 11.1306266,
+    "Long": 76.11421198,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-516",
+    "District": "Malappuram",
+    "Location": "Kodangad (Kozhikode-Malappuram road)",
+    "Lat": 11.14053401,
+    "Long": 75.97637326,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-517",
+    "District": "Malappuram",
+    "Location": "Alungal, pulikkal",
+    "Lat": 11.16855924,
+    "Long": 75.92770658,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-518",
+    "District": "Malappuram",
+    "Location": "Muchikachola, Naduvath",
+    "Lat": 11.20903116,
+    "Long": 76.22630417,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-519",
+    "District": "Malappuram",
+    "Location": "Cherumon,Edavanna",
+    "Lat": 11.22508238,
+    "Long": 76.14607528,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-520",
+    "District": "Malappuram",
+    "Location": "Arekode",
+    "Lat": 11.23971902,
+    "Long": 76.04663808,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-521",
+    "District": "Malappuram",
+    "Location": "Edavannapara",
+    "Lat": 11.24548362,
+    "Long": 75.97378794,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-522",
+    "District": "Malappuram",
+    "Location": "Thazhe chandhakunnu(Janathapadi padikkunn)",
+    "Lat": 11.28416006,
+    "Long": 76.23733208,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-10-523",
+    "District": "Malappuram",
+    "Location": "Palunda",
+    "Lat": 11.34605525,
+    "Long": 76.28594711,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-524",
+    "District": "Kozhikode",
+    "Location": "Nallalam",
+    "Lat": 11.16848359,
+    "Long": 75.83062604,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-525",
+    "District": "Kozhikode",
+    "Location": "Beypore",
+    "Lat": 11.1705624,
+    "Long": 75.80604963,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-526",
+    "District": "Kozhikode",
+    "Location": "Nallur",
+    "Lat": 11.171417,
+    "Long": 75.8392795,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-527",
+    "District": "Kozhikode",
+    "Location": "Mathottam",
+    "Lat": 11.21022598,
+    "Long": 75.79780854,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-528",
+    "District": "Kozhikode",
+    "Location": "Kallayi",
+    "Lat": 11.23285001,
+    "Long": 75.78900855,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-529",
+    "District": "Kozhikode",
+    "Location": "Vaidyarangadi(Palakkad road)",
+    "Lat": 11.178204,
+    "Long": 75.879253,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-11-530",
+    "District": "Kozhikode",
+    "Location": "Station link road",
+    "Lat": 11.24670657,
+    "Long": 75.7824073,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-531",
+    "District": "Kozhikode",
+    "Location": "Calicut beach",
+    "Lat": 11.25244144,
+    "Long": 75.77105485,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-11-532",
+    "District": "Kozhikode",
+    "Location": "Mananchira(PVDS)",
+    "Lat": 11.25317967,
+    "Long": 75.77944513,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-11-533",
+    "District": "Kozhikode",
+    "Location": "Pavamani road",
+    "Lat": 11.25514705,
+    "Long": 75.78490242,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-534",
+    "District": "Kozhikode",
+    "Location": "Mananchira",
+    "Lat": 11.2560168,
+    "Long": 75.77897977,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-535",
+    "District": "Kozhikode",
+    "Location": "Narikkuni",
+    "Lat": 11.367075,
+    "Long": 75.862449,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-536",
+    "District": "Kozhikode",
+    "Location": "Anakuzhikara(Kuttikattur)",
+    "Lat": 11.2666833,
+    "Long": 75.8842633,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-537",
+    "District": "Kozhikode",
+    "Location": "Kavil(Omasseri-Koduvalli Rd)",
+    "Lat": 11.36848,
+    "Long": 75.929739,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-538",
+    "District": "Kozhikode",
+    "Location": "Ramanattukara West(Ferok road)",
+    "Lat": 11.179588,
+    "Long": 75.853828,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-539",
+    "District": "Kozhikode",
+    "Location": "Chevarambalam",
+    "Lat": 11.27692944,
+    "Long": 75.80908187,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-540",
+    "District": "Kozhikode",
+    "Location": "Vellimadukunnu",
+    "Lat": 11.29298116,
+    "Long": 75.82259886,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-541",
+    "District": "Kozhikode",
+    "Location": "Kunnamangalam",
+    "Lat": 11.30416061,
+    "Long": 75.87206081,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-542",
+    "District": "Kozhikode",
+    "Location": "Pavangad",
+    "Lat": 11.30808382,
+    "Long": 75.75856917,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-543",
+    "District": "Kozhikode",
+    "Location": "Mukkam(Kodiyathur)",
+    "Lat": 11.3175814,
+    "Long": 75.9963532,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-544",
+    "District": "Kozhikode",
+    "Location": "Kattangal",
+    "Lat": 11.31892735,
+    "Long": 75.94088629,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-545",
+    "District": "Kozhikode",
+    "Location": "Poonoor (Actual Location name - Eranhikkal)",
+    "Lat": 11.33434521,
+    "Long": 75.76364893,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-546",
+    "District": "Kozhikode",
+    "Location": "Madrasa Bazar, Koduvalli",
+    "Lat": 11.34498229,
+    "Long": 75.90027664,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-547",
+    "District": "Kozhikode",
+    "Location": "Puladikkunn Jn(Eranhikkal-Puladikkunn road)",
+    "Lat": 11.333988,
+    "Long": 75.76279,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-548",
+    "District": "Kozhikode",
+    "Location": "Pantheernkaav(Mankav road)",
+    "Lat": 11.230238,
+    "Long": 75.84634,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-549",
+    "District": "Kozhikode",
+    "Location": "Puthoormadam(Perumanna pantheernakav road)",
+    "Lat": 11.236431,
+    "Long": 75.867988,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-550",
+    "District": "Kozhikode",
+    "Location": "Vattakkundungal",
+    "Lat": 11.40199756,
+    "Long": 75.92799727,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-551",
+    "District": "Kozhikode",
+    "Location": "Karikkamkulam(Kakkdoi-Eranhipalam road)",
+    "Lat": 11.291377,
+    "Long": 75.789094,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-552",
+    "District": "Kozhikode",
+    "Location": "Nanmanda",
+    "Lat": 11.4196956,
+    "Long": 75.8311491,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-553",
+    "District": "Kozhikode",
+    "Location": "Erakkulam(Vengeri-Balusseri road)",
+    "Lat": 11.321614,
+    "Long": 75.804377,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-554",
+    "District": "Kozhikode",
+    "Location": "Thazhe Omasseri",
+    "Lat": 11.43596246,
+    "Long": 75.90234295,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-555",
+    "District": "Kozhikode",
+    "Location": "Balusseri",
+    "Lat": 11.44783097,
+    "Long": 75.82591105,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-556",
+    "District": "Kozhikode",
+    "Location": "Vattoli bazar",
+    "Lat": 11.4478408,
+    "Long": 75.860113,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-557",
+    "District": "Kozhikode",
+    "Location": "Ulliyeri",
+    "Lat": 11.44901592,
+    "Long": 75.77444516,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-558",
+    "District": "Kozhikode",
+    "Location": "Purakkatteri(Atholi-NH road)",
+    "Lat": 11.342558,
+    "Long": 75.760904,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-559",
+    "District": "Kozhikode",
+    "Location": "Engapuzha",
+    "Lat": 11.4687164,
+    "Long": 75.96936498,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-560",
+    "District": "Kozhikode",
+    "Location": "Korappuzha(Kozhikode city-Vengalam Road)",
+    "Lat": 11.359801,
+    "Long": 75.742052,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-561",
+    "District": "Kozhikode",
+    "Location": "Naduvanoor",
+    "Lat": 11.48138689,
+    "Long": 75.77483978,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-562",
+    "District": "Kozhikode",
+    "Location": "Payyoli Beach road",
+    "Lat": 11.512781,
+    "Long": 75.612925,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-563",
+    "District": "Kozhikode",
+    "Location": "Kizhur",
+    "Lat": 11.52179216,
+    "Long": 75.63378409,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-564",
+    "District": "Kozhikode",
+    "Location": "Meppayyur",
+    "Lat": 11.52929939,
+    "Long": 75.70798069,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-565",
+    "District": "Kozhikode",
+    "Location": "Thiruvangoor(Atholi-Thiruvangoor Jn road)",
+    "Lat": 11.383603,
+    "Long": 75.7383001,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-566",
+    "District": "Kozhikode",
+    "Location": "Kakkad",
+    "Lat": 11.55271797,
+    "Long": 75.76314166,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-567",
+    "District": "Kozhikode",
+    "Location": "Pannimukku",
+    "Lat": 11.56445084,
+    "Long": 75.72323676,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-568",
+    "District": "Kozhikode",
+    "Location": "Perambra",
+    "Lat": 11.56537844,
+    "Long": 75.7557163,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-569",
+    "District": "Kozhikode",
+    "Location": "Sand Banks Road-Vadakara",
+    "Lat": 11.590646,
+    "Long": 75.581227,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-570",
+    "District": "Kozhikode",
+    "Location": "Thiruvallur",
+    "Lat": 11.59062144,
+    "Long": 75.66995904,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-571",
+    "District": "Kozhikode",
+    "Location": "2/6 Koothali",
+    "Lat": 11.59225838,
+    "Long": 75.76677036,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-572",
+    "District": "Kozhikode",
+    "Location": "Vadakara Old bus stand",
+    "Lat": 11.59650012,
+    "Long": 75.58919102,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-573",
+    "District": "Kozhikode",
+    "Location": "Peruvattam Thaazha(Vadakara town road)",
+    "Lat": 11.608133,
+    "Long": 75.580708,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-574",
+    "District": "Kozhikode",
+    "Location": "Villiappally",
+    "Lat": 11.62397016,
+    "Long": 75.62692769,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-575",
+    "District": "Kozhikode",
+    "Location": "Kuyimbil, Paleri",
+    "Lat": 11.6246159,
+    "Long": 75.7569538,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-576",
+    "District": "Kozhikode",
+    "Location": "Cheriyakumbalam",
+    "Lat": 11.64524408,
+    "Long": 75.75487275,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-577",
+    "District": "Kozhikode",
+    "Location": "Kuttiadi",
+    "Lat": 11.65139644,
+    "Long": 75.75019732,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-578",
+    "District": "Kozhikode",
+    "Location": "Orkkaterry",
+    "Lat": 11.654627,
+    "Long": 75.6045249,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-579",
+    "District": "Kozhikode",
+    "Location": "Edacheri",
+    "Lat": 11.6637881,
+    "Long": 75.62258184,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-580",
+    "District": "Kozhikode",
+    "Location": "Paikkalangadi, Thottilpalam",
+    "Lat": 11.6716551,
+    "Long": 75.7700029,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-581",
+    "District": "Kozhikode",
+    "Location": "Kappad(Thiruvangoor-Kappad beach road)",
+    "Lat": 11.380664,
+    "Long": 75.725784,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-582",
+    "District": "Kozhikode",
+    "Location": "Kakkattil",
+    "Lat": 11.67859051,
+    "Long": 75.7006596,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-583",
+    "District": "Kozhikode",
+    "Location": "Meppayil(Meppayil-Vadakara town road)",
+    "Lat": 11.589991,
+    "Long": 75.604843,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-584",
+    "District": "Kozhikode",
+    "Location": "Nadapuram",
+    "Lat": 11.6862882,
+    "Long": 75.6557102,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-585",
+    "District": "Kozhikode",
+    "Location": "Kallachi",
+    "Lat": 11.6883248,
+    "Long": 75.6705233,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-11-586",
+    "District": "Kozhikode",
+    "Location": "Chettuvetti, Nadapuram",
+    "Lat": 11.689381,
+    "Long": 75.6509827,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-587",
+    "District": "Wayanad",
+    "Location": "Lakkidi",
+    "Lat": 11.5178294,
+    "Long": 76.021165,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-588",
+    "District": "Wayanad",
+    "Location": "Chithragiri, Vaduvanchal",
+    "Lat": 11.5542364,
+    "Long": 76.2238312,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-589",
+    "District": "Wayanad",
+    "Location": "Vaduvanchal",
+    "Lat": 11.55987423,
+    "Long": 76.22426637,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-590",
+    "District": "Wayanad",
+    "Location": "Meppadi",
+    "Lat": 11.562278,
+    "Long": 76.12548396,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-591",
+    "District": "Wayanad",
+    "Location": "Kalpetta",
+    "Lat": 11.60751815,
+    "Long": 76.08342256,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-592",
+    "District": "Wayanad",
+    "Location": "Ambalavayal",
+    "Lat": 11.62328183,
+    "Long": 76.21098809,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-594",
+    "District": "Wayanad",
+    "Location": "Muttil",
+    "Lat": 11.64118895,
+    "Long": 76.10740084,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-595",
+    "District": "Wayanad",
+    "Location": "Sulthan Bathery",
+    "Lat": 11.658445,
+    "Long": 76.2475233,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-12-596",
+    "District": "Wayanad",
+    "Location": "Meenangadi",
+    "Lat": 11.66019721,
+    "Long": 76.16357099,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-597",
+    "District": "Wayanad",
+    "Location": "Kaippanchery",
+    "Lat": 11.66367121,
+    "Long": 76.26815803,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-598",
+    "District": "Wayanad",
+    "Location": "Kottakunnu, Sulthan Bathery",
+    "Lat": 11.6683653,
+    "Long": 76.26938079,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-599",
+    "District": "Wayanad",
+    "Location": "Kambalakkad",
+    "Lat": 11.66999784,
+    "Long": 76.07935667,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-600",
+    "District": "Wayanad",
+    "Location": "KSRTC Dipo",
+    "Lat": 11.67269387,
+    "Long": 76.25895303,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-601",
+    "District": "Wayanad",
+    "Location": "Padinjarathara 2",
+    "Lat": 11.67364574,
+    "Long": 75.971324,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-602",
+    "District": "Wayanad",
+    "Location": "Kambalakkad, Pallimukku",
+    "Lat": 11.68378342,
+    "Long": 76.07699499,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-603",
+    "District": "Wayanad",
+    "Location": "Padinjarathara",
+    "Lat": 11.6840637,
+    "Long": 75.9745167,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-604",
+    "District": "Wayanad",
+    "Location": "Kenichira",
+    "Lat": 11.72376873,
+    "Long": 76.15087073,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-605",
+    "District": "Wayanad",
+    "Location": "Karimbummal, Panamaram",
+    "Lat": 11.73164312,
+    "Long": 76.07334383,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-606",
+    "District": "Wayanad",
+    "Location": "Pazhanchana, Vellamunda",
+    "Lat": 11.73184697,
+    "Long": 75.95158562,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-607",
+    "District": "Wayanad",
+    "Location": "Tharuvana",
+    "Lat": 11.73802794,
+    "Long": 75.97807243,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-608",
+    "District": "Wayanad",
+    "Location": "Nadavayal",
+    "Lat": 11.73919065,
+    "Long": 76.12094164,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-12-609",
+    "District": "Wayanad",
+    "Location": "Panamaram",
+    "Lat": 11.73928257,
+    "Long": 76.07274737,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-610",
+    "District": "Wayanad",
+    "Location": "Panamaram bridge",
+    "Lat": 11.74134701,
+    "Long": 76.07205402,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-611",
+    "District": "Wayanad",
+    "Location": "Payode, Manthavady",
+    "Lat": 11.7909933,
+    "Long": 76.00201048,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-612",
+    "District": "Wayanad",
+    "Location": "Thalassery road, Manthavady",
+    "Lat": 11.81314175,
+    "Long": 75.99465284,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-12-613",
+    "District": "Wayanad",
+    "Location": "Vayalkarara, Kattikulam",
+    "Lat": 11.84219716,
+    "Long": 76.05726499,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-614",
+    "District": "Kannur",
+    "Location": "Parimadam, new Mahe",
+    "Lat": 11.70909349,
+    "Long": 75.52850235,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-13-615",
+    "District": "Kannur",
+    "Location": "New bus stand Thalassery - 1",
+    "Lat": 11.74923402,
+    "Long": 75.494732,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-13-616",
+    "District": "Kannur",
+    "Location": "New bus stand Thalassery - 2",
+    "Lat": 11.74999129,
+    "Long": 75.49454123,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-617",
+    "District": "Kannur",
+    "Location": "Koduvalli gate NH( Kannur Kozhikode road)",
+    "Lat": 11.76647522,
+    "Long": 75.47800139,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-618",
+    "District": "Kannur",
+    "Location": "Koduvalli gate NH(Kozhikode Kannur road)",
+    "Lat": 11.7678483,
+    "Long": 75.4779841,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-619",
+    "District": "Kannur",
+    "Location": "Koothuparmba (Iritty Thalassery road)",
+    "Lat": 11.83035301,
+    "Long": 75.56623098,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-620",
+    "District": "Kannur",
+    "Location": "Thottada",
+    "Lat": 11.85320999,
+    "Long": 75.41445047,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-621",
+    "District": "Kannur",
+    "Location": "Thayil",
+    "Lat": 11.85766526,
+    "Long": 75.39058451,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-622",
+    "District": "Kannur",
+    "Location": "Mele chovva(Mattannur Kannur road)",
+    "Lat": 11.87158481,
+    "Long": 75.3963422,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-623",
+    "District": "Kannur",
+    "Location": "Mele chovva",
+    "Lat": 11.8716127,
+    "Long": 75.3970265,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-624",
+    "District": "Kannur",
+    "Location": "Muneeswaram Kovil Road",
+    "Lat": 11.87379524,
+    "Long": 75.36486514,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-625",
+    "District": "Kannur",
+    "Location": "chalad(kannur valapattanam road)",
+    "Lat": 11.8804855,
+    "Long": 75.3549242,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-626",
+    "District": "Kannur",
+    "Location": "Ancharakandi (airport Kannur town road)",
+    "Lat": 11.88055768,
+    "Long": 75.50654981,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-627",
+    "District": "Kannur",
+    "Location": "Thalap",
+    "Lat": 11.88557714,
+    "Long": 75.37240349,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-628",
+    "District": "Kannur",
+    "Location": "Chakkarakkal (Kannur Mattannur road)",
+    "Lat": 11.88900564,
+    "Long": 75.4749554,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-629",
+    "District": "Kannur",
+    "Location": "Uravachal (Thalasseri Mattannur road)",
+    "Lat": 11.89602196,
+    "Long": 75.58486227,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-630",
+    "District": "Kannur",
+    "Location": "Chathurakinar (Mattannur Kannur town road)",
+    "Lat": 11.90020259,
+    "Long": 75.41772611,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-631",
+    "District": "Kannur",
+    "Location": "Puthiyatheru (Kannur Kasargod road)",
+    "Lat": 11.91592655,
+    "Long": 75.36036037,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-632",
+    "District": "Kannur",
+    "Location": "Mattannoor hospital jn(Thalasseri Iritty road)",
+    "Lat": 11.92877602,
+    "Long": 75.57223409,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-633",
+    "District": "Kannur",
+    "Location": "Chalode (Mattannur Kannur road)",
+    "Lat": 11.9295082,
+    "Long": 75.50415225,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-634",
+    "District": "Kannur",
+    "Location": "Mattannur (Mattannur airport road)",
+    "Lat": 11.9312353,
+    "Long": 75.57009403,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-635",
+    "District": "Kannur",
+    "Location": "Mattool south,(pazhayangadi matool road)",
+    "Lat": 11.9547775,
+    "Long": 75.2976538,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-636",
+    "District": "Kannur",
+    "Location": "Mangattuparamb",
+    "Lat": 11.984387,
+    "Long": 75.365851,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-637",
+    "District": "Kannur",
+    "Location": "Keeriyad",
+    "Lat": 11.926778,
+    "Long": 75.358927,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-638",
+    "District": "Kannur",
+    "Location": "Punnad(Iritty Kannur road)",
+    "Lat": 11.96402644,
+    "Long": 75.65558575,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-639",
+    "District": "Kannur",
+    "Location": "Kambil",
+    "Lat": 11.96672483,
+    "Long": 75.3966976,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-640",
+    "District": "Kannur",
+    "Location": "Payancherimukku (Paiancheri junction Peravoor road)",
+    "Lat": 11.9828667,
+    "Long": 75.67658879,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-641",
+    "District": "Kannur",
+    "Location": "Payincheri ( Peravoor Payincheri junction)",
+    "Lat": 11.98308513,
+    "Long": 75.67637488,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-642",
+    "District": "Kannur",
+    "Location": "Iritty (Thalassery Iritty bridge)",
+    "Lat": 11.9877967,
+    "Long": 75.67697503,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-643",
+    "District": "Kannur",
+    "Location": "Iritty (Iritty bridge Thalassery road)",
+    "Lat": 11.98799086,
+    "Long": 75.67668971,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-644",
+    "District": "Kannur",
+    "Location": "Irikkur (Irrikkur Thaliparamb road)",
+    "Lat": 11.99126589,
+    "Long": 75.54867458,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-645",
+    "District": "Kannur",
+    "Location": "Mayyil",
+    "Lat": 11.99411683,
+    "Long": 75.44931315,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-646",
+    "District": "Kannur",
+    "Location": "Puthiyangadi (Chootad beach Mattool road)",
+    "Lat": 12.02018846,
+    "Long": 75.24525136,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-647",
+    "District": "Kannur",
+    "Location": "Pazhangadi - 2,(Payyannur Kannur road)",
+    "Lat": 12.02449834,
+    "Long": 75.26678145,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-648",
+    "District": "Kannur",
+    "Location": "Pazhayangadi,(Kannur Payyannur road )",
+    "Lat": 12.02468165,
+    "Long": 75.26669361,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-649",
+    "District": "Kannur",
+    "Location": "Madayipara",
+    "Lat": 12.03060184,
+    "Long": 75.2597554,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-650",
+    "District": "Kannur",
+    "Location": "Vallithode (Mysore Iritty road)",
+    "Lat": 12.03487057,
+    "Long": 75.71359556,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-651",
+    "District": "Kannur",
+    "Location": "Ulikkal (Ulikkal jn Iritty road)",
+    "Lat": 12.03779876,
+    "Long": 75.66545494,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-652",
+    "District": "Kannur",
+    "Location": "Ulikkal (Payyavoor Ulikkal jn)",
+    "Lat": 12.04054035,
+    "Long": 75.66080768,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-653",
+    "District": "Kannur",
+    "Location": "Manna (Thaliparamba Iritty road)",
+    "Lat": 12.04059478,
+    "Long": 75.36216885,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-654",
+    "District": "Kannur",
+    "Location": "Chiravakku, Thaliparambu (Payyannur Kannur road)",
+    "Lat": 12.04192999,
+    "Long": 75.35571747,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-655",
+    "District": "Kannur",
+    "Location": "Sreekandapuram (Thaliparamb Sreekandapuram road)",
+    "Lat": 12.04491385,
+    "Long": 75.50673019,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-656",
+    "District": "Kannur",
+    "Location": "Payyavoor (Sreekandapuram Payyavoor road)",
+    "Lat": 12.0600183,
+    "Long": 75.5780667,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-657",
+    "District": "Kannur",
+    "Location": "Payyavoor Town",
+    "Lat": 12.06026019,
+    "Long": 75.58161344,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-658",
+    "District": "Kannur",
+    "Location": "Keloth, Payyannur",
+    "Lat": 12.10034562,
+    "Long": 75.19593224,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-659",
+    "District": "Kannur",
+    "Location": "Sumangali cinemas Payyannur",
+    "Lat": 12.11148396,
+    "Long": 75.21037426,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-660",
+    "District": "Kannur",
+    "Location": "Vankulath Vayal",
+    "Lat": 11.920861,
+    "Long": 75.334701,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-661",
+    "District": "Kannur",
+    "Location": "Kannur City Hospital",
+    "Lat": 11.862681,
+    "Long": 75.36932,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-662",
+    "District": "Kannur",
+    "Location": "Alakode",
+    "Lat": 12.18591996,
+    "Long": 75.46613529,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-13-663",
+    "District": "Kannur",
+    "Location": "Cherupuzha",
+    "Lat": 12.27169997,
+    "Long": 75.36079891,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "",
+    "District": "",
+    "Location": "",
+    "Lat": "",
+    "Long": "",
+    "Type": ""
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-664",
+    "District": "Kasaragod",
+    "Location": "Thrikkaripur",
+    "Lat": 12.14323243,
+    "Long": 75.17746221,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-665",
+    "District": "Kasaragod",
+    "Location": "Thankayam mukk",
+    "Lat": 12.14394763,
+    "Long": 75.1823616,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-666",
+    "District": "Kasaragod",
+    "Location": "Padanna",
+    "Lat": 12.17771466,
+    "Long": 75.1469665,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-667",
+    "District": "Kasaragod",
+    "Location": "Kalikadavu",
+    "Lat": 12.19022422,
+    "Long": 75.16905248,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-14-668",
+    "District": "Kasaragod",
+    "Location": "Cheruvathur",
+    "Lat": 12.21642417,
+    "Long": 75.16162947,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-669",
+    "District": "Kasaragod",
+    "Location": "Cheemeni",
+    "Lat": 12.23568571,
+    "Long": 75.22546336,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-670",
+    "District": "Kasaragod",
+    "Location": "Neeleshwaram",
+    "Lat": 12.25556016,
+    "Long": 75.13043303,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-671",
+    "District": "Kasaragod",
+    "Location": "Panathur",
+    "Lat": 12.457685,
+    "Long": 75.353556,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-672",
+    "District": "Kasaragod",
+    "Location": "Choyyomkode",
+    "Lat": 12.28771594,
+    "Long": 75.19208327,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-673",
+    "District": "Kasaragod",
+    "Location": "Puthiyakotta",
+    "Lat": 12.3117908,
+    "Long": 75.09394225,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-PVDS-14-674",
+    "District": "Kasaragod",
+    "Location": "Kanjangad 1",
+    "Lat": 12.32124155,
+    "Long": 75.08675158,
+    "Type": "PVDS"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-676",
+    "District": "Kasaragod",
+    "Location": "Athinhal",
+    "Lat": 12.33766228,
+    "Long": 75.07849306,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-677",
+    "District": "Kasaragod",
+    "Location": "Kalanad Jn-1",
+    "Lat": 12.451513,
+    "Long": 75.021879,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-678",
+    "District": "Kasaragod",
+    "Location": "Madiyan",
+    "Lat": 12.34849128,
+    "Long": 75.07358294,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-679",
+    "District": "Kasaragod",
+    "Location": "Chithari",
+    "Lat": 12.35539071,
+    "Long": 75.06967966,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-680",
+    "District": "Kasaragod",
+    "Location": "Pallikere",
+    "Lat": 12.38709675,
+    "Long": 75.04457485,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-681",
+    "District": "Kasaragod",
+    "Location": "Bakel bridge",
+    "Lat": 12.40117665,
+    "Long": 75.03007013,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-682",
+    "District": "Kasaragod",
+    "Location": "Odayamchal",
+    "Lat": 12.40159022,
+    "Long": 75.20389069,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-683",
+    "District": "Kasaragod",
+    "Location": "Kalanad Jn-2",
+    "Lat": 12.449719,
+    "Long": 75.022649,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-684",
+    "District": "Kasaragod",
+    "Location": "Palakkunnu",
+    "Lat": 12.42276999,
+    "Long": 75.02257839,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-685",
+    "District": "Kasaragod",
+    "Location": "Kundamkuzhi",
+    "Lat": 12.4570792,
+    "Long": 75.1404915,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-686",
+    "District": "Kasaragod",
+    "Location": "Meleparmba",
+    "Lat": 12.469445,
+    "Long": 75.00856787,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-687",
+    "District": "Kasaragod",
+    "Location": "Kuttikol",
+    "Lat": 12.47704145,
+    "Long": 75.21122653,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-688",
+    "District": "Kasaragod",
+    "Location": "Madiyan Jn, Madiyan-Kulom road",
+    "Lat": 12.350334,
+    "Long": 75.074037,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-689",
+    "District": "Kasaragod",
+    "Location": "Old bus stand Jn, MG Road",
+    "Lat": 12.50090506,
+    "Long": 74.98973675,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-690",
+    "District": "Kasaragod",
+    "Location": "Press club Jn",
+    "Lat": 12.50469352,
+    "Long": 74.99376543,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-691",
+    "District": "Kasaragod",
+    "Location": "Kottacheri ROB-Beach road",
+    "Lat": 12.322836,
+    "Long": 75.081675,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-692",
+    "District": "Kasaragod",
+    "Location": "Bovikanam",
+    "Lat": 12.50737723,
+    "Long": 75.09518612,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-693",
+    "District": "Kasaragod",
+    "Location": "Cherkkala Jn",
+    "Lat": 12.50888616,
+    "Long": 75.05508341,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-694",
+    "District": "Kasaragod",
+    "Location": "Cherkkala",
+    "Lat": 12.50892446,
+    "Long": 75.05521618,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-695",
+    "District": "Kasaragod",
+    "Location": "Hosdurg(Puthyakotta)",
+    "Lat": 12.31446,
+    "Long": 75.091357,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-696",
+    "District": "Kasaragod",
+    "Location": "TB road, Kanhangad",
+    "Lat": 12.31429,
+    "Long": 75.091028,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-697",
+    "District": "Kasaragod",
+    "Location": "Ballath(Chammattam vayal Jn)",
+    "Lat": 12.320304,
+    "Long": 75.109091,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-698",
+    "District": "Kasaragod",
+    "Location": "Kottapuram(Nileswaram Rd)",
+    "Lat": 12.249084,
+    "Long": 75.126109,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-699",
+    "District": "Kasaragod",
+    "Location": "Mulleria",
+    "Lat": 12.54827352,
+    "Long": 75.1652015,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-700",
+    "District": "Kasaragod",
+    "Location": "Nadakkav-Udinar Rd",
+    "Lat": 12.160854,
+    "Long": 75.171329,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-701",
+    "District": "Kasaragod",
+    "Location": "Seethangoli",
+    "Lat": 12.58723766,
+    "Long": 75.00167828,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-702",
+    "District": "Kasaragod",
+    "Location": "Badiadka 2",
+    "Lat": 12.58895489,
+    "Long": 75.07359032,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-703",
+    "District": "Kasaragod",
+    "Location": "Badiadka 1",
+    "Lat": 12.59152581,
+    "Long": 75.07275179,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-704",
+    "District": "Kasaragod",
+    "Location": "Kumbla 2",
+    "Lat": 12.59271359,
+    "Long": 74.9465324,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-705",
+    "District": "Kasaragod",
+    "Location": "Kumbla 1",
+    "Lat": 12.59285331,
+    "Long": 74.94579747,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-706",
+    "District": "Kasaragod",
+    "Location": "Bandiyod",
+    "Lat": 12.640146,
+    "Long": 74.929356,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-707",
+    "District": "Kasaragod",
+    "Location": "Uppala-Bekur Road, Kaikumba",
+    "Lat": 12.664898,
+    "Long": 74.921597,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-708",
+    "District": "Kasaragod",
+    "Location": "Perla",
+    "Lat": 12.637022,
+    "Long": 75.102964,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-709",
+    "District": "Kasaragod",
+    "Location": "Hosangadi",
+    "Lat": 12.70589173,
+    "Long": 74.90515564,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-14-710",
+    "District": "Kasaragod",
+    "Location": "Bandadka",
+    "Lat": 12.498763,
+    "Long": 75.267684,
+    "Type": "AI Camera"
+  }
+]

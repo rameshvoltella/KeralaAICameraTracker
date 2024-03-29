@@ -13,13 +13,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
-import com.ramzmania.aicammvd.ui.theme.MyApplicationTheme
+import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,7 +46,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     override fun setContent() {
         val dataList = generateSliderContentData()
         val navController = rememberNavController()
-        MyApplicationTheme {
+        AiCameraApplicationTheme {
            // setStatusBarColorColor(Color.Green)
             // A surface container using the 'background' color from the theme
             Surface(

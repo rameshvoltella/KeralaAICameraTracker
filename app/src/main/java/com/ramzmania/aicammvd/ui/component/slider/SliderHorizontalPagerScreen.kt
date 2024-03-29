@@ -1,7 +1,6 @@
 package com.ramzmania.aicammvd.ui.component.slider
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -23,12 +22,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
-import com.ramzmania.aicammvd.ui.screens.home.MainActivity
+import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -65,7 +63,7 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                 if (pagerState.currentPage == 2) {
                     Button(
                         onClick = {
-                            activityContext.startActivity(Intent(activityContext, MainActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK))
+                            activityContext.startActivity(Intent(activityContext, HomeActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK))
                             (activityContext as? Activity)?.finish() // Finish the current activity
                         },
                         modifier = Modifier
