@@ -52,10 +52,10 @@ fun basicHomeLayer() {
                 .align(Alignment.BottomCenter)
                 .clip(
                     RoundedCornerShape(
-                        topStart = 30.dp,
-                        topEnd = 30.dp,
-                        bottomEnd = 30.dp,
-                        bottomStart = 30.dp
+                        topStart = 10.dp,
+                        topEnd = 10.dp,
+                        bottomEnd = 10.dp,
+                        bottomStart = 10.dp
                     )
                 )
                 .background(Color.Red)
