@@ -1,6 +1,8 @@
 package com.ramzmania.aicammvd.ui.component.home
 
 import CustomCircle2
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -20,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -34,6 +37,7 @@ import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String, currentPage: Int) {
+    val context = LocalContext.current
     val imagePainter = painterResource(id = centerImage)
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -63,7 +67,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String, curr
                 ) {
                     CustomCircleSwitch(outerCircleSize = 200.dp, innerCircleSize = 140.dp, colorResource(
                         id = R.color.circle_outer
-                    ), colorResource(id = R.color.red_demo))
+                    ), colorResource(id = R.color.red_demo), onClick = {Toast.makeText(context,"yoooo",Toast.LENGTH_LONG).show() })
 
                 }
 //            GlideImage(
