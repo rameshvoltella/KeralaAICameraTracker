@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.ui.component.home
 
+import CustomCircle2
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,8 +28,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
@@ -56,15 +57,15 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String, curr
                     modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
 
                 )
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.wrapContentWidth().padding(20.dp)
+                ) {
+                    CustomCircleSwitch(outerCircleSize = 200.dp, innerCircleSize = 140.dp, colorResource(
+                        id = R.color.circle_outer
+                    ), colorResource(id = R.color.red_demo))
 
-                GlideImage(
-                    model = centerImage,
-                    contentDescription = title,
-                    modifier = Modifier
-                        .padding(20.dp)
-                        .height(200.dp)
-                        .width(200.dp)
-                )
+                }
 //            GlideImage(
 //                painter = imagePainter,
 //                contentDescription = title,
@@ -100,8 +101,8 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String, curr
 
 }
 
-//@Preview
-//@Composable
-//private fun ViewPagerItemPreview() {
-//    SlideViewpagerItem(R.drawable.cam_location, "kona", "intro", 2)
-//}
+@Preview
+@Composable
+private fun ViewPagerItemPreview() {
+    TrackerViewpagerItem(R.drawable.cam_location, "kona", "intro", 2)
+}

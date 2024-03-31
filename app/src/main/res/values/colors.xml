@@ -11,4 +11,5 @@
     <color name="red_demo">#ff0040</color>
     <color name="white_border">#515151</color>
     <color name="white_perment">#FFFFFFFF</color>
+    <color name="circle_outer">#484848</color>
 </resources>
