@@ -67,7 +67,14 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String, curr
                 ) {
                     CustomCircleSwitch(outerCircleSize = 200.dp, innerCircleSize = 140.dp, colorResource(
                         id = R.color.circle_outer
-                    ), colorResource(id = R.color.red_demo), onClick = {Toast.makeText(context,"yoooo",Toast.LENGTH_LONG).show() })
+                    ), colorResource(id = R.color.red_demo), onClick =
+                    {
+                        Toast.makeText(context,"yoooo",Toast.LENGTH_LONG).show()
+                    },
+                        onLongPress = {
+                            Toast.makeText(context,"Lonf",Toast.LENGTH_LONG).show()
+
+                        })
 
                 }
 //            GlideImage(
