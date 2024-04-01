@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.ui.customviews
 
+import androidx.compose.animation.Animatable
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
@@ -105,77 +106,6 @@ fun CustomCircleSwitch(outerCircleSize: Dp, innerCircleSize: Dp, outerColor:Colo
             center = Offset(centerX, centerY)
         )
     }
+
 }
-
-
-
-@Preview
-@Composable
-fun PreviewCustomCircle() {
-//    CustomCircle(outerCircleSize = 200.dp, innerCircleSize = 100.dp, spaceBetween = 60.dp)
-    // CustomCircle(circleSize = 200.dp)
-    CustomCircleSwitch(outerCircleSize = 300.dp, innerCircleSize = 250.dp,Color.Red, Color.Blue, onClick = {
-
-    }, onLongPress = {
-
-    })
-}
-
-inline fun Modifier.noRippleClickable(
-    crossinline onClick: () -> Unit
-): Modifier = composed {
-    clickable(
-        indication = null,
-        interactionSource = remember { MutableInteractionSource() }) {
-        onClick()
-    }
-}
-
-suspend fun PointerInputScope.detectPressGestures(
-    onLongPress: ((Offset) -> Unit)? = null,
-    onPressStart: ((Offset) -> Unit)? = null,
-    onPressEnd: (() -> Unit)? = null,
-    onLongPressEnd: (() -> Unit)? = null,
-) = coroutineScope {
-
-    awaitEachGesture {
-        val down = awaitFirstDown()
-        down.consume()
-
-        val downTime = System.currentTimeMillis()
-        onPressStart?.invoke(down.position)
-
-        val longPressTimeout = onLongPress?.let {
-            viewConfiguration.longPressTimeoutMillis
-        } ?: (Long.MAX_VALUE / 2)
-
-        var longPressInvoked = false
-
-        do {
-            val event: PointerEvent = awaitPointerEvent()
-            val currentTime = System.currentTimeMillis()
-
-            if (!longPressInvoked && currentTime - downTime >= longPressTimeout) {
-                onLongPress?.invoke(event.changes.first().position)
-                longPressInvoked = true
-            }
-
-            event.changes
-                .forEach { pointerInputChange: PointerInputChange ->
-                    pointerInputChange.consume()
-                }
-
-
-        } while (event.changes.any { it.pressed })
-
-        if (longPressInvoked) {
-            onLongPressEnd?.invoke()
-        } else {
-            onPressEnd?.invoke()
-        }
-
-    }
-}
-
-
 
