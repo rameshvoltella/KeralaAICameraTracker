@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp").version("1.6.10-1.0.4") // Or latest version of KSP
 
 
 }
@@ -85,6 +86,10 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation ("com.github.bumptech.glide:compose:1.0.0-beta01")
     implementation ("androidx.navigation:navigation-compose:2.7.7")
+    implementation("com.squareup.moshi:moshi:1.15.0")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
+    implementation ("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
+
 }
 kapt {
     correctErrorTypes = true
