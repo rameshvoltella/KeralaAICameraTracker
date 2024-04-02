@@ -25,7 +25,7 @@ import com.ramzmania.aicammvd.R
 
 
 @Composable
-fun cameraLayoutList()
+fun CameraLayoutList( position:String)
 {
     Box {
         Column(modifier = Modifier
@@ -56,7 +56,7 @@ fun cameraLayoutList()
                         fontWeight = FontWeight.Bold,
                         color = colorResource(id = R.color.white_perment)
                     )
-                    Text(text = "cor,",  modifier = Modifier
+                    Text(text = "item:$position",  modifier = Modifier
                         .align(Alignment.CenterHorizontally)
                         .fillMaxWidth(), textAlign = TextAlign.Left,
                         fontSize = 16.sp,
@@ -76,5 +76,5 @@ fun cameraLayoutList()
 @Preview
 @Composable
 private fun previewItem() {
-    cameraLayoutList()
+    CameraListView()
 }

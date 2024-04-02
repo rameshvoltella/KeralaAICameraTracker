@@ -13,12 +13,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,9 +27,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
-import androidx.compose.ui.graphics.Color.Companion.Red
-import androidx.compose.ui.graphics.Color.Companion.Yellow
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -40,10 +34,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun basicHomeLayer() {
+fun BasicHomeLayer() {
     val pagerState = rememberPagerState(pageCount = { 2 })
     var currentPage by remember { mutableStateOf(0) }
     var selectedColumn by remember { mutableStateOf(0) }
@@ -123,7 +118,7 @@ fun basicHomeLayer() {
                 .fillMaxHeight()
                 .padding(0.dp, 0.dp, 0.dp, 0.dp)
                 .align(Alignment.TopCenter)
-                .background(Color.Green)
+                .background(colorResource(id = R.color.brown_black))
         ) {
             // Content of the HorizontalPager or any other composables
             HorizontalPager(
@@ -140,7 +135,7 @@ fun basicHomeLayer() {
                         currentPage = pagerState.currentPage
                     )
                 } else {
-                    HomeLocationItem(centerImage = R.drawable.came_two)
+                    CameraListView()
                 }
             }
         }
@@ -242,5 +237,5 @@ fun basicHomeLayer() {
 @Preview
 @Composable
 fun prev() {
-    basicHomeLayer()
+    BasicHomeLayer()
 }
