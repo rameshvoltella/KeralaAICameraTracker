@@ -140,7 +140,7 @@ fun BasicHomeLayer() {
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.fillMaxSize(),
-//                userScrollEnabled = false
+               userScrollEnabled = false
             ) {page->
                 // Content of HorizontalPager
                 if (page == 0) {
