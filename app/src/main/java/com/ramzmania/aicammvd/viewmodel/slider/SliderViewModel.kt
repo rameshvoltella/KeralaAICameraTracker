@@ -1,8 +1,8 @@
 package com.ramzmania.aicammvd.viewmodel.slider
 
 import androidx.lifecycle.viewModelScope
+import com.ramzmania.aicammvd.data.ContextModule
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
-import com.ramzmania.aicammvd.ui.base.ContextModule
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow

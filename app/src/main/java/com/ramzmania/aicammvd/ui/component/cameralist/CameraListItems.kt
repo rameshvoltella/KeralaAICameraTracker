@@ -99,7 +99,7 @@ fun CameraLayoutList( position:String)
 @Preview
 @Composable
 private fun previewItem() {
-    val namesList = remember { List(100) { "$it" } }
+//    val namesList = remember { List(100) { "$it" } }
 
     //CameraListView(names = namesList)
 }

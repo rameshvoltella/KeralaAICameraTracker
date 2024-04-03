@@ -2,7 +2,7 @@ package com.ramzmania.aicammvd.di
 
 
 import android.content.Context
-import com.ramzmania.aicammvd.ui.base.ContextModule
+import com.ramzmania.aicammvd.data.ContextModule
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
