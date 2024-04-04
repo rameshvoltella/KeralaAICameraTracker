@@ -46,6 +46,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -207,7 +208,7 @@ fun BasicHomeLayer(dataCameraList: List<CameraData>) {
 
 }
 @Composable
-fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)
+fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel= hiltViewModel())
 {
 //    @Composable
 //    fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)

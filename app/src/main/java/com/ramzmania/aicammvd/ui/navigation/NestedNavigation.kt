@@ -25,8 +25,7 @@ fun NestedNavigationExample(homeViewModel: HomeViewModel) {
             InitialLoadingScreen(
                 navigateTo = { route ->
                     navController.navigate(route)
-                },
-                viewModel = homeViewModel
+                }
             )
         }
         composable(route = Screens.LoginScreen.route) {

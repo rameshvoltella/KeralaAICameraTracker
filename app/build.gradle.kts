@@ -91,6 +91,7 @@ dependencies {
     implementation ("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
     implementation ("androidx.compose.runtime:runtime-livedata:1.6.4")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$2.4.1")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 }
 kapt {
