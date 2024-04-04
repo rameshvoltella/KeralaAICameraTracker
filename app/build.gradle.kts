@@ -89,6 +89,8 @@ dependencies {
     implementation("com.squareup.moshi:moshi:1.15.0")
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.0")
     implementation ("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.6.4")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$2.4.1")
 
 }
 kapt {

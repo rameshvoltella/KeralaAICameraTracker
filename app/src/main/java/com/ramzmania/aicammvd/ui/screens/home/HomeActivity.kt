@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.home.BasicHomeLayer
 import com.ramzmania.aicammvd.ui.component.home.InitialLoadingScreen
 import com.ramzmania.aicammvd.ui.navigation.HomeNavGraph
+import com.ramzmania.aicammvd.ui.navigation.NestedNavigationExample
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
 import com.ramzmania.aicammvd.utils.observe
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
@@ -85,19 +86,21 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
                     .fillMaxSize()
                     .background(Color.Yellow)
             ) {
-                HomeNavGraph(navController = navController)
-                if (isLoading.value) {
+                //HomeNavGraph(navController = navController)
+//                if (isLoading.value) {
+//
+//                    NestedNavigationExample()
+//                    callApi()
+//
+//                }else
+//                {
+//                    if(dataCameraList!=null)
+//                    {
+//                        BasicHomeLayer(dataCameraList!!)
+//                    }
+//                }
+                InitialLoadingScreen(viewModel)
 
-                    InitialLoadingScreen()
-                    callApi()
-
-                }else
-                {
-                    if(dataCameraList!=null)
-                    {
-                        BasicHomeLayer(dataCameraList!!)
-                    }
-                }
 
 
 

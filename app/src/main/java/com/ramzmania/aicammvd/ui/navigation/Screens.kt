@@ -1,4 +1,6 @@
 package com.ramzmania.aicammvd.ui.navigation
 
-class Screens {
+sealed class Screens(val route : String) {
+    object LoadingScreen : Screens("loading")
+    object LoginScreen : Screens("home")
 }

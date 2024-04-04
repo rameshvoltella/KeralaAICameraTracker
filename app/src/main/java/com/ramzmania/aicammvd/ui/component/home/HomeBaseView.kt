@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.ui.component.home
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -19,10 +20,18 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -37,9 +46,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
+import com.ramzmania.aicammvd.events.SingleEvent
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
+import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -191,8 +207,60 @@ fun BasicHomeLayer(dataCameraList: List<CameraData>) {
 
 }
 @Composable
-fun InitialLoadingScreen()
+fun InitialLoadingScreen(viewModel: HomeViewModel)
 {
+//    @Composable
+//    fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)
+//    {
+    val aiLocationInfo by viewModel.aILocationLiveData.observeAsState(Resource.Loading())
+    aiLocationInfo?.let { resource ->
+        when (resource) {
+            is Resource.Loading -> {
+                // Show loading indicator
+                Log.d("tadada","came1")
+
+            }
+            is Resource.Success -> {
+                // Handle success
+                // Navigate to home screen
+                // Access your data from resource.data
+                // For example:
+                // val cameraDataResponse = resource.data
+                Log.d("tadada","came"+resource.data?.responseList?.get(0)?.district)
+            }
+            is Resource.DataError -> {
+                // Handle error
+                // For example:
+                // val errorCode = resource.errorCode
+                Log.d("tadada","cameerrr")
+
+            }
+            is Resource.LoadingInstance -> {
+                // Handle loading with instanceIdentifier
+                // For example:
+                // val instanceIdentifier = resource.instanceIdentifier
+                Log.d("tadada","came333")
+
+            }
+            is Resource.SuccessInstance -> {
+                // Handle success with instanceIdentifier
+                // For example:
+                // val data = resource.data
+                // val instanceIdentifier = resource.instanceIdentifier
+                Log.d("tadada","came444")
+
+            }
+            is Resource.DataErrorInstance -> {
+                Log.d("tadada","came555")
+
+                // Handle error with instanceIdentifier
+                // For example:
+                // val errorCode = resource.errorCode
+                // val instanceIdentifier = resource.instanceIdentifier
+            }
+        }
+    }
+
     Column(modifier =Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -201,11 +269,135 @@ fun InitialLoadingScreen()
         ) {
         CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
     }
+//    val count = viewModel._items.collectAsState
+//    navigateTo("home")
+    LaunchedEffect(viewModel) {
+        viewModel.fetchAiLocationInfo()
+    }
+    fun handleResponse(any: Any) {
+
+    }
+//    observe(viewModel.aILocationLiveData, ::handleResponse)
+
+//    val aiLocationInfo by viewModel.aILocationLiveData.observeAsStateInComposable()
+//    aiLocationInfo.data.
+
 }
+
+@Composable
+fun <T> LiveData<T>.observe(owner: LifecycleOwner): State<T?> {
+    val result = mutableStateOf<T?>(null)
+
+    DisposableEffect(this, owner) {
+        val observer = Observer<T> { value ->
+            result.value = value
+        }
+
+        observe(owner, observer)
+
+        onDispose {
+            removeObserver(observer)
+        }
+    }
+
+    return result
+}
+
 
 @Preview
 @Composable
 fun prev() {
 //    InitialLoadingScreen()
 //    BasicHomeLayer(dataCameraList)
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun LoginScreen() {
+    Scaffold(topBar = {
+        TopAppBar(
+            title = { Text(text = "Login") },
+            colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+        )
+    }) {
+        Column(
+            Modifier
+                .padding(it)
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(text = "Login Screen Content")
+        }
+    }
+}
+
+
+//@Composable
+//fun <T> LiveData<T>.observe(owner: LifecycleOwner): State<T?> {
+//    val result = mutableStateOf<T?>(null)
+//
+//    DisposableEffect(this, owner) {
+//        val observer = Observer<T> { value ->
+//            result.value = value
+//        }
+//
+//        observe(owner, observer)
+//
+//        onDispose {
+//            removeObserver(observer)
+//        }
+//    }
+//
+//    return result
+//}
+
+
+@Composable
+fun <T> LiveData<T>.observe(owner: LifecycleOwner, onChanged: (T) -> Unit) {
+    DisposableEffect(this, owner) {
+        val observer = Observer<T> { value ->
+            onChanged(value)
+        }
+
+        observe(owner, observer)
+
+        onDispose {
+            removeObserver(observer)
+        }
+    }
+}
+
+@Composable
+fun <T> LiveData<T>.observeAsStateInComposable(owner: LifecycleOwner): State<T?> {
+    val result = mutableStateOf<T?>(null)
+
+    DisposableEffect(this, owner) {
+        val observer = Observer<T> { value ->
+            result.value = value
+        }
+
+        observe(owner, observer)
+
+        onDispose {
+            removeObserver(observer)
+        }
+    }
+
+    return result
+}
+
+@Composable
+fun <T> LiveData<SingleEvent<T>>.observeEvent(owner: LifecycleOwner, onChanged: (SingleEvent<T>) -> Unit) {
+    DisposableEffect(this, owner) {
+        val observer = Observer<SingleEvent<T>> { event ->
+            event?.let(onChanged)
+        }
+
+        observe(owner, observer)
+
+        onDispose {
+            removeObserver(observer)
+        }
+    }
 }

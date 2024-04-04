@@ -12,7 +12,7 @@ fun HomeNavGraph(navController: NavHostController) {
 //    val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = NavGraph.INITIAL_SCREEN) {
-        composable(NavGraph.INITIAL_SCREEN) { InitialLoadingScreen() }
+//        composable(NavGraph.INITIAL_SCREEN) { InitialLoadingScreen() }
 //        composable(NavGraph.HOME_SCREEN) { BasicHomeLayer(dataCameraList) }
     }
 }

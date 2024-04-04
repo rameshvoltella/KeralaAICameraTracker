@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.viewmodel.home
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -18,9 +19,11 @@ constructor(private val localRepositorySource: LocalRepositorySource
 ) : BaseViewModel() {
 
     private val aILocationLiveDataPrivate= MutableLiveData<Resource<CameraDataResponse>>()
-
+    var counter =MutableLiveData<Int>(0)
     val aILocationLiveData : LiveData<Resource<CameraDataResponse>> get() = aILocationLiveDataPrivate
-
+     val _items = mutableListOf<CameraDataResponse>()
+    private val _count = mutableStateOf(0)
+    val count: Int = _count.value
     fun fetchAiLocationInfo()
     {
         viewModelScope.launch {
