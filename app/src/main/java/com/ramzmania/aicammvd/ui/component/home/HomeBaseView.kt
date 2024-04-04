@@ -15,10 +15,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyListState
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -38,13 +38,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BasicHomeLayer() {
+fun BasicHomeLayer(dataCameraList: List<CameraData>) {
     val pagerState = rememberPagerState(pageCount = { 2 })
     var currentPage by remember { mutableStateOf(0) }
     var selectedColumn by remember { mutableStateOf(0) }
@@ -61,71 +61,6 @@ fun BasicHomeLayer() {
     Box(modifier = Modifier.fillMaxSize()) {
         // Place the bottom composable first
 
-        /*   Box(
-               modifier = Modifier
-                   .fillMaxWidth()
-                   .height(90.dp)
-                   .padding(20.dp, 0.dp, 20.dp, 20.dp)
-                   .align(Alignment.BottomCenter)
-                   .border(1.dp, Color.Red, shape = RoundedCornerShape(10.dp))
-                   .clip(
-                       RoundedCornerShape(
-                           topStart = 10.dp,
-                           topEnd = 10.dp,
-                           bottomEnd = 10.dp,
-                           bottomStart = 10.dp
-                       )
-                   )
-                   .background(Color.Red)
-           ) {
-               // Content of the red box
-               Row( Modifier.fillMaxSize()){
-                   Column(
-
-                       Modifier
-                           .weight(1f)
-                           .background(Blue)
-                           .fillMaxHeight().clickable { currentPage=0 },
-                               verticalArrangement = Arrangement.Center){
-                       Text(text = "TRACKER", modifier = Modifier
-                           .align(Alignment.CenterHorizontally)
-                           .fillMaxWidth(),textAlign = TextAlign.Center)
-                   }
-                   Column(
-                       Modifier
-                           .weight(1f)
-                           .background(Yellow)
-                           .fillMaxHeight().clickable {  currentPage = 1 },
-                       verticalArrangement = Arrangement.Center,
-
-
-                   ) {
-                       Text(text = "LOCATION", modifier = Modifier
-                           .align(Alignment.CenterHorizontally)
-                           .fillMaxWidth(),textAlign = TextAlign.Center)
-                   }
-               }
-
-           }*/
-
-//        Box(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .height(100.dp)
-//                .background(Color.Red)
-//                .padding(20.dp)
-//                .align(Alignment.BottomCenter)
-//                .clip(
-//                    RoundedCornerShape(
-//                        topStart = 30.dp,
-//                        topEnd = 30.dp,
-//                        bottomEnd = 30.dp,
-//                        bottomStart = 30.dp
-//                    )
-//                )
-//        ) {
-//            // Content of the red box
-//        }
 
         // Place the top composable, ensuring it's above the red box
         Box(
@@ -151,7 +86,7 @@ fun BasicHomeLayer() {
                         currentPage = pagerState.currentPage
                     )
                 } else {
-                    CameraListView()
+                    CameraListView(cameralList = dataCameraList)
                 }
             }
         }
@@ -234,7 +169,8 @@ fun BasicHomeLayer() {
                             selectedColumn = 1
                             scrollCoroutineScope.launch {
                                 pagerState.animateScrollToPage(1)
-                            }},
+                            }
+                        },
                     verticalArrangement = Arrangement.Center,
 
 
@@ -254,9 +190,22 @@ fun BasicHomeLayer() {
     }
 
 }
+@Composable
+fun InitialLoadingScreen()
+{
+    Column(modifier =Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+
+        ) {
+        CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+    }
+}
 
 @Preview
 @Composable
 fun prev() {
-    BasicHomeLayer()
+//    InitialLoadingScreen()
+//    BasicHomeLayer(dataCameraList)
 }

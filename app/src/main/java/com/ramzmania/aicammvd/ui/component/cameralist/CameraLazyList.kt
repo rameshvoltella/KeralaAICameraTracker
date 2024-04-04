@@ -15,23 +15,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.colorResource
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 
 
 @Composable
 fun CameraListView(
     modifier: Modifier = Modifier,
-    names: List<String> = List(100) { "$it" }
+    cameralList: List<CameraData>
 ) {
     val listState = remember { LazyListState() }
     LazyColumn(modifier = modifier.padding(vertical = 4.dp),state = rememberLazyListState()) {
-        items(items = names) { name ->
+        items(items = cameralList) { list ->
             Card(
                 colors = CardDefaults.cardColors(
                     containerColor = MaterialTheme.colorScheme.primary
                 ),
                 modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
             ) {
-                CameraLayoutList(name)
+                CameraLayoutList(list.district,list.location)
             }
         }
     }

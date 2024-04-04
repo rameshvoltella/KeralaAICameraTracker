@@ -29,10 +29,13 @@ import com.ramzmania.aicammvd.R
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
+import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.bumptech.glide.integration.compose.GlideImage
 
 
+@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun CameraLayoutList( position:String)
+fun CameraLayoutList( district:String,place:String)
 {
     Row(
         modifier = Modifier
@@ -51,8 +54,8 @@ fun CameraLayoutList( position:String)
                     .wrapContentHeight().align(Alignment.Center)
             ) {
                 Row {
-                    Image(
-                        painter = painterResource(id = R.drawable.snapchatlogo),
+                    GlideImage(
+                        model =  R.drawable.cam_location,
                         contentDescription = "lola",
                         modifier = Modifier
                             .padding(20.dp)
@@ -69,7 +72,7 @@ fun CameraLayoutList( position:String)
 
                     ) {
                         Text(
-                            text = "Track", modifier = Modifier
+                            text = district, modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 20.sp,
@@ -77,7 +80,7 @@ fun CameraLayoutList( position:String)
                             color = colorResource(id = R.color.white_perment)
                         )
                         Text(
-                            text = "item:$position", modifier = Modifier
+                            text = place, modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 16.sp,
