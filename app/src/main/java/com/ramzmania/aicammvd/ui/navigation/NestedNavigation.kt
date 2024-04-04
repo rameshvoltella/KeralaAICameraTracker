@@ -16,10 +16,18 @@ fun NestedNavigationExample(homeViewModel: HomeViewModel) {
         navController = navController,
         startDestination = Screens.LoadingScreen.route
     ) {
+//        composable(route = Screens.LoadingScreen.route) {
+//            InitialLoadingScreen(viewModel = homeViewModel) {
+//                navController.navigate(it,)
+//            }
+//        }
         composable(route = Screens.LoadingScreen.route) {
-            InitialLoadingScreen(viewModel = homeViewModel) {
-                navController.navigate(it,)
-            }
+            InitialLoadingScreen(
+                navigateTo = { route ->
+                    navController.navigate(route)
+                },
+                viewModel = homeViewModel
+            )
         }
         composable(route = Screens.LoginScreen.route) {
             LoginScreen()

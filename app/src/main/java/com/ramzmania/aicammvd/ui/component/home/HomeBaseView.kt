@@ -207,7 +207,7 @@ fun BasicHomeLayer(dataCameraList: List<CameraData>) {
 
 }
 @Composable
-fun InitialLoadingScreen(viewModel: HomeViewModel)
+fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)
 {
 //    @Composable
 //    fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)
@@ -227,6 +227,7 @@ fun InitialLoadingScreen(viewModel: HomeViewModel)
                 // For example:
                 // val cameraDataResponse = resource.data
                 Log.d("tadada","came"+resource.data?.responseList?.get(0)?.district)
+                navigateTo("home")
             }
             is Resource.DataError -> {
                 // Handle error

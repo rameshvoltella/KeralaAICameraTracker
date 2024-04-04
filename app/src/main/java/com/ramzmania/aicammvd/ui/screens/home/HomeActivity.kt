@@ -99,7 +99,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 //                        BasicHomeLayer(dataCameraList!!)
 //                    }
 //                }
-                InitialLoadingScreen(viewModel)
+                NestedNavigationExample(viewModel)
 
 
 
