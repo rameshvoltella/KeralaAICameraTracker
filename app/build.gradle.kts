@@ -92,7 +92,8 @@ dependencies {
     implementation ("androidx.compose.runtime:runtime-livedata:1.6.4")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$2.4.1")
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
-
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+//    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
 }
 kapt {
     correctErrorTypes = true

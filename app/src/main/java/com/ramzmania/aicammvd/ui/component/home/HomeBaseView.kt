@@ -58,6 +58,8 @@ import com.ramzmania.aicammvd.events.SingleEvent
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
+import androidx.compose.runtime.collectAsState
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -208,17 +210,25 @@ fun BasicHomeLayer(dataCameraList: List<CameraData>) {
 
 }
 @Composable
-fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel= hiltViewModel())
+fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel= viewModel())
 {
 //    @Composable
 //    fun InitialLoadingScreen(navigateTo: (route: String) -> Unit,viewModel: HomeViewModel)
 //    {
+    viewModel.incrementCount()
+    viewModel.incrementCount()
+//    viewModel.incrementCount()
+//    viewModel.incrementCount()
+//    viewModel.incrementCount()
+    val count by viewModel.count.collectAsState()
+    Log.d("checker","valll"+count)
     val aiLocationInfo by viewModel.aILocationLiveData.observeAsState(Resource.Loading())
     aiLocationInfo?.let { resource ->
         when (resource) {
             is Resource.Loading -> {
                 // Show loading indicator
                 Log.d("tadada","came1")
+                viewModel.incrementCount()
 
             }
             is Resource.Success -> {
@@ -315,7 +325,13 @@ fun prev() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(viewModel: HomeViewModel = hiltViewModel()) {
+//    viewModel.incrementCount()
+//    val count = viewModel.count
+    val aiLocationInfo by viewModel.aILocationLiveData.observeAsState(Resource.Loading())
+    val count by viewModel.count.collectAsState()
+    Log.d("checker","valllanother"+count)
+    Log.d("updated","yohoo"+aiLocationInfo.data?.responseList?.size)
     Scaffold(topBar = {
         TopAppBar(
             title = { Text(text = "Login") },

@@ -4,14 +4,17 @@ import android.app.Activity
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
@@ -19,6 +22,7 @@ import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
+import com.ramzmania.aicammvd.viewmodel.MyViewModel
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -125,5 +129,19 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
             }
 
         }
+    }
+
+    @Composable
+    fun MyScreen(viewModel: MyViewModel) {
+        Text(text = "Count: ${viewModel.count}")
+        Button(onClick = { viewModel.incrementCount() }) {
+            Text("Increment")
+        }
+    }
+
+    @Preview
+    @Composable
+    fun PreviewMyScreen() {
+        MyScreen(viewModel = MyViewModel())
     }
 }
