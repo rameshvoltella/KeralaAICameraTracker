@@ -4,16 +4,20 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ramzmania.aicammvd.ui.component.home.BasicHomeLayer
-import com.ramzmania.aicammvd.ui.component.home.InitialLoadingScreen
-import com.ramzmania.aicammvd.ui.component.home.LoginScreen
-import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ramzmania.aicammvd.ui.navigation.Screens
 
 @Composable
-fun TestNavigationExample(viewModel: TestViewModel) {
+fun TestNavigationExample() {
     val navController = rememberNavController()
+    val viewModel: TestViewModel = viewModel()
+
+
+    val incrementCountData: (Int) -> Unit = viewModel::incrementCount
+    val count by viewModel.count.collectAsState()
+
     NavHost(
         navController = navController,
         startDestination = Screens.Screenone.route
@@ -24,17 +28,17 @@ fun TestNavigationExample(viewModel: TestViewModel) {
 //            }
 //        }
         composable(route = Screens.Screenone.route) {
-            Screenone(testViewModel = viewModel,
+            Screenone(incrementCountData,
                 navigateTo = { route ->
                     navController.navigate(route)
                 }
             )
         }
         composable(route = Screens.Screentwo.route) {
-            ScreenTwo(testViewModel= viewModel
-                ,navigateTo = { route ->
+            ScreenTwo(count
+            ) { route ->
                 navController.navigate(route)
-            })
+            }
         }
     }
 }

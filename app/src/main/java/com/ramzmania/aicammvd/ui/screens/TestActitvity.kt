@@ -32,7 +32,7 @@ class TestActitvity: BaseComposeActivity<TestViewModel>() {
                     .fillMaxSize()
                     .background(Color.Yellow)
             ) {
-                TestNavigationExample(viewModel)
+                TestNavigationExample()
             }
         }
     }

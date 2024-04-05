@@ -7,10 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun Screenone(testViewModel: TestViewModel,navigateTo: (route: String) -> Unit)
+fun Screenone( incrementCount: (Int) -> Unit,navigateTo: (route: String) -> Unit)
 {
     Column {
-        Button(onClick = {testViewModel.incrementCount(3000)}) {
+        Button(onClick = {incrementCount(3000)}) {
             Text(text = "increment")
         }
         Button( onClick = {navigateTo("scr2")}) {
