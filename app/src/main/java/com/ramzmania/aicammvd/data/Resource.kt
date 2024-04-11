@@ -1,5 +1,7 @@
 package com.ramzmania.aicammvd.data
 
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
+
 // A generic class that contains data and status about loading this data.
 sealed class Resource<T>(
         val data: T? = null,
@@ -23,4 +25,6 @@ sealed class Resource<T>(
             is DataErrorInstance<T> -> "Error[exception=$errorCode instanceIdentifier=$instanceIdentifier]"
         }
     }
+
+
 }
