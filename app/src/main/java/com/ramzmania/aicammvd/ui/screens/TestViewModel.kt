@@ -1,6 +1,8 @@
 package com.ramzmania.aicammvd.ui.screens
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
@@ -22,14 +24,28 @@ class TestViewModel @Inject constructor(val localRepositorySource: LocalReposito
         _count.value=value
        // Log.d("changed","value"+_count)
     }
-    private val _aILocationLiveDataPrivate = MutableStateFlow<Resource<CameraDataResponse>>(Resource.Loading())
-    val aILocationLiveData: StateFlow<Resource<CameraDataResponse>> = _aILocationLiveDataPrivate
 
-    fun fetchAiLocationInfo() {
+    private val screendata =MutableStateFlow("screeen1")
+    fun  changeScreen(screendata: String)
+    {
+        this.screendata.value=screendata
+    }
+
+    val screenState=screendata.asStateFlow()
+
+    private val aILocationLiveDataPrivate= MutableLiveData<Resource<CameraDataResponse>>()
+    var counter = MutableLiveData<Int>(0)
+    val aILocationLiveData : LiveData<Resource<CameraDataResponse>> get() = aILocationLiveDataPrivate
+    val _items = mutableListOf<CameraDataResponse>()
+
+    fun fetchAiLocationInfo()
+    {
         viewModelScope.launch {
-            _aILocationLiveDataPrivate.value = Resource.Loading()
+
+            aILocationLiveDataPrivate.value=Resource.Loading()
+
             localRepositorySource.requestCameraLocation().collect {
-                _aILocationLiveDataPrivate.value = it
+                aILocationLiveDataPrivate.value = it
             }
         }
     }

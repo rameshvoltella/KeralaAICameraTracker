@@ -13,13 +13,14 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ramzmania.aicammvd.data.Resource
 
 @Composable
-fun ScreenTwo(count: Int, navigateTo: (route: String) -> Unit)
+fun ScreenThree(count: Int, navigateTo: (route: String) -> Unit)
 {
 //    val testViewModel = viewModel<TestViewModel>()
 
 //    val count by testViewModel.count.collectAsState()
     val model = viewModel<TestViewModel>()
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
+
     Column {
         Button(onClick = {
             model.fetchAiLocationInfo()
@@ -39,9 +40,10 @@ fun ScreenTwo(count: Int, navigateTo: (route: String) -> Unit)
                         // val cameraDataResponse = resource.data
                         Log.d("tadada","came"+resource.data?.responseList?.get(0)?.district)
 //                        navigateTo("home")
-                        model.incrementCount(2000)
-                        model.changeScreen("screen 2")
-                        navigateTo("scr3")
+                        model.incrementCount(3000)
+                        model.changeScreen("screen 3")
+
+//                        navigateTo("scr3")
                     }
                     is Resource.DataError -> {
                         // Handle error
@@ -76,15 +78,9 @@ fun ScreenTwo(count: Int, navigateTo: (route: String) -> Unit)
                 }
             }}) {
 //            Log.d("checker","valll"+count)
-            Text(text = "incrementTwo${model.count.collectAsState().value}")
+            Text(text = "incrementThree${model.count.value}")
         }
 
     }
 }
 
-@Preview
-@Composable
-fun checkers()
-{
-//    ScreenTwo(null)
-}

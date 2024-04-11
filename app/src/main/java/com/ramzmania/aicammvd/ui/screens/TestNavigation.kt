@@ -50,5 +50,16 @@ fun TestNavigationExample() {
             }
 
         }
+        composable(route = Screens.Screenthree.route) {
+            CompositionLocalProvider(
+                LocalViewModelStoreOwner provides viewModelStoreOwner
+            ) {
+                ScreenThree(count
+                ) { route ->
+                    navController.navigate(route)
+                }
+            }
+
+        }
     }
 }
