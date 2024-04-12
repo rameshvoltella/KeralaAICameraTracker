@@ -23,9 +23,13 @@ constructor(private val localRepositorySource: LocalRepositorySource
 ) : BaseViewModel() {
 
     private val aILocationLiveDataPrivate= MutableLiveData<Resource<CameraDataResponse>>()
-    var counter =MutableLiveData<Int>(0)
     val aILocationLiveData : LiveData<Resource<CameraDataResponse>> get() = aILocationLiveDataPrivate
-     val _items = mutableListOf<CameraDataResponse>()
+    private val locationEnabledPrivate = MutableStateFlow(false)
+    val locationEnabled =locationEnabledPrivate.asStateFlow()
+
+    fun updateLocationData(value:Boolean) {
+        locationEnabledPrivate.value=value
+    }
 
     fun fetchAiLocationInfo()
     {
@@ -38,22 +42,6 @@ constructor(private val localRepositorySource: LocalRepositorySource
             }
         }
     }
-
-    fun incrementCount(incomming:Int) {
-        _count.value=incomming
-    }
-
-    private val _count = MutableStateFlow(0)
-//    val count: Int = _count.value
-    val count =_count.asStateFlow()
-
-    fun incrementCount() {
-        _count.value=2000
-        Log.d("changed","value"+_count)
-    }
-
-    private val _isLoading = MutableStateFlow(true)
-    val isLoading = _isLoading.asStateFlow()
 
 
 }

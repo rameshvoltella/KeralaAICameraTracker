@@ -10,4 +10,7 @@ sealed class Screens(val route : String) {
     object Screenthree : Screens("scr3")
 
 
+    object HomeScreen : Screens("homebase")
+
+
 }

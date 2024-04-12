@@ -4,9 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.ramzmania.aicammvd.ui.component.home.BasicHomeLayer
-import com.ramzmania.aicammvd.ui.component.home.InitialLoadingScreen
-import com.ramzmania.aicammvd.ui.component.home.LoginScreen
+
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import androidx.compose.runtime.collectAsState
 @Composable
@@ -22,14 +20,14 @@ fun NestedNavigationExample(homeViewModel: HomeViewModel) {
 //            }
 //        }
         composable(route = Screens.LoadingScreen.route) {
-            InitialLoadingScreen(
-                navigateTo = { route ->
-                    navController.navigate(route)
-                }
-            )
+//            InitialLoadingScreen(
+//                navigateTo = { route ->
+//                    navController.navigate(route)
+//                }
+//            )
         }
         composable(route = Screens.LoginScreen.route) {
-            LoginScreen()
+            //LoginScreen()
         }
     }
 }
