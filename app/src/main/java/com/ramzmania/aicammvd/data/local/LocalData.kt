@@ -23,14 +23,16 @@ private val contextModule: ContextModule
 //        val json = contextModule.context.assets.open(jsonFileName).bufferedReader().use {
 //            it.readText()
 //        }
+//        val json = withContext(Dispatchers.IO) {
+////            Thread.sleep(8000)
+//            Log.d("Stared","yoooo")
+//            contextModule.context.assets.open(jsonFileName).bufferedReader().use { it.readText() }
+//        }
         val json = withContext(Dispatchers.IO) {
-//            Thread.sleep(8000)
-            Log.d("Stared","yoooo")
             contextModule.context.assets.open(jsonFileName).bufferedReader().use { it.readText() }
         }
 //        Thread.sleep(8000)
 
-        Log.d("Stared","yoooo2222")
 
         val moshi = Moshi.Builder()
             .add(MyKotlinJsonAdapterFactory())

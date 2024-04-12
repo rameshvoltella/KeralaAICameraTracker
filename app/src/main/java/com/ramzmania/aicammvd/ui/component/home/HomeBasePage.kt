@@ -100,12 +100,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             else -> {}
         }
     }
-    Box(modifier = Modifier.fillMaxSize()) {
-        CircularProgressIndicator(
-            modifier = Modifier.align(Alignment.Center),
-            strokeWidth = 8.dp
-        )
-    }
+
 
     LaunchedEffect(key1 = Unit) {
 
@@ -116,10 +111,10 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     Box(modifier = Modifier.fillMaxSize()) {
         when (aiLocationInfo) {
             is Resource.Loading -> {
-//                CircularProgressIndicator(
-//                    modifier = Modifier.align(Alignment.Center),
-//                    strokeWidth = 8.dp
-//                )
+                CircularProgressIndicator(
+                    modifier = Modifier.align(Alignment.Center),
+                    strokeWidth = 8.dp
+                )
             }
 
             is Resource.Success -> {
@@ -129,7 +124,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                     dataCameraList = aiLocationInfo.data?.responseList
                     nearestHundredCameras = dataCameraList?.findNearestCameras(9.759041581724828, 76.4833893696677)
 
-                Box(modifier = Modifier.fillMaxSize()) {
+//                Box(modifier = Modifier.fillMaxSize()) {
                     // Place the bottom composable first
 
 
@@ -258,7 +253,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                         }
 
                     }
-                }
+//                }
 
 
             }

@@ -24,6 +24,7 @@ constructor(private val localRepositorySource: LocalRepositorySource
 
     private val aILocationLiveDataPrivate= MutableLiveData<Resource<CameraDataResponse>>()
     val aILocationLiveData : LiveData<Resource<CameraDataResponse>> get() = aILocationLiveDataPrivate
+
     private val locationEnabledPrivate = MutableStateFlow(false)
     val locationEnabled =locationEnabledPrivate.asStateFlow()
 
