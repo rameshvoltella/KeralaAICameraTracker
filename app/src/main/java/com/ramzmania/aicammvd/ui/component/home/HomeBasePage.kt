@@ -278,8 +278,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                             if (page == 0) {
                                 TrackerViewpagerItem(
                                     centerImage = R.drawable.came_new,
-                                    title = "kona",
-                                    subtitle = "kokona",
+                                    title = "Track AI Camera",
+                                    subtitle = "Location  : OFF",
                                     enabledLocationValue=model.locationEnabled.value,
                                 )
                             } else {

@@ -34,18 +34,19 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
-import com.ramzmania.aicammvd.ui.screens.TestViewModel
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabledLocationValue:Boolean) {
     val context = LocalContext.current
+   // , enabledLocation: (Boolean) -> Unit
     val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     val imagePainter = painterResource(id = centerImage)
     var innerCircleSize by remember { mutableStateOf(140.dp) }
     var enableRememberLocation by remember { mutableStateOf(enabledLocationValue)}
     var innerColor by remember { mutableStateOf(R.color.red_demo) }
+    var subtitleText by remember { mutableStateOf(subtitle) }
     val model = viewModel<HomeViewModel>()
 
     LaunchedEffect(key1 = enableRememberLocation )
@@ -55,11 +56,13 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
+            subtitleText="Location : ON "
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
+            subtitleText="Location : OFF"
 
         }
     }
@@ -135,7 +138,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 //                modifier = Modifier.padding(20.dp).width(100.dp).height(100.dp)
 //            )
 
-                Text(text = subtitle, fontSize = 16.sp,
+                Text(text = subtitleText, fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
