@@ -23,7 +23,7 @@ fun CameraListView(
     modifier: Modifier = Modifier,
     cameralList: List<CameraData>
 ) {
-    val listState = remember { LazyListState() }
+//    val listState = remember { LazyListState() }
     LazyColumn(modifier = modifier.padding(vertical = 4.dp),state = rememberLazyListState()) {
         items(items = cameralList) { list ->
             Card(

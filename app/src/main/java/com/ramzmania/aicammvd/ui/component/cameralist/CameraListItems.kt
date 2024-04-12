@@ -66,8 +66,8 @@ fun CameraLayoutList( district:String,place:String)
 //                    )
                     AsyncImage(
                         model = ImageRequest.Builder(LocalContext.current)
-                            .data(R.drawable.cam_location)
-                            .crossfade(true)
+                            .data(R.drawable.ic_livevideo_doubt)
+                           // .crossfade(true)
                             .build(),
                         contentDescription = "Drawable Images",
                         modifier = Modifier
