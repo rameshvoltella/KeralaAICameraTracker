@@ -56,9 +56,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     var selectedColumn by remember { mutableStateOf(0) }
     val scrollCoroutineScope = rememberCoroutineScope()
     var dataCameraList: List<CameraData>? = null
-
+    var nearestHundredCameras:List<CameraData>?=null
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
-    var isLoading = true
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
     val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationData
 
@@ -122,6 +121,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 //Text("Sucess", modifier = Modifier.align(Alignment.Center))
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     dataCameraList = aiLocationInfo.data?.responseList
+                  nearestHundredCameras = dataCameraList?.findNearestCameras(9.759041581724828, 76.4833893696677)
 
                 Box(modifier = Modifier.fillMaxSize()) {
                     // Place the bottom composable first
@@ -151,7 +151,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     enabledLocationValue=model.locationEnabled.value,
                                 )
                             } else {
-                                val nearestHundredCameras = dataCameraList?.findNearestCameras(9.759041581724828, 76.4833893696677)
                                 CameraListView(cameralList = nearestHundredCameras!!)
                             }
                         }

@@ -31,24 +31,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabledLocationValue:Boolean) {
     val context = LocalContext.current
    // , enabledLocation: (Boolean) -> Unit
     val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    val imagePainter = painterResource(id = centerImage)
     var innerCircleSize by remember { mutableStateOf(140.dp) }
     var enableRememberLocation by remember { mutableStateOf(enabledLocationValue)}
     var innerColor by remember { mutableStateOf(R.color.red_demo) }
     var subtitleText by remember { mutableStateOf(subtitle) }
     val model = viewModel<HomeViewModel>()
-
+//    val kkpp:(Boolean)->Unit= model::updateLocationData
+//    kkpp(true)
     LaunchedEffect(key1 = enableRememberLocation )
     {
         if(enableRememberLocation)

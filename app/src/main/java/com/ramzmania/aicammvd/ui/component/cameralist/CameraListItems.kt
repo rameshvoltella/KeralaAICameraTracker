@@ -29,11 +29,12 @@ import com.ramzmania.aicammvd.R
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun CameraLayoutList( district:String,place:String)
 {
@@ -54,14 +55,27 @@ fun CameraLayoutList( district:String,place:String)
                     .wrapContentHeight().align(Alignment.Center)
             ) {
                 Row {
-                    GlideImage(
-                        model =  R.drawable.cam_location,
-                        contentDescription = "lola",
+//                    GlideImage(
+//                        model =  R.drawable.cam_location,
+//                        contentDescription = "lola",
+//                        modifier = Modifier
+//                            .padding(20.dp)
+//                            .height(20.dp)
+//                            .width(20.dp)
+//                            .align(Alignment.CenterVertically)
+//                    )
+                    AsyncImage(
+                        model = ImageRequest.Builder(LocalContext.current)
+                            .data(R.drawable.cam_location)
+                            .crossfade(true)
+                            .build(),
+                        contentDescription = "Drawable Images",
                         modifier = Modifier
                             .padding(20.dp)
                             .height(20.dp)
                             .width(20.dp)
-                            .align(Alignment.CenterVertically)
+                            .align(Alignment.CenterVertically),
+                        contentScale = ContentScale.Crop
                     )
                     Column(
                         modifier = Modifier
