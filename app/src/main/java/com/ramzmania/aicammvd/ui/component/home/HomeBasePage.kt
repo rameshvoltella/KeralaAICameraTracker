@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.ui.component.home
 
+import android.location.Location
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -59,7 +60,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     var isLoading = true
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
-    val updateLocationData: (Boolean) -> Unit = model::updateLocationData
+    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationData
 
     LaunchedEffect(pagerState) {
         // Collect from the a snapshotFlow reading the currentPage
@@ -150,7 +151,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     enabledLocationValue=model.locationEnabled.value,
                                 )
                             } else {
-                                CameraListView(cameralList = dataCameraList!!)
+                                val nearestHundredCameras = dataCameraList?.findNearestCameras(9.759041581724828, 76.4833893696677)
+                                CameraListView(cameralList = nearestHundredCameras!!)
                             }
                         }
                     }
@@ -264,4 +266,18 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
         }
     }
 
+}
+
+fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
+    val currentLocation = Location("").apply {
+        latitude = currentLat
+        longitude = currentLong
+    }
+
+    return sortedBy {
+        Location("").apply {
+            latitude = it.latitude
+            longitude = it.longitude
+        }.distanceTo(currentLocation)
+    }.take(100)
 }
