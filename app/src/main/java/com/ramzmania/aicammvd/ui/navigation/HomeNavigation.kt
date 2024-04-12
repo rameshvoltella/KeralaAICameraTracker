@@ -1,6 +1,7 @@
 package com.ramzmania.aicammvd.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,11 +20,15 @@ fun HomeNavigation() {
     ) {
 
         composable(route = Screens.HomeScreen.route) {
-            HomeLayer(viewModelStoreOwner,
-                navigateTo = { route ->
-                    navController.navigate(route)
-                }
-            )
+            CompositionLocalProvider(
+                LocalViewModelStoreOwner provides viewModelStoreOwner
+            ) {
+                HomeLayer(viewModelStoreOwner,
+                    navigateTo = { route ->
+                        navController.navigate(route)
+                    }
+                )
+            }
         }
 
     }

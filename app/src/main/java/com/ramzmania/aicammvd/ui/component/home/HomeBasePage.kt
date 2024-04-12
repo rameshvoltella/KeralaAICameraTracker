@@ -281,7 +281,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     title = "kona",
                                     subtitle = "kokona",
                                     enabledLocationValue=model.locationEnabled.value,
-                                    enabledLocation=updateLocationData
                                 )
                             } else {
                                 CameraListView(cameralList = dataCameraList!!)
