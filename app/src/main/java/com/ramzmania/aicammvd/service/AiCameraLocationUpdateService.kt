@@ -1,6 +1,5 @@
 package com.ramzmania.aicammvd.service
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
@@ -8,13 +7,11 @@ import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
@@ -51,7 +48,7 @@ class AiCameraLocationUpdateService: Service() {
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         startLocationUpdates()
         PreferencesUtil.setServiceRunning(this, true)
-        val value=LocationSharedFlow.serviceStatus.tryEmit(true)
+        val value=LocationSharedFlow.serviceStopStatus.tryEmit(false)
         Log.d("vadada",">>onstart>"+value)
 
         return START_STICKY
@@ -129,7 +126,7 @@ class AiCameraLocationUpdateService: Service() {
     override fun onDestroy() {
         super.onDestroy()
         PreferencesUtil.setServiceRunning(this, false)
-       val value=LocationSharedFlow.serviceStatus.tryEmit(false)
+       val value=LocationSharedFlow.serviceStopStatus.tryEmit(true)
         Log.d("vadada",">>>"+value)
         locationClient.removeLocationUpdates(locationCallback)
     }

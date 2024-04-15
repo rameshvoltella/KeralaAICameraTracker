@@ -4,28 +4,25 @@ import android.content.Context
 import android.content.Intent
 import android.location.Location
 import android.os.Build
-import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.ramzmania.aicammvd.data.ContextModule
 import com.ramzmania.aicammvd.data.Resource
-import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel@Inject
-constructor(private val localRepositorySource: LocalRepositorySource
+constructor(private val localRepositorySource: LocalRepositorySource, private var contextModule: ContextModule
 ) : BaseViewModel() {
 
     private val aILocationLiveDataPrivate= MutableLiveData<Resource<CameraDataResponse>>()
@@ -34,8 +31,8 @@ constructor(private val localRepositorySource: LocalRepositorySource
     private val locationEnabledPrivate = MutableStateFlow(false)
     val locationEnabled =locationEnabledPrivate.asStateFlow()
 
-    private val locationServiceStaredPrivate= MutableStateFlow(false)
-    val  locationServiceStared=locationServiceStaredPrivate.asStateFlow()
+    private val locationServiceStoppedPrivate= MutableStateFlow(false)
+    val  locationServiceStared=locationServiceStoppedPrivate.asStateFlow()
 
     private val locationDataPrivate = MutableLiveData<Location>()
     val locationData: LiveData<Location> = locationDataPrivate
@@ -51,20 +48,22 @@ constructor(private val localRepositorySource: LocalRepositorySource
         }
 
         viewModelScope.launch {
-            LocationSharedFlow.serviceStatus.collect { location ->
+            LocationSharedFlow.serviceStopStatus.collect { status ->
 
-                locationServiceStaredPrivate.value = location
+                locationServiceStoppedPrivate.value = status
 //                Log.d("Location Flow Update", "Lat: ${location.first}, Long: ${location.second}")
             }
         }
+        locationEnabledPrivate.value=PreferencesUtil.isServiceRunning(contextModule.context)
     }
-    fun updateLocationData(value:Boolean) {
+    fun updateLocationButton(value:Boolean) {
         locationEnabledPrivate.value=value
+
     }
 
     fun setTackingServiceRunning(isStarted:Boolean)
     {
-        locationServiceStaredPrivate.value=isStarted
+     //   locationServiceStaredPrivate.value=isStarted
     }
 
     fun fetchAiLocationInfo()
@@ -86,7 +85,7 @@ constructor(private val localRepositorySource: LocalRepositorySource
             } else {
                 context.startService(intent)
             }
-            setTackingServiceRunning(true)
+            //setTackingServiceRunning(true)
         }
     }
 
@@ -94,7 +93,7 @@ constructor(private val localRepositorySource: LocalRepositorySource
         Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
             context.stopService(intent)
         }
-        setTackingServiceRunning(false)
+       // setTackingServiceRunning(false)
 
     }
 

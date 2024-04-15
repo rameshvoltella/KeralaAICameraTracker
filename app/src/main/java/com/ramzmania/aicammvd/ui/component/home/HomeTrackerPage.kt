@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -25,10 +26,8 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -64,18 +63,16 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 //    val kkpp:(Boolean)->Unit= model::updateLocationData
 //    kkpp(true)
     val stopFromService:Boolean=model.locationServiceStared.collectAsState().value
+
+
     LaunchedEffect(stopFromService) {
+        Log.d("camed","yooooo"+stopFromService)
         // Collect from the a snapshotFlow reading the currentPage
       if(stopFromService)
       {
-          innerCircleSize -= 5.dp
-          innerColor=R.color.green_kelly_color
-          subtitleText="Location : ON "
-      }else
-      {
-          innerCircleSize =140.dp
-          innerColor= R.color.red_demo
-          subtitleText="Location : OFF"
+          model.updateLocationButton(false)
+          enableRememberLocation = false
+
       }
     }
     LaunchedEffect(permissionsState) {
@@ -89,14 +86,12 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
             subtitleText="Location : ON "
-            model.startLocationService(context)
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
             subtitleText="Location : OFF"
-            model.stopLocationService(context)
 
         }
     }
@@ -166,10 +161,12 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 
                                     }
                                     enableRememberLocation = true
-                                    model.updateLocationData(true)
+                                    model.updateLocationButton(true)
+                                    model.startLocationService(context)
                                 } else {
                                     enableRememberLocation = false
-                                    model.updateLocationData(false)
+                                    model.updateLocationButton(false)
+                                    model.stopLocationService(context)
 
 
                                 }
