@@ -61,6 +61,7 @@ constructor(private val localRepositorySource: LocalRepositorySource
             } else {
                 context.startService(intent)
             }
+            setTackingServiceRunning(true)
         }
     }
 
@@ -68,6 +69,8 @@ constructor(private val localRepositorySource: LocalRepositorySource
         Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
             context.stopService(intent)
         }
+        setTackingServiceRunning(false)
+
     }
 
 
