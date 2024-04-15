@@ -19,11 +19,13 @@ import androidx.compose.ui.Modifier
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -61,6 +63,21 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
 //    val kkpp:(Boolean)->Unit= model::updateLocationData
 //    kkpp(true)
+    val stopFromService:Boolean=model.locationServiceStared.collectAsState().value
+    LaunchedEffect(stopFromService) {
+        // Collect from the a snapshotFlow reading the currentPage
+      if(stopFromService)
+      {
+          innerCircleSize -= 5.dp
+          innerColor=R.color.green_kelly_color
+          subtitleText="Location : ON "
+      }else
+      {
+          innerCircleSize =140.dp
+          innerColor= R.color.red_demo
+          subtitleText="Location : OFF"
+      }
+    }
     LaunchedEffect(permissionsState) {
         showPermissionsDialog = !allPermissionsGranted
     }
@@ -182,7 +199,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                        text = "Your location :"+model.locationData.observeAsState().value?.latitude+":"+model.locationData.observeAsState().value?.longitude, fontSize = 16.sp,
+                        text = "Your location :"+model.locationData.observeAsState().value?.latitude+":"+model.locationData.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value, fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),

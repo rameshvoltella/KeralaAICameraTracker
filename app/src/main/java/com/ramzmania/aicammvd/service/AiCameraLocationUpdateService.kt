@@ -21,6 +21,7 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -49,6 +50,9 @@ class AiCameraLocationUpdateService: Service() {
 
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         startLocationUpdates()
+        PreferencesUtil.setServiceRunning(this, true)
+        val value=LocationSharedFlow.serviceStatus.tryEmit(true)
+        Log.d("vadada",">>onstart>"+value)
 
         return START_STICKY
     }
@@ -104,7 +108,7 @@ class AiCameraLocationUpdateService: Service() {
         return notificationBuilder
             .setContentTitle("Location Service")
             .setContentText("Tracking location...")
-            .setSmallIcon(R.drawable.snapchatlogo)
+            .setSmallIcon(R.drawable.red_location)
             .setOngoing(true) // Set ongoing to true to make the notification sticky
             .addAction(R.drawable.ic_livevideo_doubt, "Stop", stopPendingIntent)  // Assuming you have an ic_stop drawable
             .build()
@@ -124,6 +128,9 @@ class AiCameraLocationUpdateService: Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        PreferencesUtil.setServiceRunning(this, false)
+       val value=LocationSharedFlow.serviceStatus.tryEmit(false)
+        Log.d("vadada",">>>"+value)
         locationClient.removeLocationUpdates(locationCallback)
     }
 

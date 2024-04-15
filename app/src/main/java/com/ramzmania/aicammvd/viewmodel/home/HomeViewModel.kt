@@ -33,17 +33,27 @@ constructor(private val localRepositorySource: LocalRepositorySource
 
     private val locationEnabledPrivate = MutableStateFlow(false)
     val locationEnabled =locationEnabledPrivate.asStateFlow()
+
     private val locationServiceStaredPrivate= MutableStateFlow(false)
     val  locationServiceStared=locationServiceStaredPrivate.asStateFlow()
 
     private val locationDataPrivate = MutableLiveData<Location>()
     val locationData: LiveData<Location> = locationDataPrivate
 
+
     init {
         viewModelScope.launch {
             LocationSharedFlow.locationFlow.collect { location ->
 
                 locationDataPrivate.value = location
+//                Log.d("Location Flow Update", "Lat: ${location.first}, Long: ${location.second}")
+            }
+        }
+
+        viewModelScope.launch {
+            LocationSharedFlow.serviceStatus.collect { location ->
+
+                locationServiceStaredPrivate.value = location
 //                Log.d("Location Flow Update", "Lat: ${location.first}, Long: ${location.second}")
             }
         }

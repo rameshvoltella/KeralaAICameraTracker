@@ -24,6 +24,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -63,7 +64,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
     val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationData
-
+//    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
     LaunchedEffect(pagerState) {
         // Collect from the a snapshotFlow reading the currentPage
         snapshotFlow { pagerState.currentPage }.collect { page ->
