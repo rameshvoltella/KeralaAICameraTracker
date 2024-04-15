@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -52,7 +53,6 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     var subtitleText by remember { mutableStateOf(subtitle) }
     val model = viewModel<HomeViewModel>()
     var showPermissionsDialog by remember { mutableStateOf(false) }
-
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION
@@ -174,6 +174,15 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 
                     Text(
                         text = subtitleText, fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
+                        color = colorResource(id = R.color.white_perment)
+
+                    )
+
+                    Text(
+                        text = "Your location :"+model.locationData.observeAsState().value?.latitude+":"+model.locationData.observeAsState().value?.longitude, fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),

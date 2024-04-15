@@ -13,12 +13,14 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Looper
+import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
+import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -81,7 +83,12 @@ class AiCameraLocationUpdateService: Service() {
 
     private fun handleNewLocation(location: Location) {
         // Handle your location update logic here
-        Toast.makeText(applicationContext,"Konanana"+location.latitude+"Long:"+location.longitude,1).show()
+        Log.d("Location Flow Update", "Lat: passing")
+
+//        val locationData = Pair(location.latitude, location.longitude)
+         LocationSharedFlow.locationFlow.tryEmit(location)
+//        Log.d("LocationService", "Emission successful:"+ location.latitude+"<>"+location.longitude)
+//        Toast.makeText(applicationContext,"Konanana"+location.latitude+"Long:"+location.longitude,1).show()
     }
 
     private fun getNotification(): Notification {

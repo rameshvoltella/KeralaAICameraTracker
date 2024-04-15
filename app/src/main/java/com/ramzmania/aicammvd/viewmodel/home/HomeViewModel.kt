@@ -2,6 +2,7 @@ package com.ramzmania.aicammvd.viewmodel.home
 
 import android.content.Context
 import android.content.Intent
+import android.location.Location
 import android.os.Build
 import android.util.Log
 import androidx.compose.runtime.MutableState
@@ -15,6 +16,7 @@ import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
+import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -33,6 +35,19 @@ constructor(private val localRepositorySource: LocalRepositorySource
     val locationEnabled =locationEnabledPrivate.asStateFlow()
     private val locationServiceStaredPrivate= MutableStateFlow(false)
     val  locationServiceStared=locationServiceStaredPrivate.asStateFlow()
+
+    private val locationDataPrivate = MutableLiveData<Location>()
+    val locationData: LiveData<Location> = locationDataPrivate
+
+    init {
+        viewModelScope.launch {
+            LocationSharedFlow.locationFlow.collect { location ->
+
+                locationDataPrivate.value = location
+//                Log.d("Location Flow Update", "Lat: ${location.first}, Long: ${location.second}")
+            }
+        }
+    }
     fun updateLocationData(value:Boolean) {
         locationEnabledPrivate.value=value
     }
