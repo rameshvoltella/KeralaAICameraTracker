@@ -28,7 +28,7 @@ fun CameraListView(
         items(items = cameralList) { list ->
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primary
+                    containerColor = colorResource(id = R.color.circle_outer)
                 ),
                 modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
             ) {

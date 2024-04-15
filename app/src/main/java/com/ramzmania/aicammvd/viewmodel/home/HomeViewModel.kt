@@ -1,5 +1,8 @@
 package com.ramzmania.aicammvd.viewmodel.home
 
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -10,6 +13,7 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
+import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,9 +31,15 @@ constructor(private val localRepositorySource: LocalRepositorySource
 
     private val locationEnabledPrivate = MutableStateFlow(false)
     val locationEnabled =locationEnabledPrivate.asStateFlow()
-
+    private val locationServiceStaredPrivate= MutableStateFlow(false)
+    val  locationServiceStared=locationServiceStaredPrivate.asStateFlow()
     fun updateLocationData(value:Boolean) {
         locationEnabledPrivate.value=value
+    }
+
+    fun setTackingServiceRunning(isStarted:Boolean)
+    {
+        locationServiceStaredPrivate.value=isStarted
     }
 
     fun fetchAiLocationInfo()
@@ -41,6 +51,22 @@ constructor(private val localRepositorySource: LocalRepositorySource
             localRepositorySource.requestCameraLocation().collect {
                 aILocationLiveDataPrivate.value = it
             }
+        }
+    }
+
+    fun startLocationService(context:Context) {
+        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(intent)
+            } else {
+                context.startService(intent)
+            }
+        }
+    }
+
+    fun stopLocationService(context:Context) {
+        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
+            context.stopService(intent)
         }
     }
 

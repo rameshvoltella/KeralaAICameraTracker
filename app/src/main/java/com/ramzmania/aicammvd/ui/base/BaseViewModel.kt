@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ramzmania.aicammvd.events.SingleEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 
@@ -35,5 +37,11 @@ abstract class BaseViewModel : ViewModel() {
         showToastPrivate.value = SingleEvent(msg)
     }
 
+    private val _permissionsGranted = MutableStateFlow(false)
+    val permissionsGranted = _permissionsGranted.asStateFlow()
+
+    fun setPermissionsGranted(granted: Boolean) {
+        _permissionsGranted.value = granted
+    }
 
 }

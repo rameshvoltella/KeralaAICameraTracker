@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.ui.component.home
 
+import android.Manifest
 import android.location.Location
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -40,10 +41,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
+import com.ramzmania.aicammvd.utils.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -281,3 +284,5 @@ fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double)
         }.distanceTo(currentLocation)
     }.take(100)
 }
+
+
