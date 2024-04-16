@@ -24,14 +24,16 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
         val extras = intent.extras
         Log.d("hey",extras.toString())
         Log.d("hey1",extras?.getString("lat").toString())
+        val location = geofencingEvent.triggeringLocation
+
         when (geofencingEvent.geofenceTransition) {
             Geofence.GEOFENCE_TRANSITION_ENTER -> {
                 if (extras != null) {
                     showNotification(
                         context!!,
                         "Entering Geofence",
-                        "You entered geofence with latitude ${extras.getString("lat")} longitude ${
-                            extras.getString("lon")
+                        "You entered geofence with latitude ${location?.latitude} longitude ${
+                            location?.longitude
                         } radius ${extras.getString("radius")}"
                     )
                 }

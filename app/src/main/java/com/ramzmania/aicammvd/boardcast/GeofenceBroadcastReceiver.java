@@ -3,6 +3,7 @@ package com.ramzmania.aicammvd.boardcast;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -51,12 +52,12 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
         }
         List<Geofence> geofence=geofencingEvent.getTriggeringGeofences();
 
-      //  Location location=geofencingEvent.getTriggeringLocation();
+        Location location=geofencingEvent.getTriggeringLocation();
         int transitiontype=geofencingEvent.getGeofenceTransition();
         switch (transitiontype)
         {
             case Geofence.GEOFENCE_TRANSITION_ENTER:
-                Toast.makeText(context, "entered", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "entered"+geofence.size()+"<>"+geofence.get(0).getRequestId()+"<>"+location.getLatitude(), Toast.LENGTH_SHORT).show();
                 notificationHelper.sendHighPriorityNotification("entered","", HomeActivity.class);
             case Geofence.GEOFENCE_TRANSITION_DWELL:
                 Toast.makeText(context, "ROAMING", Toast.LENGTH_SHORT).show();
