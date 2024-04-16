@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ramzmania.aicammvd.data.ContextModule
 import com.ramzmania.aicammvd.data.Resource
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
@@ -40,6 +41,12 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
 
     private val currentLocationDataPrivate = MutableLiveData<Location>()
     val currentLocation: LiveData<Location> = currentLocationDataPrivate
+
+    private val setLayoutPrivate= MutableStateFlow(false)
+    val setLayout=setLayoutPrivate.asStateFlow()
+
+    private val filterCameraListDataPrivate = MutableLiveData<List<CameraData>>()
+    val filterCameraList: LiveData<List<CameraData>> = filterCameraListDataPrivate
 
     init {
         viewModelScope.launch {
@@ -102,6 +109,15 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
 
     fun setCurrentLocation(location: Location) {
         currentLocationDataPrivate.value=location
+    }
+
+    fun setLayout(setLayout: Boolean) {
+        setLayoutPrivate.value=setLayout
+    }
+
+    fun setFilteredCameraList(cameraList: List<CameraData>) {
+
+        filterCameraListDataPrivate.value=cameraList
     }
 
 

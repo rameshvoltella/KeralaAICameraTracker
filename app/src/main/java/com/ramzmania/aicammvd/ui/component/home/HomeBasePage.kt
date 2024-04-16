@@ -26,6 +26,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -63,12 +64,14 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     var selectedColumn by remember { mutableStateOf(0) }
     val scrollCoroutineScope = rememberCoroutineScope()
     var dataCameraList: List<CameraData>? = null
-    var nearestHundredCameras:List<CameraData>?=null
     val currentContext=LocalContext.current
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
     val currentLocation =model.currentLocation.observeAsState().value
     var dataLoaded by remember { mutableStateOf(false) }
+    val setlayoutLayer=model.setLayout.collectAsState().value
+    val nearestHundredCamerasList=model.filterCameraList.observeAsState().value
+
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
     LaunchedEffect(pagerState) {
@@ -77,6 +80,14 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             selectedColumn = pagerState.currentPage
 
         }
+    }
+
+    LaunchedEffect(dataLoaded) {
+        // Collect from the a snapshotFlow reading the currentPage
+       if(dataLoaded)
+       {
+           model.setLayout(true)
+       }
     }
 
 
@@ -94,6 +105,10 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
             is Resource.Success -> {
                 Log.d("tadada", "came2"+aiLocationInfo.data?.responseList?.size)
+                dataCameraList = aiLocationInfo.data?.responseList
+                Toast.makeText(currentContext,"Tadada"+currentLocation?.latitude!!+"<>"+ currentLocation?.latitude!!,1).show()
+                val nearestHundredCameras = dataCameraList?.findNearestCameras(currentLocation.latitude, currentLocation.longitude)
+                 model.setFilteredCameraList(nearestHundredCameras!!)
                 dataLoaded=true
 //                    dataCameraList = aiLocationInfo.data?.responseList
                 //isLoading = false
@@ -127,12 +142,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 fusedLocationProviderClient.lastLocation
                     .addOnSuccessListener { location: Location? ->
                         if (location != null) {
-//                    Toast.makeText(currentContext, "Lat: ${location.latitude}, Long: ${location.longitude}", Toast.LENGTH_LONG).show()
                             model.setCurrentLocation(location)
-//                        currentLatitude=location.latitude
-//                        currentLogitude=location.longitude
-//                        Toast.makeText(currentContext, "Lat: ${currentLatitude}, Long: ${currentLogitude}", Toast.LENGTH_LONG).show()
-
                             model.fetchAiLocationInfo()
                         } else {
                             Toast.makeText(
@@ -163,144 +173,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
 
             is Resource.Success -> {
-//                Toast.makeText(LocalContext.current,"Tadada",1).show()
-                //Text("Sucess", modifier = Modifier.align(Alignment.Center))
-//                    dataCameraList = aiLocationInfo.data?.responseList
-                    dataCameraList = aiLocationInfo.data?.responseList
-                Toast.makeText(LocalContext.current,"Tadada"+currentLocation?.latitude!!+"<>"+ currentLocation?.latitude!!,1).show()
-                    nearestHundredCameras = dataCameraList?.findNearestCameras(currentLocation.latitude, currentLocation.longitude)
-
-//                Box(modifier = Modifier.fillMaxSize()) {
-                    // Place the bottom composable first
-
-
-                    // Place the top composable, ensuring it's above the red box
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .fillMaxHeight()
-                            .padding(0.dp, 0.dp, 0.dp, 0.dp)
-                            .align(Alignment.TopCenter)
-                            .background(colorResource(id = R.color.brown_black))
-                    ) {
-                        // Content of the HorizontalPager or any other composables
-                        HorizontalPager(
-                            state = pagerState,
-                            modifier = Modifier.fillMaxSize(),
-                            userScrollEnabled = false
-                        ) { page ->
-                            // Content of HorizontalPager
-                            if (page == 0) {
-                                TrackerViewpagerItem(
-                                    centerImage = R.drawable.came_new,
-                                    title = "Track AI Camera",
-                                    subtitle = "Location  : OFF",
-                                    enabledLocationValue=model.locationEnabled.value,
-                                )
-                            } else {
-                                CameraListView(cameralList = nearestHundredCameras!!)
-                            }
-                        }
-                    }
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(90.dp)
-                            .padding(20.dp, 0.dp, 20.dp, 20.dp)
-                            .align(Alignment.BottomCenter)
-                            .border(
-                                2.dp,
-                                colorResource(id = R.color.white_border),
-                                shape = RoundedCornerShape(10.dp)
-                            )
-                            .clip(
-                                RoundedCornerShape(
-                                    topStart = 10.dp,
-                                    topEnd = 10.dp,
-                                    bottomEnd = 10.dp,
-                                    bottomStart = 10.dp
-                                )
-                            )
-                            .background(colorResource(id = R.color.brown_black))
-                    ) {
-                        // Content of the red box
-                        Row(Modifier.fillMaxSize()) {
-                            Column(
-
-                                Modifier
-                                    .weight(1f)
-                                    // .background(colorResource(id = R.color.red_demo))
-                                    .background(
-                                        if (selectedColumn == 0) colorResource(id = R.color.red_demo) else colorResource(
-                                            id = R.color.brown_black
-                                        )
-                                    )
-                                    .fillMaxHeight()
-                                    .clickable {
-                                        currentPage = 0
-                                        selectedColumn = 0
-                                        scrollCoroutineScope.launch {
-                                            pagerState.animateScrollToPage(0)
-                                        }
-                                    },
-                                verticalArrangement = Arrangement.Center
-                            ) {
-                                Text(
-                                    text = "TRACKER", modifier = Modifier
-                                        .align(Alignment.CenterHorizontally)
-                                        .fillMaxWidth(), textAlign = TextAlign.Center,
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = colorResource(id = R.color.white_perment)
-                                )
-                            }
-                            Column(
-                                Modifier
-
-                                    .background(colorResource(id = R.color.red_demo))
-                                    .fillMaxHeight()
-                                    .width(3.dp),
-                                verticalArrangement = Arrangement.Center,
-
-
-                                ) {
-
-                            }
-                            Column(
-                                Modifier
-                                    .weight(1f)
-//                        .background(colorResource(id = R.color.brown_black))
-                                    .background(
-                                        if (selectedColumn == 1) colorResource(id = R.color.red_demo) else colorResource(
-                                            id = R.color.brown_black
-                                        )
-                                    )
-                                    .fillMaxHeight()
-                                    .clickable {
-                                        currentPage = 1
-                                        selectedColumn = 1
-                                        scrollCoroutineScope.launch {
-                                            pagerState.animateScrollToPage(1)
-                                        }
-                                    },
-                                verticalArrangement = Arrangement.Center,
-
-
-                                ) {
-                                Text(
-                                    text = "LOCATION", modifier = Modifier
-                                        .align(Alignment.CenterHorizontally)
-                                        .fillMaxWidth(), textAlign = TextAlign.Center,
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = colorResource(id = R.color.white_perment)
-                                )
-                            }
-                        }
-
-                    }
-//                }
-
 
             }
 
@@ -309,6 +181,136 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
 
             else -> Unit // Handle other states, if necessary
+        }
+    }
+
+    if(setlayoutLayer)
+    {
+        Box(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                    .align(Alignment.TopCenter)
+                    .background(colorResource(id = R.color.brown_black))
+            ) {
+                // Content of the HorizontalPager or any other composables
+                HorizontalPager(
+                    state = pagerState,
+                    modifier = Modifier.fillMaxSize(),
+                    userScrollEnabled = false
+                ) { page ->
+                    // Content of HorizontalPager
+                    if (page == 0) {
+                        TrackerViewpagerItem(
+                            centerImage = R.drawable.came_new,
+                            title = "Track AI Camera",
+                            subtitle = "Location  : OFF",
+                            enabledLocationValue = model.locationEnabled.value,
+                        )
+                    } else {
+                        CameraListView(cameralList = nearestHundredCamerasList!!)
+                    }
+                }
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(90.dp)
+                    .padding(20.dp, 0.dp, 20.dp, 20.dp)
+                    .align(Alignment.BottomCenter)
+                    .border(
+                        2.dp,
+                        colorResource(id = R.color.white_border),
+                        shape = RoundedCornerShape(10.dp)
+                    )
+                    .clip(
+                        RoundedCornerShape(
+                            topStart = 10.dp,
+                            topEnd = 10.dp,
+                            bottomEnd = 10.dp,
+                            bottomStart = 10.dp
+                        )
+                    )
+                    .background(colorResource(id = R.color.brown_black))
+            ) {
+                // Content of the red box
+                Row(Modifier.fillMaxSize()) {
+                    Column(
+
+                        Modifier
+                            .weight(1f)
+                            // .background(colorResource(id = R.color.red_demo))
+                            .background(
+                                if (selectedColumn == 0) colorResource(id = R.color.red_demo) else colorResource(
+                                    id = R.color.brown_black
+                                )
+                            )
+                            .fillMaxHeight()
+                            .clickable {
+                                currentPage = 0
+                                selectedColumn = 0
+                                scrollCoroutineScope.launch {
+                                    pagerState.animateScrollToPage(0)
+                                }
+                            },
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = "TRACKER", modifier = Modifier
+                                .align(Alignment.CenterHorizontally)
+                                .fillMaxWidth(), textAlign = TextAlign.Center,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.white_perment)
+                        )
+                    }
+                    Column(
+                        Modifier
+
+                            .background(colorResource(id = R.color.red_demo))
+                            .fillMaxHeight()
+                            .width(3.dp),
+                        verticalArrangement = Arrangement.Center,
+
+
+                        ) {
+
+                    }
+                    Column(
+                        Modifier
+                            .weight(1f)
+//                        .background(colorResource(id = R.color.brown_black))
+                            .background(
+                                if (selectedColumn == 1) colorResource(id = R.color.red_demo) else colorResource(
+                                    id = R.color.brown_black
+                                )
+                            )
+                            .fillMaxHeight()
+                            .clickable {
+                                currentPage = 1
+                                selectedColumn = 1
+                                scrollCoroutineScope.launch {
+                                    pagerState.animateScrollToPage(1)
+                                }
+                            },
+                        verticalArrangement = Arrangement.Center,
+
+
+                        ) {
+                        Text(
+                            text = "LOCATION", modifier = Modifier
+                                .align(Alignment.CenterHorizontally)
+                                .fillMaxWidth(), textAlign = TextAlign.Center,
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.white_perment)
+                        )
+                    }
+                }
+
+            }
         }
     }
 
