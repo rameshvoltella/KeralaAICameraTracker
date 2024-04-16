@@ -9,6 +9,7 @@ import android.location.Location
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.Geofence
+import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
 import com.ramzmania.aicammvd.boardcast.GeofenceBroadcastReceiver
@@ -31,6 +32,8 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
 
 
 fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
+
+    Log.d("location we got","locala"+currentLat+"<>"+currentLong)
     val currentLocation = Location("").apply {
         latitude = currentLat
         longitude = currentLong
@@ -46,6 +49,10 @@ fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double)
 
 fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 {
+    val removeIntent = Intent(context, GeofenceBroadcastReceiver::class.java)
+    val removePendingIntent = PendingIntent.getBroadcast(context, 0, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+    removeAllGeofences(context,removePendingIntent)
     val geofencingClient = LocationServices.getGeofencingClient(context)
     val geofencingRequest = GeofencingRequest.Builder()
         .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
@@ -70,9 +77,19 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
     }
 }
 
-fun removeAllGeoFences()
-{
+fun removeAllGeofences(context: Context, pendingIntent: PendingIntent) {
+    val geofencingClient: GeofencingClient = LocationServices.getGeofencingClient(context)
 
+    geofencingClient.removeGeofences(pendingIntent).run {
+        addOnSuccessListener {
+            // Log success or handle it according to your need
+            println("All geofences successfully removed.")
+        }
+        addOnFailureListener {
+            // Log failure or handle the error accordingly
+            println("Failed to remove geofences")
+        }
+    }
 }
 
 

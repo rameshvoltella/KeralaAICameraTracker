@@ -67,8 +67,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val currentContext=LocalContext.current
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
-    var currentLatitude=0.0
-    var  currentLogitude=0.00
+    val currentLocation =model.currentLocation.observeAsState().value
+    var dataLoaded by remember { mutableStateOf(false) }
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
     LaunchedEffect(pagerState) {
@@ -94,7 +94,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
             is Resource.Success -> {
                 Log.d("tadada", "came2"+aiLocationInfo.data?.responseList?.size)
-
+                dataLoaded=true
 //                    dataCameraList = aiLocationInfo.data?.responseList
                 //isLoading = false
 
@@ -114,30 +114,42 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
 
     LaunchedEffect(key1 = Unit) {
-//        val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(
-//            currentContext)
-//
-//        if (ActivityCompat.checkSelfPermission(currentContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-//            fusedLocationProviderClient.lastLocation
-//                .addOnSuccessListener { location: Location? ->
-//                    if (location != null) {
-////                    Toast.makeText(currentContext, "Lat: ${location.latitude}, Long: ${location.longitude}", Toast.LENGTH_LONG).show()
-//                        model.setCurrentLocation(location)
+        if(currentLocation==null) {
+            val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(
+                currentContext
+            )
+
+            if (ActivityCompat.checkSelfPermission(
+                    currentContext,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                fusedLocationProviderClient.lastLocation
+                    .addOnSuccessListener { location: Location? ->
+                        if (location != null) {
+//                    Toast.makeText(currentContext, "Lat: ${location.latitude}, Long: ${location.longitude}", Toast.LENGTH_LONG).show()
+                            model.setCurrentLocation(location)
 //                        currentLatitude=location.latitude
 //                        currentLogitude=location.longitude
 //                        Toast.makeText(currentContext, "Lat: ${currentLatitude}, Long: ${currentLogitude}", Toast.LENGTH_LONG).show()
-//
-//                        model.fetchAiLocationInfo()
-//                    } else {
-//                    Toast.makeText(currentContext, "Location not available", Toast.LENGTH_LONG).show()
-//                    }
-//                }
-//                .addOnFailureListener {
-//                Toast.makeText(currentContext, "Failed to get location", Toast.LENGTH_LONG).show()
-//                }
-//        }
-        model.fetchAiLocationInfo()
 
+                            model.fetchAiLocationInfo()
+                        } else {
+                            Toast.makeText(
+                                currentContext,
+                                "Location not available",
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(currentContext, "Failed to get location", Toast.LENGTH_LONG)
+                            .show()
+                    }
+            }
+//        Toast.makeText(currentContext, "Failed to get location", Toast.LENGTH_LONG).show()
+//        model.fetchAiLocationInfo()
+        }
     }
 
     // UI based on aiLocationInfo
@@ -155,8 +167,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 //Text("Sucess", modifier = Modifier.align(Alignment.Center))
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     dataCameraList = aiLocationInfo.data?.responseList
-                Toast.makeText(LocalContext.current,"Tadada"+currentLatitude+"<>"+currentLogitude,1).show()
-                    nearestHundredCameras = dataCameraList?.findNearestCameras(currentLatitude, currentLogitude)
+                Toast.makeText(LocalContext.current,"Tadada"+currentLocation?.latitude!!+"<>"+ currentLocation?.latitude!!,1).show()
+                    nearestHundredCameras = dataCameraList?.findNearestCameras(currentLocation.latitude, currentLocation.longitude)
 
 //                Box(modifier = Modifier.fillMaxSize()) {
                     // Place the bottom composable first
