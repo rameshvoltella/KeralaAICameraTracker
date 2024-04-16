@@ -1,6 +1,22 @@
 [
   {
     "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
+    "District": "My Home",
+    "Location": "VAlchira",
+    "Lat": 9.7572113,
+    "Long": 76.4829271,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
+    "District": "Pressenan kada",
+    "Location": "VAlchira",
+    "Lat": 9.7555303,
+    "Long": 76.4851591,
+    "Type": "AI Camera"
+  },
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
     "District": "Thiruvananthapuram",
     "Location": "Parassala",
     "Lat": 8.3150151,

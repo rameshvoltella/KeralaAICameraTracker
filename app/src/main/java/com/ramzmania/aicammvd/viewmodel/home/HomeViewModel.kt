@@ -38,6 +38,9 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
     val locationData: LiveData<Location> = locationDataPrivate
 
 
+    private val currentLocationDataPrivate = MutableLiveData<Location>()
+    val currentLocation: LiveData<Location> = currentLocationDataPrivate
+
     init {
         viewModelScope.launch {
             LocationSharedFlow.locationFlow.collect { location ->
@@ -95,6 +98,10 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
         }
        // setTackingServiceRunning(false)
 
+    }
+
+    fun setCurrentLocation(location: Location) {
+        currentLocationDataPrivate.value=location
     }
 
 

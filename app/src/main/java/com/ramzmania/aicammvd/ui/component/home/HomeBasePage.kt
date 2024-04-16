@@ -1,7 +1,10 @@
 package com.ramzmania.aicammvd.ui.component.home
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.location.Location
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -33,16 +36,20 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.google.android.gms.location.LocationServices
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
+import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
@@ -57,8 +64,11 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val scrollCoroutineScope = rememberCoroutineScope()
     var dataCameraList: List<CameraData>? = null
     var nearestHundredCameras:List<CameraData>?=null
+    val currentContext=LocalContext.current
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
+    var currentLatitude=0.0
+    var  currentLogitude=0.00
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
     LaunchedEffect(pagerState) {
@@ -73,6 +83,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 //    if (isLoading) {
 //    CircularProgressIndicator(modifier = Modifier.fillMaxSize(), strokeWidth = 8.dp)
     LaunchedEffect(key1 = aiLocationInfo) {
+
         when (aiLocationInfo) {
             is Resource.Loading -> {
                 // Show loading indicator
@@ -82,7 +93,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
 
             is Resource.Success -> {
-                Log.d("tadada", "came2")
+                Log.d("tadada", "came2"+aiLocationInfo.data?.responseList?.size)
 
 //                    dataCameraList = aiLocationInfo.data?.responseList
                 //isLoading = false
@@ -103,8 +114,30 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
 
     LaunchedEffect(key1 = Unit) {
-
+//        val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(
+//            currentContext)
+//
+//        if (ActivityCompat.checkSelfPermission(currentContext, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//            fusedLocationProviderClient.lastLocation
+//                .addOnSuccessListener { location: Location? ->
+//                    if (location != null) {
+////                    Toast.makeText(currentContext, "Lat: ${location.latitude}, Long: ${location.longitude}", Toast.LENGTH_LONG).show()
+//                        model.setCurrentLocation(location)
+//                        currentLatitude=location.latitude
+//                        currentLogitude=location.longitude
+//                        Toast.makeText(currentContext, "Lat: ${currentLatitude}, Long: ${currentLogitude}", Toast.LENGTH_LONG).show()
+//
+//                        model.fetchAiLocationInfo()
+//                    } else {
+//                    Toast.makeText(currentContext, "Location not available", Toast.LENGTH_LONG).show()
+//                    }
+//                }
+//                .addOnFailureListener {
+//                Toast.makeText(currentContext, "Failed to get location", Toast.LENGTH_LONG).show()
+//                }
+//        }
         model.fetchAiLocationInfo()
+
     }
 
     // UI based on aiLocationInfo
@@ -122,7 +155,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 //Text("Sucess", modifier = Modifier.align(Alignment.Center))
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     dataCameraList = aiLocationInfo.data?.responseList
-                    nearestHundredCameras = dataCameraList?.findNearestCameras(9.759041581724828, 76.4833893696677)
+                Toast.makeText(LocalContext.current,"Tadada"+currentLatitude+"<>"+currentLogitude,1).show()
+                    nearestHundredCameras = dataCameraList?.findNearestCameras(currentLatitude, currentLogitude)
 
 //                Box(modifier = Modifier.fillMaxSize()) {
                     // Place the bottom composable first
@@ -268,18 +302,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
 }
 
-fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
-    val currentLocation = Location("").apply {
-        latitude = currentLat
-        longitude = currentLong
-    }
 
-    return sortedBy {
-        Location("").apply {
-            latitude = it.latitude
-            longitude = it.longitude
-        }.distanceTo(currentLocation)
-    }.take(100)
-}
 
 

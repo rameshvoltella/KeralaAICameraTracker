@@ -52,4 +52,9 @@ private val contextModule: ContextModule
         }
 
     }
+
+    override suspend fun getNearestCameraList(list: List<CameraData>): List<CameraData> {
+
+        return list
+    }
 }

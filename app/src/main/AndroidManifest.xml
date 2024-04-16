@@ -41,10 +41,20 @@
             android:exported="false"
             android:foregroundServiceType="location" />
         <receiver android:name=".boardcast.StopServiceReceiver"/>
+
         <receiver android:name=".boardcast.NotificationDismissedReceiver"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".boardcast.GeofenceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.location.geofencing.intent.action.GEOFENCE_TRANSITION"/>
             </intent-filter>
         </receiver>
     </application>

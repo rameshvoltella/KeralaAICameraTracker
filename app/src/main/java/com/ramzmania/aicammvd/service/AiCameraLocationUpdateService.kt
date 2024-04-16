@@ -1,4 +1,5 @@
 package com.ramzmania.aicammvd.service
+
 import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
@@ -13,26 +14,40 @@ import android.os.IBinder
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
+import com.ramzmania.aicammvd.data.local.LocalRepository
+import com.ramzmania.aicammvd.geofencing.createGeofenceList
+import com.ramzmania.aicammvd.geofencing.findNearestCameras
+import com.ramzmania.aicammvd.geofencing.setBatchGeoFencing
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class AiCameraLocationUpdateService: Service() {
+class AiCameraLocationUpdateService : Service() {
     private lateinit var locationClient: FusedLocationProviderClient
+
     @Inject
-    lateinit var contextModule: ContextModule  // Context is injected
+    lateinit var contextModule: ContextModule
+
+    @Inject
+    lateinit var localRepository: LocalRepository
+
+    // Context is injected
+    private val serviceScope = CoroutineScope(Dispatchers.IO) // Runs tasks in the background
 
     // New way to create a LocationRequest using LocationRequest.Builder
     private val locationRequest: LocationRequest = LocationRequest.Builder(
-        Priority.PRIORITY_HIGH_ACCURACY, 1200000L) // Interval in milliseconds
+        Priority.PRIORITY_HIGH_ACCURACY, 1200000L
+    ) // Interval in milliseconds
         .setMinUpdateDistanceMeters(10f)         // Minimum distance in meters
         .setGranularity(Granularity.GRANULARITY_PERMISSION_LEVEL)
         .setWaitForAccurateLocation(true)
@@ -73,7 +88,12 @@ class AiCameraLocationUpdateService: Service() {
             // for ActivityCompat#requestPermissions for more details.
             return
         }
-        locationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
+        locationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            Looper.getMainLooper()
+        )
+
     }
 
     private val locationCallback = object : LocationCallback() {
@@ -89,15 +109,32 @@ class AiCameraLocationUpdateService: Service() {
         Log.d("Location Flow Update", "Lat: passing")
 
 //        val locationData = Pair(location.latitude, location.longitude)
-         LocationSharedFlow.locationFlow.tryEmit(location)
+        LocationSharedFlow.locationFlow.tryEmit(location)
 //        Log.d("LocationService", "Emission successful:"+ location.latitude+"<>"+location.longitude)
 //        Toast.makeText(applicationContext,"Konanana"+location.latitude+"Long:"+location.longitude,1).show()
+        serviceScope.launch {
+            localRepository.requestCameraLocation().collect {
+
+                Log.d("kona","collected")
+
+                val nearestCameraList =
+                    it.data?.responseList?.findNearestCameras(location.latitude, location.longitude)
+                Log.d("kona","collected"+nearestCameraList?.size)
+
+                val updatedCameraList = createGeofenceList(nearestCameraList!!)
+
+                setBatchGeoFencing(applicationContext, updatedCameraList)
+                Log.d("kona","collected"+nearestCameraList.size)
+
+            }
+        }
     }
 
     private fun getNotification(): Notification {
         val stopIntent = Intent(this, StopServiceReceiver::class.java)
         val stopPendingIntent = PendingIntent.getBroadcast(
-            this, 0, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            this, 0, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
 
         val notificationBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Notification.Builder(this, CHANNEL_ID)
@@ -118,7 +155,10 @@ class AiCameraLocationUpdateService: Service() {
 
         val dismissIntent = Intent("com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED")
         val pendingDismissIntent = PendingIntent.getBroadcast(
-            this, 1, dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            this,
+            1,
+            dismissIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         return notificationBuilder
@@ -130,7 +170,11 @@ class AiCameraLocationUpdateService: Service() {
             .setDeleteIntent(pendingDismissIntent)// Set the pending intent to launch the main activity when the notification is clicked
 //            .addAction(R.mipmap.ic_launcher_round, "Stop", stopServicePendingIntent)
             /// Set ongoing to true to make the notification sticky
-            .addAction(R.drawable.ic_livevideo_doubt, "Stop", stopPendingIntent)  // Assuming you have an ic_stop drawable
+            .addAction(
+                R.drawable.ic_livevideo_doubt,
+                "Stop",
+                stopPendingIntent
+            )  // Assuming you have an ic_stop drawable
             .build()
     }
 
@@ -149,7 +193,7 @@ class AiCameraLocationUpdateService: Service() {
     override fun onDestroy() {
         super.onDestroy()
         PreferencesUtil.setServiceRunning(this, false)
-       LocationSharedFlow.serviceStopStatus.tryEmit(true)
+        LocationSharedFlow.serviceStopStatus.tryEmit(true)
 //        Log.d("vadada",">>>"+value)
         locationClient.removeLocationUpdates(locationCallback)
     }
