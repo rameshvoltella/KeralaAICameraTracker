@@ -22,7 +22,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
+import com.ramzmania.aicammvd.geofencing.GeofenceHelper
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
@@ -42,9 +44,13 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
     override fun observeActivity() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_CODE)
-        }
+//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED) {
+//            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_CODE)
+//        }
+//
+//        val geofenceHelper = GeofenceHelper(this)
+//        val cameraDataList = createCameraDataList()
+//        geofenceHelper.addGeofences(cameraDataList)
     }
 
     override fun beforeOnContent() {
@@ -153,5 +159,33 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     @Composable
     fun PreviewMyScreen() {
         MyScreen(viewModel = MyViewModel())
+    }
+    fun createCameraDataList(): List<CameraData> {
+        return listOf(
+            CameraData(
+                uniqueId = "1",
+                district = "Central Park",
+                location = "New York",
+                latitude = 9.7572113,
+                longitude = 76.4829271,
+                type = "Type1"
+            ),
+            CameraData(
+                uniqueId = "2",
+                district = "Golden Gate Park",
+                location = "San Francisco",
+                latitude = 9.7555303,
+                longitude = 76.4851591,
+                type = "Type2"
+            ),
+            CameraData(
+                uniqueId = "3",
+                district = "Hyde Park",
+                location = "London",
+                latitude = 9.756672,
+                longitude = 76.4822193,
+                type = "Type3"
+            )
+        )
     }
 }

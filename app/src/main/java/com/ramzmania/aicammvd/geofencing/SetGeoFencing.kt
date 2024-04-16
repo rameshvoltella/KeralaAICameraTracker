@@ -6,26 +6,31 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
+import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.boardcast.GeofenceBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
+import java.util.Locale
 
 fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
     return cameraDataList.map { data ->
+        Log.d("unique",">>>"+data.location.replace(" ","").lowercase(Locale.getDefault()))
         Geofence.Builder()
-            .setRequestId(data.uniqueId)  // Unique identifier for this geofence
+            .setRequestId(data.location.lowercase(Locale.getDefault()))  // Unique identifier for this geofence
             .setCircularRegion(
                 data.latitude,
                 data.longitude,
-                100f  // Radius in meters, adjust as necessary
+                200000f  // Radius in meters, adjust as necessary
             )
-            .setExpirationDuration(Geofence.NEVER_EXPIRE)  // Geofence does not automatically expire
-            .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)  // Trigger on enter and exit
+            .setExpirationDuration(Geofence.NEVER_EXPIRE)// Geofence does not automatically expire
+            .setLoiteringDelay(5000)
+            .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_DWELL or Geofence.GEOFENCE_TRANSITION_EXIT)  // Trigger on enter and exit
             .build()
     }
 }
@@ -50,7 +55,7 @@ fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double)
 fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 {
     val removeIntent = Intent(context, GeofenceBroadcastReceiver::class.java)
-    val removePendingIntent = PendingIntent.getBroadcast(context, 0, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+    val removePendingIntent = PendingIntent.getBroadcast(context, 250, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
     removeAllGeofences(context,removePendingIntent)
     val geofencingClient = LocationServices.getGeofencingClient(context)
@@ -59,12 +64,27 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
         .addGeofences(updatedCameraList)
         .build()
 
-    val intent = Intent(context, GeofenceBroadcastReceiver::class.java)
-    val geofencePendingIntent: PendingIntent = PendingIntent.getBroadcast(context, 0, intent,
-        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+//    val intent = Intent(context, GeofenceBroadcastReceiver::class.java)
+//    val geofencePendingIntent: PendingIntent = PendingIntent.getBroadcast(context, 250, intent,
+//        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+
+
+    val broadcastintent = Intent(context, GeoFencingBroadcastReceiver::class.java)
+
+    val bundle = Bundle()
+//    Log.d(
+//        "hey1234",
+//        geoLocation.latitude + " " + geoLocation.longitude + " " + geoLocation.radius
+//    )
+//    bundle.putString("lat", updatedCameraList.ge)
+//    bundle.putString("lon", geoLocation.longitude)
+//    bundle.putString("radius", geoLocation.radius)
+    broadcastintent.putExtras(bundle)
+    val pendingIntent = getGeofencePendingIntent(context,broadcastintent)
 
     if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-        geofencingClient.addGeofences(geofencingRequest, geofencePendingIntent).run {
+        geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
             addOnSuccessListener {
                 Log.d("Geofence", "Geofences added")
             }
@@ -90,6 +110,17 @@ fun removeAllGeofences(context: Context, pendingIntent: PendingIntent) {
             println("Failed to remove geofences")
         }
     }
+}
+
+
+private fun getGeofencePendingIntent(context: Context,broadcastintent: Intent): PendingIntent {
+
+    return PendingIntent.getBroadcast(
+        context,
+        (Math.random() * 1000 + 1).toInt(),
+        broadcastintent,
+        PendingIntent.FLAG_MUTABLE
+    )
 }
 
 

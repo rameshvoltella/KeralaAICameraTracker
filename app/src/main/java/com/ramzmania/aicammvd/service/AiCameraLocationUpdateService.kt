@@ -18,6 +18,7 @@ import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.createGeofenceList
 import com.ramzmania.aicammvd.geofencing.findNearestCameras
@@ -133,7 +134,7 @@ class AiCameraLocationUpdateService : Service() {
     private fun getNotification(): Notification {
         val stopIntent = Intent(this, StopServiceReceiver::class.java)
         val stopPendingIntent = PendingIntent.getBroadcast(
-            this, 0, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            this, 90, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val notificationBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -148,7 +149,7 @@ class AiCameraLocationUpdateService : Service() {
         mainActivityIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pendingIntent = PendingIntent.getActivity(
             this,
-            0,
+            91,
             mainActivityIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -156,7 +157,7 @@ class AiCameraLocationUpdateService : Service() {
         val dismissIntent = Intent("com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED")
         val pendingDismissIntent = PendingIntent.getBroadcast(
             this,
-            1,
+            93,
             dismissIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -201,4 +202,35 @@ class AiCameraLocationUpdateService : Service() {
     companion object {
         private const val CHANNEL_ID = "ForegroundServiceChannel"
     }
+
+
+    fun createCameraDataList(): List<CameraData> {
+        return listOf(
+            CameraData(
+                uniqueId = "1",
+                district = "Central Park",
+                location = "New York",
+                latitude = 9.7572113,
+                longitude = 76.4829271,
+                type = "Type1"
+            ),
+            CameraData(
+                uniqueId = "2",
+                district = "Golden Gate Park",
+                location = "San Francisco",
+                latitude = 9.7555303,
+                longitude = 76.4851591,
+                type = "Type2"
+            ),
+            CameraData(
+                uniqueId = "3",
+                district = "Hyde Park",
+                location = "London",
+                latitude = 9.756672,
+                longitude = 76.4822193,
+                type = "Type3"
+            )
+        )
+    }
+
 }

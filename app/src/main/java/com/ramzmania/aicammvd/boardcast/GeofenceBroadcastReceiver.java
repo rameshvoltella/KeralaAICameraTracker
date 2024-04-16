@@ -19,6 +19,8 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = "GeofenceBroadcastReceiver";
     @Override
     public void onReceive(Context context, Intent intent) {
+        Toast.makeText(context, "trigged"+intent, Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onReceive: Intent action = " + intent.getAction());
         Bundle extras = intent.getExtras();
         String keyss="";
         if (extras != null) {
@@ -37,6 +39,11 @@ public class GeofenceBroadcastReceiver extends BroadcastReceiver {
         NotificationHelper notificationHelper=new NotificationHelper(context);
         Log.d(TAG, "onReceive: recived");
         GeofencingEvent geofencingEvent=GeofencingEvent.fromIntent(intent);
+        if(geofencingEvent==null)
+        {
+            return;
+        }
+
         if(geofencingEvent.hasError())
         {
             Log.d(TAG, "onReceive1: ERROR RECIVING GEOEVENT");

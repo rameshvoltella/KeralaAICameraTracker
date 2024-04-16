@@ -38,7 +38,8 @@
             android:screenOrientation="portrait"/>
         <service
             android:name=".service.AiCameraLocationUpdateService"
-            android:exported="false"
+            android:enabled="true"
+            android:exported="true"
             android:foregroundServiceType="location" />
         <receiver android:name=".boardcast.StopServiceReceiver"/>
 
@@ -53,10 +54,27 @@
             android:name=".boardcast.GeofenceBroadcastReceiver"
             android:enabled="true"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="com.google.android.gms.location.geofencing.intent.action.GEOFENCE_TRANSITION"/>
-            </intent-filter>
+
         </receiver>
+
+    <!--    <receiver android:name=".geofencing.GeofenceBroadcastReceiverTwo"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.ramzmania.aicammvd.ACTION_RECEIVE_GEOFENCE"/>
+
+            </intent-filter>
+        </receiver>-->
+
+        <receiver
+            android:name=".boardcast.GeoFencingBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="com.google.android.gms.location.geofencing.ACTION_GEOFENCE_TRANSITION" />-->
+            <!--            </intent-filter>-->
+        </receiver>
+
     </application>
 
 </manifest>
