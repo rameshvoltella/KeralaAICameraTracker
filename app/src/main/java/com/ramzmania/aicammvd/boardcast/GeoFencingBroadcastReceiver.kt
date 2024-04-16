@@ -76,7 +76,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 Manifest.permission.POST_NOTIFICATIONS
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            notificationManager.notify(1, notification)
+            notificationManager.notify(10, notification)
         }
 
     }
