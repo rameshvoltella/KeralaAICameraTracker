@@ -1,22 +1,24 @@
 package com.ramzmania.aicammvd.service
 import android.Manifest
-import android.app.Service
-import android.content.Intent
-import android.os.IBinder
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.app.Service
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
+import android.os.IBinder
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
+import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +32,7 @@ class AiCameraLocationUpdateService: Service() {
 
     // New way to create a LocationRequest using LocationRequest.Builder
     private val locationRequest: LocationRequest = LocationRequest.Builder(
-        Priority.PRIORITY_HIGH_ACCURACY, 10000L) // Interval in milliseconds
+        Priority.PRIORITY_HIGH_ACCURACY, 1200000L) // Interval in milliseconds
         .setMinUpdateDistanceMeters(10f)         // Minimum distance in meters
         .setGranularity(Granularity.GRANULARITY_PERMISSION_LEVEL)
         .setWaitForAccurateLocation(true)
@@ -48,8 +50,8 @@ class AiCameraLocationUpdateService: Service() {
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         startLocationUpdates()
         PreferencesUtil.setServiceRunning(this, true)
-        val value=LocationSharedFlow.serviceStopStatus.tryEmit(false)
-        Log.d("vadada",">>onstart>"+value)
+        LocationSharedFlow.serviceStopStatus.tryEmit(false)
+//        Log.d("vadada",">>onstart>"+value)
 
         return START_STICKY
     }
@@ -102,11 +104,32 @@ class AiCameraLocationUpdateService: Service() {
         } else {
             Notification.Builder(this)
         }
+        // Create an intent to launch your main activity
+
+        // Create an intent to launch your main activity
+        val mainActivityIntent = Intent(this, HomeActivity::class.java)
+        mainActivityIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        val pendingIntent = PendingIntent.getActivity(
+            this,
+            0,
+            mainActivityIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val dismissIntent = Intent("com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED")
+        val pendingDismissIntent = PendingIntent.getBroadcast(
+            this, 1, dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
         return notificationBuilder
             .setContentTitle("Location Service")
             .setContentText("Tracking location...")
             .setSmallIcon(R.drawable.red_location)
-            .setOngoing(true) // Set ongoing to true to make the notification sticky
+            .setOngoing(true)
+            .setContentIntent(pendingIntent)
+            .setDeleteIntent(pendingDismissIntent)// Set the pending intent to launch the main activity when the notification is clicked
+//            .addAction(R.mipmap.ic_launcher_round, "Stop", stopServicePendingIntent)
+            /// Set ongoing to true to make the notification sticky
             .addAction(R.drawable.ic_livevideo_doubt, "Stop", stopPendingIntent)  // Assuming you have an ic_stop drawable
             .build()
     }
@@ -126,8 +149,8 @@ class AiCameraLocationUpdateService: Service() {
     override fun onDestroy() {
         super.onDestroy()
         PreferencesUtil.setServiceRunning(this, false)
-       val value=LocationSharedFlow.serviceStopStatus.tryEmit(true)
-        Log.d("vadada",">>>"+value)
+       LocationSharedFlow.serviceStopStatus.tryEmit(true)
+//        Log.d("vadada",">>>"+value)
         locationClient.removeLocationUpdates(locationCallback)
     }
 

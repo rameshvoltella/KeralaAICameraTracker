@@ -41,6 +41,12 @@
             android:exported="false"
             android:foregroundServiceType="location" />
         <receiver android:name=".boardcast.StopServiceReceiver"/>
+        <receiver android:name=".boardcast.NotificationDismissedReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
