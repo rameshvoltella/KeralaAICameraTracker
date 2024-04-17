@@ -1,6 +1,7 @@
 package com.ramzmania.aicammvd.ui.screens.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
@@ -16,29 +17,27 @@ import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
+import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
-import com.ramzmania.aicammvd.ui.component.home.BasicHomeLayer
-import com.ramzmania.aicammvd.ui.component.home.InitialLoadingScreen
-import com.ramzmania.aicammvd.ui.navigation.HomeNavGraph
-import com.ramzmania.aicammvd.ui.navigation.NestedNavigationExample
+import com.ramzmania.aicammvd.ui.navigation.HomeNavigation
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.utils.observe
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeActivity : BaseComposeActivity<HomeViewModel>() {
-    private lateinit var navController: NavHostController
-    var isLoading =mutableStateOf(true)
-    var dataCameraList: List<CameraData>? =null
+
     // Declare NavHostController
     override fun getViewModelClass() = HomeViewModel::class.java
 
     override fun observeViewModel() {
-        observe(viewModel.aILocationLiveData, ::handleResponse)
+//        observe(viewModel.aILocationLiveData, ::handleResponse)
 
     }
 
+/*
     private fun handleResponse(response: Resource<CameraDataResponse>) {
         when (response) {
             is Resource.Loading -> {
@@ -61,45 +60,48 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
                 Log.d("PREPEP","fkedup dataerror")
 
             }
-            else -> {                Log.d("PREPEP","fkedup else")
+            else -> {
+                Log.d("PREPEP","fkedup else")
             }
         }
 
     }
+*/
 
     override fun observeActivity() {
-
     }
 
     override fun beforeOnContent() {
-        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
+        if(AiCameraLocationUpdateService.isServiceStarted)
+        {
+            PreferencesUtil.setServiceRunning(this, true)
 
+        }else
+        {
+            PreferencesUtil.setServiceRunning(this, false)
+
+        }
+        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
+//        enableEdgeToEdge(
+//            statusBarStyle = SystemBarStyle.light(
+//                Color.Transparent, Color.Transparent
+//            ),
+//            navigationBarStyle = SystemBarStyle.light(
+//                Color.Transparent, Color.Transparent
+//            )
+//        )
     }
 
     @Composable
     override fun setContent() {
-         navController = rememberNavController() // Initialize NavHostController
-         isLoading = remember { mutableStateOf(true) } // State to track loading
         AiCameraApplicationTheme {
             Surface(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(Color.Yellow)
             ) {
-                //HomeNavGraph(navController = navController)
-//                if (isLoading.value) {
-//
-//                    NestedNavigationExample()
-//                    callApi()
-//
-//                }else
-//                {
-//                    if(dataCameraList!=null)
-//                    {
-//                        BasicHomeLayer(dataCameraList!!)
-//                    }
-//                }
-                NestedNavigationExample(viewModel)
+
+                HomeNavigation()
 
 
 

@@ -1,6 +1,8 @@
 package com.ramzmania.aicammvd.ui.screens.slider
 
+import android.Manifest
 import android.app.Activity
+import android.content.pm.PackageManager
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,9 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
@@ -28,6 +33,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SliderActivity : BaseComposeActivity<SliderViewModel>() {
+    val NOTIFICATION_PERMISSION_CODE=1
+
     override fun getViewModelClass() = SliderViewModel::class.java
 
     override fun observeViewModel() {
@@ -36,6 +43,13 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
     override fun observeActivity() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_CODE)
+        }
+//
+//        val geofenceHelper = GeofenceHelper(this)
+//        val cameraDataList = createCameraDataList()
+//        geofenceHelper.addGeofences(cameraDataList)
     }
 
     override fun beforeOnContent() {
@@ -48,6 +62,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
 
     @Composable
     override fun setContent() {
+
         val dataList = generateSliderContentData()
         val navController = rememberNavController()
         AiCameraApplicationTheme {
