@@ -20,7 +20,7 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
-class OsmMaptActivity : ComponentActivity(), MapListener{
+class OsmMapActivity : ComponentActivity(), MapListener{
 
 
 

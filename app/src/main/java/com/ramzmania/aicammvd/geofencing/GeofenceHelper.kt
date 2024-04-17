@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat
@@ -13,6 +14,7 @@ import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
+import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.utils.PreferencesUtil
@@ -129,4 +131,11 @@ private fun getGeofencePendingIntent(context: Context,broadcastintent: Intent): 
     )
 }
 
+ fun playNotificationSound(context: Context, notificationSound: Int) {
+    val mediaPlayer: MediaPlayer = MediaPlayer.create(context, notificationSound)
+    mediaPlayer.start()
+    mediaPlayer.setOnCompletionListener { mp ->
+        mp.release() // Release media player resources once the sound playback is complete
+    }
+}
 

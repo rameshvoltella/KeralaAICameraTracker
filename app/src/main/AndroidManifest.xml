@@ -37,7 +37,7 @@
         </activity>
         <activity android:name=".ui.screens.home.HomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.mapview.OsmMaptActivity"
+        <activity android:name=".ui.screens.mapview.OsmMapActivity"
             android:screenOrientation="portrait"/>
         <service
             android:name=".service.AiCameraLocationUpdateService"

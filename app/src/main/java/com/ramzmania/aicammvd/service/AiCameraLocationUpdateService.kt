@@ -18,10 +18,10 @@ import com.google.android.gms.location.*
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
-import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.createGeofenceList
 import com.ramzmania.aicammvd.geofencing.findNearestCameras
+import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.setBatchGeoFencing
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
@@ -47,9 +47,9 @@ class AiCameraLocationUpdateService : Service() {
 
     // New way to create a LocationRequest using LocationRequest.Builder
     private val locationRequest: LocationRequest = LocationRequest.Builder(
-        Priority.PRIORITY_HIGH_ACCURACY, 1200000L
+        Priority.PRIORITY_HIGH_ACCURACY, 3600000L
     ) // Interval in milliseconds
-        .setMinUpdateDistanceMeters(10f)         // Minimum distance in meters
+        .setMinUpdateDistanceMeters(20000f)         // Minimum distance in meters
         .setGranularity(Granularity.GRANULARITY_PERMISSION_LEVEL)
         .setWaitForAccurateLocation(true)
         .build()
@@ -69,6 +69,8 @@ class AiCameraLocationUpdateService : Service() {
         LocationSharedFlow.serviceStopStatus.tryEmit(false)
 //        Log.d("vadada",">>onstart>"+value)
         startedService()
+        playNotificationSound(applicationContext, R.raw.loco)
+
         return START_STICKY
     }
 
@@ -116,17 +118,22 @@ class AiCameraLocationUpdateService : Service() {
         serviceScope.launch {
             localRepository.requestCameraLocation().collect {
 
-                Log.d("kona","collected")
+//                Log.d("kona","collected")
+                if (location != null) {
+                    val nearestCameraList =
+                        it.data?.responseList?.findNearestCameras(
+                            location.latitude,
+                            location.longitude
+                        )
+//                Log.d("kona","collected"+nearestCameraList?.size)
+                    if (nearestCameraList != null) {
 
-                val nearestCameraList =
-                    it.data?.responseList?.findNearestCameras(location.latitude, location.longitude)
-                Log.d("kona","collected"+nearestCameraList?.size)
+                        val updatedCameraList = createGeofenceList(nearestCameraList!!)
 
-                val updatedCameraList = createGeofenceList(nearestCameraList!!)
-
-                setBatchGeoFencing(applicationContext, updatedCameraList)
-                Log.d("kona","collected"+nearestCameraList.size)
-
+                        setBatchGeoFencing(applicationContext, updatedCameraList)
+                    }
+//                Log.d("kona","collected"+nearestCameraList.size)
+                }
             }
         }
     }
@@ -181,11 +188,30 @@ class AiCameraLocationUpdateService : Service() {
 
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            val soundUri = Uri.parse("android.resource://" + applicationContext.packageName + "/" + R.raw.notification_sound)
+//            val audioAttributes = AudioAttributes.Builder()
+//                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+//                .build()
+//            val audioAttributes = AudioAttributes.Builder()
+//                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+//                .build()
+//
+////This is where you apply the custom notification sound. The "notification_sound" file resides in the "raw" folder.
+//            val sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + "com.ramzmania.aicammvd" + "/" + R.raw.notification_sound)
+//            val sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + "com.ramzmania.aicammvd" + "/" + R.raw.loco)
+
             val serviceChannel = NotificationChannel(
                 CHANNEL_ID,
                 "Foreground Service Channel",
                 NotificationManager.IMPORTANCE_DEFAULT
-            )
+            ).apply {
+//                setSound(soundUri, audioAttributes)  // Set custom sound and audio attributes
+                enableVibration(true)
+                enableLights(true)
+//                setSound((sound),Notification.AUDIO_ATTRIBUTES_DEFAULT)
+            }
             val manager = getSystemService(NotificationManager::class.java)
             manager.createNotificationChannel(serviceChannel)
         }
@@ -206,7 +232,7 @@ class AiCameraLocationUpdateService : Service() {
             private set
 
         fun startedService() {
-            isServiceStarted=true
+            isServiceStarted = true
         }
 
         fun stoppedService() {
