@@ -2,6 +2,7 @@ package com.ramzmania.aicammvd.ui.component.home
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
@@ -14,6 +15,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
@@ -41,6 +45,7 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 import com.ramzmania.aicammvd.utils.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
+import android.provider.Settings
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -54,6 +59,8 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     var subtitleText by remember { mutableStateOf(subtitle) }
     val model = viewModel<HomeViewModel>()
     var showPermissionsDialog by remember { mutableStateOf(false) }
+    var showDialog by remember { mutableStateOf(false) }
+
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION
@@ -143,34 +150,41 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                             innerColor = colorResource(id = innerColor),
                             onClick =
                             {
-                                //Toast.makeText(context,"yoooo",Toast.LENGTH_LONG).show()
-                                if (innerCircleSize == 140.dp) {
+                                if (ContextCompat.checkSelfPermission(
+                                        context, Manifest.permission.ACCESS_BACKGROUND_LOCATION) !=
+                                    android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                                    showDialog = true
+                                }else {
 
-                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+                                    //Toast.makeText(context,"yoooo",Toast.LENGTH_LONG).show()
+                                    if (innerCircleSize == 140.dp) {
+
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                            vibrator.vibrate(
-                                                VibrationEffect.createOneShot(
-                                                    300,
-                                                    VibrationEffect.DEFAULT_AMPLITUDE
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                                vibrator.vibrate(
+                                                    VibrationEffect.createOneShot(
+                                                        300,
+                                                        VibrationEffect.DEFAULT_AMPLITUDE
+                                                    )
                                                 )
-                                            )
-                                        } else {
-                                            // For older versions of Android, you can just use vibrate()
-                                            vibrator.vibrate(300)
+                                            } else {
+                                                // For older versions of Android, you can just use vibrate()
+                                                vibrator.vibrate(300)
+                                            }
+
                                         }
+                                        enableRememberLocation = true
+                                        model.updateLocationButton(true)
+                                        model.startLocationService(context)
+                                    } else {
+                                        enableRememberLocation = false
+                                        model.updateLocationButton(false)
+                                        model.stopLocationService(context)
+
 
                                     }
-                                    enableRememberLocation = true
-                                    model.updateLocationButton(true)
-                                    model.startLocationService(context)
-                                } else {
-                                    enableRememberLocation = false
-                                    model.updateLocationButton(false)
-                                    model.stopLocationService(context)
-
-
                                 }
-
                             },
                             onLongPress = {
                                 Toast.makeText(context, "Lonf", Toast.LENGTH_LONG).show()
@@ -219,6 +233,29 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 //            }
             }
         }
+    }
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = { Text("Permission Required") },
+            text = { Text("This app requires background location access to function properly. Please grant the permission.\n" +
+                    "Select AI Camera app -> Allow all the time") },
+            confirmButton = {
+                Button(onClick = {
+                    showDialog = false
+                    val locationIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    context.startActivity(locationIntent)
+                }) {
+                    Text("Grant Permission")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { showDialog = false }) {
+                    Text("Dismiss")
+                }
+            }
+        )
     }
 
 }
