@@ -110,7 +110,7 @@ class AiCameraLocationUpdateService : Service() {
         Log.d("Location Flow Update", "Lat: passing")
 
 //        val locationData = Pair(location.latitude, location.longitude)
-        LocationSharedFlow.locationFlow.tryEmit(location)
+//        LocationSharedFlow.locationFlow.tryEmit(location)
 //        Log.d("LocationService", "Emission successful:"+ location.latitude+"<>"+location.longitude)
 //        Toast.makeText(applicationContext,"Konanana"+location.latitude+"Long:"+location.longitude,1).show()
         serviceScope.launch {

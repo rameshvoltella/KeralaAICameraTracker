@@ -210,7 +210,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                        text = "Your location :"+model.locationData.observeAsState().value?.latitude+":"+model.locationData.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value, fontSize = 16.sp,
+                        text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value, fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
