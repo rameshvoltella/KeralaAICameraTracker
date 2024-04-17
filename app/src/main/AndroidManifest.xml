@@ -50,12 +50,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver
-            android:name=".boardcast.GeofenceBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true" >
-
-        </receiver>
 
     <!--    <receiver android:name=".geofencing.GeofenceBroadcastReceiverTwo"
             android:enabled="true"

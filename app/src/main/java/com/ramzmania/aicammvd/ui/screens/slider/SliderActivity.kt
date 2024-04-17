@@ -1,8 +1,6 @@
 package com.ramzmania.aicammvd.ui.screens.slider
 
-import android.Manifest
 import android.app.Activity
-import android.content.pm.PackageManager
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,14 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
-import com.ramzmania.aicammvd.geofencing.GeofenceHelper
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
@@ -159,33 +154,5 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     @Composable
     fun PreviewMyScreen() {
         MyScreen(viewModel = MyViewModel())
-    }
-    fun createCameraDataList(): List<CameraData> {
-        return listOf(
-            CameraData(
-                uniqueId = "1",
-                district = "Central Park",
-                location = "New York",
-                latitude = 9.7572113,
-                longitude = 76.4829271,
-                type = "Type1"
-            ),
-            CameraData(
-                uniqueId = "2",
-                district = "Golden Gate Park",
-                location = "San Francisco",
-                latitude = 9.7555303,
-                longitude = 76.4851591,
-                type = "Type2"
-            ),
-            CameraData(
-                uniqueId = "3",
-                district = "Hyde Park",
-                location = "London",
-                latitude = 9.756672,
-                longitude = 76.4822193,
-                type = "Type3"
-            )
-        )
     }
 }

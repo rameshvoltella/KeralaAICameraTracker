@@ -12,6 +12,7 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
+import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
@@ -100,6 +101,8 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
     }
 
     fun stopLocationService(context:Context) {
+        removeAllGeofences(context)
+
         Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
             context.stopService(intent)
         }

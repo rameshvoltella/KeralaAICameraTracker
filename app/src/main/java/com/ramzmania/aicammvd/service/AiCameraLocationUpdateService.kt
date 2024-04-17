@@ -204,33 +204,4 @@ class AiCameraLocationUpdateService : Service() {
     }
 
 
-    fun createCameraDataList(): List<CameraData> {
-        return listOf(
-            CameraData(
-                uniqueId = "1",
-                district = "Central Park",
-                location = "New York",
-                latitude = 9.7572113,
-                longitude = 76.4829271,
-                type = "Type1"
-            ),
-            CameraData(
-                uniqueId = "2",
-                district = "Golden Gate Park",
-                location = "San Francisco",
-                latitude = 9.7555303,
-                longitude = 76.4851591,
-                type = "Type2"
-            ),
-            CameraData(
-                uniqueId = "3",
-                district = "Hyde Park",
-                location = "London",
-                latitude = 9.756672,
-                longitude = 76.4822193,
-                type = "Type3"
-            )
-        )
-    }
-
 }

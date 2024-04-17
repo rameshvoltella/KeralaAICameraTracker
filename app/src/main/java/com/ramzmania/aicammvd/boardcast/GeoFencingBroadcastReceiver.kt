@@ -25,16 +25,33 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
         Log.d("hey",extras.toString())
         Log.d("hey1",extras?.getString("lat").toString())
         val location = geofencingEvent.triggeringLocation
+        val triggeringGeofences = geofencingEvent.triggeringGeofences
 
+        // Extract the unique ID from each geofence
+        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
+        var triggeredLocation="Some camera location"
+
+        if(triggeringGeofences!=null) {
+            for (geofence in triggeringGeofences) {
+//                Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before")
+
+                triggeredLocation= geofence.requestId
+//                Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = $geofenceId")
+
+                // Handle the geofence event as needed
+                // For example, you can notify the user or update the UI
+            }
+        }
+        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
+
+//        val somevalue= geofencingEvent.triggeringGeofences?.get(0)?.requestId
         when (geofencingEvent.geofenceTransition) {
             Geofence.GEOFENCE_TRANSITION_ENTER -> {
                 if (extras != null) {
                     showNotification(
                         context!!,
                         "Entering Geofence",
-                        "You entered geofence with latitude ${location?.latitude} longitude ${
-                            location?.longitude
-                        } radius ${extras.getString("radius")}"
+                        triggeredLocation+" Camera Zone"
                     )
                 }
             }
@@ -44,9 +61,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                     showNotification(
                         context!!,
                         "Exiting Geofence",
-                        "You exited  geofence with latitude ${extras.getString("lat")} longitude ${
-                            extras.getString("lon")
-                        } radius ${extras.getString("radius")}"
+                        triggeredLocation+" Camera Zone"
                     )
             }
 
