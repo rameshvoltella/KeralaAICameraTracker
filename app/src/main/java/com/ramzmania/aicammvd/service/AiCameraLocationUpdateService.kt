@@ -68,7 +68,7 @@ class AiCameraLocationUpdateService : Service() {
         PreferencesUtil.setServiceRunning(this, true)
         LocationSharedFlow.serviceStopStatus.tryEmit(false)
 //        Log.d("vadada",">>onstart>"+value)
-
+        startedService()
         return START_STICKY
     }
 
@@ -197,10 +197,21 @@ class AiCameraLocationUpdateService : Service() {
         LocationSharedFlow.serviceStopStatus.tryEmit(true)
 //        Log.d("vadada",">>>"+value)
         locationClient.removeLocationUpdates(locationCallback)
+        stoppedService()
     }
 
     companion object {
         private const val CHANNEL_ID = "ForegroundServiceChannel"
+        var isServiceStarted: Boolean = false
+            private set
+
+        fun startedService() {
+            isServiceStarted=true
+        }
+
+        fun stoppedService() {
+            isServiceStarted = false
+        }
     }
 
 

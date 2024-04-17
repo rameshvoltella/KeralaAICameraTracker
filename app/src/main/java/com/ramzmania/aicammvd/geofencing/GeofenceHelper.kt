@@ -15,6 +15,7 @@ import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
 import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import java.util.Locale
 
 fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
@@ -95,8 +96,10 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 }
 
 fun removeAllGeofences(context: Context) {
+    val id =    PreferencesUtil.getPendingIntentId(context)
+Log.d("checkingid","removing"+id)
     val removeIntent = Intent(context, GeoFencingBroadcastReceiver::class.java)
-    val pendingIntent = PendingIntent.getBroadcast(context, 250, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+    val pendingIntent = PendingIntent.getBroadcast(context, id, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
     val geofencingClient: GeofencingClient = LocationServices.getGeofencingClient(context)
 
@@ -114,10 +117,13 @@ fun removeAllGeofences(context: Context) {
 
 
 private fun getGeofencePendingIntent(context: Context,broadcastintent: Intent): PendingIntent {
+ val id=(Math.random() * 1000 + 1).toInt()
+    Log.d("checkingid","adding"+id)
 
+    PreferencesUtil.setPendingIntentId(context,id)
     return PendingIntent.getBroadcast(
-        context,
-        (Math.random() * 1000 + 1).toInt(),
+        context,id
+        ,
         broadcastintent,
         PendingIntent.FLAG_MUTABLE
     )

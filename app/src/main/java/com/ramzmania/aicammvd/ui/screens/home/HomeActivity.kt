@@ -1,6 +1,7 @@
 package com.ramzmania.aicammvd.ui.screens.home
 
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
@@ -16,9 +17,11 @@ import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
+import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.navigation.HomeNavigation
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.utils.observe
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,10 +69,18 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 */
 
     override fun observeActivity() {
-
     }
 
     override fun beforeOnContent() {
+        if(AiCameraLocationUpdateService.isServiceStarted)
+        {
+            PreferencesUtil.setServiceRunning(this, true)
+
+        }else
+        {
+            PreferencesUtil.setServiceRunning(this, false)
+
+        }
         enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
 //        enableEdgeToEdge(
 //            statusBarStyle = SystemBarStyle.light(
