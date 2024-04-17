@@ -78,8 +78,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     var showPermissionsDialog by remember { mutableStateOf(false) }
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
-        Manifest.permission.ACCESS_COARSE_LOCATION,
-        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+        Manifest.permission.ACCESS_COARSE_LOCATION
     )
     val permissionsState = rememberMultiplePermissionsState(permissions = permissions)
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted}

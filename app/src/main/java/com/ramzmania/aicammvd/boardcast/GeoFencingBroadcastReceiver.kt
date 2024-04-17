@@ -16,6 +16,7 @@ import com.google.android.gms.location.GeofencingEvent
 
 class GeoFencingBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
+        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
 
         val geofencingEvent = GeofencingEvent.fromIntent(intent!!)
         if (geofencingEvent?.hasError()!!) {
