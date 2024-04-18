@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
+import com.ramzmania.aicammvd.workmanager.stopAiServiceWorkManager
 
 class StopServiceReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
@@ -12,6 +13,7 @@ class StopServiceReceiver : BroadcastReceiver() {
         context?.stopService(stopIntent)
         if (context !=null)
         {
+            stopAiServiceWorkManager(context)
             removeAllGeofences(context)
 
         }

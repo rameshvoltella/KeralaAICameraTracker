@@ -17,6 +17,8 @@ import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
+import com.ramzmania.aicammvd.workmanager.startAiServiceWorkManager
+import com.ramzmania.aicammvd.workmanager.stopAiServiceWorkManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -98,6 +100,7 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
             }
             //setTackingServiceRunning(true)
         }
+        startAiServiceWorkManager(context)
     }
 
     fun stopLocationService(context:Context) {
@@ -107,6 +110,7 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
             context.stopService(intent)
         }
        // setTackingServiceRunning(false)
+        stopAiServiceWorkManager(context)
 
     }
 

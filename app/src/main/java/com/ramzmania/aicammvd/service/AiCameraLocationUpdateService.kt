@@ -54,7 +54,7 @@ class AiCameraLocationUpdateService : Service() {
 
     private val TAG = "AI SERVICE"
 
-    private var memorystatus:String?= ""
+    private var memorystatus: String? = ""
 
     // New way to create a LocationRequest using LocationRequest.Builder
     private val locationRequest: LocationRequest = LocationRequest.Builder(
@@ -70,7 +70,7 @@ class AiCameraLocationUpdateService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        PreferencesUtil.setString(applicationContext,"","sts")
+        PreferencesUtil.setString(applicationContext, "", "sts")
         createNotificationChannel()
         startForeground(1, getNotification())
 
@@ -232,24 +232,32 @@ class AiCameraLocationUpdateService : Service() {
         super.onTrimMemory(level)
         when (level) {
             TRIM_MEMORY_BACKGROUND -> {
-                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_BACKGROUND"
+                PreferencesUtil.setServiceRunning(applicationContext, false)
+                memorystatus = memorystatus + "<><>" + "TRIM_MEMORY_BACKGROUND"
                 saveMeoryValue(memorystatus)
                 Log.d(
                     TAG,
                     "UI hidden and not on foreground but service is running"
                 )
+
             }
+
             TRIM_MEMORY_MODERATE -> {
-                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_MODERATE"
+                PreferencesUtil.setServiceRunning(applicationContext, false)
+
+                memorystatus = memorystatus + "<><>" + "TRIM_MEMORY_MODERATE"
                 saveMeoryValue(memorystatus)
 
                 Log.d(
                     TAG,
                     "Device runs low on memory and actively running processes (like this service) should trim their memory usage"
                 )
+
             }
+
             TRIM_MEMORY_COMPLETE -> {
-                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_COMPLETE"
+                PreferencesUtil.setServiceRunning(applicationContext, false)
+                memorystatus = memorystatus + "<><>" + "TRIM_MEMORY_COMPLETE"
                 saveMeoryValue(memorystatus)
 
                 Log.d(
@@ -264,7 +272,9 @@ class AiCameraLocationUpdateService : Service() {
             }
 
             TRIM_MEMORY_RUNNING_CRITICAL -> {
-                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_RUNNING_CRITICAL"
+                PreferencesUtil.setServiceRunning(applicationContext, false)
+
+                memorystatus = memorystatus + "<><>" + "TRIM_MEMORY_RUNNING_CRITICAL"
                 saveMeoryValue(memorystatus)
 
                 try {
@@ -272,10 +282,13 @@ class AiCameraLocationUpdateService : Service() {
                 } catch (ex: Exception) {
 
                 }
+
             }
 
             else -> {
-                memorystatus=memorystatus+"<><>"+"OTHER value"+level
+                PreferencesUtil.setServiceRunning(applicationContext, false)
+
+                memorystatus = memorystatus + "<><>" + "OTHER value" + level
                 saveMeoryValue(memorystatus)
 
                 try {
@@ -283,13 +296,14 @@ class AiCameraLocationUpdateService : Service() {
                 } catch (ex: Exception) {
 
                 }
+
                 Log.d(TAG, "Memory level warning: $level")
             }
         }
     }
 
     private fun saveMeoryValue(memorystatus: String?) {
-PreferencesUtil.setString(applicationContext,memorystatus!!,"sts")
+        PreferencesUtil.setString(applicationContext, memorystatus!!, "sts")
     }
 
     override fun onDestroy() {
