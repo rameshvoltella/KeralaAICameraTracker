@@ -72,7 +72,7 @@ class AiCameraLocationUpdateService : Service() {
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         PreferencesUtil.setString(applicationContext, "", "sts")
         createNotificationChannel()
-        startForeground(1, getNotification())
+        startForeground(666, getNotification())
 
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         startLocationUpdates()
