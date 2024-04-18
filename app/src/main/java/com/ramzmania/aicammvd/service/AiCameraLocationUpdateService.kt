@@ -232,13 +232,13 @@ class AiCameraLocationUpdateService : Service() {
         super.onTrimMemory(level)
         when (level) {
             TRIM_MEMORY_BACKGROUND -> {
-                PreferencesUtil.setServiceRunning(applicationContext, false)
+//                PreferencesUtil.setServiceRunning(applicationContext, false)
                 memorystatus = memorystatus + "<><>" + "TRIM_MEMORY_BACKGROUND"
                 saveMeoryValue(memorystatus)
-                Log.d(
-                    TAG,
-                    "UI hidden and not on foreground but service is running"
-                )
+//                Log.d(
+//                    TAG,
+//                    "UI hidden and not on foreground but service is running"
+//                )
 
             }
 
