@@ -9,17 +9,21 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.startForegroundService
+import androidx.hilt.work.HiltWorker
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.utils.PreferencesUtil
+import dagger.assisted.AssistedInject
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-
-class ObserveAIServiceWorker(context: Context,workerParameters: WorkerParameters):Worker(context,workerParameters) {
+@HiltWorker
+class ObserveAIServiceWorker @AssistedInject constructor(context: Context, workerParameters: WorkerParameters,localRepository: LocalRepository):Worker(context,workerParameters) {
     companion object {
+
         const val CHANNEL_ID = "ai_notify_channel"
         const val NOTIFICATION_ID = 778
     }

@@ -41,6 +41,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class AiCameraLocationUpdateService : Service() {
+
     private lateinit var locationClient: FusedLocationProviderClient
 
     @Inject

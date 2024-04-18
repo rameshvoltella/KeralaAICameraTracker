@@ -75,6 +75,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.navigation:navigation-runtime-ktx:2.7.7")
     implementation("androidx.work:work-runtime-ktx:2.9.0")
+    implementation("androidx.hilt:hilt-common:1.2.0")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     testImplementation("junit:junit:4.13.2")
