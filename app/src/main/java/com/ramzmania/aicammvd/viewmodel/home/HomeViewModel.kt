@@ -92,14 +92,14 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
     }
 
     fun startLocationService(context:Context) {
-//        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                context.startForegroundService(intent)
-//            } else {
-//                context.startService(intent)
-//            }
-//            //setTackingServiceRunning(true)
-//        }
+        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                context.startForegroundService(intent)
+            } else {
+                context.startService(intent)
+            }
+            //setTackingServiceRunning(true)
+        }
         startAiServiceWorkManager(context)
     }
 

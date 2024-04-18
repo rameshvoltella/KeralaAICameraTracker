@@ -260,12 +260,21 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     }
 
 }
-
-@Preview
+@Preview(showBackground = true)
+@Composable
+fun TrackerViewpagerItemPreview() {
+    TrackerViewpagerItem(
+        centerImage = R.drawable.ic_livevideo_doubt, // Replace with actual drawable resource
+        title = "Sample Title",
+        subtitle = "Sample Subtitle",
+        enabledLocationValue = true
+    )
+}
+/*@Preview
 @Composable
 private fun ViewPagerItemPreview() {
 //    TrackerViewpagerItem(R.drawable.cam_location, "kona", "intro", 2)
-}
+}*/
 //@RequiresApi(Build.VERSION_CODES.O)
 //fun vibrate() {
 //    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

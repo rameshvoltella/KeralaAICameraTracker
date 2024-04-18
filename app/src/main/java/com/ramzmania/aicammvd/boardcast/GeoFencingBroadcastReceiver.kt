@@ -109,6 +109,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
             .setSmallIcon(R.drawable.ai_camera_marker)
             .setContentIntent(pendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
             .build()
 
         val notificationManager = NotificationManagerCompat.from(context)
