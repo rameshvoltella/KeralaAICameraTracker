@@ -46,6 +46,7 @@ import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 import com.ramzmania.aicammvd.utils.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import android.provider.Settings
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -210,7 +211,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                        text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value, fontSize = 16.sp,
+                        text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value+">>MEORY ERROR"+ PreferencesUtil.getString(context,"sts"), fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),

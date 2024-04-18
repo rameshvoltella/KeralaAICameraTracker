@@ -1,6 +1,7 @@
 package com.ramzmania.aicammvd.geofencing
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -108,17 +109,18 @@ Log.d("checkingid","removing"+id)
     geofencingClient.removeGeofences(pendingIntent).run {
         addOnSuccessListener {
             // Log success or handle it according to your need
-            println("All geofences successfully removed.")
+            Log.d("Geofence", "All geofences successfully removed.")
         }
         addOnFailureListener {
             // Log failure or handle the error accordingly
-            println("Failed to remove geofences")
+            Log.d("Geofence", "Failed to remove geofences")
         }
     }
 }
 
 
-private fun getGeofencePendingIntent(context: Context,broadcastintent: Intent): PendingIntent {
+@SuppressLint("SuspiciousIndentation")
+private fun getGeofencePendingIntent(context: Context, broadcastintent: Intent): PendingIntent {
  val id=(Math.random() * 1000 + 1).toInt()
     Log.d("checkingid","adding"+id)
 

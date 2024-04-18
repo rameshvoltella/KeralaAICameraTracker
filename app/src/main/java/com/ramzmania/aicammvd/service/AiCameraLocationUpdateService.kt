@@ -14,7 +14,13 @@ import android.os.IBinder
 import android.os.Looper
 import android.util.Log
 import androidx.core.app.ActivityCompat
-import com.google.android.gms.location.*
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.Granularity
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.StopServiceReceiver
 import com.ramzmania.aicammvd.data.ContextModule
@@ -32,6 +38,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 class AiCameraLocationUpdateService : Service() {
     private lateinit var locationClient: FusedLocationProviderClient
@@ -44,6 +51,10 @@ class AiCameraLocationUpdateService : Service() {
 
     // Context is injected
     private val serviceScope = CoroutineScope(Dispatchers.IO) // Runs tasks in the background
+
+    private val TAG = "AI SERVICE"
+
+    private var memorystatus:String?= ""
 
     // New way to create a LocationRequest using LocationRequest.Builder
     private val locationRequest: LocationRequest = LocationRequest.Builder(
@@ -59,7 +70,7 @@ class AiCameraLocationUpdateService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-
+        PreferencesUtil.setString(applicationContext,"","sts")
         createNotificationChannel()
         startForeground(1, getNotification())
 
@@ -215,6 +226,70 @@ class AiCameraLocationUpdateService : Service() {
             val manager = getSystemService(NotificationManager::class.java)
             manager.createNotificationChannel(serviceChannel)
         }
+    }
+
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        when (level) {
+            TRIM_MEMORY_BACKGROUND -> {
+                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_BACKGROUND"
+                saveMeoryValue(memorystatus)
+                Log.d(
+                    TAG,
+                    "UI hidden and not on foreground but service is running"
+                )
+            }
+            TRIM_MEMORY_MODERATE -> {
+                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_MODERATE"
+                saveMeoryValue(memorystatus)
+
+                Log.d(
+                    TAG,
+                    "Device runs low on memory and actively running processes (like this service) should trim their memory usage"
+                )
+            }
+            TRIM_MEMORY_COMPLETE -> {
+                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_COMPLETE"
+                saveMeoryValue(memorystatus)
+
+                Log.d(
+                    TAG,
+                    "The process is on the LRU list and if the system does not recover memory now, it will kill most likely processes, including this service"
+                )
+                try {
+                    locationClient.removeLocationUpdates(locationCallback);
+                } catch (ex: Exception) {
+
+                }
+            }
+
+            TRIM_MEMORY_RUNNING_CRITICAL -> {
+                memorystatus=memorystatus+"<><>"+"TRIM_MEMORY_RUNNING_CRITICAL"
+                saveMeoryValue(memorystatus)
+
+                try {
+                    locationClient.removeLocationUpdates(locationCallback);
+                } catch (ex: Exception) {
+
+                }
+            }
+
+            else -> {
+                memorystatus=memorystatus+"<><>"+"OTHER value"+level
+                saveMeoryValue(memorystatus)
+
+                try {
+                    locationClient.removeLocationUpdates(locationCallback);
+                } catch (ex: Exception) {
+
+                }
+                Log.d(TAG, "Memory level warning: $level")
+            }
+        }
+    }
+
+    private fun saveMeoryValue(memorystatus: String?) {
+PreferencesUtil.setString(applicationContext,memorystatus!!,"sts")
     }
 
     override fun onDestroy() {
