@@ -15,6 +15,7 @@ import androidx.work.WorkerParameters
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
+import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.assisted.AssistedInject
 import java.text.SimpleDateFormat
@@ -60,17 +61,10 @@ class ObserveAIServiceWorker @AssistedInject constructor(context: Context, worke
     }
 
     private fun showNotification() {
-        createNotificationChannel()
+        NotificationUtil.createNotificationChannel(applicationContext, CHANNEL_ID,NotificationCompat.PRIORITY_DEFAULT)
 
         val dateFormat = SimpleDateFormat("dd-MMM @ HH:mm a", Locale.getDefault())
         val dateTime = dateFormat.format(Date())
-
-        val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_livevideo_doubt) // replace with your own drawable
-            .setContentTitle("WorkManager Notification")
-            .setContentText("Time: $dateTime")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .build()
 
         if (ActivityCompat.checkSelfPermission(
                 applicationContext,
@@ -80,21 +74,7 @@ class ObserveAIServiceWorker @AssistedInject constructor(context: Context, worke
 
             return
         }
-        NotificationManagerCompat.from(applicationContext).notify(NOTIFICATION_ID, notification)
+        NotificationUtil.showNotification(applicationContext,"WorkManager Notification","Time: $dateTime",null,NotificationCompat.PRIORITY_DEFAULT,R.drawable.red_location,NOTIFICATION_ID,CHANNEL_ID)
     }
 
-    private fun createNotificationChannel() {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            val name = "Notifications"
-            val descriptionText = "Channel for Work Manager Notifications"
-            val importance = android.app.NotificationManager.IMPORTANCE_DEFAULT
-            val channel = android.app.NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-
-            val notificationManager: android.app.NotificationManager =
-                applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
 }

@@ -2,14 +2,12 @@ package com.ramzmania.aicammvd.service
 
 import android.Manifest
 import android.app.Notification
-import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.os.Build
 import android.os.IBinder
 import android.os.Looper
 import android.util.Log
@@ -30,7 +28,13 @@ import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.setBatchGeoFencing
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
+import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
+import com.ramzmania.aicammvd.utils.Constants.CONTENT_PENDING_INTENT_ID
+import com.ramzmania.aicammvd.utils.Constants.DISMISS_PENDING_INTENT_ID
+import com.ramzmania.aicammvd.utils.Constants.STOP_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
+import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -71,15 +75,17 @@ class AiCameraLocationUpdateService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+
         PreferencesUtil.setString(applicationContext, "", "sts")
-        createNotificationChannel()
-        startForeground(666, getNotification())
+
+        NotificationUtil.createNotificationChannel(applicationContext, CHANNEL_ID,
+            NotificationManager.IMPORTANCE_DEFAULT)
+        startForeground(Constants.FOREGROUND_ID, getNotification())
 
         locationClient = LocationServices.getFusedLocationProviderClient(this)
         startLocationUpdates()
         PreferencesUtil.setServiceRunning(this, true)
         LocationSharedFlow.serviceStopStatus.tryEmit(false)
-//        Log.d("vadada",">>onstart>"+value)
         startedService()
         playNotificationSound(applicationContext, R.raw.loco)
 
@@ -153,81 +159,35 @@ class AiCameraLocationUpdateService : Service() {
     private fun getNotification(): Notification {
         val stopIntent = Intent(this, StopServiceReceiver::class.java)
         val stopPendingIntent = PendingIntent.getBroadcast(
-            this, 90, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            this, STOP_PENDING_INTENT_ID, stopIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
-
-        val notificationBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Notification.Builder(this, CHANNEL_ID)
-        } else {
-            Notification.Builder(this)
-        }
-        // Create an intent to launch your main activity
 
         // Create an intent to launch your main activity
         val mainActivityIntent = Intent(this, HomeActivity::class.java)
         mainActivityIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         val pendingIntent = PendingIntent.getActivity(
             this,
-            91,
+            CONTENT_PENDING_INTENT_ID,
             mainActivityIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
+        // Create an intent to dismiss
 
-        val dismissIntent = Intent("com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED")
+        val dismissIntent = Intent(applicationContext.packageName+".ACTION_NOTIFICATION_DISMISSED")
         val pendingDismissIntent = PendingIntent.getBroadcast(
             this,
-            93,
+            DISMISS_PENDING_INTENT_ID,
             dismissIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        return notificationBuilder
-            .setContentTitle("Location Service")
-            .setContentText("Tracking location...")
-            .setSmallIcon(R.drawable.red_location)
-            .setOngoing(true)
-            .setContentIntent(pendingIntent)
-            .setDeleteIntent(pendingDismissIntent)// Set the pending intent to launch the main activity when the notification is clicked
-//            .addAction(R.mipmap.ic_launcher_round, "Stop", stopServicePendingIntent)
-            /// Set ongoing to true to make the notification sticky
-            .addAction(
-                R.drawable.ic_livevideo_doubt,
-                "Stop",
-                stopPendingIntent
-            )  // Assuming you have an ic_stop drawable
-            .build()
+        return NotificationUtil.getNotification(applicationContext,stopPendingIntent,
+            pendingIntent,pendingDismissIntent,R.drawable.red_location,R.drawable.stop,
+            "Location Service","Tracking location...",
+            CHANNEL_ID)
+
     }
 
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            val soundUri = Uri.parse("android.resource://" + applicationContext.packageName + "/" + R.raw.notification_sound)
-//            val audioAttributes = AudioAttributes.Builder()
-//                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-//                .build()
-//            val audioAttributes = AudioAttributes.Builder()
-//                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-//                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-//                .build()
-//
-////This is where you apply the custom notification sound. The "notification_sound" file resides in the "raw" folder.
-//            val sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + "com.ramzmania.aicammvd" + "/" + R.raw.notification_sound)
-//            val sound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://" + "com.ramzmania.aicammvd" + "/" + R.raw.loco)
-
-            val serviceChannel = NotificationChannel(
-                CHANNEL_ID,
-                "Foreground Service Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
-            ).apply {
-//                setSound(soundUri, audioAttributes)  // Set custom sound and audio attributes
-                enableVibration(true)
-                enableLights(true)
-//                setSound((sound),Notification.AUDIO_ATTRIBUTES_DEFAULT)
-            }
-            val manager = getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(serviceChannel)
-        }
-    }
 
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
@@ -317,7 +277,6 @@ class AiCameraLocationUpdateService : Service() {
     }
 
     companion object {
-        private const val CHANNEL_ID = "ForegroundServiceChannel"
         var isServiceStarted: Boolean = false
             private set
 
