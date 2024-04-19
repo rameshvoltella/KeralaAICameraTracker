@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit
 
 fun startAiServiceWorkManager(context: Context) {
     val periodicWorkRequest =
-        PeriodicWorkRequestBuilder<ObserveAIServiceWorker>(5, TimeUnit.MINUTES)
+        PeriodicWorkRequestBuilder<ObserveAIServiceWorker>(1, TimeUnit.MINUTES)
             .addTag(Constants.SERVICE_WORK_MANAGER_TAG)
             .build()
 

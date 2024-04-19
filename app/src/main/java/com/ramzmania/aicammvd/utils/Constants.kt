@@ -2,6 +2,8 @@ package com.ramzmania.aicammvd.utils
 
 object Constants {
 
+    const val SLIDER_SCREEN_PASSED: String="is_slider_sucess"
+    const val SLIDER_SCREEN_TAG: String="is_slider_passed"
     const val SERVICE_RESTARTER_WORK_TAG: String="servicerestarter"
     const val SERVICE_WORK_MANAGER_TAG="AISERVICETAG"
     const val CHANNEL_ID = "AI_CAMERA_CHANNEL_ID"
