@@ -21,43 +21,61 @@ import dagger.assisted.AssistedInject
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-@HiltWorker
-class ObserveAIServiceWorker @AssistedInject constructor(context: Context, workerParameters: WorkerParameters,localRepository: LocalRepository):Worker(context,workerParameters) {
+class ObserveAIServiceWorker(val context: Context, workerParameters: WorkerParameters):Worker(context,workerParameters) {
     companion object {
 
         const val CHANNEL_ID = "ai_notify_channel"
         const val NOTIFICATION_ID = 778
     }
     override fun doWork(): Result {
-        val dateFormat = SimpleDateFormat("dd-MMM @ HH:mm a", Locale.getDefault())
-        val dateTime = dateFormat.format(Date())
+        try {
+            val dateFormat = SimpleDateFormat("dd-MMM @ HH:mm a", Locale.getDefault())
+            val dateTime = dateFormat.format(Date())
+            showNotification()
 
-        if (isStopped) {
-            // Cleanup or prepare to stop work
-            PreferencesUtil.setString(applicationContext, "STOPPED @ $dateTime ","workz")
+            if (isStopped) {
+                // Cleanup or prepare to stop work
+                PreferencesUtil.setString(applicationContext, "STOPPED @ $dateTime ", "workz")
 
+                return Result.failure()
+            }
+            PreferencesUtil.setString(
+                applicationContext,
+                "START @ $dateTime " + PreferencesUtil.isServiceRunning(applicationContext),
+                "workz"
+            )
+            if (!PreferencesUtil.isServiceRunning(applicationContext) || !AiCameraLocationUpdateService.isServiceStarted) {
+                PreferencesUtil.setString(applicationContext, "START>1  @ $dateTime ", "workz")
+
+                Intent(
+                    applicationContext,
+                    AiCameraLocationUpdateService::class.java
+                ).also { intent ->
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        PreferencesUtil.setString(
+                            applicationContext,
+                            "START>2  @ $dateTime ",
+                            "workz"
+                        )
+
+                        context.startForegroundService(intent)
+                    } else {
+                        PreferencesUtil.setString(
+                            applicationContext,
+                            "START>3  @ $dateTime ",
+                            "workz"
+                        )
+
+                        context.startService(intent)
+                    }
+                    //setTackingServiceRunning(true)
+                }
+            }
+            return Result.success()
+        }catch (exx:Exception)
+        {
             return Result.failure()
         }
-        showNotification()
-        PreferencesUtil.setString(applicationContext,"START @ $dateTime "+PreferencesUtil.isServiceRunning(applicationContext),"workz")
-        if(!PreferencesUtil.isServiceRunning(applicationContext)||!AiCameraLocationUpdateService.isServiceStarted)
-        {
-            PreferencesUtil.setString(applicationContext,"START>1  @ $dateTime ","workz")
-
-            Intent(applicationContext, AiCameraLocationUpdateService::class.java).also { intent ->
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    PreferencesUtil.setString(applicationContext,"START>2  @ $dateTime ","workz")
-
-                    applicationContext.startForegroundService(intent)
-                } else {
-                    PreferencesUtil.setString(applicationContext,"START>3  @ $dateTime ","workz")
-
-                    applicationContext.startService(intent)
-                }
-                //setTackingServiceRunning(true)
-            }
-        }
-        return Result.success()
     }
 
     private fun showNotification() {

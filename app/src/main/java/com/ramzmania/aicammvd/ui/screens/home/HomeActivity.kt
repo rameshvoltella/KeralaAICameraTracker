@@ -14,6 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.rememberNavController
+import androidx.work.WorkInfo
+import androidx.work.WorkManager
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
@@ -21,6 +23,7 @@ import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.navigation.HomeNavigation
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
+import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.utils.observe
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
@@ -69,6 +72,42 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 */
 
     override fun observeActivity() {
+         val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
+            WorkManager.getInstance(this)
+        }
+        mWorkManager.getWorkInfosByTagLiveData(Constants.SERVICE_WORK_MANAGER_TAG)
+            .observe(this) {
+                if (it.isNotEmpty()) {
+                    val workInfo = it[0]
+                    when(workInfo.state) {
+                        WorkInfo.State.SUCCEEDED -> {
+                            Toast.makeText(applicationContext,"WorkInfo.State.SUCCEEDED",1).show()
+
+                        }
+                        WorkInfo.State.BLOCKED->{
+                            Toast.makeText(applicationContext,"blocked",1).show()
+
+                                                }
+                        WorkInfo.State.ENQUEUED->{
+                            Toast.makeText(applicationContext,"enquee",1).show()
+
+                        }
+                        WorkInfo.State.RUNNING -> {
+                            Toast.makeText(applicationContext,"running",1).show()
+
+
+                        }
+                        WorkInfo.State.CANCELLED -> {
+                            Toast.makeText(applicationContext,"cancelled",1).show()
+
+                        }
+                        WorkInfo.State.FAILED -> {
+                            Toast.makeText(applicationContext,"failed",1).show()
+
+                        }
+                    }
+                }
+            }
     }
 
     override fun beforeOnContent() {

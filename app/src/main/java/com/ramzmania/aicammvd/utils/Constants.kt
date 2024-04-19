@@ -2,6 +2,7 @@ package com.ramzmania.aicammvd.utils
 
 object Constants {
 
+    const val SERVICE_RESTARTER_WORK_TAG: String="servicerestarter"
     const val SERVICE_WORK_MANAGER_TAG="AISERVICETAG"
     const val CHANNEL_ID = "AI_CAMERA_CHANNEL_ID"
     const val CHANNEL_GEO_FENCE_ID = "AI_CAMERA_geofence_channel_CHANNEL_ID"
