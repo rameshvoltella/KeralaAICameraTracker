@@ -68,7 +68,9 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     )
     val permissionsState = rememberMultiplePermissionsState(permissions = permissions)
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
-//    val kkpp:(Boolean)->Unit= model::updateLocationData
+//    val kkpp:(Boolean)->Unit= model::updateLocationButton
+//        val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
+
 //    kkpp(true)
     val stopFromService:Boolean=model.locationServiceStared.collectAsState().value
 

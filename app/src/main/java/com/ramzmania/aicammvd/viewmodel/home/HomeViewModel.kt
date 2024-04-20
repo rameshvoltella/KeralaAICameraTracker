@@ -7,6 +7,8 @@ import android.os.Build
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.work.PeriodicWorkRequest
+import androidx.work.WorkManager
 import com.ramzmania.aicammvd.data.ContextModule
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
@@ -17,12 +19,14 @@ import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
+import com.ramzmania.aicammvd.workmanager.LocationWorker
 import com.ramzmania.aicammvd.workmanager.startAiServiceWorkManager
 import com.ramzmania.aicammvd.workmanager.stopAiServiceWorkManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel@Inject
@@ -92,7 +96,7 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
     }
 
     fun startLocationService(context:Context) {
-        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
+       /* Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 context.startForegroundService(intent)
             } else {
@@ -100,7 +104,13 @@ constructor(private val localRepositorySource: LocalRepositorySource, private va
             }
             //setTackingServiceRunning(true)
         }
-        startAiServiceWorkManager(context)
+        startAiServiceWorkManager(context)*/
+        val periodicWorkRequest = PeriodicWorkRequest.Builder(LocationWorker::class.java, 15, TimeUnit.MINUTES)
+            .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
+            .build()
+
+        // Enqueue the work
+        WorkManager.getInstance(context).enqueue(periodicWorkRequest)
     }
 
     fun stopLocationService(context:Context) {

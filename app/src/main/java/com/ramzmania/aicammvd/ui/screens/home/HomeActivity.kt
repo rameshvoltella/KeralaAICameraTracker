@@ -75,7 +75,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
          val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
             WorkManager.getInstance(this)
         }
-        mWorkManager.getWorkInfosByTagLiveData(Constants.SERVICE_WORK_MANAGER_TAG)
+        mWorkManager.getWorkInfosByTagLiveData("SERVICE_WORK_MANAGER_TAG")
             .observe(this) {
                 if (it.isNotEmpty()) {
                     val workInfo = it[0]
