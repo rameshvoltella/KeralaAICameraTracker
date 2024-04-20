@@ -92,7 +92,7 @@ class ObserveAIServiceWorker(val context: Context, workerParameters: WorkerParam
 
             return
         }
-        NotificationUtil.showNotification(applicationContext,"WorkManager Notification","Time: $dateTime",null,NotificationCompat.PRIORITY_DEFAULT,R.drawable.red_location,NOTIFICATION_ID,CHANNEL_ID)
+        NotificationUtil.showNotification(applicationContext,"WorkManager Notification","Time: $dateTime",null,NotificationCompat.PRIORITY_DEFAULT,R.drawable.red_location,NOTIFICATION_ID,CHANNEL_ID,true)
     }
 
 }

@@ -6,12 +6,15 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.boardcast.NotificationDismissReceiver
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_DESCRIPTION
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_NAME
@@ -48,16 +51,34 @@ object NotificationUtil {
         content: String,
         intent: PendingIntent?,
         icon: Int,
-        priority: Int,notificationId:Int,channelId: String
+        priority: Int,notificationId:Int,channelId: String,normalNotification:Boolean
     ) {
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(icon) // Set your own icon
             .setContentTitle(title)
             .setContentText(content)
             .setPriority(priority)
-            .setAutoCancel(true)
         if (intent != null) {
             notificationBuilder.setContentIntent(intent)
+
+        }
+        if(normalNotification)
+        {
+            notificationBuilder.setAutoCancel(true)
+        }else
+        {
+            notificationBuilder.setOngoing(true)
+
+            val stopIntent = Intent(context, NotificationDismissReceiver::class.java)
+            val stopPendingIntent = PendingIntent.getBroadcast(context, 209, stopIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+            notificationBuilder.setAutoCancel(false)
+            notificationBuilder .addAction(
+                    R.drawable.stop,
+                    "Stop",
+                    stopPendingIntent
+                )
 
         }
 

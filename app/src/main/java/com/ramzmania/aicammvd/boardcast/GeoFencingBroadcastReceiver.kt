@@ -111,7 +111,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 Manifest.permission.POST_NOTIFICATIONS
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            NotificationUtil.showNotification(context,title,message,pendingIntent,R.drawable.ai_camera_marker,NotificationCompat.PRIORITY_DEFAULT,GEOFENCE_PENDING_INTENT_ID,CHANNEL_GEO_FENCE_ID)
+            NotificationUtil.showNotification(context,title,message,pendingIntent,R.drawable.ai_camera_marker,NotificationCompat.PRIORITY_DEFAULT,GEOFENCE_PENDING_INTENT_ID,CHANNEL_GEO_FENCE_ID,true)
             playNotificationSound(context, R.raw.notification_sound)
         }
 

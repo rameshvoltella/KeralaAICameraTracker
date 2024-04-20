@@ -18,5 +18,7 @@ object Constants {
 
     const val  GEOFENCE_PENDING_INTENT_ID: Int=999
 
+    const val FAKE_SERVICE_NOTIFICATION_ID:Int=989
+
 
 }
