@@ -154,7 +154,7 @@ constructor(
 //        }
 //       // setTackingServiceRunning(false)
 //        stopAiServiceWorkManager(context)
-        WorkManager.getInstance(context).cancelAllWork()
+        WorkManager.getInstance(context).cancelAllWorkByTag("SERVICE_WORK_MANAGER_TAG")
         locationEnabledPrivate.value = false
         try {
 
