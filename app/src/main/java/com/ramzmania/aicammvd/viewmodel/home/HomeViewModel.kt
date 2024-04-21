@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
+import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
@@ -97,17 +98,26 @@ constructor(
     }
 
     fun fetchAiLocationInfo() {
-        viewModelScope.launch {
 
-            aILocationLiveDataPrivate.value = Resource.Loading()
+    }
 
-            localRepositorySource.requestCameraLocation().collect {
-                aILocationLiveDataPrivate.value = it
+    fun startLocationService(context: Context,location: Location?) {
+        if(location!=null) {
+            viewModelScope.launch {
+
+
+                localRepositorySource.setNewAiCameraCircle(location.latitude, location.longitude).collect {
+                    if (it.data == true) {
+                        setUpLocationTracker(context)
+                    } else {
+
+                    }
+                }
             }
         }
     }
 
-    fun startLocationService(context: Context) {
+    private fun setUpLocationTracker(context: Context) {
 
         val intent = Intent(context, HomeActivity::class.java)
         // Add any extras you want to pass
@@ -142,6 +152,8 @@ constructor(
 
         // Enqueue the work
         WorkManager.getInstance(context).enqueue(periodicWorkRequest)
+        playNotificationSound(context, R.raw.loco)
+
     }
 
     fun stopLocationService(context: Context) {
