@@ -98,14 +98,14 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
             subtitleText="Location : ON "
-            locationText="Tracking Started From :"+ locationAddress.value
+            locationText="Tracking Started From :"+ locationAddress.value+" updated @ "+PreferencesUtil.getString(context,"timer")
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
             subtitleText="Location : OFF"
-            locationText=""
+            locationText=""+" updated @ "+PreferencesUtil.getString(context,"timer")
 
 
         }
@@ -218,7 +218,6 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                      //  text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+">>MEMORY ERROR"+ PreferencesUtil.getString(context,"sts")+"\n"+"WORK MANAGER>"+PreferencesUtil.getString(context,"workz")
                         text = locationText,fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,

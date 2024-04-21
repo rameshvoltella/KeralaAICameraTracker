@@ -23,6 +23,8 @@ import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
+import java.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Locale
 
 fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
@@ -91,7 +93,14 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
     if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
         geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
             addOnSuccessListener {
+
                 Log.d("Geofence", "Geofences added")
+                try {
+                    getCurrentDate(context)
+                }catch (ex:Exception)
+                {
+
+                }
             }
             addOnFailureListener {
                 Log.e("Geofence", "Failed to add geofences", it)
@@ -191,5 +200,25 @@ fun playNotificationSound(context: Context, notificationSound: Int) {
     mediaPlayer.setOnCompletionListener { mp ->
         mp.release() // Release media player resources once the sound playback is complete
     }
+}
+
+fun getCurrentDate(context: Context) {
+    val calendar = Calendar.getInstance()
+
+    // Get day with suffix (e.g., 1st, 2nd, 3rd, 4th, etc.)
+    val dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH)
+    val daySuffix = when {
+        dayOfMonth in 11..13 -> "th" // For 11th, 12th, 13th
+        dayOfMonth % 10 == 1 -> "st"
+        dayOfMonth % 10 == 2 -> "nd"
+        dayOfMonth % 10 == 3 -> "rd"
+        else -> "th"
+    }
+
+    // Format the date
+    val sdf = SimpleDateFormat("d'$daySuffix' MMM @ hh:mm a", Locale.ENGLISH)
+    PreferencesUtil.setString(context, sdf.format(calendar.time),"timer")
+
+//    return sdf.format(calendar.time)
 }
 
