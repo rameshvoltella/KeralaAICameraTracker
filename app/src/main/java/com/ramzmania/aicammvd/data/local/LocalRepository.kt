@@ -16,8 +16,9 @@ class LocalRepository @Inject constructor(
         return flow{emit(localRepository.requestCameraLocation())}
     }
 
-    override suspend fun getNearestAiCameraList(cameraList:List<CameraData>): Flow<List<CameraData>> {
-        return flow { emit(localRepository.getNearestCameraList(cameraList)) }
+    override suspend fun setNewAiCameraCircle(cameraList: List<CameraData>,currentLat: Double, currentLong: Double): Flow<Resource<Boolean>> {
+        return flow { emit(localRepository.setNewAiCameraCircleData(cameraList,currentLat,currentLong)) }
     }
+
 
 }

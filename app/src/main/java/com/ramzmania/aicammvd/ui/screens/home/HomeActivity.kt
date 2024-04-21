@@ -111,7 +111,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
     }
 
     override fun beforeOnContent() {
-        if(AiCameraLocationUpdateService.isServiceStarted)
+       /* if(AiCameraLocationUpdateService.isServiceStarted)
         {
             PreferencesUtil.setServiceRunning(this, true)
 
@@ -119,7 +119,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
         {
             PreferencesUtil.setServiceRunning(this, false)
 
-        }
+        }*/
         enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
 //        enableEdgeToEdge(
 //            statusBarStyle = SystemBarStyle.light(
