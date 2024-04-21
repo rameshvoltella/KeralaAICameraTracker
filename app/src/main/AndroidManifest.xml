@@ -39,12 +39,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.screens.mapview.OsmMapActivity"
             android:screenOrientation="portrait"/>
-        <service
-            android:name=".service.AiCameraLocationUpdateService"
-            android:enabled="true"
-            android:exported="true"
-            android:foregroundServiceType="location" />
-        <receiver android:name=".boardcast.StopServiceReceiver"/>
+
 
         <receiver android:name=".boardcast.NotificationDismissReceiver"
             android:exported="true">

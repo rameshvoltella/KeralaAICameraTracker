@@ -22,17 +22,13 @@ import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
-import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
-import com.ramzmania.aicammvd.ui.screens.mapview.OsmMapActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.workmanager.LocationWorker
-import com.ramzmania.aicammvd.workmanager.startAiServiceWorkManager
-import com.ramzmania.aicammvd.workmanager.stopAiServiceWorkManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
