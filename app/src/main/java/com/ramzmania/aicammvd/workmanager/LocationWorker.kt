@@ -15,6 +15,9 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.concurrent.CountDownLatch
 
 @HiltWorker
@@ -40,6 +43,12 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
                     Log.d("LocationWorker", "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}")
                     updateNotification("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
                     result = Result.success()
+                    CoroutineScope(Dispatchers.IO).launch {
+
+                        localRepository.setNewAiCameraCircle(it.latitude,it.latitude)
+
+                    }
+
                 }
                 latch.countDown()
             }
