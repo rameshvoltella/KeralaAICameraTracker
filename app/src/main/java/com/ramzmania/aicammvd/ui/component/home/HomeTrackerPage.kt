@@ -58,10 +58,12 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     var enableRememberLocation by remember { mutableStateOf(enabledLocationValue)}
     var innerColor by remember { mutableStateOf(R.color.red_demo) }
     var subtitleText by remember { mutableStateOf(subtitle) }
+    var locationText by remember { mutableStateOf("subtitle") }
     val model = viewModel<HomeViewModel>()
     var showPermissionsDialog by remember { mutableStateOf(false) }
     var showDialog by remember { mutableStateOf(false) }
     var locationInfo=model.currentLocation.observeAsState()
+    var locationAddress=model.locationAddressData.collectAsState()
 
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -73,13 +75,12 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 //        val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 
 //    kkpp(true)
-    val stopFromService:Boolean=model.locationServiceStared.collectAsState().value
+    val stopFromNotification:Boolean=model.locationServiceStared.collectAsState().value
 
 
-    LaunchedEffect(stopFromService) {
-        Log.d("camed","yooooo"+stopFromService)
+    LaunchedEffect(stopFromNotification) {
         // Collect from the a snapshotFlow reading the currentPage
-      if(stopFromService)
+      if(stopFromNotification)
       {
           model.updateLocationButton(false)
           enableRememberLocation = false
@@ -97,12 +98,15 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
             subtitleText="Location : ON "
+            locationText="Tracking Started From :"+ locationAddress.value
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
             subtitleText="Location : OFF"
+            locationText=""
+
 
         }
     }
@@ -191,7 +195,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                                 }
                             },
                             onLongPress = {
-                                Toast.makeText(context, "Lonf", Toast.LENGTH_LONG).show()
+//                                Toast.makeText(context, "Lonf", Toast.LENGTH_LONG).show()
                                 //   innerCircleSize = 10.dp
 
                             })
@@ -214,7 +218,8 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                        text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+">>MEMORY ERROR"+ PreferencesUtil.getString(context,"sts")+"\n"+"WORK MANAGER>"+PreferencesUtil.getString(context,"workz"), fontSize = 16.sp,
+                      //  text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+">>MEMORY ERROR"+ PreferencesUtil.getString(context,"sts")+"\n"+"WORK MANAGER>"+PreferencesUtil.getString(context,"workz")
+                        text = locationText,fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),

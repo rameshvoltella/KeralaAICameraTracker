@@ -6,8 +6,11 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
 import android.location.Location
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat
@@ -18,6 +21,7 @@ import com.google.android.gms.location.LocationServices
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
+import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import java.util.Locale
 
@@ -133,7 +137,55 @@ private fun getGeofencePendingIntent(context: Context, broadcastintent: Intent):
     )
 }
 
- fun playNotificationSound(context: Context, notificationSound: Int) {
+ fun getCompleteAddressString(context: Context, latitude: Double, longitude: Double) {
+    var strAdd = ""
+    val geocoder = Geocoder(context, Locale.getDefault())
+    try {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            geocoder.getFromLocation(latitude,longitude,1,object : Geocoder.GeocodeListener{
+                override fun onGeocode(addresses: MutableList<Address>) {
+                    addresses?.let {
+                        getAddress(addresses)
+                    }
+                    // code
+                }
+                override fun onError(errorMessage: String?) {
+                    super.onError(errorMessage)
+
+                }
+
+            })
+        }else {
+            val addresses: List<Address>? = geocoder.getFromLocation(latitude, longitude, 1)
+            addresses?.let {
+                getAddress(addresses)
+            }
+        }
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+}
+
+fun getAddress(address: List<Address>?) {
+    try {
+        if (address!!.isNotEmpty()) {
+            val returnedAddress: Address = address[0]
+            val strReturnedAddress = StringBuilder()
+
+            for (i in 0..returnedAddress.maxAddressLineIndex) {
+                strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n")
+            }
+            val strAdd = strReturnedAddress.toString()
+            LocationSharedFlow.geocoderAddressData.tryEmit(strAdd)
+        }
+    }catch (ex:Exception)
+    {
+        ex.printStackTrace()
+    }
+}
+
+
+fun playNotificationSound(context: Context, notificationSound: Int) {
     val mediaPlayer: MediaPlayer = MediaPlayer.create(context, notificationSound)
     mediaPlayer.start()
     mediaPlayer.setOnCompletionListener { mp ->

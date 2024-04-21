@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
+import com.ramzmania.aicammvd.geofencing.getCompleteAddressString
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
@@ -30,9 +31,11 @@ import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.workmanager.LocationWorker
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -54,6 +57,9 @@ constructor(
 
     private val locationDataPrivate = MutableLiveData<Location>()
     val locationData: LiveData<Location> = locationDataPrivate
+
+    private val locationAddressPrivate = MutableStateFlow("")
+    val locationAddressData = locationAddressPrivate.asStateFlow()
 
 
     private val currentLocationDataPrivate = MutableLiveData<Location>()
@@ -104,24 +110,31 @@ constructor(
         }
     }
 
-    fun startLocationService(context: Context,location: Location?) {
+    fun startLocationService(context: Context, location: Location?) {
 
-        if(location!=null) {
+        if (location != null) {
+
             viewModelScope.launch {
-                localRepositorySource.setNewAiCameraCircle(location.latitude,location.longitude).collect{
-                    if(it.data==true)
-                    {
-                        setAiTracker(context)
-                        val periodicWorkRequest =
-                            PeriodicWorkRequest.Builder(LocationWorker::class.java, 15, TimeUnit.MINUTES)
-                                .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
-                                .build()
 
-                        // Enqueue the work
-                        WorkManager.getInstance(context).enqueue(periodicWorkRequest)
-                        playNotificationSound(context,R.raw.loco)
+
+                localRepositorySource.setNewAiCameraCircle(location.latitude, location.longitude)
+                    .collect {
+                        if (it.data == true) {
+                            setAiTracker(context)
+                            val periodicWorkRequest =
+                                PeriodicWorkRequest.Builder(
+                                    LocationWorker::class.java,
+                                    15,
+                                    TimeUnit.MINUTES
+                                )
+                                    .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
+                                    .build()
+
+                            // Enqueue the work
+                            WorkManager.getInstance(context).enqueue(periodicWorkRequest)
+                            playNotificationSound(context, R.raw.loco)
+                        }
                     }
-                }
 
             }
 
@@ -189,6 +202,21 @@ constructor(
 
     fun setCurrentLocation(location: Location) {
         currentLocationDataPrivate.value = location
+        viewModelScope.launch {
+            withContext(Dispatchers.IO)
+            {
+                getCompleteAddressString(contextModule.context,location.latitude,location.longitude)
+
+            }
+
+            LocationSharedFlow.geocoderAddressData.collect {
+                it?.let {
+                    locationAddressPrivate.value = it
+                }
+
+            }
+        }
+
     }
 
     fun setLayout(setLayout: Boolean) {
