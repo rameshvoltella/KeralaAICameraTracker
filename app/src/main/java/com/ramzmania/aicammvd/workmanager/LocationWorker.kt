@@ -14,7 +14,11 @@ import androidx.hilt.work.HiltWorker
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
+import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.concurrent.CountDownLatch
 
 @HiltWorker
@@ -37,7 +41,10 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
             override fun onLocationResult(location: Location?) {
                 location?.let {
                     // Log or handle the location
-                    Log.d("LocationWorker", "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}")
+                    CoroutineScope(Dispatchers.IO).launch {
+                        Log.d("LocationWorker", "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}")
+                        localRepository.setNewAiCameraCircle(it.latitude,it.longitude)
+                    }
                     updateNotification("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
                     result = Result.success()
                 }
@@ -78,7 +85,7 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
 
     private fun updateNotification(contentText: String) {
         val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_foreground) // Replace with actual icon drawable
+            .setSmallIcon(R.drawable.red_location) // Replace with actual icon drawable
             .setContentTitle("Location Update")
             .setContentText(contentText)
             .setPriority(NotificationCompat.PRIORITY_HIGH)

@@ -61,6 +61,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     val model = viewModel<HomeViewModel>()
     var showPermissionsDialog by remember { mutableStateOf(false) }
     var showDialog by remember { mutableStateOf(false) }
+    var locationInfo=model.currentLocation.observeAsState()
 
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -179,7 +180,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                                         }
                                         enableRememberLocation = true
                                         model.updateLocationButton(true)
-                                        model.startLocationService(context)
+                                        model.startLocationService(context,locationInfo.value)
                                     } else {
                                         enableRememberLocation = false
                                         model.updateLocationButton(false)

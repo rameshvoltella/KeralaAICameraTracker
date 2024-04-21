@@ -17,6 +17,7 @@ import com.google.android.gms.location.GeofencingEvent
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.ui.screens.mapview.OsmMapActivity
+import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_GEO_FENCE_ID
 import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.NotificationUtil
@@ -84,7 +85,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
     }
 
     private fun showNotification(context: Context, title: String, message: String,location: Location?) {
-        NotificationUtil.createNotificationChannel(context,CHANNEL_GEO_FENCE_ID, NotificationManager.IMPORTANCE_HIGH)
+        NotificationUtil.createNotificationChannel(context,Constants.CHANNEL_ID, NotificationManager.IMPORTANCE_HIGH)
 
         val intent = Intent(context, OsmMapActivity::class.java)
         if(location!=null)
@@ -111,7 +112,8 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 Manifest.permission.POST_NOTIFICATIONS
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            NotificationUtil.showNotification(context,title,message,pendingIntent,R.drawable.ai_camera_marker,NotificationCompat.PRIORITY_DEFAULT,GEOFENCE_PENDING_INTENT_ID,CHANNEL_GEO_FENCE_ID,true)
+            NotificationUtil.showNotification(context,title,message,pendingIntent,R.drawable.ai_camera_marker,NotificationCompat.PRIORITY_DEFAULT,GEOFENCE_PENDING_INTENT_ID,
+                Constants.CHANNEL_ID,true)
             playNotificationSound(context, R.raw.notification_sound)
         }
 

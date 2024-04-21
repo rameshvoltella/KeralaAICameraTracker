@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 import com.ramzmania.aicammvd.data.local.LocalRepositorySource
+import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.service.AiCameraLocationUpdateService
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
@@ -107,8 +108,31 @@ constructor(
         }
     }
 
-    fun startLocationService(context: Context) {
+    fun startLocationService(context: Context,location: Location?) {
 
+        if(location!=null) {
+            viewModelScope.launch {
+                localRepositorySource.setNewAiCameraCircle(location.latitude,location.longitude).collect{
+                    if(it.data==true)
+                    {
+                        setAiTracker(context)
+                        val periodicWorkRequest =
+                            PeriodicWorkRequest.Builder(LocationWorker::class.java, 15, TimeUnit.MINUTES)
+                                .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
+                                .build()
+
+                        // Enqueue the work
+                        WorkManager.getInstance(context).enqueue(periodicWorkRequest)
+                        playNotificationSound(context,R.raw.loco)
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    private fun setAiTracker(context: Context) {
         val intent = Intent(context, HomeActivity::class.java)
         // Add any extras you want to pass
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -135,13 +159,7 @@ constructor(
 
         PreferencesUtil.setServiceRunning(context, true)
 
-        val periodicWorkRequest =
-            PeriodicWorkRequest.Builder(LocationWorker::class.java, 15, TimeUnit.MINUTES)
-                .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
-                .build()
 
-        // Enqueue the work
-        WorkManager.getInstance(context).enqueue(periodicWorkRequest)
     }
 
     fun stopLocationService(context: Context) {

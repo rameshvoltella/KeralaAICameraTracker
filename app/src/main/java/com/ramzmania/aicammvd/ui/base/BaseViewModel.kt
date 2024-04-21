@@ -44,4 +44,5 @@ abstract class BaseViewModel : ViewModel() {
         _permissionsGranted.value = granted
     }
 
+
 }

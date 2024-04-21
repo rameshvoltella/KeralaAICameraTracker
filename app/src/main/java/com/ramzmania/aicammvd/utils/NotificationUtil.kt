@@ -8,6 +8,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
 import androidx.core.app.ActivityCompat
@@ -53,8 +54,11 @@ object NotificationUtil {
         icon: Int,
         priority: Int,notificationId:Int,channelId: String,normalNotification:Boolean
     ) {
+        val options = BitmapFactory.Options().apply {
+            inSampleSize = 2 // Adjust as needed
+        }
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
-            .setSmallIcon(icon) // Set your own icon
+            .setSmallIcon(R.drawable.red_location) // Set your own icon
             .setContentTitle(title)
             .setContentText(content)
             .setPriority(priority)
@@ -65,6 +69,8 @@ object NotificationUtil {
         if(normalNotification)
         {
             notificationBuilder.setAutoCancel(true)
+            notificationBuilder .setLargeIcon(BitmapFactory.decodeResource(context.resources, icon, options))
+
         }else
         {
             notificationBuilder.setOngoing(true)
