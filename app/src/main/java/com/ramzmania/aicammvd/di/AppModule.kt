@@ -36,6 +36,14 @@ class AppModule {
         return ContextModule(context)
     }
 
+//    @Provides
+//    fun provideWorkerFactory(
+//        context: Context,
+//        workerParams: WorkerParameters,
+//        localRepository: LocalRepository
+//    ): ListenableWorker {
+//        return LocationWorker(context, workerParams, localRepository)
+//    }
 
 
 //    @Provides

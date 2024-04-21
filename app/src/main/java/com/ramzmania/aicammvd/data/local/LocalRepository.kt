@@ -16,8 +16,8 @@ class LocalRepository @Inject constructor(
         return flow{emit(localRepository.requestCameraLocation())}
     }
 
-    override suspend fun setNewAiCameraCircle(cameraList: List<CameraData>,currentLat: Double, currentLong: Double): Flow<Resource<Boolean>> {
-        return flow { emit(localRepository.setNewAiCameraCircleData(cameraList,currentLat,currentLong)) }
+    override suspend fun setNewAiCameraCircle(currentLat: Double, currentLong: Double): Flow<Resource<Boolean>> {
+        return flow { emit(localRepository.setNewAiCameraCircleData(currentLat,currentLong)) }
     }
 
 

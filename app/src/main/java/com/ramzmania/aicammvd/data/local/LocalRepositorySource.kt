@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalRepositorySource {
     suspend fun requestCameraLocation(): Flow<Resource<CameraDataResponse>>
-    suspend fun setNewAiCameraCircle(cameraList:List<CameraData>,currentLat: Double, currentLong: Double):Flow<Resource<Boolean>>
+    suspend fun setNewAiCameraCircle(currentLat: Double, currentLong: Double):Flow<Resource<Boolean>>
 
 }

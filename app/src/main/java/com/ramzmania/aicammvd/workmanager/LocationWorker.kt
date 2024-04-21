@@ -10,11 +10,15 @@ import androidx.work.WorkerParameters
 import android.location.Location
 import android.os.Build
 import androidx.core.app.NotificationCompat
+import androidx.hilt.work.HiltWorker
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
+import dagger.assisted.AssistedInject
 import java.util.concurrent.CountDownLatch
 
-class LocationWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
+@HiltWorker
+class LocationWorker @AssistedInject constructor(context: Context, workerParams: WorkerParameters, private val localRepository: LocalRepository) : Worker(context, workerParams) {
     companion object {
         const val CHANNEL_ID = "location_updates"
         const val NOTIFICATION_ID = 1

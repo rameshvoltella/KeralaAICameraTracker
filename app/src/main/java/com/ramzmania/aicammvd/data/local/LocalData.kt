@@ -41,7 +41,7 @@ private val contextModule: ContextModule
 
     }
 
-    override suspend fun setNewAiCameraCircleData(cameraList:List<CameraData>,currentLat: Double, currentLong: Double): Resource<Boolean> {
+    override suspend fun setNewAiCameraCircleData(currentLat: Double, currentLong: Double): Resource<Boolean> {
         var operationSuccess=false
         withContext(Dispatchers.IO)
         {
@@ -57,7 +57,7 @@ private val contextModule: ContextModule
                     )
                     if(nearestCameraList!=null) {
                         val updatedCameraList = createGeofenceList(nearestCameraList!!)
-
+                       Log.d("SETTTT","Setting from worker....")
                         setBatchGeoFencing(contextModule.context, updatedCameraList)
                         operationSuccess = true
                     }else
