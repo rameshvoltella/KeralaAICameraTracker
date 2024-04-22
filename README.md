@@ -8,8 +8,8 @@ App is still in development mode
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
 <div style="text-align: center;">
         <h3>TRACKER ON/OFF</h3>
-        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 30%; height: 30%;">
-        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 30%; height: 30%;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 40%; height: 40%;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 40%; height: 40%;">
     </div>
 <div style="text-align: center;">
         <h3>LOCATION LIST / MAP VIEW</h3>
@@ -44,6 +44,10 @@ App is still in development mode
 - **MVVM Architecture**: The app follows the Model-View-ViewModel (MVVM) architectural pattern, separating the presentation layer from the business logic and data layer. This promotes better code organization, testability, and maintainability.
 - **Navigation Component**: Navigation Component is used for implementing navigation between different screens or destinations within the app. It provides a consistent and predictable way to navigate while handling fragment transactions and back stack management.
 
+## TROPHY
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=rameshvoltella)](https://github.com/ryo-ma/github-profile-trophy)
+
 
 ## Installation
 
@@ -55,10 +59,6 @@ The Kerala AI Camera Tracker app is available for Android
    here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/raw/beta/appfiles/apk/a1_cam_alpha_build%231.apk).
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
-
-## TROPHY
-
-[![trophy](https://github-profile-trophy.vercel.app/?username=rameshvoltella)](https://github.com/ryo-ma/github-profile-trophy)
 
 ## Contributing
 
