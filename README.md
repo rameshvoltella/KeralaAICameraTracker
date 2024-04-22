@@ -8,8 +8,8 @@ App is still in development mode
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
 <div style="text-align: center;">
         <h3>TRACKER ON/OFF</h3>
-        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 40%; height: 40%;">
-        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 40%; height: 40%;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 30%; height: 30%;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 30%; height: 30%;">
     </div>
 <div style="text-align: center;">
         <h3>LOCATION LIST / MAP VIEW</h3>
