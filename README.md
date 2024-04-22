@@ -2,8 +2,12 @@
 
 The Kerala AI Camera Tracker is a mobile application designed to help users track AI cameras placed on roads in Kerala. The app notifies users when they are near an AI camera and triggers an alert to notify them about the presence of the camera.
 
-![Kerala AI Camera Tracker](https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true)
-
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Kerala AI Camera Tracker" style="width: 100%; height: auto;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/two.jpeg?raw=true" alt="Image 2" style="width: 100%; height: auto;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/three.jpeg?raw=true" alt="Image 3" style="width: 100%; height: auto;">
+    <!-- Add more images here -->
+</div>
 
 ## Features
 
@@ -17,6 +21,6 @@ The Kerala AI Camera Tracker app is available for Android
 
 ### Android
 
-1. Download the APK file -COMMING SOON
+1. Download the APK file from here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/raw/beta/appfiles/apk/a1_cam_alpha_build%231.apk).
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
