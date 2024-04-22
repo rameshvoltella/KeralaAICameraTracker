@@ -28,6 +28,8 @@ import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.LOCATION_WORK_MANAGER_TAG
+import com.ramzmania.aicammvd.utils.Constants.NOTIFY_TRACKING_SUBTITLE
+import com.ramzmania.aicammvd.utils.Constants.NOTIFY_TRACKING_TITLE
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
@@ -160,7 +162,7 @@ constructor(
             NotificationManager.IMPORTANCE_DEFAULT
         )
         NotificationUtil.showNotification(
-            context, "Location Tracker Started..", "tracking now...", homePagePendingIntent(context),
+            context, NOTIFY_TRACKING_TITLE, NOTIFY_TRACKING_SUBTITLE, homePagePendingIntent(context),
             R.drawable.red_location,
             NotificationCompat.PRIORITY_HIGH,
             Constants.FAKE_SERVICE_NOTIFICATION_ID,
