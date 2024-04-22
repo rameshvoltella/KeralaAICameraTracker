@@ -34,7 +34,7 @@ fun LocationNotAvailableMessage() {
     ) {
         ClickableText(
              modifier = Modifier.align(Alignment.Center),
-            text = AnnotatedString("Location not available click here to enable"),
+            text = AnnotatedString("Location not available click here to enable\n and re-Launch the app"),
             onClick = {
 
                 val locationIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
