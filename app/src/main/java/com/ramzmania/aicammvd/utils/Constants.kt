@@ -20,4 +20,8 @@ object Constants {
 
     const val LOCATION_WORK_MANAGER_TAG = "SERVICE_WORK_MANAGER_TAG"
 
+    const val NOTIFY_TRACKING_TITLE="Location Tracker Started.."
+    const val NOTIFY_TRACKING_SUBTITLE="tracking now..."
+
+
 }
