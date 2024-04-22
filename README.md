@@ -36,15 +36,18 @@ App is still in development mode
 
 ## Technologies Used
 
-- **Kotlin**: The app is built using Kotlin, a modern programming language for Android development known for its conciseness and safety features.
-- **Jetpack Compose**: Jetpack Compose is used for building the user interface (UI) of the app. It offers a modern and declarative way to construct UIs, making it easier to develop and maintain complex UIs.
-- **WorkManager**: WorkManager is used for background processing tasks such as updating camera locations or sending notifications. It provides a flexible way to schedule and execute deferrable, asynchronous tasks.
-- **Geofencing**: Geofencing technology is utilized to detect when the user enters or exits predefined geographical boundaries (such as near AI camera locations). This allows the app to trigger proximity alerts accurately.
-- **Coroutines**: Coroutines are used for managing asynchronous operations, such as fetching camera information from a remote server or handling database operations. They simplify asynchronous programming by providing structured concurrency.
-- **MVVM Architecture**: The app follows the Model-View-ViewModel (MVVM) architectural pattern, separating the presentation layer from the business logic and data layer. This promotes better code organization, testability, and maintainability.
-- **Navigation Component**: Navigation Component is used for implementing navigation between different screens or destinations within the app. It provides a consistent and predictable way to navigate while handling fragment transactions and back stack management.
+## Technologies Used
 
-## TROPHY
+- **Kotlin**: The app is built using Kotlin, a modern programming language for Android development known for its conciseness and safety features. ([Kotlin GitHub Repository](https://github.com/JetBrains/kotlin))
+- **Jetpack Compose**: Jetpack Compose is used for building the user interface (UI) of the app. It offers a modern and declarative way to construct UIs, making it easier to develop and maintain complex UIs. ([Jetpack Compose GitHub Repository](https://github.com/androidx/androidx/tree/androidx-main/compose))
+- **WorkManager**: WorkManager is used for background processing tasks such as updating camera locations or sending notifications. It provides a flexible way to schedule and execute deferrable, asynchronous tasks. ([WorkManager Documentation](https://developer.android.com/topic/libraries/architecture/workmanager))
+- **Geofencing**: Geofencing technology is utilized to detect when the user enters or exits predefined geographical boundaries (such as near AI camera locations). This allows the app to trigger proximity alerts accurately. ([Android Location and Geofencing Documentation](https://developer.android.com/training/location/geofencing))
+- **Coroutines**: Coroutines are used for managing asynchronous operations, such as fetching camera information from a remote server or handling database operations. They simplify asynchronous programming by providing structured concurrency. ([Kotlin Coroutines GitHub Repository](https://github.com/Kotlin/kotlinx.coroutines))
+- **MVVM Architecture**: The app follows the Model-View-ViewModel (MVVM) architectural pattern, separating the presentation layer from the business logic and data layer. This promotes better code organization, testability, and maintainability. ([Android Architecture Components Documentation](https://developer.android.com/topic/libraries/architecture))
+- **Navigation Component**: Navigation Component is used for implementing navigation between different screens or destinations within the app. It provides a consistent and predictable way to navigate while handling fragment transactions and back stack management. ([Navigation Component Documentation](https://developer.android.com/guide/navigation))
+- **osmdroid**: osmdroid is used as the map library for displaying maps and visualizing AI camera locations. ([osmdroid GitHub Repository](https://github.com/osmdroid/osmdroid))
+
+## MY GITHUB TROPHY
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=rameshvoltella)](https://github.com/ryo-ma/github-profile-trophy)
 
