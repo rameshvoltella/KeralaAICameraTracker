@@ -4,13 +4,24 @@ The Kerala AI Camera Tracker is a mobile application designed to help users trac
 App is still in development mode
 
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Kerala AI Camera Tracker" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Image 2" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/three.jpeg?raw=true" alt="Image 3" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="Image 3" style="width: 40%; height: 40%;">
-
-    <!-- Add more images here -->
+    <div style="text-align: center;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Kerala AI Camera Tracker" style="width: 40%; height: 40%;">
+        <p>TRACKER OFF</p>
+    </div>
+    <div style="text-align: center;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Image 2" style="width: 40%; height: 40%;">
+        <p>TRACKER ON</p>
+    </div>
+    <div style="text-align: center;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/three.jpeg?raw=true" alt="Image 3" style="width: 40%; height: 40%;">
+        <p>LOCATION LIST</p>
+    </div>
+    <div style="text-align: center;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="Image 4" style="width: 40%; height: 40%;">
+        <p>MAP VIEW</p>
+    </div>
 </div>
+
 
 ## Features
 
@@ -27,6 +38,10 @@ The Kerala AI Camera Tracker app is available for Android
 1. Download the APK file from here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/raw/beta/appfiles/apk/a1_cam_alpha_build%231.apk).
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
+
+## TROPHY
+
+[![trophy](https://github-profile-trophy.vercel.app/?username=rameshvoltella&theme=onedark)](https://github.com/rameshvoltella/github-profile-trophy)
 
 ## Contributing
 
