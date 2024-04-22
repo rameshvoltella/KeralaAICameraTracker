@@ -4,8 +4,6 @@ object Constants {
 
     const val SLIDER_SCREEN_PASSED: String="is_slider_sucess"
     const val SLIDER_SCREEN_TAG: String="is_slider_passed"
-    const val SERVICE_RESTARTER_WORK_TAG: String="servicerestarter"
-    const val SERVICE_WORK_MANAGER_TAG="AISERVICETAG"
     const val CHANNEL_ID = "AI_CAMERA_CHANNEL_ID"
     const val CHANNEL_GEO_FENCE_ID = "AI_CAMERA_geofence_channel_CHANNEL_ID"
     const val CHANNEL_NAME = "AI_CAMERA_CHANNEL"
@@ -20,5 +18,6 @@ object Constants {
 
     const val FAKE_SERVICE_NOTIFICATION_ID:Int=989
 
+    const val LOCATION_WORK_MANAGER_TAG = "SERVICE_WORK_MANAGER_TAG"
 
 }

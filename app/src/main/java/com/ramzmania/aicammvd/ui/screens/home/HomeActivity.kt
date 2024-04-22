@@ -23,6 +23,7 @@ import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.navigation.HomeNavigation
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
 import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.Constants.LOCATION_WORK_MANAGER_TAG
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.utils.observe
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
@@ -74,7 +75,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
          val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
             WorkManager.getInstance(this)
         }
-        mWorkManager.getWorkInfosByTagLiveData("SERVICE_WORK_MANAGER_TAG")
+        mWorkManager.getWorkInfosByTagLiveData(LOCATION_WORK_MANAGER_TAG)
             .observe(this) {
                 if (it.isNotEmpty()) {
                     val workInfo = it[0]

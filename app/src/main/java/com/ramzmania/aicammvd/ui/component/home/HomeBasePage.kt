@@ -58,6 +58,7 @@ import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
 import com.ramzmania.aicammvd.utils.PermissionsHandler
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -70,20 +71,22 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     var selectedColumn by remember { mutableStateOf(0) }
     val scrollCoroutineScope = rememberCoroutineScope()
     var dataCameraList: List<CameraData>? = null
-    val currentContext=LocalContext.current
+    val currentContext = LocalContext.current
     val model = viewModel<HomeViewModel>(viewModelStoreOwner = viewModelStoreOwner)
     val aiLocationInfo by model.aILocationLiveData.observeAsState(Resource.Loading())
-    val currentLocation =model.currentLocation.observeAsState().value
+    val currentLocation = model.currentLocation.observeAsState().value
     var dataLoaded by remember { mutableStateOf(false) }
-    val setlayoutLayer=model.setLayout.collectAsState().value
-    val nearestHundredCamerasList=model.filterCameraList.observeAsState().value
+    var locationNotAvailable by remember { mutableStateOf(false) }
+    val setlayoutLayer = model.setLayout.collectAsState().value
+    val setNoLocationLayout = model.setNoLocationData.collectAsState().value
+    val nearestHundredCamerasList = model.filterCameraList.observeAsState().value
     var showPermissionsDialog by remember { mutableStateOf(false) }
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION
     )
     val permissionsState = rememberMultiplePermissionsState(permissions = permissions)
-    val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted}
+    val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
     LaunchedEffect(permissionsState) {
@@ -98,7 +101,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 showPermissionsDialog = false  // Reset the dialog visibility
             }
         )
-    }else {
+    } else {
         LaunchedEffect(pagerState) {
             // Collect from the a snapshotFlow reading the currentPage
             snapshotFlow { pagerState.currentPage }.collect { page ->
@@ -111,6 +114,14 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             // Collect from the a snapshotFlow reading the currentPage
             if (dataLoaded) {
                 model.setLayout(true)
+            }
+        }
+
+        LaunchedEffect(locationNotAvailable) {
+            // Collect from the a snapshotFlow reading the currentPage
+
+            if (locationNotAvailable) {
+                model.setNoLocation(true)
             }
         }
 
@@ -174,6 +185,9 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     "Location not available",
                                     Toast.LENGTH_LONG
                                 ).show()
+                                if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                                    locationNotAvailable = true
+                                }
                             }
                         }
                         .addOnFailureListener {
@@ -183,6 +197,9 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                 Toast.LENGTH_LONG
                             )
                                 .show()
+                            if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                                locationNotAvailable = true
+                            }
                         }
                 }
 //        Toast.makeText(currentContext, "Failed to get location", Toast.LENGTH_LONG).show()
@@ -211,8 +228,12 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 else -> Unit // Handle other states, if necessary
             }
         }
+        if (setNoLocationLayout) {
+            Box(modifier = Modifier.fillMaxSize()) {
+                LocationNotAvailableMessage()
+            }
 
-        if (setlayoutLayer) {
+            } else if (setlayoutLayer) {
             Box(modifier = Modifier.fillMaxSize()) {
                 Box(
                     modifier = Modifier

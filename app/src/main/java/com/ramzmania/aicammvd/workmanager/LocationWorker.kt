@@ -12,10 +12,14 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.hilt.work.HiltWorker
 import com.ramzmania.aicammvd.R
+import com.ramzmania.aicammvd.boardcast.homePagePendingIntent
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
+import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Logger
+import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineScope
@@ -30,13 +34,13 @@ class LocationWorker @AssistedInject constructor(
     private val localRepository: LocalRepository
 ) : Worker(context, workerParams) {
     companion object {
-        const val CHANNEL_ID = "location_updates"
+//        const val CHANNEL_ID = "ai_location_updates"
         const val NOTIFICATION_ID = 1
     }
 
-    init {
-        createNotificationChannel()
-    }
+//    init {
+//        createNotificationChannel()
+//    }
 
     override fun doWork(): Result {
         val latch = CountDownLatch(1)
@@ -57,16 +61,11 @@ class LocationWorker @AssistedInject constructor(
 
                         localRepository.setNewAiCameraCircle(it.latitude, it.longitude)
                             .collect {
-//                                if (it.data == true) {
-//
-//                                }else
-//                                {
-//
-//                                }
+
                             }
                     }
-
-                    updateNotification("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
+                    Logger.d("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
+                    updateNotification()
                     result = Result.success()
                 }
                 latch.countDown()
@@ -90,29 +89,48 @@ class LocationWorker @AssistedInject constructor(
         return result
     }
 
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Location Updates"
-            val descriptionText = "Channel for Location Updates"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
+    /*
+        private fun createNotificationChannel() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val name = "Location Updates"
+                val descriptionText = "Channel for Location Updates"
+                val importance = NotificationManager.IMPORTANCE_DEFAULT
+                val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                    description = descriptionText
+                }
+                val notificationManager: NotificationManager =
+                    applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
             }
-            val notificationManager: NotificationManager =
-                applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
         }
-    }
+    */
 
-    private fun updateNotification(contentText: String) {
-        val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
-            .setSmallIcon(R.drawable.red_location) // Replace with actual icon drawable
-            .setContentTitle("Location Update")
-            .setContentText(contentText)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+    private fun updateNotification() {
+//        val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
+//            .setSmallIcon(R.drawable.red_location) // Replace with actual icon drawable
+//            .setContentTitle("Location Update")
+//            .setContentText(contentText)
+//            .setPriority(NotificationCompat.PRIORITY_HIGH)
+//
+//        val notificationManager: NotificationManager =
+//            applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        notificationManager.notify(NOTIFICATION_ID, builder.build())
 
-        val notificationManager: NotificationManager =
-            applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(NOTIFICATION_ID, builder.build())
+        NotificationUtil.createNotificationChannel(
+            applicationContext,
+            CHANNEL_ID,
+            NotificationCompat.PRIORITY_HIGH
+        )
+        NotificationUtil.showNotification(
+            applicationContext,
+            "Location Tracker Started.from work manager.",
+            "work manage tracking now...",
+            homePagePendingIntent(applicationContext),
+            R.drawable.red_location,
+            NotificationCompat.PRIORITY_HIGH,
+            Constants.FAKE_SERVICE_NOTIFICATION_ID,
+            CHANNEL_ID,
+            false
+        )
     }
 }
