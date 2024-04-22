@@ -46,6 +46,7 @@ import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 import com.ramzmania.aicammvd.utils.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import android.provider.Settings
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -57,9 +58,12 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     var enableRememberLocation by remember { mutableStateOf(enabledLocationValue)}
     var innerColor by remember { mutableStateOf(R.color.red_demo) }
     var subtitleText by remember { mutableStateOf(subtitle) }
+    var locationText by remember { mutableStateOf("subtitle") }
     val model = viewModel<HomeViewModel>()
     var showPermissionsDialog by remember { mutableStateOf(false) }
     var showDialog by remember { mutableStateOf(false) }
+    var locationInfo=model.currentLocation.observeAsState()
+    var locationAddress=model.locationAddressData.collectAsState()
 
     val permissions = listOf(
         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -67,15 +71,16 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     )
     val permissionsState = rememberMultiplePermissionsState(permissions = permissions)
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
-//    val kkpp:(Boolean)->Unit= model::updateLocationData
+//    val kkpp:(Boolean)->Unit= model::updateLocationButton
+//        val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
+
 //    kkpp(true)
-    val stopFromService:Boolean=model.locationServiceStared.collectAsState().value
+    val stopFromNotification:Boolean=model.locationServiceStared.collectAsState().value
 
 
-    LaunchedEffect(stopFromService) {
-        Log.d("camed","yooooo"+stopFromService)
+    LaunchedEffect(stopFromNotification) {
         // Collect from the a snapshotFlow reading the currentPage
-      if(stopFromService)
+      if(stopFromNotification)
       {
           model.updateLocationButton(false)
           enableRememberLocation = false
@@ -93,12 +98,15 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
             subtitleText="Location : ON "
+            locationText="Tracking Started From :"+ locationAddress.value+" updated @ "+PreferencesUtil.getString(context,"timer")
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
             subtitleText="Location : OFF"
+            locationText=""+" updated @ "+PreferencesUtil.getString(context,"timer")
+
 
         }
     }
@@ -176,7 +184,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                                         }
                                         enableRememberLocation = true
                                         model.updateLocationButton(true)
-                                        model.startLocationService(context)
+                                        model.startLocationService(context,locationInfo.value)
                                     } else {
                                         enableRememberLocation = false
                                         model.updateLocationButton(false)
@@ -187,7 +195,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                                 }
                             },
                             onLongPress = {
-                                Toast.makeText(context, "Lonf", Toast.LENGTH_LONG).show()
+//                                Toast.makeText(context, "Lonf", Toast.LENGTH_LONG).show()
                                 //   innerCircleSize = 10.dp
 
                             })
@@ -210,7 +218,7 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                     )
 
                     Text(
-                        text = "Your location :"+model.currentLocation.observeAsState().value?.latitude+":"+model.currentLocation.observeAsState().value?.longitude+">>"+model.locationServiceStared.collectAsState().value, fontSize = 16.sp,
+                        text = locationText,fontSize = 16.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
@@ -259,12 +267,21 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
     }
 
 }
-
-@Preview
+@Preview(showBackground = true)
+@Composable
+fun TrackerViewpagerItemPreview() {
+    TrackerViewpagerItem(
+        centerImage = R.drawable.ic_livevideo_doubt, // Replace with actual drawable resource
+        title = "Sample Title",
+        subtitle = "Sample Subtitle",
+        enabledLocationValue = true
+    )
+}
+/*@Preview
 @Composable
 private fun ViewPagerItemPreview() {
 //    TrackerViewpagerItem(R.drawable.cam_location, "kona", "intro", 2)
-}
+}*/
 //@RequiresApi(Build.VERSION_CODES.O)
 //fun vibrate() {
 //    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

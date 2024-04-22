@@ -8,4 +8,6 @@ object LocationSharedFlow {
 //    val locationFlow = MutableSharedFlow<Pair<Double, Double>>(replay = 1, extraBufferCapacity = 10)
     val serviceStopStatus = MutableSharedFlow<Boolean>(replay = 1, extraBufferCapacity = 10)
 
+    val geocoderAddressData=MutableSharedFlow<String>(replay = 1, extraBufferCapacity = 10)
+
 }

@@ -27,6 +27,8 @@ import androidx.core.graphics.toColorInt
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
+import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -63,6 +65,7 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                 if (pagerState.currentPage == 2) {
                     Button(
                         onClick = {
+                            PreferencesUtil.setString(context = activityContext, Constants.SLIDER_SCREEN_PASSED,Constants.SLIDER_SCREEN_TAG)
                             activityContext.startActivity(Intent(activityContext, HomeActivity::class.java).addFlags(FLAG_ACTIVITY_NEW_TASK))
                             (activityContext as? Activity)?.finish() // Finish the current activity
                         },
@@ -70,7 +73,7 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                             .padding(30.dp) // Add padding to the button
                             .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                     ) {
-                        Text("Let's Go")
+                        Text("Let's Track")
                     }
 
                 }

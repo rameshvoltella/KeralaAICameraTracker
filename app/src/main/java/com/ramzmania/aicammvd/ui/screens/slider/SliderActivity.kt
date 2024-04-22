@@ -2,6 +2,7 @@ package com.ramzmania.aicammvd.ui.screens.slider
 
 import android.Manifest
 import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
@@ -26,7 +27,10 @@ import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.component.slider.HorizontalPagerWithLinesIndicatorScreen
+import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
+import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.viewmodel.MyViewModel
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,8 +47,24 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
     override fun observeActivity() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), NOTIFICATION_PERMISSION_CODE)
+        if(PreferencesUtil.getString(applicationContext,Constants.SLIDER_SCREEN_TAG).equals(Constants.SLIDER_SCREEN_PASSED))
+        {
+            startActivity(Intent(applicationContext,HomeActivity::class.java))
+            finish()
+
+        }else {
+
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) == PackageManager.PERMISSION_DENIED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                    NOTIFICATION_PERMISSION_CODE
+                )
+            }
         }
 //
 //        val geofenceHelper = GeofenceHelper(this)

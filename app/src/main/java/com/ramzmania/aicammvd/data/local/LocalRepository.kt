@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.data.local
 
+import android.util.Log
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
@@ -16,8 +17,12 @@ class LocalRepository @Inject constructor(
         return flow{emit(localRepository.requestCameraLocation())}
     }
 
-    override suspend fun getNearestAiCameraList(cameraList:List<CameraData>): Flow<List<CameraData>> {
-        return flow { emit(localRepository.getNearestCameraList(cameraList)) }
+    override suspend fun setNewAiCameraCircle(currentLat: Double, currentLong: Double): Flow<Resource<Boolean>> {
+
+        return flow {
+            emit(localRepository.setNewAiCameraCircleData(currentLat,currentLong))
+        }
     }
+
 
 }

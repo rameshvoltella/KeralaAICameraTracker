@@ -21,8 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AiCameraSplashScreen"
         android:name=".AiApplication"
-
         tools:targetApi="31">
+
         <activity
             android:name=".ui.screens.slider.SliderActivity"
             android:exported="true"
@@ -37,21 +37,26 @@
         </activity>
         <activity android:name=".ui.screens.home.HomeActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.screens.mapview.OsmMaptActivity"
+        <activity android:name=".ui.screens.mapview.OsmMapActivity"
             android:screenOrientation="portrait"/>
-        <service
-            android:name=".service.AiCameraLocationUpdateService"
-            android:enabled="true"
-            android:exported="true"
-            android:foregroundServiceType="location" />
-        <receiver android:name=".boardcast.StopServiceReceiver"/>
 
-        <receiver android:name=".boardcast.NotificationDismissedReceiver"
+
+        <receiver android:name=".boardcast.NotificationDismissReceiver"
             android:exported="true">
-            <intent-filter>
-                <action android:name="com.ramzmania.aicammvd.ACTION_NOTIFICATION_DISMISSED" />
-            </intent-filter>
+
         </receiver>
+
+
+     <!--   <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove">
+        </provider>-->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove">
+        </provider>
 
 
     <!--    <receiver android:name=".geofencing.GeofenceBroadcastReceiverTwo"

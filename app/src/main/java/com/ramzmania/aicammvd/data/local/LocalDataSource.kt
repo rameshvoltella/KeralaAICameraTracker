@@ -6,5 +6,5 @@ import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
 
 interface LocalDataSource {
     suspend fun requestCameraLocation():Resource<CameraDataResponse>
-    suspend fun getNearestCameraList(list:List<CameraData>):List<CameraData>
+    suspend fun setNewAiCameraCircleData(currentLat: Double, currentLong: Double):Resource<Boolean>
 }

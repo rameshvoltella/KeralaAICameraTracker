@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 
 import androidx.lifecycle.ViewModelProvider
+import com.ramzmania.aicammvd.utils.Logger
 
 abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivity() {
 
@@ -23,7 +24,6 @@ abstract class BaseComposeActivity<ViewModel : BaseViewModel> : ComponentActivit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("init", "initialized")
         beforeOnContent()
         setContent {
             setContent()

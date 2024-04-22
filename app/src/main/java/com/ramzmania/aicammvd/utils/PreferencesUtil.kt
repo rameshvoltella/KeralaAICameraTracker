@@ -17,6 +17,14 @@ object PreferencesUtil {
         editor.apply()
     }
 
+    fun setString(context: Context, value: String,key:String) {
+        val editor = getPreferences(context).edit()
+        editor.putString(key, value)
+        editor.apply()
+    }
+    fun getString(context: Context,key:String): String? =
+        getPreferences(context).getString(key, "")
+
     fun setPendingIntentId(context: Context, id: Int) {
         val editor = getPreferences(context).edit()
         editor.putInt(GEO_PENDING_INTENT, id)
