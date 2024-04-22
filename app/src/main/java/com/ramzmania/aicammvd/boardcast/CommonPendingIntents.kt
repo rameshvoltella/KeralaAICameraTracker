@@ -17,3 +17,11 @@ fun homePagePendingIntent(context: Context): PendingIntent {
         PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
 }
+
+fun stopAiTrackerPendingIntent(context: Context): PendingIntent {
+    val stopIntent = Intent(context, NotificationDismissReceiver::class.java)
+    return PendingIntent.getBroadcast(
+        context, 209, stopIntent,
+        PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
+}

@@ -22,6 +22,7 @@ object Constants {
 
     const val NOTIFY_TRACKING_TITLE="Location Tracker Started.."
     const val NOTIFY_TRACKING_SUBTITLE="tracking now..."
+    const val NOTIFY_STOP_ACTION_TITLE="Stop"
 
 
 }

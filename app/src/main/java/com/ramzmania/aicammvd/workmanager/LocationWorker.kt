@@ -16,6 +16,7 @@ import androidx.hilt.work.HiltWorker
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.NotificationDismissReceiver
 import com.ramzmania.aicammvd.boardcast.homePagePendingIntent
+import com.ramzmania.aicammvd.boardcast.stopAiTrackerPendingIntent
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
@@ -122,17 +123,13 @@ class LocationWorker @AssistedInject constructor(
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setOngoing(true)
             .setContentIntent(homePagePendingIntent(applicationContext))
-        val stopIntent = Intent(applicationContext, NotificationDismissReceiver::class.java)
-        val stopPendingIntent = PendingIntent.getBroadcast(
-            applicationContext, 209, stopIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
+
 
         builder.setAutoCancel(false)
         builder.addAction(
             R.drawable.stop,
-            "Stop",
-            stopPendingIntent
+            Constants.NOTIFY_STOP_ACTION_TITLE,
+            stopAiTrackerPendingIntent(applicationContext)
         )
 
         val notificationManager: NotificationManager =
