@@ -4,12 +4,17 @@ The Kerala AI Camera Tracker is a mobile application designed to help users trac
 App is still in development mode
 
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+<div style="text-align: center;">
+        <h3>Title 1</h3>
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 40%; height: 40%;">
+        <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 40%; height: 40%;">
+    </div>
     <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/one.jpeg?raw=true" alt="Tracker OFF" style="width: 40%; height: 40%;">
     <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/teo.jpeg?raw=true" alt="Tracker ON" style="width: 40%; height: 40%;">
     <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/three.jpeg?raw=true" alt="Location List" style="width: 40%; height: 40%;">
     <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="MAP VIEW" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="NOTIFICATION 1" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="NOTIFICATION 2" style="width: 40%; height: 40%;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/five.jpeg?raw=true" alt="NOTIFICATION 1" style="width: 40%; height: 40%;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/six.jpeg?raw=true" alt="NOTIFICATION 2" style="width: 40%; height: 40%;">
 
 </div>
 
