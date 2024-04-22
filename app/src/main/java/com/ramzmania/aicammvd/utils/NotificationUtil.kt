@@ -16,6 +16,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.NotificationDismissReceiver
+import com.ramzmania.aicammvd.boardcast.stopAiTrackerPendingIntent
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_DESCRIPTION
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_NAME
@@ -75,15 +76,12 @@ object NotificationUtil {
         {
             notificationBuilder.setOngoing(true)
 
-            val stopIntent = Intent(context, NotificationDismissReceiver::class.java)
-            val stopPendingIntent = PendingIntent.getBroadcast(context, 209, stopIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
             notificationBuilder.setAutoCancel(false)
             notificationBuilder .addAction(
                     R.drawable.stop,
-                    "Stop",
-                    stopPendingIntent
+                    Constants.NOTIFY_STOP_ACTION_TITLE,
+                stopAiTrackerPendingIntent(context)
                 )
 
         }
@@ -101,38 +99,7 @@ object NotificationUtil {
         }
     }
 
-    fun getNotification(
-        context: Context,
-        stopPendingIntent: PendingIntent,
-        contentPendingIntent: PendingIntent,
-        dismissPendingIntent: PendingIntent,
-        smallIcon: Int,
-        actionIcon: Int,
-        title: String,
-        content: String,channelId: String
-    ): Notification {
 
-        val notificationBuilder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Notification.Builder(context, channelId)
-        } else {
-            Notification.Builder(context)
-        }
-        return notificationBuilder
-            .setContentTitle(title)
-            .setContentText(content)
-            .setSmallIcon(smallIcon)
-            .setOngoing(true)
-            .setContentIntent(contentPendingIntent)
-            .setDeleteIntent(dismissPendingIntent)// Set the pending intent to launch the main activity when the notification is clicked
-//            .addAction(R.mipmap.ic_launcher_round, "Stop", stopServicePendingIntent)
-            /// Set ongoing to true to make the notification sticky
-            .addAction(
-                actionIcon,
-                "Stop",
-                stopPendingIntent
-            )  // Assuming you have an ic_stop drawable
-            .build()
-    }
 
 
 }

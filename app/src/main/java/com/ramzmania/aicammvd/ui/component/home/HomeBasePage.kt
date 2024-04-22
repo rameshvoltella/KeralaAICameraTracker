@@ -140,11 +140,11 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                 is Resource.Success -> {
                     dataCameraList = aiLocationInfo.data?.responseList
 
-                    val nearestHundredCameras = dataCameraList?.findNearestCameras(
-                        currentLocation!!.latitude,
-                        currentLocation.longitude
-                    )
-                    model.setFilteredCameraList(nearestHundredCameras!!)
+//                    val nearestHundredCameras = dataCameraList?.findNearestCameras(
+//                        currentLocation!!.latitude,
+//                        currentLocation.longitude
+//                    )
+                    model.setFilteredCameraList(dataCameraList!!)
                     dataLoaded = true
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     //isLoading = false

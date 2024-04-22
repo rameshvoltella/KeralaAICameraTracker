@@ -59,7 +59,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 if (extras != null) {
                     showNotification(
                         context!!,
-                        "Entering Geofence",
+                        "ENTERING AI ZONE",
                         triggeredLocation+" Camera Zone",location
                     )
                 }
@@ -69,7 +69,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 if (extras != null)
                     showNotification(
                         context!!,
-                        "Exiting Geofence",
+                        "EXITING AI ZONE",
                         triggeredLocation+" Camera Zone",location
                     )
             }
