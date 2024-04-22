@@ -39,7 +39,7 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
                 500f  // Radius in meters, adjust as necessary
             )
             .setExpirationDuration(Geofence.NEVER_EXPIRE)// Geofence does not automatically expire
-            .setLoiteringDelay(2000)
+            .setLoiteringDelay(5000)
             .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_DWELL or Geofence.GEOFENCE_TRANSITION_EXIT)  // Trigger on enter and exit
             .build()
     }
