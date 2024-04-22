@@ -22,6 +22,7 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
+import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -29,9 +30,9 @@ import java.util.Locale
 
 fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
     return cameraDataList.map { data ->
-        Log.d("unique",">>>"+data.location.replace(" ","").lowercase(Locale.getDefault()))
+//        Log.d("unique",">>>"+data.location.replace(" ","").lowercase(Locale.getDefault()))
         Geofence.Builder()
-            .setRequestId(data.location.lowercase(Locale.getDefault()))  // Unique identifier for this geofence
+            .setRequestId(data.location.replace(" ","").lowercase(Locale.getDefault()))  // Unique identifier for this geofence
             .setCircularRegion(
                 data.latitude,
                 data.longitude,
@@ -47,7 +48,7 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
 
 fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
 
-    Log.d("location we got","locala"+currentLat+"<>"+currentLong)
+    Logger.d("location we got - locala$currentLat<>$currentLong")
     val currentLocation = Location("").apply {
         latitude = currentLat
         longitude = currentLong
@@ -65,6 +66,7 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 {
 
     removeAllGeofences(context)
+
     val geofencingClient = LocationServices.getGeofencingClient(context)
     val geofencingRequest = GeofencingRequest.Builder()
         .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
@@ -94,16 +96,19 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
         geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
             addOnSuccessListener {
 
-                Log.d("Geofence", "Geofences added")
+                Logger.d("Geofence - Geofences added")
                 try {
                     getCurrentDate(context)
                 }catch (ex:Exception)
                 {
+                    PreferencesUtil.setString(context, "exception","timer")
 
                 }
             }
             addOnFailureListener {
-                Log.e("Geofence", "Failed to add geofences", it)
+                Logger.e("Geofence-Failed to add geofences", it)
+                PreferencesUtil.setString(context, "failed","timer")
+
             }
         }
     } else {
@@ -113,7 +118,7 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 
 fun removeAllGeofences(context: Context) {
     val id =    PreferencesUtil.getPendingIntentId(context)
-Log.d("checkingid","removing"+id)
+Logger.d("removeAll-Geofences - removing"+id)
     val removeIntent = Intent(context, GeoFencingBroadcastReceiver::class.java)
     val pendingIntent = PendingIntent.getBroadcast(context, id, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
@@ -122,11 +127,11 @@ Log.d("checkingid","removing"+id)
     geofencingClient.removeGeofences(pendingIntent).run {
         addOnSuccessListener {
             // Log success or handle it according to your need
-            Log.d("Geofence", "All geofences successfully removed.")
+            Logger.d("Geofence - All geofences successfully removed.")
         }
         addOnFailureListener {
             // Log failure or handle the error accordingly
-            Log.d("Geofence", "Failed to remove geofences")
+            Logger.d("Geofence - Failed to remove geofences")
         }
     }
 }
@@ -135,7 +140,7 @@ Log.d("checkingid","removing"+id)
 @SuppressLint("SuspiciousIndentation")
 private fun getGeofencePendingIntent(context: Context, broadcastintent: Intent): PendingIntent {
  val id=(Math.random() * 1000 + 1).toInt()
-    Log.d("checkingid","adding"+id)
+    Logger.d("adding$id")
 
     PreferencesUtil.setPendingIntentId(context,id)
     return PendingIntent.getBroadcast(

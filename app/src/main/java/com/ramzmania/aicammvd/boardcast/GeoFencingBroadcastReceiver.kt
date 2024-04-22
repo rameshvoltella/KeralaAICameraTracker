@@ -20,25 +20,24 @@ import com.ramzmania.aicammvd.ui.screens.mapview.OsmMapActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_GEO_FENCE_ID
 import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
+import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
 
 
 class GeoFencingBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
+        Logger.d("GeofenceBroadcastReceiver - Geofence triggered: ID = before 0000")
 
         val geofencingEvent = GeofencingEvent.fromIntent(intent!!)
         if (geofencingEvent?.hasError()!!) {
             return
         }
         val extras = intent.extras
-        Log.d("hey",extras.toString())
-        Log.d("hey1",extras?.getString("lat").toString())
         val location = geofencingEvent.triggeringLocation
         val triggeringGeofences = geofencingEvent.triggeringGeofences
 
         // Extract the unique ID from each geofence
-        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
+        Logger.d("GeofenceBroadcastReceiver - Geofence triggered: ID = before 1111")
         var triggeredLocation="Some camera location"
 
         if(triggeringGeofences!=null) {
@@ -52,7 +51,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                 // For example, you can notify the user or update the UI
             }
         }
-        Log.d("GeofenceBroadcastReceiver", "Geofence triggered: ID = before 1111")
+        Logger.d("GeofenceBroadcastReceiver - Geofence triggered: ID = before 22222")
 
 //        val somevalue= geofencingEvent.triggeringGeofences?.get(0)?.requestId
         when (geofencingEvent.geofenceTransition) {
@@ -76,9 +75,8 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
             }
 
             else -> {
-                Log.e(
-                    "GeofenceReceiver",
-                    "Unknown transition type: ${geofencingEvent.geofenceTransition}"
+                Logger.e(
+                    "GeofenceReceiver - Unknown transition type: ${geofencingEvent.geofenceTransition}"
                 )
             }
         }

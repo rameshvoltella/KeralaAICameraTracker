@@ -12,6 +12,7 @@ import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.geofencing.getAllLocationList
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.geofencing.setBatchGeoFencing
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import kotlinx.coroutines.Dispatchers
@@ -43,39 +44,40 @@ private val contextModule: ContextModule
     }
 
     override suspend fun setNewAiCameraCircleData(currentLat: Double, currentLong: Double): Resource<Boolean> {
-        Log.d("SETTTT","Setting from worker.... oneeee")
 
         var operationSuccess=false
         withContext(Dispatchers.IO)
         {
             try {
-                Log.d("SETTTT","Setting from worker.... two")
+
                 removeAllGeofences(contextModule.context)
 
 //        val adapter = moshi.adapter(CameraData::class.java)
                 val fullCameraList = getAllLocationList(contextModule.context)
-                Log.d("SETTTT","Setting from worker....3333")
+
 
                 if (fullCameraList != null) {
-                    Log.d("SETTTT","Setting from worker....444444")
 
                     val nearestCameraList= fullCameraList?.findNearestCameras(
                         currentLat,
                         currentLong
                     )
+
                     if(nearestCameraList!=null) {
+
                         val updatedCameraList = createGeofenceList(nearestCameraList!!)
-                       Log.d("SETTTT","Setting from worker....555555")
                         setBatchGeoFencing(contextModule.context, updatedCameraList)
                         operationSuccess = true
                     }else
                     {
+
                         operationSuccess = false
 
                     }
                 }
             }catch (ex:Exception)
             {
+
                 operationSuccess=false
             }
 

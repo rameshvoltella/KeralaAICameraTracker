@@ -15,6 +15,8 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
+import com.ramzmania.aicammvd.utils.Logger
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +24,11 @@ import kotlinx.coroutines.launch
 import java.util.concurrent.CountDownLatch
 
 @HiltWorker
-class LocationWorker @AssistedInject constructor(context: Context, workerParams: WorkerParameters, private val localRepository: LocalRepository) : Worker(context, workerParams) {
+class LocationWorker @AssistedInject constructor(
+    context: Context,
+    workerParams: WorkerParameters,
+    private val localRepository: LocalRepository
+) : Worker(context, workerParams) {
     companion object {
         const val CHANNEL_ID = "location_updates"
         const val NOTIFICATION_ID = 1
@@ -31,6 +37,7 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
     init {
         createNotificationChannel()
     }
+
     override fun doWork(): Result {
         val latch = CountDownLatch(1)
         var result: Result = Result.failure()
@@ -41,10 +48,24 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
             override fun onLocationResult(location: Location?) {
                 location?.let {
                     // Log or handle the location
+
                     CoroutineScope(Dispatchers.IO).launch {
-                        Log.d("LocationWorker", "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}")
-                        localRepository.setNewAiCameraCircle(it.latitude,it.longitude)
+                        Logger.d(
+                            "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}"
+                        )
+
+
+                        localRepository.setNewAiCameraCircle(it.latitude, it.longitude)
+                            .collect {
+//                                if (it.data == true) {
+//
+//                                }else
+//                                {
+//
+//                                }
+                            }
                     }
+
                     updateNotification("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
                     result = Result.success()
                 }
@@ -52,7 +73,7 @@ class LocationWorker @AssistedInject constructor(context: Context, workerParams:
             }
 
             override fun onLocationError(e: Exception) {
-                Log.e("LocationWorker", "Error fetching location", e)
+                Logger.e("Error fetching location", e)
                 result = Result.failure()
                 latch.countDown()
             }

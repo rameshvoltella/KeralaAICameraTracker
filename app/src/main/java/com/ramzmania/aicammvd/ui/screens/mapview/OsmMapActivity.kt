@@ -52,7 +52,6 @@ class OsmMapActivity : ComponentActivity(), MapListener{
 //        mMyLocationOverlay.enableFollowLocation()
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f,1f)
-        Log.d("kkppp","yesss")
 
 //        mMyLocationOverlay.runOnFirstFix {
 //            runOnUiThread {
@@ -70,7 +69,6 @@ class OsmMapActivity : ComponentActivity(), MapListener{
         // val mapPoint = GeoPoint(latitude, longitude)
 
 //        controller.setZoom(6.0)
-        Log.d("kkppp","yesss")
         val startPoint = GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
         controller.setCenter(startPoint);
         controller.animateTo(startPoint)

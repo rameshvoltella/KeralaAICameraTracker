@@ -27,6 +27,7 @@ import com.ramzmania.aicammvd.ui.base.BaseViewModel
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
+import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.workmanager.LocationWorker
@@ -115,30 +116,34 @@ constructor(
         if (location != null) {
 
             viewModelScope.launch {
+                settingWorkPeriodicScheduler(context)
 
 
-                localRepositorySource.setNewAiCameraCircle(location.latitude, location.longitude)
-                    .collect {
-                        if (it.data == true) {
-                            setAiTracker(context)
-                            val periodicWorkRequest =
-                                PeriodicWorkRequest.Builder(
-                                    LocationWorker::class.java,
-                                    15,
-                                    TimeUnit.MINUTES
-                                )
-                                    .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
-                                    .build()
-
-                            // Enqueue the work
-                            WorkManager.getInstance(context).enqueue(periodicWorkRequest)
-                            playNotificationSound(context, R.raw.loco)
-                        }
-                    }
+//                localRepositorySource.setNewAiCameraCircle(location.latitude, location.longitude)
+//                    .collect {
+//                        if (it.data == true) {
+//                        }
+//                    }
 
             }
 
         }
+    }
+
+    private fun settingWorkPeriodicScheduler(context: Context) {
+        setAiTracker(context)
+        val periodicWorkRequest =
+            PeriodicWorkRequest.Builder(
+                LocationWorker::class.java,
+                15,
+                TimeUnit.MINUTES
+            )
+                .addTag("SERVICE_WORK_MANAGER_TAG") // Adding a tag to the work request
+                .build()
+
+        // Enqueue the work
+        WorkManager.getInstance(context).enqueue(periodicWorkRequest)
+        playNotificationSound(context, R.raw.loco)
     }
 
     private fun setAiTracker(context: Context) {
@@ -194,7 +199,7 @@ constructor(
             )
             buttonPendingIntent.send()
         } catch (e: PendingIntent.CanceledException) {
-            Log.e("NotificationDismiss", "PendingIntent cancelled", e)
+            Logger.e("PendingIntent cancelled", e)
         }
 
 

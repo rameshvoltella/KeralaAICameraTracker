@@ -1,5 +1,6 @@
 package com.ramzmania.aicammvd.data.local
 
+import android.util.Log
 import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
@@ -17,7 +18,10 @@ class LocalRepository @Inject constructor(
     }
 
     override suspend fun setNewAiCameraCircle(currentLat: Double, currentLong: Double): Flow<Resource<Boolean>> {
-        return flow { emit(localRepository.setNewAiCameraCircleData(currentLat,currentLong)) }
+
+        return flow {
+            emit(localRepository.setNewAiCameraCircleData(currentLat,currentLong))
+        }
     }
 
 

@@ -31,7 +31,6 @@ abstract class BaseBinderActivity<VBinding : ViewBinding, ViewModel : BaseViewMo
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        Log.e("iniiiiiiit", "iiiiiiiiiiii")
         init()
         setContentView(binding.root)
         setUpViews()

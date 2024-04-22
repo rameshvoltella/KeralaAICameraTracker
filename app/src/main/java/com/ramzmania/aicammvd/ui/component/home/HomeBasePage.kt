@@ -122,19 +122,13 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             when (aiLocationInfo) {
                 is Resource.Loading -> {
                     // Show loading indicator
-                    Log.d("tadada", "came1")
 //                        model.incrementCount(400000)
 
                 }
 
                 is Resource.Success -> {
-                    Log.d("tadada", "came2" + aiLocationInfo.data?.responseList?.size)
                     dataCameraList = aiLocationInfo.data?.responseList
-//                    Toast.makeText(
-//                        currentContext,
-//                        "Tadada" + currentLocation?.latitude!! + "<>" + currentLocation?.latitude!!,
-//                        1
-//                    ).show()
+
                     val nearestHundredCameras = dataCameraList?.findNearestCameras(
                         currentLocation!!.latitude,
                         currentLocation.longitude
@@ -150,7 +144,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                     // Handle error
                     // For example:
                     // val errorCode = resource.errorCode
-                    Log.d("tadada", "cameerrr")
 
                 }
 
