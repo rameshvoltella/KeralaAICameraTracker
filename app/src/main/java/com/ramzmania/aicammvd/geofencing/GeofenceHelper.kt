@@ -46,20 +46,29 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
 }
 
 
-fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
+fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double,showLimited:Boolean): List<CameraData> {
 
     Logger.d("location we got - locala$currentLat<>$currentLong")
     val currentLocation = Location("").apply {
         latitude = currentLat
         longitude = currentLong
     }
-
+if(showLimited) {
     return sortedBy {
         Location("").apply {
             latitude = it.latitude
             longitude = it.longitude
         }.distanceTo(currentLocation)
     }.take(50)
+}else
+{
+    return sortedBy {
+        Location("").apply {
+            latitude = it.latitude
+            longitude = it.longitude
+        }.distanceTo(currentLocation)
+    }
+}
 }
 
 fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
@@ -98,16 +107,16 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 
                 Logger.d("Geofence - Geofences added")
                 try {
-                    getCurrentDate(context)
+//                    getCurrentDate(context)
                 }catch (ex:Exception)
                 {
-                    PreferencesUtil.setString(context, "exception","timer")
+//                    PreferencesUtil.setString(context, "exception","timer")
 
                 }
             }
             addOnFailureListener {
                 Logger.e("Geofence-Failed to add geofences", it)
-                PreferencesUtil.setString(context, "failed","timer")
+//                PreferencesUtil.setString(context, "failed","timer")
 
             }
         }

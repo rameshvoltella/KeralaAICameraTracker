@@ -70,7 +70,7 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                             (activityContext as? Activity)?.finish() // Finish the current activity
                         },
                         modifier = Modifier
-                            .padding(30.dp) // Add padding to the button
+                            .padding(30.dp,30.dp,30.dp,60.dp) // Add padding to the button
                             .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                     ) {
                         Text("Let's Track")

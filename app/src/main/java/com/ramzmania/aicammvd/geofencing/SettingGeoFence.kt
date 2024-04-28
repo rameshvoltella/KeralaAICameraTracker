@@ -21,7 +21,7 @@ class SettingGeoFence {
                     val nearestCameraList =
                         it.data?.responseList?.findNearestCameras(
                             location.latitude,
-                            location.longitude
+                            location.longitude,true
                         )
 //                Log.d("kona","collected"+nearestCameraList?.size)
                     if (nearestCameraList != null) {

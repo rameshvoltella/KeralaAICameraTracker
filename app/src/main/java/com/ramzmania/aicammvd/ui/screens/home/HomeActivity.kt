@@ -72,7 +72,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 */
 
     override fun observeActivity() {
-         val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
+       /*  val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
             WorkManager.getInstance(this)
         }
         mWorkManager.getWorkInfosByTagLiveData(LOCATION_WORK_MANAGER_TAG)
@@ -107,7 +107,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
                         }
                     }
                 }
-            }
+            }*/
     }
 
     override fun beforeOnContent() {

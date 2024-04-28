@@ -144,7 +144,17 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 //                        currentLocation!!.latitude,
 //                        currentLocation.longitude
 //                    )
-                    model.setFilteredCameraList(dataCameraList!!)
+                    if(currentLocation!=null&&currentLocation.latitude>0&&currentLocation.longitude>0)
+                    {
+                        val nearestHundredCameras = dataCameraList?.findNearestCameras(
+                            currentLocation!!.latitude,
+                            currentLocation.longitude,false
+                        )
+                        model.setFilteredCameraList(nearestHundredCameras!!)
+
+                    }else {
+                        model.setFilteredCameraList(dataCameraList!!)
+                    }
                     dataLoaded = true
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     //isLoading = false
@@ -246,7 +256,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                     // Content of the HorizontalPager or any other composables
                     HorizontalPager(
                         state = pagerState,
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize().padding(0.dp,20.dp,0.dp,85.dp),
                         userScrollEnabled = false
                     ) { page ->
                         // Content of HorizontalPager

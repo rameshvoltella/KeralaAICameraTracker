@@ -60,7 +60,7 @@ private val contextModule: ContextModule
 
                     val nearestCameraList= fullCameraList?.findNearestCameras(
                         currentLat,
-                        currentLong
+                        currentLong,true
                     )
 
                     if(nearestCameraList!=null) {

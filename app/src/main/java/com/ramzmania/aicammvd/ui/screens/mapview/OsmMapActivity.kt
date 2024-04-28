@@ -48,8 +48,8 @@ class OsmMapActivity : ComponentActivity(), MapListener{
         controller = mMap.controller
 
 
-//        mMyLocationOverlay.enableMyLocation()
-//        mMyLocationOverlay.enableFollowLocation()
+        mMyLocationOverlay.enableMyLocation()
+        mMyLocationOverlay.enableFollowLocation()
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f,1f)
 
