@@ -1,10 +1,23 @@
 package com.ramzmania.aicammvd.ui.screens.mapview
 
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 import android.graphics.Rect
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationListener
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.Priority
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
 import com.ramzmania.aicammvd.utils.Constants
@@ -25,8 +38,14 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
 
     lateinit var mMap: MapView
+    lateinit var speedTextView: TextView
+
     lateinit var controller: IMapController;
     lateinit var mMyLocationOverlay: MyLocationNewOverlay;
+
+    private val locationManager: LocationManager? = null
+    private val locationListener: LocationListener? = null
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = MapViewBinding.inflate(layoutInflater)
@@ -36,12 +55,13 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
         )
         mMap = binding.osmmap
+        speedTextView=binding.speedTxt
         mMap.setTileSource(TileSourceFactory.MAPNIK)
         mMap.mapCenter
         mMap.setMultiTouchControls(true)
         mMap.getLocalVisibleRect(Rect())
 
-
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
         controller = mMap.controller
 
@@ -124,5 +144,58 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
         mapView.overlays.add(marker)
         mapView.invalidate() // Refresh the map to display the marker
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            startLocationUpdates()
+        }
+    }
+
+    private fun startLocationUpdates() {
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
+            .setWaitForAccurateLocation(true)
+            .setMinUpdateIntervalMillis(1000)
+            .setMaxUpdateDelayMillis(1000)
+            .build()
+
+
+        val locationCallback = object : LocationCallback() {
+            @SuppressLint("SetTextI18n")
+            override fun onLocationResult(locationResult: LocationResult) {
+                locationResult ?: return
+                for (location in locationResult.locations) {
+                    // Calculate speed here using the Location object
+
+
+                    val speed = location.speed // Speed in meters/second
+//                    val speedKmH = speed * 3.6 // Convert speed to km/h
+                    // Now you have the speed, you can use it as needed
+                    val speedKmH = String.format("%.1f", speed * 3.6)
+                    speedTextView.text = "Speed\n $speedKmH Km/H"
+                }
+            }
+        }
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            return
+        }
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            null /* Looper */
+        )
     }
 }
