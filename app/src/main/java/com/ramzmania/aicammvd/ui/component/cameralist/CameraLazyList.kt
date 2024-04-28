@@ -46,7 +46,7 @@ fun CameraListView(
             textAlign = TextAlign.Center,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(20.dp)
+            modifier = Modifier.padding(8.dp)
         )
         LazyColumn(modifier = modifier.padding(vertical = 4.dp), state = rememberLazyListState()) {
             items(items = cameraList) { list ->

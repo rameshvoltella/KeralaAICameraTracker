@@ -11,6 +11,14 @@ class MediaPlayerUtil(private val context: Context) {
         mediaPlayer = MediaPlayer.create(context, resourceId)
         mediaPlayer?.start()
     }
+    fun isPlayingSound():Boolean
+    {
+        return if(mediaPlayer!=null) {
+            mediaPlayer!!.isPlaying
+        }else {
+            false
+        }
+    }
 
     fun stopSound() {
         mediaPlayer?.apply {

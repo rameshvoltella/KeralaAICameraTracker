@@ -20,12 +20,15 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ResourcesCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ramzmania.aicammvd.R
@@ -33,6 +36,7 @@ import com.ramzmania.aicammvd.R
 @Composable
 fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, currentPage: Int) {
 //    val imagePainter = painterResource(id = centerImage)
+    val context= LocalContext.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -50,7 +54,10 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
+                    fontFamily = FontFamily(
+                        typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
+                    )
 
                 )
 
@@ -76,8 +83,10 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                 Text(text = subtitle,fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
-
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
+                            fontFamily = FontFamily(
+                            typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                            )
                 )
 
 

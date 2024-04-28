@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -23,8 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:id="@+id/distance_txt"
-            android:text="DISTANCE TO CAM : "/>
+            android:textSize="16sp"
+            android:fontFamily="@font/font_heavy"
+            android:text="DISTANCE TO CAM : Please wait..."/>
     </LinearLayout>
 
     <TextView
@@ -37,6 +39,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:padding="4dp"
+        android:fontFamily="@font/font_medium"
         android:layout_margin="20dp"
         android:id="@+id/speed_txt"/>
 

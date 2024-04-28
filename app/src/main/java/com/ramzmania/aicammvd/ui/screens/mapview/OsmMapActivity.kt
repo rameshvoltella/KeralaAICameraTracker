@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -44,13 +45,14 @@ class OsmMapActivity : ComponentActivity(), MapListener {
     lateinit var mMap: MapView
     lateinit var speedTextView: TextView
     lateinit var distanceTextView: TextView
-    lateinit var distanceLinear:LinearLayout
+    lateinit var distanceLinear: LinearLayout
 
-    private var showDistance=false
+    private var showDistance = false
     lateinit var controller: IMapController;
     lateinit var mMyLocationOverlay: MyLocationNewOverlay;
     private lateinit var mediaPlayerUtil: MediaPlayerUtil
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    var locationCallback: LocationCallback? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = MapViewBinding.inflate(layoutInflater)
@@ -60,9 +62,9 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
         )
         mMap = binding.osmmap
-        speedTextView=binding.speedTxt
-        distanceTextView=binding.distanceTxt
-        distanceLinear=binding.distanceLl
+        speedTextView = binding.speedTxt
+        distanceTextView = binding.distanceTxt
+        distanceLinear = binding.distanceLl
         mMap.setTileSource(TileSourceFactory.MAPNIK)
         mMap.mapCenter
         mMap.setMultiTouchControls(true)
@@ -72,10 +74,9 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
         controller = mMap.controller
-        if(intent.extras!!.containsKey("lat"))
-        {
-            showDistance=true
-            distanceLinear.visibility= View.VISIBLE
+        if (intent.extras!!.containsKey("lat")) {
+            showDistance = true
+            distanceLinear.visibility = View.VISIBLE
         }
 
 //        mMyLocationOverlay.enableMyLocation()
@@ -176,38 +177,44 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             .build()
 
 
-        val locationCallback = object : LocationCallback() {
+        locationCallback = object : LocationCallback() {
             @SuppressLint("SetTextI18n")
             override fun onLocationResult(locationResult: LocationResult) {
                 locationResult ?: return
                 for (location in locationResult.locations) {
                     // Calculate speed here using the Location object
-                    try{
-                        if(showDistance)
-                        {
-                            distanceTextView.setText("DISTANCE TO CAM : "+ calculateDistance(location.latitude,location.longitude,intent.extras!!.getDouble("lat"),intent.extras!!.getDouble("long")))
+                    try {
+                        if (showDistance) {
+                            distanceTextView.text =
+                                "DISTANCE TO CAM : " + String.format(
+                                    "%.1f",
+                                    calculateDistance(
+                                        location.latitude,
+                                        location.longitude,
+                                        intent.extras!!.getDouble("lat"),
+                                        intent.extras!!.getDouble("long")
+                                    )
+                                ) + " KM"
                         }
-                    }catch (ex:Exception)
-                    {
-                        distanceTextView.setText("error"+ex.printStackTrace())
+                    } catch (ex: Exception) {
+                        distanceTextView.text = "error" + ex.printStackTrace()
                     }
 
 
                     val speed = location.speed // Speed in meters/second
 //                    val speedKmH = speed * 3.6 // Convert speed to km/h
                     // Now you have the speed, you can use it as needed
-                    if((speed * 3.6)>3)
-                    {
+                    if ((speed * 3.6) > 80) {
                         speedTextView.setBackgroundResource(R.drawable.rounded_overspeed_text_background)
-                        mediaPlayerUtil.playSound(R.raw.overspeed)
+                        if (!mediaPlayerUtil.isPlayingSound()) {
+                            mediaPlayerUtil.playSound(R.raw.overspeed)
+                        }
 
-                    }else if((speed * 3.6)<80&&(speed * 3.6)>60)
-                    {
+                    } else if ((speed * 3.6) < 80 && (speed * 3.6) >= 60) {
 
                         speedTextView.setBackgroundResource(R.drawable.rounded_warningspeed_text_background)
 
-                    }else
-                    {
+                    } else {
 
                         speedTextView.setBackgroundResource(R.drawable.rounded_normalspeed_text_background)
 
@@ -231,7 +238,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         }
         fusedLocationClient.requestLocationUpdates(
             locationRequest,
-            locationCallback,
+            locationCallback!!,
             null /* Looper */
         )
     }
@@ -242,9 +249,24 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             if (mediaPlayerUtil != null) {
                 mediaPlayerUtil.stopSound()
             }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+
+        try{
+            stopLocationUpdates()
         }catch (ex:Exception)
         {
 
+        }
+    }
+
+    private fun stopLocationUpdates() {
+        if (locationCallback != null) {
+            if(fusedLocationClient!=null) {
+                fusedLocationClient.removeLocationUpdates(locationCallback!!)
+            }
+            locationCallback = null
         }
     }
 }
