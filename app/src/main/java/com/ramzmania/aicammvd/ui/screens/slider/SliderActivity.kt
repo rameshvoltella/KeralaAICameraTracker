@@ -37,7 +37,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SliderActivity : BaseComposeActivity<SliderViewModel>() {
-    val NOTIFICATION_PERMISSION_CODE=1
+    private val NOTIFICATION_PERMISSION_CODE=1
 
     override fun getViewModelClass() = SliderViewModel::class.java
 

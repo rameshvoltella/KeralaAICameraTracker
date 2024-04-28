@@ -21,6 +21,7 @@ import com.google.android.gms.location.Priority
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
 import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.MediaPlayerUtil
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.events.MapListener
@@ -42,9 +43,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
     lateinit var controller: IMapController;
     lateinit var mMyLocationOverlay: MyLocationNewOverlay;
-
-    private val locationManager: LocationManager? = null
-    private val locationListener: LocationListener? = null
+    private lateinit var mediaPlayerUtil: MediaPlayerUtil
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,11 +59,11 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         mMap.mapCenter
         mMap.setMultiTouchControls(true)
         mMap.getLocalVisibleRect(Rect())
+        mediaPlayerUtil = MediaPlayerUtil(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
         controller = mMap.controller
-
 
 //        mMyLocationOverlay.enableMyLocation()
 //        mMyLocationOverlay.enableFollowLocation()
@@ -175,6 +174,22 @@ class OsmMapActivity : ComponentActivity(), MapListener {
                     val speed = location.speed // Speed in meters/second
 //                    val speedKmH = speed * 3.6 // Convert speed to km/h
                     // Now you have the speed, you can use it as needed
+                    if((speed * 3.6)>3)
+                    {
+                        speedTextView.setBackgroundResource(R.drawable.rounded_overspeed_text_background)
+                        mediaPlayerUtil.playSound(R.raw.overspeed)
+
+                    }else if((speed * 3.6)<80&&(speed * 3.6)>60)
+                    {
+
+                        speedTextView.setBackgroundResource(R.drawable.rounded_warningspeed_text_background)
+
+                    }else
+                    {
+
+                        speedTextView.setBackgroundResource(R.drawable.rounded_normalspeed_text_background)
+
+                    }
                     val speedKmH = String.format("%.1f", speed * 3.6)
                     speedTextView.text = "Speed\n $speedKmH Km/H"
                 }
@@ -197,5 +212,17 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             locationCallback,
             null /* Looper */
         )
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        try {
+            if (mediaPlayerUtil != null) {
+                mediaPlayerUtil.stopSound()
+            }
+        }catch (ex:Exception)
+        {
+
+        }
     }
 }

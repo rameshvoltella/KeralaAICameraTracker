@@ -268,7 +268,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                 enabledLocationValue = model.locationEnabled.value,
                             )
                         } else {
-                            CameraListView(cameralList = nearestHundredCamerasList!!)
+                            CameraListView(cameraList = nearestHundredCamerasList!!)
                         }
                     }
                 }

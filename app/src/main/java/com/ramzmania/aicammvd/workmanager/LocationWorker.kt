@@ -48,6 +48,7 @@ class LocationWorker @AssistedInject constructor(
         val latch = CountDownLatch(1)
         var result: Result = Result.failure()
 
+
         // Initialize your LocationUtils here
         val locationUtils = LocationUtils(applicationContext)
         locationUtils.startLocationUpdates(object : LocationUtils.LocationListener {
