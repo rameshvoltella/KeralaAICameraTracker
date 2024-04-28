@@ -8,6 +8,8 @@ import android.graphics.Rect
 import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.core.app.ActivityCompat
@@ -20,6 +22,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
+import com.ramzmania.aicammvd.geofencing.calculateDistance
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.MediaPlayerUtil
 import org.osmdroid.api.IMapController
@@ -40,7 +43,10 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
     lateinit var mMap: MapView
     lateinit var speedTextView: TextView
+    lateinit var distanceTextView: TextView
+    lateinit var distanceLinear:LinearLayout
 
+    private var showDistance=false
     lateinit var controller: IMapController;
     lateinit var mMyLocationOverlay: MyLocationNewOverlay;
     private lateinit var mediaPlayerUtil: MediaPlayerUtil
@@ -55,6 +61,8 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         )
         mMap = binding.osmmap
         speedTextView=binding.speedTxt
+        distanceTextView=binding.distanceTxt
+        distanceLinear=binding.distanceLl
         mMap.setTileSource(TileSourceFactory.MAPNIK)
         mMap.mapCenter
         mMap.setMultiTouchControls(true)
@@ -64,12 +72,17 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
         controller = mMap.controller
+        if(intent.extras!!.containsKey("lat"))
+        {
+            showDistance=true
+            distanceLinear.visibility= View.VISIBLE
+        }
 
 //        mMyLocationOverlay.enableMyLocation()
 //        mMyLocationOverlay.enableFollowLocation()
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f, 1f)
-
+//        val distance = calculateDistance(lat1, lon1, lat2, lon2)
 //        mMyLocationOverlay.runOnFirstFix {
 //            runOnUiThread {
 ////                controller.setCenter(mMyLocationOverlay.myLocation);
@@ -169,6 +182,15 @@ class OsmMapActivity : ComponentActivity(), MapListener {
                 locationResult ?: return
                 for (location in locationResult.locations) {
                     // Calculate speed here using the Location object
+                    try{
+                        if(showDistance)
+                        {
+                            distanceTextView.setText("DISTANCE TO CAM : "+ calculateDistance(location.latitude,location.longitude,intent.extras!!.getDouble("lat"),intent.extras!!.getDouble("long")))
+                        }
+                    }catch (ex:Exception)
+                    {
+                        distanceTextView.setText("error"+ex.printStackTrace())
+                    }
 
 
                     val speed = location.speed // Speed in meters/second
