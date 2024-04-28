@@ -5,7 +5,7 @@ object Constants {
     const val SLIDER_SCREEN_PASSED: String="is_slider_sucess"
     const val SLIDER_SCREEN_TAG: String="is_slider_passed"
     const val CHANNEL_ID = "AI_CAMERA_CHANNEL_ID"
-    const val CHANNEL_GEO_FENCE_ID = "AI_CAMERA_geofence_channel_CHANNEL_ID"
+    const val INTENT_FROM_GEO = "intent.geo"
     const val CHANNEL_NAME = "AI_CAMERA_CHANNEL"
     const val CHANNEL_DESCRIPTION = "KERALA AI CAMERA TRACKING APP"
 

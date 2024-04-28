@@ -18,7 +18,6 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.ui.screens.mapview.OsmMapActivity
 import com.ramzmania.aicammvd.utils.Constants
-import com.ramzmania.aicammvd.utils.Constants.CHANNEL_GEO_FENCE_ID
 import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
@@ -95,7 +94,9 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
             intent.putExtra("lat", 0.0)
             intent.putExtra("long",0.0)
         }
-       // Add any extras you want to pass
+        intent.putExtra(Constants.INTENT_FROM_GEO,"geofence")
+
+        // Add any extras you want to pass
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
         val pendingIntent = PendingIntent.getActivity(

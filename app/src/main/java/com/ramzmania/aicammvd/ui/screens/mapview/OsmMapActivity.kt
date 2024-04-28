@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
+import com.ramzmania.aicammvd.utils.Constants
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.events.MapListener
@@ -20,10 +21,7 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
-class OsmMapActivity : ComponentActivity(), MapListener{
-
-
-
+class OsmMapActivity : ComponentActivity(), MapListener {
 
 
     lateinit var mMap: MapView
@@ -51,7 +49,7 @@ class OsmMapActivity : ComponentActivity(), MapListener{
         mMyLocationOverlay.enableMyLocation()
         mMyLocationOverlay.enableFollowLocation()
         mMyLocationOverlay.isDrawAccuracyEnabled = true
-        mMyLocationOverlay.setPersonAnchor(1f,1f)
+        mMyLocationOverlay.setPersonAnchor(1f, 1f)
 
 //        mMyLocationOverlay.runOnFirstFix {
 //            runOnUiThread {
@@ -69,11 +67,12 @@ class OsmMapActivity : ComponentActivity(), MapListener{
         // val mapPoint = GeoPoint(latitude, longitude)
 
 //        controller.setZoom(6.0)
-        val startPoint = GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
+        val startPoint =
+            GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
         controller.setCenter(startPoint);
         controller.animateTo(startPoint)
         controller.setZoom(16.5)
-        addMarker(mMap,startPoint)
+        addMarker(mMap, startPoint)
 //        val startMarker = Marker(mMap)
 //        startMarker.position = startPoint
 //        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
@@ -86,8 +85,11 @@ class OsmMapActivity : ComponentActivity(), MapListener{
         mMap.overlays.add(mMyLocationOverlay)
 
         mMap.addMapListener(this)
-
-
+        if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
+            // Enable location and follow location
+            mMyLocationOverlay.enableMyLocation()
+            mMyLocationOverlay.enableFollowLocation()
+        }
     }
 
     override fun onScroll(event: ScrollEvent?): Boolean {
@@ -107,10 +109,12 @@ class OsmMapActivity : ComponentActivity(), MapListener{
     }
 
 
-
     private fun addMarker(mapView: MapView, point: GeoPoint) {
         val context = mapView.context
-        val icon = context.resources.getDrawable(R.drawable.ai_camera_marker, context.theme) // Load the custom marker drawable
+        val icon = context.resources.getDrawable(
+            R.drawable.ai_camera_marker,
+            context.theme
+        ) // Load the custom marker drawable
 
         val marker = Marker(mapView)
         marker.position = point
