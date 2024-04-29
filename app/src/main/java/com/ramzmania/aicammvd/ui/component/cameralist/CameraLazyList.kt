@@ -1,3 +1,8 @@
+/**
+ * CameraListView: A composable function responsible for rendering a list of camera data.
+ * It displays the nearest AI camera locations and allows the user to click on them to view
+ * the details on the map.
+ */
 package com.ramzmania.aicammvd.ui.component.cameralist
 
 import android.content.Intent

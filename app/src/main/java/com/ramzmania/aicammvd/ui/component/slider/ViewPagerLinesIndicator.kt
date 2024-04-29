@@ -1,3 +1,11 @@
+/**
+ * ViewPagerLinesIndicator: A composable function that displays a set of lines indicating the current page
+ * in a ViewPager-like UI.
+ *
+ * @param modifier The modifier for the lines indicator.
+ * @param pageCount The total number of pages.
+ * @param currentPageIteration The index of the current page.
+ */
 package com.ramzmania.aicammvd.ui.component.slider
 
 import androidx.compose.foundation.background

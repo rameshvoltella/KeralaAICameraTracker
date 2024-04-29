@@ -1,3 +1,9 @@
+
+/**
+ * OsmMapActivity: An activity to display a map using OpenStreetMap (OSM) library.
+ * This activity integrates Google's Fused Location Provider for user's location tracking.
+ * It also includes functionalities to add markers on the map and update UI based on location changes.
+ */
 package com.ramzmania.aicammvd.ui.screens.mapview
 
 
@@ -24,8 +30,11 @@ import com.google.android.gms.location.Priority
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
 import com.ramzmania.aicammvd.geofencing.calculateDistance
+import com.ramzmania.aicammvd.ui.base.BaseBinderActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.MediaPlayerUtil
+import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.events.MapListener
@@ -38,92 +47,86 @@ import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
+@AndroidEntryPoint
+class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapListener {
 
-class OsmMapActivity : ComponentActivity(), MapListener {
-
-
-    lateinit var mMap: MapView
-    lateinit var speedTextView: TextView
-    lateinit var distanceTextView: TextView
-    lateinit var distanceLinear: LinearLayout
-
+    // Variable to determine if distance should be shown
     private var showDistance = false
-    lateinit var controller: IMapController;
-    lateinit var mMyLocationOverlay: MyLocationNewOverlay;
+
+    // Map controller
+    lateinit var controller: IMapController
+
+
+    // Location overlay
+    lateinit var mMyLocationOverlay: MyLocationNewOverlay
+
+    // Media player utility for audio alerts
     private lateinit var mediaPlayerUtil: MediaPlayerUtil
+
+    // Fused Location Provider client
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    // Location callback for receiving location updates
     var locationCallback: LocationCallback? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val binding = MapViewBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun getViewModelClass()=HomeViewModel::class.java
+
+    override fun getViewBinding()= MapViewBinding.inflate(layoutInflater)
+
+    override fun observeViewModel() {
+    }
+
+    override fun observeActivity() {
+        // Load OSMDroid configuration
         Configuration.getInstance().load(
             applicationContext,
             getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
         )
-        mMap = binding.osmmap
-        speedTextView = binding.speedTxt
-        distanceTextView = binding.distanceTxt
-        distanceLinear = binding.distanceLl
-        mMap.setTileSource(TileSourceFactory.MAPNIK)
-        mMap.mapCenter
-        mMap.setMultiTouchControls(true)
-        mMap.getLocalVisibleRect(Rect())
+
+        // Set up the map
+        binding.osmmap.setTileSource(TileSourceFactory.MAPNIK)
+        binding.osmmap.setMultiTouchControls(true)
+
+        // Initialize media player utility
         mediaPlayerUtil = MediaPlayerUtil(this)
 
+        // Initialize Fused Location Provider client
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), mMap)
-        controller = mMap.controller
+
+        // Initialize map controller
+        controller = binding.osmmap.controller
+
+        // Check if intent contains latitude and longitude to show distance
         if (intent.extras!!.containsKey("lat")) {
             showDistance = true
-            distanceLinear.visibility = View.VISIBLE
+            binding.distanceLl.visibility = View.VISIBLE
         }
 
-//        mMyLocationOverlay.enableMyLocation()
-//        mMyLocationOverlay.enableFollowLocation()
+        // Initialize location overlay
+        mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), binding.osmmap)
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f, 1f)
-//        val distance = calculateDistance(lat1, lon1, lat2, lon2)
-//        mMyLocationOverlay.runOnFirstFix {
-//            runOnUiThread {
-////                controller.setCenter(mMyLocationOverlay.myLocation);
-////                controller.animateTo(mMyLocationOverlay.myLocation)
-//                Log.d("kkppp","yesss")
-//                val startPoint = GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
-//                controller.setCenter(startPoint);
-//               controller.animateTo(startPoint)
-//                Log.d("kkppp","yesss22222"+intent.extras!!.getDouble("lat"))
-//
-//
-//            }
-//        }
-        // val mapPoint = GeoPoint(latitude, longitude)
 
-//        controller.setZoom(6.0)
-        val startPoint =
-            GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
-        controller.setCenter(startPoint);
+        // Set map center and zoom level
+        val startPoint = GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"))
+        controller.setCenter(startPoint)
         controller.animateTo(startPoint)
         controller.setZoom(16.5)
-        addMarker(mMap, startPoint)
-//        val startMarker = Marker(mMap)
-//        startMarker.position = startPoint
-//        startMarker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-//        mMap.getOverlays().add(startMarker)
 
-        Log.e("TAG", "onCreate:in ${controller.zoomIn()}")
-        Log.e("TAG", "onCreate: out  ${controller.zoomOut()}")
+        // Add marker at the specified point
+        addMarker(binding.osmmap, startPoint)
 
-        // controller.animateTo(mapPoint)
-        mMap.overlays.add(mMyLocationOverlay)
+        // Add map listener
+        binding.osmmap.addMapListener(this)
 
-        mMap.addMapListener(this)
+        // Enable location and follow location if coming from specific intent
         if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
-            // Enable location and follow location
             mMyLocationOverlay.enableMyLocation()
             mMyLocationOverlay.enableFollowLocation()
         }
     }
+
+
+    // Map scroll listener
 
     override fun onScroll(event: ScrollEvent?): Boolean {
         // event?.source?.getMapCenter()
@@ -132,7 +135,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         //  Log.e("TAG", "onScroll   x: ${event?.x}  y: ${event?.y}", )
         return true
     }
-
+    // Map zoom listener
     override fun onZoom(event: ZoomEvent?): Boolean {
         //  event?.zoomLevel?.let { controller.setZoom(it) }
 
@@ -141,7 +144,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
         return false;
     }
 
-
+    // Add marker to the map
     private fun addMarker(mapView: MapView, point: GeoPoint) {
         val context = mapView.context
         val icon = context.resources.getDrawable(
@@ -168,7 +171,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
             startLocationUpdates()
         }
     }
-
+    // Start location updates
     private fun startLocationUpdates() {
         val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
             .setWaitForAccurateLocation(true)
@@ -185,7 +188,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
                     // Calculate speed here using the Location object
                     try {
                         if (showDistance) {
-                            distanceTextView.text =
+                            binding.distanceTxt.text =
                                 "DISTANCE TO CAM : " + String.format(
                                     "%.1f",
                                     calculateDistance(
@@ -197,7 +200,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
                                 ) + " KM"
                         }
                     } catch (ex: Exception) {
-                        distanceTextView.text = "error" + ex.printStackTrace()
+                        binding.distanceTxt.text = "error" + ex.printStackTrace()
                     }
 
 
@@ -205,22 +208,22 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 //                    val speedKmH = speed * 3.6 // Convert speed to km/h
                     // Now you have the speed, you can use it as needed
                     if ((speed * 3.6) > 80) {
-                        speedTextView.setBackgroundResource(R.drawable.rounded_overspeed_text_background)
+                        binding.speedTxt.setBackgroundResource(R.drawable.rounded_overspeed_text_background)
                         if (!mediaPlayerUtil.isPlayingSound()) {
                             mediaPlayerUtil.playSound(R.raw.overspeed)
                         }
 
                     } else if ((speed * 3.6) < 80 && (speed * 3.6) >= 60) {
 
-                        speedTextView.setBackgroundResource(R.drawable.rounded_warningspeed_text_background)
+                        binding.speedTxt.setBackgroundResource(R.drawable.rounded_warningspeed_text_background)
 
                     } else {
 
-                        speedTextView.setBackgroundResource(R.drawable.rounded_normalspeed_text_background)
+                        binding.speedTxt.setBackgroundResource(R.drawable.rounded_normalspeed_text_background)
 
                     }
                     val speedKmH = String.format("%.1f", speed * 3.6)
-                    speedTextView.text = "Speed\n $speedKmH Km/H"
+                    binding.speedTxt.text = "Speed\n $speedKmH Km/H"
                 }
             }
         }
@@ -245,6 +248,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
     override fun onDestroy() {
         super.onDestroy()
+        // Remove media and location call backs
         try {
             if (mediaPlayerUtil != null) {
                 mediaPlayerUtil.stopSound()
@@ -260,7 +264,7 @@ class OsmMapActivity : ComponentActivity(), MapListener {
 
         }
     }
-
+    // Stop location updates
     private fun stopLocationUpdates() {
         if (locationCallback != null) {
             if(fusedLocationClient!=null) {

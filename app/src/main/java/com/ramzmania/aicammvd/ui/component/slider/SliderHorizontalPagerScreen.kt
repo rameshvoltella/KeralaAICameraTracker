@@ -1,3 +1,11 @@
+/**
+ * HorizontalPagerWithLinesIndicatorScreen: A composable function that displays a horizontal pager
+ * with pages containing slider items. It also includes a button on the last page to proceed to
+ * the HomeActivity.
+ *
+ * @param dataList The list of SliderContentData objects representing the data to be displayed in each page.
+ * @param activityContext The context of the activity where the HorizontalPagerWithLinesIndicatorScreen is used.
+ */
 package com.ramzmania.aicammvd.ui.component.slider
 
 import android.app.Activity

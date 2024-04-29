@@ -1,3 +1,14 @@
+/**
+ * CustomCircleSwitch: A composable function that displays a custom circle switch.
+ * It allows for both regular click and long press interactions.
+ *
+ * @param outerCircleSize The size of the outer circle.
+ * @param innerCircleSize The size of the inner circle.
+ * @param outerColor The color of the outer circle.
+ * @param innerColor The color of the inner circle.
+ * @param onClick The callback function to be invoked on regular click.
+ * @param onLongPress The callback function to be invoked on long press.
+ */
 package com.ramzmania.aicammvd.ui.customviews
 
 import androidx.compose.animation.Animatable

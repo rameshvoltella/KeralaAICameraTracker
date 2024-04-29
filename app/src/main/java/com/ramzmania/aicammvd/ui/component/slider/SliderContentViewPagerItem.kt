@@ -1,3 +1,12 @@
+/**
+ * SlideViewpagerItem: A composable function that represents an item in a ViewPager.
+ * It displays a title, subtitle, and an image centered vertically and horizontally.
+ *
+ * @param centerImage The resource ID of the image to be displayed.
+ * @param title The title text to be displayed.
+ * @param subtitle The subtitle text to be displayed.
+ * @param currentPage The current page index.
+ */
 package com.ramzmania.aicammvd.ui.component.slider
 
 import androidx.compose.foundation.Image

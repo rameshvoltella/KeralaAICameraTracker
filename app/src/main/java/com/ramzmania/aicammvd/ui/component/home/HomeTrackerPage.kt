@@ -1,3 +1,12 @@
+/**
+ * TrackerViewpagerItem: A composable function responsible for rendering an item within a ViewPager
+ * on the home screen. This item includes a title, subtitle, and a custom circle switch for enabling/disabling
+ * location tracking.
+ *
+ * @param title The title of the item.
+ * @param subtitle The subtitle of the item indicating the status of location tracking.
+ * @param enabledLocationValue The value indicating whether location tracking is enabled or not.
+ */
 package com.ramzmania.aicammvd.ui.component.home
 
 import android.Manifest
@@ -50,7 +59,8 @@ import com.ramzmania.aicammvd.utils.PreferencesUtil
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabledLocationValue:Boolean) {
+fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Boolean) {
+    // Define variables and states used within the composable
     val context = LocalContext.current
    // , enabledLocation: (Boolean) -> Unit
     val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -271,7 +281,6 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 @Composable
 fun TrackerViewpagerItemPreview() {
     TrackerViewpagerItem(
-        centerImage = R.drawable.ic_livevideo_doubt, // Replace with actual drawable resource
         title = "Sample Title",
         subtitle = "Sample Subtitle",
         enabledLocationValue = true

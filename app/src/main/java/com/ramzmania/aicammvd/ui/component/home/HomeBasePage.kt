@@ -1,3 +1,11 @@
+/**
+ * HomeLayer: A composable function responsible for rendering the home screen UI.
+ * This composable function integrates various components and handles logic related to data loading,
+ * location permissions, and UI updates based on the received data.
+ *
+ * @param viewModelStoreOwner The ViewModelStoreOwner used for accessing the ViewModel.
+ * @param navigateTo A lambda function used for navigation to other screens.
+ */
 package com.ramzmania.aicammvd.ui.component.home
 
 import android.Manifest
@@ -65,7 +73,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPermissionsApi::class)
 @Composable
 fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: String) -> Unit) {
-
+    // Define variables and states used within the composable
     val pagerState = rememberPagerState(pageCount = { 2 })
     var currentPage by remember { mutableStateOf(0) }
     var selectedColumn by remember { mutableStateOf(0) }
@@ -89,10 +97,12 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
+
+    // Check if permissions dialog should be shown
     LaunchedEffect(permissionsState) {
         showPermissionsDialog = !allPermissionsGranted
     }
-
+    // Show permissions dialog if required
     if (showPermissionsDialog) {
         PermissionsHandler(
             permissions = permissions,
@@ -102,6 +112,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
         )
     } else {
+        // Page State listener
         LaunchedEffect(pagerState) {
             // Collect from the a snapshotFlow reading the currentPage
             snapshotFlow { pagerState.currentPage }.collect { page ->
@@ -109,16 +120,16 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
             }
         }
+        // Launched if change in dataLoaded
 
         LaunchedEffect(dataLoaded) {
-            // Collect from the a snapshotFlow reading the currentPage
             if (dataLoaded) {
                 model.setLayout(true)
             }
         }
+        // Launched if change in locationNotAvailable
 
         LaunchedEffect(locationNotAvailable) {
-            // Collect from the a snapshotFlow reading the currentPage
 
             if (locationNotAvailable) {
                 model.setNoLocation(true)
@@ -128,6 +139,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
 //    if (isLoading) {
 //    CircularProgressIndicator(modifier = Modifier.fillMaxSize(), strokeWidth = 8.dp)
+
+        // Launched if change in aiLocationInfo
         LaunchedEffect(key1 = aiLocationInfo) {
 
             when (aiLocationInfo) {
@@ -172,6 +185,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
         }
 
+        // Launched initially to get the location info
 
         LaunchedEffect(key1 = Unit) {
             if (currentLocation == null) {
@@ -262,7 +276,6 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                         // Content of HorizontalPager
                         if (page == 0) {
                             TrackerViewpagerItem(
-                                centerImage = R.drawable.came_new,
                                 title = "Track AI Camera",
                                 subtitle = "Location  : OFF",
                                 enabledLocationValue = model.locationEnabled.value,
