@@ -37,7 +37,7 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
 //        Log.d("unique",">>>"+data.location.replace(" ","").lowercase(Locale.getDefault()))
         Geofence.Builder()
             .setRequestId(
-                data.location.replace(" ", "").lowercase(Locale.getDefault())
+                data.location.replace(" ", "*").lowercase(Locale.getDefault())
             )  // Unique identifier for this geofence
             .setCircularRegion(
                 data.latitude,

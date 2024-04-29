@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import androidx.compose.ui.text.toUpperCase
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import com.google.android.gms.location.Geofence
@@ -19,6 +20,7 @@ import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
+import java.util.Locale
 
 /**
  * Broadcast receiver for handling geofence events.
@@ -65,7 +67,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                     showNotification(
                         context!!,
                         "ENTERING AI ZONE",
-                        "$triggeredLocation Camera Zone",location
+                        "${triggeredLocation.replace("*"," ").uppercase(Locale.getDefault())} Camera Zone",location
                     )
                 }
             }
@@ -75,7 +77,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                     showNotification(
                         context!!,
                         "EXITING AI ZONE",
-                        "$triggeredLocation Camera Zone",location
+                        "${triggeredLocation.replace("*"," ").uppercase(Locale.getDefault())} Camera Zone",location
                     )
             }
 
