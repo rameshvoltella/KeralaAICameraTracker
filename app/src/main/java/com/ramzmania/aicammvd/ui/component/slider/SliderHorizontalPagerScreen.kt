@@ -50,8 +50,8 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
 
     val pagerState = rememberPagerState(pageCount = { dataList.size })
     val backgroundColor = when (pagerState.currentPage) {
-        0 -> Color.Yellow // Example color for page 0
-        1 -> Color.Green // Example color for page 1
+        0 -> Color("#F5F5DC".toColorInt()) // Example color for page 0
+        1 -> Color("#90EE90".toColorInt()) // Example color for page 1
         2 -> Color("#00b4e9".toColorInt()) // Example color for page 2
         else -> MaterialTheme.colorScheme.background
     }

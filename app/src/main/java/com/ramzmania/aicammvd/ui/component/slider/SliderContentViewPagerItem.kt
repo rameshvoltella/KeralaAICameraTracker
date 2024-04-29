@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.material3.Text
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -57,6 +59,11 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
+                    style = TextStyle(
+                        color = colorResource(
+                            id = R.color.black
+                        ), fontSize = 16.sp
+                    ),
                     fontFamily = FontFamily(
                         typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
                     )
@@ -85,6 +92,11 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                 Text(text = subtitle,fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
+                    style = TextStyle(
+                        color = colorResource(
+                            id = R.color.black
+                        ), fontSize = 16.sp
+                    ),
                     modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
                             fontFamily = FontFamily(
                             typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
