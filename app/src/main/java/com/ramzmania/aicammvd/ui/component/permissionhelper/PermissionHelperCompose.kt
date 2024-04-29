@@ -1,4 +1,4 @@
-package com.ramzmania.aicammvd.utils
+package com.ramzmania.aicammvd.ui.component.permissionhelper
 
 
 import android.content.Intent
@@ -26,7 +26,9 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.accompanist.permissions.shouldShowRationale
 import com.ramzmania.aicammvd.R
-
+/**
+ * Permission helper compose
+ */
 @ExperimentalPermissionsApi
 @Composable
 fun PermissionsHandler(

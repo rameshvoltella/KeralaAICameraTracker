@@ -5,8 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.location.Location
-import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -25,7 +23,6 @@ import com.ramzmania.aicammvd.geofencing.getCompleteAddressString
 import com.ramzmania.aicammvd.geofencing.playNotificationSound
 import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.ui.base.BaseViewModel
-import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.LOCATION_WORK_MANAGER_TAG
 import com.ramzmania.aicammvd.utils.Constants.NOTIFY_TRACKING_SUBTITLE
@@ -51,36 +48,45 @@ constructor(
     private var contextModule: ContextModule
 ) : BaseViewModel() {
 
+    // LiveData to observe AI location data
     private val aILocationLiveDataPrivate = MutableLiveData<Resource<CameraDataResponse>>()
     val aILocationLiveData: LiveData<Resource<CameraDataResponse>> get() = aILocationLiveDataPrivate
 
+    // StateFlow to observe whether the location is enabled
     private val locationEnabledPrivate = MutableStateFlow(false)
     val locationEnabled = locationEnabledPrivate.asStateFlow()
 
+    // StateFlow to observe whether the location service is started
     private val locationServiceStoppedPrivate = MutableStateFlow(false)
     val locationServiceStared = locationServiceStoppedPrivate.asStateFlow()
 
+    // LiveData to observe the current location data
     private val locationDataPrivate = MutableLiveData<Location>()
     val locationData: LiveData<Location> = locationDataPrivate
 
+    // StateFlow to observe the address corresponding to the current location
     private val locationAddressPrivate = MutableStateFlow("")
     val locationAddressData = locationAddressPrivate.asStateFlow()
 
-
+    // LiveData to observe the current location
     private val currentLocationDataPrivate = MutableLiveData<Location>()
     val currentLocation: LiveData<Location> = currentLocationDataPrivate
 
+    // StateFlow to observe whether to set the layout
     private val setLayoutPrivate = MutableStateFlow(false)
     val setLayout = setLayoutPrivate.asStateFlow()
 
+    // StateFlow to observe whether to set the "no location" data
     private val setNoLocationPrivate = MutableStateFlow(false)
     val setNoLocationData = setNoLocationPrivate.asStateFlow()
 
+    // LiveData to observe the filtered camera list
     private val filterCameraListDataPrivate = MutableLiveData<List<CameraData>>()
     val filterCameraList: LiveData<List<CameraData>> = filterCameraListDataPrivate
 
     init {
         viewModelScope.launch {
+            // Collecting location flow and service stop status
             LocationSharedFlow.locationFlow.collect { location ->
 
                 locationDataPrivate.value = location
@@ -95,9 +101,10 @@ constructor(
 //                Log.d("Location Flow Update", "Lat: ${location.first}, Long: ${location.second}")
             }
         }
-        locationEnabledPrivate.value = PreferencesUtil.isServiceRunning(contextModule.context)
+        locationEnabledPrivate.value = PreferencesUtil.isTrackerRunning(contextModule.context)
     }
 
+    // Updates the location button status
     fun updateLocationButton(value: Boolean) {
         locationEnabledPrivate.value = value
 
@@ -106,7 +113,7 @@ constructor(
     fun setTackingServiceRunning(isStarted: Boolean) {
         //   locationServiceStaredPrivate.value=isStarted
     }
-
+    // Fetches AI location information asynchronously
     fun fetchAiLocationInfo() {
         viewModelScope.launch {
 
@@ -118,6 +125,7 @@ constructor(
         }
     }
 
+    // Initiates the process to start the location service with the provided location
     fun startLocationService(context: Context, location: Location?) {
 
         if (location != null) {
@@ -138,6 +146,7 @@ constructor(
         }
     }
 
+    // Sets up the WorkManager periodic scheduler
     private fun settingWorkPeriodicScheduler(context: Context) {
         setAiTracker(context)
         val periodicWorkRequest =
@@ -154,6 +163,7 @@ constructor(
         playNotificationSound(context, R.raw.loco)
     }
 
+    // Sets up the AI tracker
     private fun setAiTracker(context: Context) {
 
 
@@ -170,13 +180,13 @@ constructor(
         )
         locationEnabledPrivate.value = true
 
-        PreferencesUtil.setServiceRunning(context, true)
+        PreferencesUtil.setTrackerRunning(context, true)
 
 
     }
-
+    // Stops the location service and cancels any ongoing WorkManager tasks
     fun stopLocationService(context: Context) {
-        PreferencesUtil.setServiceRunning(context, false)
+        PreferencesUtil.setTrackerRunning(context, false)
 
         removeAllGeofences(context)
 
@@ -203,7 +213,7 @@ constructor(
 
 
     }
-
+    // Set current locations
     fun setCurrentLocation(location: Location) {
         currentLocationDataPrivate.value = location
         viewModelScope.launch {

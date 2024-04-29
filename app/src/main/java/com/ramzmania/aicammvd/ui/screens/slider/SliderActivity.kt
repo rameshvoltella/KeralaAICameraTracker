@@ -1,8 +1,3 @@
-/**
- * SliderActivity: An activity responsible for displaying a slider screen for onboarding.
- * Users can swipe through different slides introducing features of the application.
- * It also handles permission requests and navigation to the HomeActivity once the slider is passed.
- */
 package com.ramzmania.aicammvd.ui.screens.slider
 
 import android.Manifest
@@ -40,6 +35,11 @@ import com.ramzmania.aicammvd.viewmodel.MyViewModel
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * SliderActivity: An activity responsible for displaying a slider screen for onboarding.
+ * Users can swipe through different slides introducing features of the application.
+ * It also handles permission requests and navigation to the HomeActivity once the slider is passed.
+ */
 @AndroidEntryPoint
 class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     private val NOTIFICATION_PERMISSION_CODE=1

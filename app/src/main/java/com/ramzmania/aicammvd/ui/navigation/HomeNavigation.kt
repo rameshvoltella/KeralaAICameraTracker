@@ -1,8 +1,3 @@
-/**
- * HomeNavigation: A composable function responsible for setting up the navigation within the home screen.
- * It uses Jetpack Navigation Compose to define the navigation graph and handle navigation events.
- * This composable function serves as the entry point for the home screen navigation.
- */
 package com.ramzmania.aicammvd.ui.navigation
 
 import androidx.compose.runtime.Composable
@@ -13,6 +8,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ramzmania.aicammvd.ui.component.home.HomeLayer
 
+/**
+ * HomeNavigation: A composable function responsible for setting up the navigation within the home screen.
+ * It uses Jetpack Navigation Compose to define the navigation graph and handle navigation events.
+ * This composable function serves as the entry point for the home screen navigation.
+ */
 @Composable
 fun HomeNavigation() {
     // Create a NavHost with a NavController

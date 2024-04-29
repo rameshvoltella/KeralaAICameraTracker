@@ -1,7 +1,3 @@
-/**
- * CameraLayoutList: A composable function responsible for rendering the layout of each camera item in the list.
- * It displays the district and place details along with an icon.
- */
 package com.ramzmania.aicammvd.ui.component.cameralist
 
 import androidx.compose.foundation.layout.Box
@@ -34,7 +30,10 @@ import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
-
+/**
+ * CameraLayoutList: A composable function responsible for rendering the layout of each camera item in the list.
+ * It displays the district and place details along with an icon.
+ */
 @Composable
 fun CameraLayoutList( district:String,place:String)
 {

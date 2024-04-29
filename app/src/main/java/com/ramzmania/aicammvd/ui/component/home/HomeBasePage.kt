@@ -1,17 +1,8 @@
-/**
- * HomeLayer: A composable function responsible for rendering the home screen UI.
- * This composable function integrates various components and handles logic related to data loading,
- * location permissions, and UI updates based on the received data.
- *
- * @param viewModelStoreOwner The ViewModelStoreOwner used for accessing the ViewModel.
- * @param navigateTo A lambda function used for navigation to other screens.
- */
 package com.ramzmania.aicammvd.ui.component.home
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -30,8 +21,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -65,11 +54,19 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
-import com.ramzmania.aicammvd.utils.PermissionsHandler
+import com.ramzmania.aicammvd.ui.component.permissionhelper.PermissionsHandler
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
 
+/**
+ * HomeLayer: A composable function responsible for rendering the home screen UI.
+ * This composable function integrates various components and handles logic related to data loading,
+ * location permissions, and UI updates based on the received data.
+ *
+ * @param viewModelStoreOwner The ViewModelStoreOwner used for accessing the ViewModel.
+ * @param navigateTo A lambda function used for navigation to other screens.
+ */
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPermissionsApi::class)
 @Composable
 fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: String) -> Unit) {
@@ -209,7 +206,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     "Location not available",
                                     Toast.LENGTH_LONG
                                 ).show()
-                                if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                                if(!PreferencesUtil.isTrackerRunning(context = currentContext)) {
                                     locationNotAvailable = true
                                 }
                             }
@@ -221,7 +218,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                 Toast.LENGTH_LONG
                             )
                                 .show()
-                            if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                            if(!PreferencesUtil.isTrackerRunning(context = currentContext)) {
                                 locationNotAvailable = true
                             }
                         }

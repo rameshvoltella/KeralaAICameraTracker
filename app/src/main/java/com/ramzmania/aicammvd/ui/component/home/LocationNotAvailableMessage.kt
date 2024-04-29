@@ -1,7 +1,3 @@
-/**
- * LocationNotAvailableMessage: A composable function responsible for rendering a message when location
- * is not available. It provides a clickable text prompting the user to enable location settings.
- */
 package com.ramzmania.aicammvd.ui.component.home
 
 import android.content.Intent
@@ -26,6 +22,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ramzmania.aicammvd.R
 
+/**
+ * LocationNotAvailableMessage: A composable function responsible for rendering a message when location
+ * is not available. It provides a clickable text prompting the user to enable location settings.
+ */
 @Composable
 fun LocationNotAvailableMessage() {
     val context= LocalContext.current

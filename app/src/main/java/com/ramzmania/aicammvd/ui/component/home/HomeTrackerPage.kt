@@ -1,12 +1,3 @@
-/**
- * TrackerViewpagerItem: A composable function responsible for rendering an item within a ViewPager
- * on the home screen. This item includes a title, subtitle, and a custom circle switch for enabling/disabling
- * location tracking.
- *
- * @param title The title of the item.
- * @param subtitle The subtitle of the item indicating the status of location tracking.
- * @param enabledLocationValue The value indicating whether location tracking is enabled or not.
- */
 package com.ramzmania.aicammvd.ui.component.home
 
 import android.Manifest
@@ -15,8 +6,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -52,11 +41,19 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
-import com.ramzmania.aicammvd.utils.PermissionsHandler
+import com.ramzmania.aicammvd.ui.component.permissionhelper.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import android.provider.Settings
-import com.ramzmania.aicammvd.utils.PreferencesUtil
 
+/**
+ * TrackerViewpagerItem: A composable function responsible for rendering an item within a ViewPager
+ * on the home screen. This item includes a title, subtitle, and a custom circle switch for enabling/disabling
+ * location tracking.
+ *
+ * @param title The title of the item.
+ * @param subtitle The subtitle of the item indicating the status of location tracking.
+ * @param enabledLocationValue The value indicating whether location tracking is enabled or not.
+ */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Boolean) {

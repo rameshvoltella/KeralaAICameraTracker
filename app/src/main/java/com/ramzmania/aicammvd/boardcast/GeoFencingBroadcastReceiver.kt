@@ -1,6 +1,3 @@
-/**
- * Broadcast receiver for handling geofence events.
- */
 package com.ramzmania.aicammvd.boardcast
 
 import android.Manifest
@@ -23,7 +20,9 @@ import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
 
-
+/**
+ * Broadcast receiver for handling geofence events.
+ */
 class GeoFencingBroadcastReceiver : BroadcastReceiver() {
     /**
      * Handles incoming geofence events.

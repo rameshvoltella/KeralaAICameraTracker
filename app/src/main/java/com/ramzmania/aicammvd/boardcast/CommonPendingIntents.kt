@@ -1,12 +1,12 @@
 package com.ramzmania.aicammvd.boardcast
-/**
-* This class hold common pending intent types
-* */
+
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
-
+/**
+ * This class hold common pending intent types
+ * */
 fun homePagePendingIntent(context: Context): PendingIntent {
     val intent = Intent(context, HomeActivity::class.java)
     // Add any extras you want to pass

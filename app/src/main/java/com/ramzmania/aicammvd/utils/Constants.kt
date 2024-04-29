@@ -1,5 +1,7 @@
 package com.ramzmania.aicammvd.utils
-
+/**
+ * This constant class contain constant variables
+ */
 object Constants {
 
     const val SLIDER_SCREEN_PASSED: String="is_slider_sucess"

@@ -1,6 +1,3 @@
-/**
- * HomeActivity: An activity to display the location tracker button and list of Ai cam location.
- */
 package com.ramzmania.aicammvd.ui.screens.home
 
 
@@ -22,6 +19,9 @@ import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * HomeActivity: An activity to display the location tracker button and list of Ai cam location.
+ */
 @AndroidEntryPoint
 class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 

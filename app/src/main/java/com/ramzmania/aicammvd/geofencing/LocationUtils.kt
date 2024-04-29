@@ -1,8 +1,3 @@
-/**
- * Utility class for managing location updates using the Fused Location Provider API.
- *
- * @param context The application context.
- */
 package com.ramzmania.aicammvd.geofencing
 
 import android.Manifest
@@ -12,7 +7,11 @@ import android.content.pm.PackageManager
 import android.location.Location
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
-
+/**
+ * Utility class for managing location updates using the Fused Location Provider API.
+ *
+ * @param context The application context.
+ */
 class LocationUtils(private val context: Context) {
     private var fusedLocationProviderClient: FusedLocationProviderClient =
         LocationServices.getFusedLocationProviderClient(context)

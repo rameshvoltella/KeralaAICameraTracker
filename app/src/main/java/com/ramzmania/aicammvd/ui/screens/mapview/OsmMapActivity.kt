@@ -1,9 +1,4 @@
 
-/**
- * OsmMapActivity: An activity to display a map using OpenStreetMap (OSM) library.
- * This activity integrates Google's Fused Location Provider for user's location tracking.
- * It also includes functionalities to add markers on the map and update UI based on location changes.
- */
 package com.ramzmania.aicammvd.ui.screens.mapview
 
 
@@ -47,6 +42,12 @@ import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
+
+/**
+ * OsmMapActivity: An activity to display a map using OpenStreetMap (OSM) library.
+ * This activity integrates Google's Fused Location Provider for user's location tracking.
+ * It also includes functionalities to add markers on the map and update UI based on location changes.
+ */
 @AndroidEntryPoint
 class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapListener {
 

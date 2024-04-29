@@ -1,8 +1,9 @@
+/**
+ * This package contains error-related classes and constants used throughout the application.
+ */
 package com.ramzmania.aicammvd.errors
 
-/**
- * Created by AhmedEltaher
- */
+
 
 class Error(val code: Int, val description: String) {
     constructor(exception: Exception) : this(code = DEFAULT_ERROR, description = exception.message
