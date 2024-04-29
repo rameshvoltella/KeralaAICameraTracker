@@ -28,7 +28,7 @@ notify them about the presence of the camera.
 
 ## Video Preview
 
-https://www.youtube.com/shorts/HvwWIvNoKvw"
+click here -> https://www.youtube.com/shorts/HvwWIvNoKvw
 
 
 ## Features
