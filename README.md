@@ -59,7 +59,7 @@ The Kerala AI Camera Tracker app is available for Android
 ### Android
 
 1. Download the APK file from
-   here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/raw/beta/appfiles/apk/a1_cam_alpha_build%232.apk).
+   here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/tags).
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
 
