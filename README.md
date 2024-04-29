@@ -28,7 +28,7 @@ notify them about the presence of the camera.
 
 ## Video Preview
 
-<iframe width="560" height="315" src="https://www.youtube.com/shorts/HvwWIvNoKvw" frameborder="0" allowfullscreen></iframe>
+https://www.youtube.com/shorts/HvwWIvNoKvw"
 
 
 ## Features
