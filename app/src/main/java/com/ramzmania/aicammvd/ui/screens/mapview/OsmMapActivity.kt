@@ -3,10 +3,13 @@ package com.ramzmania.aicammvd.ui.screens.mapview
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Rect
 
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.OnBackPressedCallback
 
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -19,6 +22,7 @@ import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.databinding.MapViewBinding
 import com.ramzmania.aicammvd.geofencing.calculateDistance
 import com.ramzmania.aicammvd.ui.base.BaseBinderActivity
+import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.MediaPlayerUtil
@@ -63,62 +67,78 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
 
     // Location callback for receiving location updates
     var locationCallback: LocationCallback? = null
-    override fun getViewModelClass()=HomeViewModel::class.java
+    override fun getViewModelClass() = HomeViewModel::class.java
 
-    override fun getViewBinding()= MapViewBinding.inflate(layoutInflater)
+    override fun getViewBinding() = MapViewBinding.inflate(layoutInflater)
 
     override fun observeViewModel() {
     }
 
     override fun observeActivity() {
-        // Load OSMDroid configuration
-        Configuration.getInstance().load(
-            applicationContext,
-            getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
-        )
-
-        // Set up the map
-        binding.osmmap.setTileSource(TileSourceFactory.MAPNIK)
-        binding.osmmap.setMultiTouchControls(true)
-
-        // Initialize media player utility
-        mediaPlayerUtil = MediaPlayerUtil(this)
-
-        // Initialize Fused Location Provider client
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
-        // Initialize map controller
-        controller = binding.osmmap.controller
-
-        // Check if intent contains latitude and longitude to show distance
         if (intent.extras!!.containsKey("lat")) {
             showDistance = true
             binding.distanceLl.visibility = View.VISIBLE
         }
+        mediaPlayerUtil = MediaPlayerUtil(this)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Initialize location overlay
+        Configuration.getInstance().load(
+            applicationContext,
+            getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
+        )
+        binding.osmmap.setTileSource(TileSourceFactory.MAPNIK)
+        binding.osmmap.mapCenter
+        binding.osmmap.setMultiTouchControls(true)
+        binding.osmmap.getLocalVisibleRect(Rect())
+
+
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), binding.osmmap)
+        controller = binding.osmmap.controller
+
+
+//        mMyLocationOverlay.enableMyLocation()
+//        mMyLocationOverlay.enableFollowLocation()
+        // Enable location and follow location if coming from specific intent
+       if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
+        mMyLocationOverlay.enableMyLocation()
+        mMyLocationOverlay.enableFollowLocation()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+      }
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f, 1f)
 
-        // Set map center and zoom level
-        val startPoint = GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"))
-        controller.setCenter(startPoint)
+//        controller.setZoom(6.0)
+        val startPoint =
+            GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
+        controller.setCenter(startPoint);
         controller.animateTo(startPoint)
         controller.setZoom(16.5)
-
-        // Add marker at the specified point
         addMarker(binding.osmmap, startPoint)
 
-        // Add map listener
+        Logger.e("MAPVIEW onCreate:in ${controller.zoomIn()}")
+        Logger.e("MAPVIEW onCreate: out  ${controller.zoomOut()}")
+
+        // controller.animateTo(mapPoint)
+        binding.osmmap.overlays.add(mMyLocationOverlay)
+
         binding.osmmap.addMapListener(this)
 
-        // Enable location and follow location if coming from specific intent
-        if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
-            mMyLocationOverlay.enableMyLocation()
-            mMyLocationOverlay.enableFollowLocation()
-            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        }
+
+        /*Back press handler*/
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (isTaskRoot) {
+                    // If this activity is the root of the task
+                    // Navigate to a specific activity, let's say MainActivity
+                    val intent = Intent(applicationContext, HomeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    finish()
+                }
+                // Code that you need to execute on back press, e.g. finish()
+            }
+        })
     }
 
 
@@ -131,6 +151,7 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
         //  Log.e("TAG", "onScroll   x: ${event?.x}  y: ${event?.y}", )
         return true
     }
+
     // Map zoom listener
     override fun onZoom(event: ZoomEvent?): Boolean {
         //  event?.zoomLevel?.let { controller.setZoom(it) }
@@ -167,6 +188,7 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
             startLocationUpdates()
         }
     }
+
     // Start location updates
     private fun startLocationUpdates() {
         val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
@@ -253,20 +275,33 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
             ex.printStackTrace()
         }
 
-        try{
+        try {
             stopLocationUpdates()
-        }catch (ex:Exception)
-        {
+        } catch (ex: Exception) {
 
         }
     }
+
     // Stop location updates
     private fun stopLocationUpdates() {
         if (locationCallback != null) {
-            if(fusedLocationClient!=null) {
+            if (fusedLocationClient != null) {
                 fusedLocationClient.removeLocationUpdates(locationCallback!!)
             }
             locationCallback = null
         }
     }
+//    override fun onBackPressed() {
+//        if (isTaskRoot) {
+//            // If this activity is the root of the task
+//            // Navigate to a specific activity, let's say MainActivity
+//            val intent = Intent(this, HomeActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        } else {
+//            // If there are more activities in the stack
+//            // Finish the current activity
+//            onBackPressedDispatcher.onBackPressed() // with this line
+//                }
+//    }
 }
