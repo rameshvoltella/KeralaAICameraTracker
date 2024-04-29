@@ -1,23 +1,16 @@
-
 package com.ramzmania.aicammvd.ui.screens.mapview
 
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import android.graphics.Rect
-import android.location.LocationManager
-import android.os.Bundle
-import android.util.Log
+
 import android.view.View
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.ComponentActivity
+import android.view.WindowManager
+
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
@@ -27,6 +20,7 @@ import com.ramzmania.aicammvd.databinding.MapViewBinding
 import com.ramzmania.aicammvd.geofencing.calculateDistance
 import com.ramzmania.aicammvd.ui.base.BaseBinderActivity
 import com.ramzmania.aicammvd.utils.Constants
+import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.MediaPlayerUtil
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -123,6 +117,7 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
         if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
             mMyLocationOverlay.enableMyLocation()
             mMyLocationOverlay.enableFollowLocation()
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
     }
 
@@ -131,8 +126,8 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
 
     override fun onScroll(event: ScrollEvent?): Boolean {
         // event?.source?.getMapCenter()
-        Log.e("TAG", "onCreate:la ${event?.source?.getMapCenter()?.latitude}")
-        Log.e("TAG", "onCreate:lo ${event?.source?.getMapCenter()?.longitude}")
+        Logger.e("onCreate:la ${event?.source?.getMapCenter()?.latitude}")
+        Logger.e("onCreate:lo ${event?.source?.getMapCenter()?.longitude}")
         //  Log.e("TAG", "onScroll   x: ${event?.x}  y: ${event?.y}", )
         return true
     }
@@ -141,7 +136,7 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
         //  event?.zoomLevel?.let { controller.setZoom(it) }
 
 
-        Log.e("TAG", "onZoom zoom level: ${event?.zoomLevel}   source:  ${event?.source}")
+        Logger.e("onZoom zoom level: ${event?.zoomLevel}   source:  ${event?.source}")
         return false;
     }
 

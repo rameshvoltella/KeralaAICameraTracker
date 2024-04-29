@@ -3,7 +3,7 @@ package com.ramzmania.aicammvd.utils
 import android.util.Log
 
 object Logger {
-    private const val TAG = "MyLogger"
+    private const val TAG = "AI-CAMERA-APP"
 
     fun d(message: String) {
         Log.d(TAG, message)

@@ -2,7 +2,6 @@ package com.ramzmania.aicammvd
 
 import android.app.Application
 import android.util.Log
-import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
 import com.ramzmania.aicammvd.workmanager.LocationWorkerFactory
 import dagger.hilt.android.HiltAndroidApp

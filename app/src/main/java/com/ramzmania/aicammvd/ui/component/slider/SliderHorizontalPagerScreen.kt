@@ -22,8 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toColorInt
+import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
@@ -42,10 +46,11 @@ import kotlin.math.absoluteValue
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, activityContext: Activity) {
+    val context= LocalContext.current
 
     val pagerState = rememberPagerState(pageCount = { dataList.size })
     val backgroundColor = when (pagerState.currentPage) {
-        0 -> Color.White // Example color for page 0
+        0 -> Color.Yellow // Example color for page 0
         1 -> Color.Green // Example color for page 1
         2 -> Color("#00b4e9".toColorInt()) // Example color for page 2
         else -> MaterialTheme.colorScheme.background
@@ -81,7 +86,11 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                             .padding(30.dp,30.dp,30.dp,60.dp) // Add padding to the button
                             .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                     ) {
-                        Text("Let's Track")
+                        Text(text="Let's Track",
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
+                            )
+                        )
                     }
 
                 }

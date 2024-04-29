@@ -18,10 +18,12 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ResourcesCompat
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.ui.screens.mapview.OsmMapActivity
@@ -49,7 +51,9 @@ fun CameraListView(
             color= colorResource(id = R.color.white_perment),
             textAlign = TextAlign.Center,
             fontSize = 16.sp,
-            fontWeight = FontWeight.Bold,
+            fontFamily = FontFamily(
+                typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
+            ),
             modifier = Modifier.padding(8.dp)
         )
         LazyColumn(modifier = modifier.padding(vertical = 4.dp), state = rememberLazyListState()) {

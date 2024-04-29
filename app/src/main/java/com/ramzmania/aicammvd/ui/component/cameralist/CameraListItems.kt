@@ -27,6 +27,8 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.core.content.res.ResourcesCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
@@ -37,6 +39,8 @@ import coil.request.ImageRequest
 @Composable
 fun CameraLayoutList( district:String,place:String)
 {
+    val context= LocalContext.current
+
     Row(
         modifier = Modifier
             .padding(12.dp)
@@ -90,7 +94,10 @@ fun CameraLayoutList( district:String,place:String)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
-                            color = colorResource(id = R.color.white_perment)
+                            color = colorResource(id = R.color.white_perment),
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                            )
                         )
                         Text(
                             text = place, modifier = Modifier
@@ -98,7 +105,10 @@ fun CameraLayoutList( district:String,place:String)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
-                            color = colorResource(id = R.color.white_perment)
+                            color = colorResource(id = R.color.white_perment),
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_medium)!!
+                            )
                         )
 
                     }

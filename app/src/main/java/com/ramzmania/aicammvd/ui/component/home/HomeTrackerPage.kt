@@ -44,6 +44,8 @@ import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
 import com.ramzmania.aicammvd.ui.component.permissionhelper.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import android.provider.Settings
+import androidx.compose.ui.text.font.FontFamily
+import androidx.core.content.res.ResourcesCompat
 
 /**
  * TrackerViewpagerItem: A composable function responsible for rendering an item within a ViewPager
@@ -147,8 +149,10 @@ fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Bo
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp)
-
+                        modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
+                                fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_heavy)!!
+                                )
 
                     )
                     Box(
@@ -220,7 +224,10 @@ fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Bo
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
-                        color = colorResource(id = R.color.white_perment)
+                        color = colorResource(id = R.color.white_perment),
+                                fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                                )
 
                     )
 
@@ -230,6 +237,9 @@ fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Bo
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
                         color = colorResource(id = R.color.white_perment)
+                        ,fontFamily = FontFamily(
+                            typeface = ResourcesCompat.getFont(context, R.font.font_medium)!!
+                        )
 
                     )
 
