@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.GEOFENCE_PENDING_INTENT_ID
 import com.ramzmania.aicammvd.utils.Logger
 import com.ramzmania.aicammvd.utils.NotificationUtil
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import java.util.Locale
 
 /**
@@ -129,6 +130,13 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
             NotificationUtil.showNotification(context,title,message,pendingIntent,R.drawable.ai_camera_marker,NotificationCompat.PRIORITY_DEFAULT,GEOFENCE_PENDING_INTENT_ID,
                 Constants.CHANNEL_ID,true)
             playNotificationSound(context, R.raw.notification_sound)
+        }
+
+        try{
+            PreferencesUtil.setTrackerRunning(context, true)
+        }catch (ex:Exception)
+        {
+
         }
 
     }
