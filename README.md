@@ -34,7 +34,25 @@ App is still in development mode
   the user.
 - **Camera Information**: Users can view information about the AI cameras
 
-## Technologies Used
+## How It Works
+
+So, picture this: you're cruising down the road, minding your own business, when suddenly... beep beep! You're entering the camera zone! But fear not, because our trusty app is here to save the day.
+
+Here's the lowdown on how it all works:
+
+1. **Location, Location, Location**: First things first, we've got to know where you are. Our app grabs your current location and starts sorting through the nearest 50 cameras faster than you can say "cheese"!
+
+2. **Frequent Check-ins**: Every 15 minutes, our app gives a little nudge to your location, making sure we're always on top of things. And we're not just talking about any old nudge, but a smooth, efficient check-in that won't bog down your system.
+
+3. **Camera Radar**: Once we've got our eyes on the road, we start narrowing down the next 50 cameras in your vicinity. It's like having your very own camera radar, but way cooler.
+
+4. **Geo-Fencing Alert**: Now, here's where the magic happens. When your vehicle saunters into the 500-meter radius of a camera, our app sends out a friendly alert, letting you know you've entered the camera zone. It's like having a personal navigator whispering in your ear, but with a touch of whimsy.
+
+5. **OSM to the Rescue**: Say goodbye to those money-eating map apps, because we've got OSMDroid on our side. With its nifty features, we can pinpoint camera locations, navigate with ease, and calculate distances like a boss.
+
+6. **Speedometer Surprise**: Oh, and did we mention the speed alerts? Yep, our app keeps an eye on your speed too, making sure you stay within the limits and avoid any pesky fines.
+
+So there you have it, folks! With our AI camera tracker app, safety meets efficiency, sprinkled with a generous dose of fun. Happy cruising!
 
 ## Technologies Used
 
