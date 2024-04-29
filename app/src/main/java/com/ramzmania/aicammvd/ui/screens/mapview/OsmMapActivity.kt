@@ -99,11 +99,11 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
 //        mMyLocationOverlay.enableMyLocation()
 //        mMyLocationOverlay.enableFollowLocation()
         // Enable location and follow location if coming from specific intent
-        if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
+       if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
         mMyLocationOverlay.enableMyLocation()
         mMyLocationOverlay.enableFollowLocation()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        }
+      }
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f, 1f)
 
