@@ -1,5 +1,7 @@
 package com.ramzmania.aicammvd.boardcast
-
+/**
+* This class hold common pending intent types
+* */
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent

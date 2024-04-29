@@ -1,3 +1,6 @@
+/**
+ * Broadcast receiver for handling geofence events.
+ */
 package com.ramzmania.aicammvd.boardcast
 
 import android.Manifest
@@ -8,10 +11,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingEvent
 import com.ramzmania.aicammvd.R
@@ -24,6 +25,12 @@ import com.ramzmania.aicammvd.utils.NotificationUtil
 
 
 class GeoFencingBroadcastReceiver : BroadcastReceiver() {
+    /**
+     * Handles incoming geofence events.
+     *
+     * @param context The application context.
+     * @param intent The intent containing the geofence event.
+     */
     override fun onReceive(context: Context?, intent: Intent?) {
         Logger.d("GeofenceBroadcastReceiver - Geofence triggered: ID = before 0000")
 
@@ -59,7 +66,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                     showNotification(
                         context!!,
                         "ENTERING AI ZONE",
-                        triggeredLocation+" Camera Zone",location
+                        "$triggeredLocation Camera Zone",location
                     )
                 }
             }
@@ -69,7 +76,7 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
                     showNotification(
                         context!!,
                         "EXITING AI ZONE",
-                        triggeredLocation+" Camera Zone",location
+                        "$triggeredLocation Camera Zone",location
                     )
             }
 
@@ -80,7 +87,14 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
             }
         }
     }
-
+    /**
+     * Displays a notification for entering or exiting a geofence zone.
+     *
+     * @param context The application context.
+     * @param title The title of the notification.
+     * @param message The message of the notification.
+     * @param location The triggering location.
+     */
     private fun showNotification(context: Context, title: String, message: String,location: Location?) {
         NotificationUtil.createNotificationChannel(context,Constants.CHANNEL_ID, NotificationManager.IMPORTANCE_HIGH)
 

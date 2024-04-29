@@ -12,7 +12,8 @@ import javax.inject.Inject
 
 
 /**
- * Created by Ramesh
+ * Base class for ViewModels in the application.
+ * Provides common functionality such as error handling and permission management.
  */
 
 abstract class BaseViewModel : ViewModel() {

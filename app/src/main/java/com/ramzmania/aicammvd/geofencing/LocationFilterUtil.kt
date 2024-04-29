@@ -10,6 +10,12 @@ import com.squareup.moshi.Types
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.math.*
+/**
+ * Retrieves the list of camera locations from a JSON file stored in the assets directory.
+ *
+ * @param context The application context.
+ * @return The list of camera locations, or null if an error occurs.
+ */
 suspend fun getAllLocationList(context:Context): List<CameraData>? {
     val jsonFileName = "ailocations.json"
     var nearestCameraList:List<CameraData>?=null
@@ -41,6 +47,15 @@ suspend fun getAllLocationList(context:Context): List<CameraData>? {
 
 }
 
+/**
+ * Calculates the distance between two geographical coordinates using the Haversine formula.
+ *
+ * @param lat1 The latitude of the first coordinate.
+ * @param lon1 The longitude of the first coordinate.
+ * @param lat2 The latitude of the second coordinate.
+ * @param lon2 The longitude of the second coordinate.
+ * @return The distance between the coordinates in kilometers.
+ */
 fun calculateDistance(
     lat1: Double,
     lon1: Double,
@@ -59,6 +74,12 @@ fun calculateDistance(
     return distance
 }
 
+/**
+ * Converts degrees to radians.
+ *
+ * @param deg The angle in degrees.
+ * @return The angle converted to radians.
+ */
 fun deg2rad(deg: Double): Double {
     return deg * (Math.PI / 180)
 }
