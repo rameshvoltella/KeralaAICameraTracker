@@ -10,7 +10,9 @@ import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.utils.Constants.FAKE_SERVICE_NOTIFICATION_ID
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
 import com.ramzmania.aicammvd.utils.PreferencesUtil
-
+/**
+ * This test Receiver calls for checking notification dismiss listener
+ * */
 class NotificationDismissReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         context?.let {
@@ -20,11 +22,11 @@ class NotificationDismissReceiver : BroadcastReceiver() {
                 val notificationManager =
                     ContextCompat.getSystemService(it, NotificationManager::class.java)
                 notificationManager?.cancel(FAKE_SERVICE_NOTIFICATION_ID) // Replace with your notification ID
-                if(PreferencesUtil.isServiceRunning(context)) {
+                if(PreferencesUtil.isTrackerRunning(context)) {
                     removeAllGeofences(context)
                     WorkManager.getInstance(context).cancelAllWork()
                     LocationSharedFlow.serviceStopStatus.tryEmit(true)
-                    PreferencesUtil.setServiceRunning(context,false)
+                    PreferencesUtil.setTrackerRunning(context,false)
                 }
             }catch (ex:Exception)
             {

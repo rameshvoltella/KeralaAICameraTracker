@@ -3,7 +3,6 @@ package com.ramzmania.aicammvd.ui.component.home
 import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -22,8 +21,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -57,15 +54,23 @@ import com.ramzmania.aicammvd.data.Resource
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.geofencing.findNearestCameras
 import com.ramzmania.aicammvd.ui.component.cameralist.CameraListView
-import com.ramzmania.aicammvd.utils.PermissionsHandler
+import com.ramzmania.aicammvd.ui.component.permissionhelper.PermissionsHandler
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import kotlinx.coroutines.launch
 
+/**
+ * HomeLayer: A composable function responsible for rendering the home screen UI.
+ * This composable function integrates various components and handles logic related to data loading,
+ * location permissions, and UI updates based on the received data.
+ *
+ * @param viewModelStoreOwner The ViewModelStoreOwner used for accessing the ViewModel.
+ * @param navigateTo A lambda function used for navigation to other screens.
+ */
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPermissionsApi::class)
 @Composable
 fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: String) -> Unit) {
-
+    // Define variables and states used within the composable
     val pagerState = rememberPagerState(pageCount = { 2 })
     var currentPage by remember { mutableStateOf(0) }
     var selectedColumn by remember { mutableStateOf(0) }
@@ -89,10 +94,12 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
     val allPermissionsGranted = permissionsState.permissions.all { it.status.isGranted }
 //    val updateLocationData: (enableState:Boolean) -> Unit = model::updateLocationButton
 //    val stopFromService:Boolean=model.locationEnabled.collectAsState().value
+
+    // Check if permissions dialog should be shown
     LaunchedEffect(permissionsState) {
         showPermissionsDialog = !allPermissionsGranted
     }
-
+    // Show permissions dialog if required
     if (showPermissionsDialog) {
         PermissionsHandler(
             permissions = permissions,
@@ -102,6 +109,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
         )
     } else {
+        // Page State listener
         LaunchedEffect(pagerState) {
             // Collect from the a snapshotFlow reading the currentPage
             snapshotFlow { pagerState.currentPage }.collect { page ->
@@ -109,16 +117,16 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
             }
         }
+        // Launched if change in dataLoaded
 
         LaunchedEffect(dataLoaded) {
-            // Collect from the a snapshotFlow reading the currentPage
             if (dataLoaded) {
                 model.setLayout(true)
             }
         }
+        // Launched if change in locationNotAvailable
 
         LaunchedEffect(locationNotAvailable) {
-            // Collect from the a snapshotFlow reading the currentPage
 
             if (locationNotAvailable) {
                 model.setNoLocation(true)
@@ -128,6 +136,8 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 
 //    if (isLoading) {
 //    CircularProgressIndicator(modifier = Modifier.fillMaxSize(), strokeWidth = 8.dp)
+
+        // Launched if change in aiLocationInfo
         LaunchedEffect(key1 = aiLocationInfo) {
 
             when (aiLocationInfo) {
@@ -144,7 +154,17 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
 //                        currentLocation!!.latitude,
 //                        currentLocation.longitude
 //                    )
-                    model.setFilteredCameraList(dataCameraList!!)
+                    if(currentLocation!=null&&currentLocation.latitude>0&&currentLocation.longitude>0)
+                    {
+                        val nearestHundredCameras = dataCameraList?.findNearestCameras(
+                            currentLocation!!.latitude,
+                            currentLocation.longitude,false
+                        )
+                        model.setFilteredCameraList(nearestHundredCameras!!)
+
+                    }else {
+                        model.setFilteredCameraList(dataCameraList!!)
+                    }
                     dataLoaded = true
 //                    dataCameraList = aiLocationInfo.data?.responseList
                     //isLoading = false
@@ -162,6 +182,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
             }
         }
 
+        // Launched initially to get the location info
 
         LaunchedEffect(key1 = Unit) {
             if (currentLocation == null) {
@@ -185,7 +206,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                     "Location not available",
                                     Toast.LENGTH_LONG
                                 ).show()
-                                if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                                if(!PreferencesUtil.isTrackerRunning(context = currentContext)) {
                                     locationNotAvailable = true
                                 }
                             }
@@ -197,7 +218,7 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                                 Toast.LENGTH_LONG
                             )
                                 .show()
-                            if(!PreferencesUtil.isServiceRunning(context = currentContext)) {
+                            if(!PreferencesUtil.isTrackerRunning(context = currentContext)) {
                                 locationNotAvailable = true
                             }
                         }
@@ -246,19 +267,18 @@ fun HomeLayer(viewModelStoreOwner: ViewModelStoreOwner, navigateTo: (route: Stri
                     // Content of the HorizontalPager or any other composables
                     HorizontalPager(
                         state = pagerState,
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier.fillMaxSize().padding(0.dp,20.dp,0.dp,85.dp),
                         userScrollEnabled = false
                     ) { page ->
                         // Content of HorizontalPager
                         if (page == 0) {
                             TrackerViewpagerItem(
-                                centerImage = R.drawable.came_new,
                                 title = "Track AI Camera",
                                 subtitle = "Location  : OFF",
                                 enabledLocationValue = model.locationEnabled.value,
                             )
                         } else {
-                            CameraListView(cameralList = nearestHundredCamerasList!!)
+                            CameraListView(cameraList = nearestHundredCamerasList!!)
                         }
                     }
                 }

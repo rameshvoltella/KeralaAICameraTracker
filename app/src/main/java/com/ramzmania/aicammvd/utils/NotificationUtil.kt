@@ -15,10 +15,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.ramzmania.aicammvd.R
-import com.ramzmania.aicammvd.boardcast.NotificationDismissReceiver
 import com.ramzmania.aicammvd.boardcast.stopAiTrackerPendingIntent
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_DESCRIPTION
-import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_NAME
 
 object NotificationUtil {

@@ -1,36 +1,35 @@
+
 package com.ramzmania.aicammvd.ui.customviews
 
-import androidx.compose.animation.Animatable
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.gestures.awaitEachGesture
-import androidx.compose.foundation.gestures.awaitFirstDown
+
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.gestures.detectTransformGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.PressInteraction
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.input.pointer.PointerEvent
-import androidx.compose.ui.input.pointer.PointerInputChange
-import androidx.compose.ui.input.pointer.PointerInputScope
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.unit.Dp
+
+
+/**
+ * CustomCircleSwitch: A composable function that displays a custom circle switch.
+ * It allows for both regular click and long press interactions.
+ *
+ * @param outerCircleSize The size of the outer circle.
+ * @param innerCircleSize The size of the inner circle.
+ * @param outerColor The color of the outer circle.
+ * @param innerColor The color of the inner circle.
+ * @param onClick The callback function to be invoked on regular click.
+ * @param onLongPress The callback function to be invoked on long press.
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CustomCircleSwitch(outerCircleSize: Dp, innerCircleSize: Dp, outerColor:Color, innerColor:Color,onClick: () -> Unit, onLongPress: () -> Unit) {

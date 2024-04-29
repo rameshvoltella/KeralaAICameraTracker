@@ -35,9 +35,14 @@ import com.ramzmania.aicammvd.viewmodel.MyViewModel
 import com.ramzmania.aicammvd.viewmodel.slider.SliderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * SliderActivity: An activity responsible for displaying a slider screen for onboarding.
+ * Users can swipe through different slides introducing features of the application.
+ * It also handles permission requests and navigation to the HomeActivity once the slider is passed.
+ */
 @AndroidEntryPoint
 class SliderActivity : BaseComposeActivity<SliderViewModel>() {
-    val NOTIFICATION_PERMISSION_CODE=1
+    private val NOTIFICATION_PERMISSION_CODE=1
 
     override fun getViewModelClass() = SliderViewModel::class.java
 
@@ -47,13 +52,14 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
     override fun observeActivity() {
+        // Check if slider screen has been passed previously
         if(PreferencesUtil.getString(applicationContext,Constants.SLIDER_SCREEN_TAG).equals(Constants.SLIDER_SCREEN_PASSED))
         {
             startActivity(Intent(applicationContext,HomeActivity::class.java))
             finish()
 
         }else {
-
+            // Request notification permission if not granted
             if (ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.POST_NOTIFICATIONS
@@ -73,6 +79,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
     }
 
     override fun beforeOnContent() {
+        // Wait for a short time before showing content and install splash screen
         Thread.sleep(3000)
         installSplashScreen()
         enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT))
@@ -123,7 +130,7 @@ class SliderActivity : BaseComposeActivity<SliderViewModel>() {
              }
          }
      }*/
-
+    // Generate data for slider content
     private fun generateSliderContentData(): List<SliderContentData> {
         val dataList = mutableListOf<SliderContentData>()
         dataList.add(

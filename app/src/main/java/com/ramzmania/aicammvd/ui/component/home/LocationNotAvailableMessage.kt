@@ -17,11 +17,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ResourcesCompat
 import com.ramzmania.aicammvd.R
 
+/**
+ * LocationNotAvailableMessage: A composable function responsible for rendering a message when location
+ * is not available. It provides a clickable text prompting the user to enable location settings.
+ */
 @Composable
 fun LocationNotAvailableMessage() {
     val context= LocalContext.current
@@ -43,7 +49,9 @@ fun LocationNotAvailableMessage() {
             style = TextStyle(
                 color = colorResource(
                     id = R.color.white_perment
-                ), fontSize = 16.sp
+                ), fontSize = 16.sp,fontFamily = FontFamily(
+                    typeface = ResourcesCompat.getFont(context, R.font.font_heavy)!!
+                )
             )
         )
 

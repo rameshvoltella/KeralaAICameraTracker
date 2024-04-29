@@ -22,8 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.toColorInt
+import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.data.dto.slider.SliderContentData
 import com.ramzmania.aicammvd.pager.calculateCurrentOffsetForPage
 import com.ramzmania.aicammvd.ui.screens.home.HomeActivity
@@ -31,14 +35,23 @@ import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.PreferencesUtil
 import kotlin.math.absoluteValue
 
+/**
+ * HorizontalPagerWithLinesIndicatorScreen: A composable function that displays a horizontal pager
+ * with pages containing slider items. It also includes a button on the last page to proceed to
+ * the HomeActivity.
+ *
+ * @param dataList The list of SliderContentData objects representing the data to be displayed in each page.
+ * @param activityContext The context of the activity where the HorizontalPagerWithLinesIndicatorScreen is used.
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, activityContext: Activity) {
+    val context= LocalContext.current
 
     val pagerState = rememberPagerState(pageCount = { dataList.size })
     val backgroundColor = when (pagerState.currentPage) {
-        0 -> Color.White // Example color for page 0
-        1 -> Color.Green // Example color for page 1
+        0 -> Color("#F5F5DC".toColorInt()) // Example color for page 0
+        1 -> Color("#90EE90".toColorInt()) // Example color for page 1
         2 -> Color("#00b4e9".toColorInt()) // Example color for page 2
         else -> MaterialTheme.colorScheme.background
     }
@@ -70,10 +83,14 @@ fun HorizontalPagerWithLinesIndicatorScreen(dataList: List<SliderContentData>, a
                             (activityContext as? Activity)?.finish() // Finish the current activity
                         },
                         modifier = Modifier
-                            .padding(30.dp) // Add padding to the button
+                            .padding(30.dp,30.dp,30.dp,60.dp) // Add padding to the button
                             .align(Alignment.BottomEnd) // Align the button to the bottom end (bottom right)
                     ) {
-                        Text("Let's Track")
+                        Text(text="Let's Track",
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
+                            )
+                        )
                     }
 
                 }

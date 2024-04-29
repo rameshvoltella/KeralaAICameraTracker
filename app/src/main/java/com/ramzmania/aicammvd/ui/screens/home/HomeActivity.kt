@@ -1,34 +1,27 @@
 package com.ramzmania.aicammvd.ui.screens.home
 
-import android.util.Log
-import android.widget.Toast
+
+
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.navigation.NavHostController
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.compose.rememberNavController
-import androidx.work.WorkInfo
-import androidx.work.WorkManager
-import com.ramzmania.aicammvd.data.Resource
-import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
-import com.ramzmania.aicammvd.data.dto.cameralist.CameraDataResponse
+
 import com.ramzmania.aicammvd.ui.base.BaseComposeActivity
 import com.ramzmania.aicammvd.ui.navigation.HomeNavigation
 import com.ramzmania.aicammvd.ui.theme.AiCameraApplicationTheme
-import com.ramzmania.aicammvd.utils.Constants
-import com.ramzmania.aicammvd.utils.Constants.LOCATION_WORK_MANAGER_TAG
-import com.ramzmania.aicammvd.utils.PreferencesUtil
-import com.ramzmania.aicammvd.utils.observe
+
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+/**
+ * HomeActivity: An activity to display the location tracker button and list of Ai cam location.
+ */
 @AndroidEntryPoint
 class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 
@@ -72,7 +65,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
 */
 
     override fun observeActivity() {
-         val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
+       /*  val mWorkManager: WorkManager by lazy(LazyThreadSafetyMode.NONE) {
             WorkManager.getInstance(this)
         }
         mWorkManager.getWorkInfosByTagLiveData(LOCATION_WORK_MANAGER_TAG)
@@ -107,7 +100,7 @@ class HomeActivity : BaseComposeActivity<HomeViewModel>() {
                         }
                     }
                 }
-            }
+            }*/
     }
 
     override fun beforeOnContent() {

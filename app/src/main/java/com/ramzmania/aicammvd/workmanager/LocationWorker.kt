@@ -2,10 +2,8 @@ package com.ramzmania.aicammvd.workmanager
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.util.Log
+
 
 import androidx.work.Worker
 import androidx.work.WorkerParameters
@@ -14,24 +12,27 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.hilt.work.HiltWorker
 import com.ramzmania.aicammvd.R
-import com.ramzmania.aicammvd.boardcast.NotificationDismissReceiver
 import com.ramzmania.aicammvd.boardcast.homePagePendingIntent
 import com.ramzmania.aicammvd.boardcast.stopAiTrackerPendingIntent
 import com.ramzmania.aicammvd.data.local.LocalRepository
 import com.ramzmania.aicammvd.geofencing.LocationUtils
-import com.ramzmania.aicammvd.geofencing.removeAllGeofences
 import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Constants.FAKE_SERVICE_NOTIFICATION_ID
 import com.ramzmania.aicammvd.utils.Logger
-import com.ramzmania.aicammvd.utils.NotificationUtil
-import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.concurrent.CountDownLatch
 
+/**
+ * Worker class responsible for fetching and updating location data in the background.
+ *
+ * @param context The application context.
+ * @param workerParams The worker parameters.
+ * @param localRepository The repository for accessing local data.
+ */
 @HiltWorker
 class LocationWorker @AssistedInject constructor(
     context: Context,
@@ -48,7 +49,7 @@ class LocationWorker @AssistedInject constructor(
         val latch = CountDownLatch(1)
         var result: Result = Result.failure()
 
-        // Initialize your LocationUtils here
+        // Initialize LocationUtils for fetching location updates
         val locationUtils = LocationUtils(applicationContext)
         locationUtils.startLocationUpdates(object : LocationUtils.LocationListener {
             override fun onLocationResult(location: Location?) {
@@ -60,7 +61,7 @@ class LocationWorker @AssistedInject constructor(
                             "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}"
                         )
 
-
+                        // Update the AI camera circle with the new location
                         localRepository.setNewAiCameraCircle(it.latitude, it.longitude)
                             .collect {response->
                                 if(response.data==true)
@@ -99,7 +100,9 @@ class LocationWorker @AssistedInject constructor(
         return result
     }
 
-
+    /**
+     * Creates a notification channel for location updates.
+     */
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Location Updates"
@@ -114,7 +117,9 @@ class LocationWorker @AssistedInject constructor(
         }
     }
 
-
+    /**
+     * Updates the notification for ongoing location tracking.
+     */
     private fun updateNotification() {
         val builder = NotificationCompat.Builder(applicationContext, CHANNEL_ID)
             .setSmallIcon(R.drawable.red_location) // Replace with actual icon drawable

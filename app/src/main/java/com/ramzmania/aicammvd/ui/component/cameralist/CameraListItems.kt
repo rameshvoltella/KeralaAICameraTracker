@@ -1,6 +1,5 @@
 package com.ramzmania.aicammvd.ui.component.cameralist
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,15 +8,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.IconButton
+
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,13 +27,20 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontFamily
+import androidx.core.content.res.ResourcesCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
-
+/**
+ * CameraLayoutList: A composable function responsible for rendering the layout of each camera item in the list.
+ * It displays the district and place details along with an icon.
+ */
 @Composable
 fun CameraLayoutList( district:String,place:String)
 {
+    val context= LocalContext.current
+
     Row(
         modifier = Modifier
             .padding(12.dp)
@@ -91,7 +94,10 @@ fun CameraLayoutList( district:String,place:String)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Bold,
-                            color = colorResource(id = R.color.white_perment)
+                            color = colorResource(id = R.color.white_perment),
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                            )
                         )
                         Text(
                             text = place, modifier = Modifier
@@ -99,7 +105,10 @@ fun CameraLayoutList( district:String,place:String)
                                 .fillMaxWidth(), textAlign = TextAlign.Left,
                             fontSize = 16.sp,
                             fontWeight = FontWeight.Medium,
-                            color = colorResource(id = R.color.white_perment)
+                            color = colorResource(id = R.color.white_perment),
+                            fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_medium)!!
+                            )
                         )
 
                     }

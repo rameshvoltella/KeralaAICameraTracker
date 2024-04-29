@@ -12,13 +12,11 @@ import android.location.Location
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
-import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.boardcast.GeoFencingBroadcastReceiver
 import com.ramzmania.aicammvd.data.dto.cameralist.CameraData
 import com.ramzmania.aicammvd.utils.LocationSharedFlow
@@ -28,11 +26,19 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
+/**
+ * Creates a list of Geofence objects based on the provided list of camera data.
+ *
+ * @param cameraDataList The list of camera data to create geofences from.
+ * @return The list of Geofence objects.
+ */
 fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
     return cameraDataList.map { data ->
 //        Log.d("unique",">>>"+data.location.replace(" ","").lowercase(Locale.getDefault()))
         Geofence.Builder()
-            .setRequestId(data.location.replace(" ","").lowercase(Locale.getDefault()))  // Unique identifier for this geofence
+            .setRequestId(
+                data.location.replace(" ", "*").lowercase(Locale.getDefault())
+            )  // Unique identifier for this geofence
             .setCircularRegion(
                 data.latitude,
                 data.longitude,
@@ -45,25 +51,49 @@ fun createGeofenceList(cameraDataList: List<CameraData>): List<Geofence> {
     }
 }
 
-
-fun List<CameraData>.findNearestCameras(currentLat: Double, currentLong: Double): List<CameraData> {
+/**
+ * Finds the nearest cameras to the current location.
+ *
+ * @param currentLat The current latitude.
+ * @param currentLong The current longitude.
+ * @param showLimited Flag to show a limited number of nearest cameras.
+ * @return The list of nearest camera data.
+ */
+fun List<CameraData>.findNearestCameras(
+    currentLat: Double,
+    currentLong: Double,
+    showLimited: Boolean
+): List<CameraData> {
 
     Logger.d("location we got - locala$currentLat<>$currentLong")
     val currentLocation = Location("").apply {
         latitude = currentLat
         longitude = currentLong
     }
-
-    return sortedBy {
-        Location("").apply {
-            latitude = it.latitude
-            longitude = it.longitude
-        }.distanceTo(currentLocation)
-    }.take(50)
+    if (showLimited) {
+        return sortedBy {
+            Location("").apply {
+                latitude = it.latitude
+                longitude = it.longitude
+            }.distanceTo(currentLocation)
+        }.take(50)//Will take only 50 nearby camera locations
+    } else {
+        return sortedBy {
+            Location("").apply {
+                latitude = it.latitude
+                longitude = it.longitude
+            }.distanceTo(currentLocation)
+        }
+    }
 }
 
-fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
-{
+/**
+ * Sets up geofences in batch.
+ *
+ * @param context The application context.
+ * @param updatedCameraList The list of geofences to be set up.
+ */
+fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>) {
 
     removeAllGeofences(context)
 
@@ -78,7 +108,6 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 //        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 
 
-
     val broadcastintent = Intent(context, GeoFencingBroadcastReceiver::class.java)
 
     val bundle = Bundle()
@@ -90,24 +119,27 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
 //    bundle.putString("lon", geoLocation.longitude)
 //    bundle.putString("radius", geoLocation.radius)
     broadcastintent.putExtras(bundle)
-    val pendingIntent = getGeofencePendingIntent(context,broadcastintent)
+    val pendingIntent = getGeofencePendingIntent(context, broadcastintent)
 
-    if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+    if (ActivityCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED
+    ) {
         geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
             addOnSuccessListener {
 
                 Logger.d("Geofence - Geofences added")
                 try {
-                    getCurrentDate(context)
-                }catch (ex:Exception)
-                {
-                    PreferencesUtil.setString(context, "exception","timer")
+//                    getCurrentDate(context)
+                } catch (ex: Exception) {
+//                    PreferencesUtil.setString(context, "exception","timer")
 
                 }
             }
             addOnFailureListener {
                 Logger.e("Geofence-Failed to add geofences", it)
-                PreferencesUtil.setString(context, "failed","timer")
+//                PreferencesUtil.setString(context, "failed","timer")
 
             }
         }
@@ -116,11 +148,21 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>)
     }
 }
 
+/**
+ * Removes all geofences.
+ *
+ * @param context The application context.
+ */
 fun removeAllGeofences(context: Context) {
-    val id =    PreferencesUtil.getPendingIntentId(context)
-Logger.d("removeAll-Geofences - removing"+id)
+    val id = PreferencesUtil.getPendingIntentId(context)
+    Logger.d("removeAll-Geofences - removing" + id)
     val removeIntent = Intent(context, GeoFencingBroadcastReceiver::class.java)
-    val pendingIntent = PendingIntent.getBroadcast(context, id, removeIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+    val pendingIntent = PendingIntent.getBroadcast(
+        context,
+        id,
+        removeIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
 
     val geofencingClient: GeofencingClient = LocationServices.getGeofencingClient(context)
 
@@ -136,40 +178,53 @@ Logger.d("removeAll-Geofences - removing"+id)
     }
 }
 
-
+/**
+ * Gets the PendingIntent for geofence broadcasts.
+ *
+ * @param context The application context.
+ * @param broadcastintent The intent for geofence broadcast.
+ * @return The PendingIntent for geofence broadcasts.
+ */
 @SuppressLint("SuspiciousIndentation")
 private fun getGeofencePendingIntent(context: Context, broadcastintent: Intent): PendingIntent {
- val id=(Math.random() * 1000 + 1).toInt()
+    val id = (Math.random() * 1000 + 1).toInt()
     Logger.d("adding$id")
 
-    PreferencesUtil.setPendingIntentId(context,id)
+    PreferencesUtil.setPendingIntentId(context, id)
     return PendingIntent.getBroadcast(
-        context,id
-        ,
+        context, id,
         broadcastintent,
         PendingIntent.FLAG_MUTABLE
     )
 }
 
- fun getCompleteAddressString(context: Context, latitude: Double, longitude: Double) {
+/**
+ * Gets the complete address string for the given latitude and longitude.
+ *
+ * @param context The application context.
+ * @param latitude The latitude.
+ * @param longitude The longitude.
+ */
+fun getCompleteAddressString(context: Context, latitude: Double, longitude: Double) {
     var strAdd = ""
     val geocoder = Geocoder(context, Locale.getDefault())
     try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            geocoder.getFromLocation(latitude,longitude,1,object : Geocoder.GeocodeListener{
+            geocoder.getFromLocation(latitude, longitude, 1, object : Geocoder.GeocodeListener {
                 override fun onGeocode(addresses: MutableList<Address>) {
                     addresses?.let {
                         getAddress(addresses)
                     }
                     // code
                 }
+
                 override fun onError(errorMessage: String?) {
                     super.onError(errorMessage)
 
                 }
 
             })
-        }else {
+        } else {
             val addresses: List<Address>? = geocoder.getFromLocation(latitude, longitude, 1)
             addresses?.let {
                 getAddress(addresses)
@@ -192,13 +247,17 @@ fun getAddress(address: List<Address>?) {
             val strAdd = strReturnedAddress.toString()
             LocationSharedFlow.geocoderAddressData.tryEmit(strAdd)
         }
-    }catch (ex:Exception)
-    {
+    } catch (ex: Exception) {
         ex.printStackTrace()
     }
 }
 
-
+/**
+ * Plays the notification sound.
+ *
+ * @param context The application context.
+ * @param notificationSound The notification sound resource ID.
+ */
 fun playNotificationSound(context: Context, notificationSound: Int) {
     val mediaPlayer: MediaPlayer = MediaPlayer.create(context, notificationSound)
     mediaPlayer.start()
@@ -207,6 +266,11 @@ fun playNotificationSound(context: Context, notificationSound: Int) {
     }
 }
 
+/**
+ * Gets the current date and saves it to shared preferences.
+ *
+ * @param context The application context.
+ */
 fun getCurrentDate(context: Context) {
     val calendar = Calendar.getInstance()
 
@@ -222,7 +286,7 @@ fun getCurrentDate(context: Context) {
 
     // Format the date
     val sdf = SimpleDateFormat("d'$daySuffix' MMM @ hh:mm a", Locale.ENGLISH)
-    PreferencesUtil.setString(context, sdf.format(calendar.time),"timer")
+    PreferencesUtil.setString(context, sdf.format(calendar.time), "timer")
 
 //    return sdf.format(calendar.time)
 }

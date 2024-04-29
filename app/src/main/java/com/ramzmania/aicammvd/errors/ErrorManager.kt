@@ -4,7 +4,7 @@ import com.ramzmania.aicammvd.errors.mapper.ErrorMapper
 import javax.inject.Inject
 
 /**
- * Created by AhmedEltaher
+ * This ERROR manager class
  */
 
 class ErrorManager @Inject constructor(private val errorMapper: ErrorMapper) : ErrorUseCase {

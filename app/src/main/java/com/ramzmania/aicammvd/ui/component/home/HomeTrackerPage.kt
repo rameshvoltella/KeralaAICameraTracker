@@ -6,8 +6,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -43,14 +41,25 @@ import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.ramzmania.aicammvd.R
 import com.ramzmania.aicammvd.ui.customviews.CustomCircleSwitch
-import com.ramzmania.aicammvd.utils.PermissionsHandler
+import com.ramzmania.aicammvd.ui.component.permissionhelper.PermissionsHandler
 import com.ramzmania.aicammvd.viewmodel.home.HomeViewModel
 import android.provider.Settings
-import com.ramzmania.aicammvd.utils.PreferencesUtil
+import androidx.compose.ui.text.font.FontFamily
+import androidx.core.content.res.ResourcesCompat
 
+/**
+ * TrackerViewpagerItem: A composable function responsible for rendering an item within a ViewPager
+ * on the home screen. This item includes a title, subtitle, and a custom circle switch for enabling/disabling
+ * location tracking.
+ *
+ * @param title The title of the item.
+ * @param subtitle The subtitle of the item indicating the status of location tracking.
+ * @param enabledLocationValue The value indicating whether location tracking is enabled or not.
+ */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabledLocationValue:Boolean) {
+fun TrackerViewpagerItem(title: String, subtitle: String,enabledLocationValue:Boolean) {
+    // Define variables and states used within the composable
     val context = LocalContext.current
    // , enabledLocation: (Boolean) -> Unit
     val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
@@ -98,14 +107,14 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
             innerCircleSize -= 5.dp
             innerColor=R.color.green_kelly_color
             subtitleText="Location : ON "
-            locationText="Tracking Started From :"+ locationAddress.value+" updated @ "+PreferencesUtil.getString(context,"timer")
+            locationText="Tracking Started From :"+ locationAddress.value
 
         }else
         {
             innerCircleSize =140.dp
             innerColor= R.color.red_demo
             subtitleText="Location : OFF"
-            locationText=""+" updated @ "+PreferencesUtil.getString(context,"timer")
+            locationText=""
 
 
         }
@@ -140,8 +149,10 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp)
-
+                        modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
+                                fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_heavy)!!
+                                )
 
                     )
                     Box(
@@ -213,7 +224,10 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
-                        color = colorResource(id = R.color.white_perment)
+                        color = colorResource(id = R.color.white_perment),
+                                fontFamily = FontFamily(
+                                typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                                )
 
                     )
 
@@ -223,6 +237,9 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(10.dp, 0.dp, 10.dp, 0.dp),
                         color = colorResource(id = R.color.white_perment)
+                        ,fontFamily = FontFamily(
+                            typeface = ResourcesCompat.getFont(context, R.font.font_medium)!!
+                        )
 
                     )
 
@@ -271,7 +288,6 @@ fun TrackerViewpagerItem(centerImage: Int, title: String, subtitle: String,enabl
 @Composable
 fun TrackerViewpagerItemPreview() {
     TrackerViewpagerItem(
-        centerImage = R.drawable.ic_livevideo_doubt, // Replace with actual drawable resource
         title = "Sample Title",
         subtitle = "Sample Subtitle",
         enabledLocationValue = true

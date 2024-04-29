@@ -1,38 +1,46 @@
 package com.ramzmania.aicammvd.ui.component.slider
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material3.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 import androidx.compose.material3.Text
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.res.ResourcesCompat
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.ramzmania.aicammvd.R
 
+/**
+ * SlideViewpagerItem: A composable function that represents an item in a ViewPager.
+ * It displays a title, subtitle, and an image centered vertically and horizontally.
+ *
+ * @param centerImage The resource ID of the image to be displayed.
+ * @param title The title text to be displayed.
+ * @param subtitle The subtitle text to be displayed.
+ * @param currentPage The current page index.
+ */
 @Composable
 fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, currentPage: Int) {
 //    val imagePainter = painterResource(id = centerImage)
+    val context= LocalContext.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -50,7 +58,15 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
+                    style = TextStyle(
+                        color = colorResource(
+                            id = R.color.black
+                        ), fontSize = 16.sp
+                    ),
+                    fontFamily = FontFamily(
+                        typeface = ResourcesCompat.getFont(context, R.font.font_bold)!!
+                    )
 
                 )
 
@@ -76,8 +92,15 @@ fun SlideViewpagerItem(centerImage: Int, title: String, subtitle: String, curren
                 Text(text = subtitle,fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp)
-
+                    style = TextStyle(
+                        color = colorResource(
+                            id = R.color.black
+                        ), fontSize = 16.sp
+                    ),
+                    modifier = Modifier.padding(10.dp,0.dp,10.dp,0.dp),
+                            fontFamily = FontFamily(
+                            typeface = ResourcesCompat.getFont(context, R.font.font_regular)!!
+                            )
                 )
 
 
