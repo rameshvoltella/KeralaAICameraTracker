@@ -14,13 +14,13 @@ App is still in development mode
 <div style="text-align: center;">
         <h3>LOCATION LIST / MAP VIEW</h3>
      <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/three.jpeg?raw=true" alt="Location List" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/four.jpeg?raw=true" alt="MAP VIEW" style="width: 40%; height: 40%;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/eight.jpeg?raw=true" alt="MAP VIEW" style="width: 40%; height: 40%;">
 
 </div>
 <div style="text-align: center;">
         <h3>NOTIFICATION ALERT</h3>
         <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/five.jpeg?raw=true" alt="NOTIFICATION 1" style="width: 40%; height: 40%;">
-    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/six.jpeg?raw=true" alt="NOTIFICATION 2" style="width: 40%; height: 40%;">
+    <img src="https://github.com/rameshvoltella/KeralaAICameraTracker/blob/beta/appfiles/sev.jpeg?raw=true" alt="NOTIFICATION 2" style="width: 40%; height: 40%;">
 
 </div>
 
@@ -77,7 +77,7 @@ The Kerala AI Camera Tracker app is available for Android
 ### Android
 
 1. Download the APK file from
-   here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/tags).
+   here [DOWNLOAD](https://github.com/rameshvoltella/KeralaAICameraTracker/tags)
 2. Enable installation from unknown sources in your device settings.
 3. Install the APK file on your Android device.
 
