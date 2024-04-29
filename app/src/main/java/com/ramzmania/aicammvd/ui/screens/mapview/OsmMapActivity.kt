@@ -5,10 +5,10 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Rect
 
 import android.view.View
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 
 import androidx.core.app.ActivityCompat
@@ -75,56 +75,56 @@ class OsmMapActivity : BaseBinderActivity<MapViewBinding, HomeViewModel>(), MapL
     }
 
     override fun observeActivity() {
-        // Load OSMDroid configuration
-        Configuration.getInstance().load(
-            applicationContext,
-            getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
-        )
-
-        // Set up the map
-        binding.osmmap.setTileSource(TileSourceFactory.MAPNIK)
-        binding.osmmap.setMultiTouchControls(true)
-
-        // Initialize media player utility
-        mediaPlayerUtil = MediaPlayerUtil(this)
-
-        // Initialize Fused Location Provider client
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
-        // Initialize map controller
-        controller = binding.osmmap.controller
-
-        // Check if intent contains latitude and longitude to show distance
         if (intent.extras!!.containsKey("lat")) {
             showDistance = true
             binding.distanceLl.visibility = View.VISIBLE
         }
+        mediaPlayerUtil = MediaPlayerUtil(this)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Initialize location overlay
+        Configuration.getInstance().load(
+            applicationContext,
+            getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE)
+        )
+        binding.osmmap.setTileSource(TileSourceFactory.MAPNIK)
+        binding.osmmap.mapCenter
+        binding.osmmap.setMultiTouchControls(true)
+        binding.osmmap.getLocalVisibleRect(Rect())
+
+
         mMyLocationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(this), binding.osmmap)
+        controller = binding.osmmap.controller
+
+
+//        mMyLocationOverlay.enableMyLocation()
+//        mMyLocationOverlay.enableFollowLocation()
+        // Enable location and follow location if coming from specific intent
+        if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
+        mMyLocationOverlay.enableMyLocation()
+        mMyLocationOverlay.enableFollowLocation()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
         mMyLocationOverlay.isDrawAccuracyEnabled = true
         mMyLocationOverlay.setPersonAnchor(1f, 1f)
 
-        // Set map center and zoom level
+//        controller.setZoom(6.0)
         val startPoint =
-            GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"))
-        controller.setCenter(startPoint)
+            GeoPoint(intent.extras!!.getDouble("lat"), intent.extras!!.getDouble("long"));
+        controller.setCenter(startPoint);
         controller.animateTo(startPoint)
         controller.setZoom(16.5)
-
-        // Add marker at the specified point
         addMarker(binding.osmmap, startPoint)
 
-        // Add map listener
+        Logger.e("MAPVIEW onCreate:in ${controller.zoomIn()}")
+        Logger.e("MAPVIEW onCreate: out  ${controller.zoomOut()}")
+
+        // controller.animateTo(mapPoint)
+        binding.osmmap.overlays.add(mMyLocationOverlay)
+
         binding.osmmap.addMapListener(this)
 
-        // Enable location and follow location if coming from specific intent
-        if (intent.extras!!.containsKey(Constants.INTENT_FROM_GEO)) {
-            mMyLocationOverlay.enableMyLocation()
-            mMyLocationOverlay.enableFollowLocation()
-            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        }
 
+        /*Back press handler*/
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (isTaskRoot) {
