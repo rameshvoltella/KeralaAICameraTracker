@@ -1,5 +1,12 @@
 [
-
+  {
+    "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
+    "District": "KOTTAYAM",
+    "Location": "Prasannamkada",
+    "Lat": 9.7554903,
+    "Long": 76.4831981,
+    "Type": "AI Camera"
+  },
   {
     "Unique_id": "KL-KEL-KMVD-50-AICS-01-1",
     "District": "Thiruvananthapuram",

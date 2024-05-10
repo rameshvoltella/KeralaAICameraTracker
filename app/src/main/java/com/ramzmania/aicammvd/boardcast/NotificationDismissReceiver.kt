@@ -23,7 +23,7 @@ class NotificationDismissReceiver : BroadcastReceiver() {
                     ContextCompat.getSystemService(it, NotificationManager::class.java)
                 notificationManager?.cancel(FAKE_SERVICE_NOTIFICATION_ID) // Replace with your notification ID
                 if(PreferencesUtil.isTrackerRunning(context)) {
-                    removeAllGeofences(context)
+                    removeAllGeofences(context, false,null)
                     WorkManager.getInstance(context).cancelAllWork()
                     LocationSharedFlow.serviceStopStatus.tryEmit(true)
                     PreferencesUtil.setTrackerRunning(context,false)

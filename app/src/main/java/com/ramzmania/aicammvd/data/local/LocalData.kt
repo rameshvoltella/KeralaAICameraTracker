@@ -60,7 +60,7 @@ private val contextModule: ContextModule
         {
             try {
 
-                removeAllGeofences(contextModule.context)
+                removeAllGeofences(contextModule.context, false,null)
 
 //        val adapter = moshi.adapter(CameraData::class.java)
                 val fullCameraList = getAllLocationList(contextModule.context)

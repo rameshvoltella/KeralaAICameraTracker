@@ -95,57 +95,8 @@ fun List<CameraData>.findNearestCameras(
  */
 fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>) {
 
-    removeAllGeofences(context)
+    removeAllGeofences(context, true, updatedCameraList)
 
-    val geofencingClient = LocationServices.getGeofencingClient(context)
-    val geofencingRequest = GeofencingRequest.Builder()
-        .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-        .addGeofences(updatedCameraList)
-        .build()
-
-//    val intent = Intent(context, GeofenceBroadcastReceiver::class.java)
-//    val geofencePendingIntent: PendingIntent = PendingIntent.getBroadcast(context, 250, intent,
-//        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-
-
-    val broadcastintent = Intent(context, GeoFencingBroadcastReceiver::class.java)
-
-    val bundle = Bundle()
-//    Log.d(
-//        "hey1234",
-//        geoLocation.latitude + " " + geoLocation.longitude + " " + geoLocation.radius
-//    )
-//    bundle.putString("lat", updatedCameraList.ge)
-//    bundle.putString("lon", geoLocation.longitude)
-//    bundle.putString("radius", geoLocation.radius)
-    broadcastintent.putExtras(bundle)
-    val pendingIntent = getGeofencePendingIntent(context, broadcastintent)
-
-    if (ActivityCompat.checkSelfPermission(
-            context,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED
-    ) {
-        geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
-            addOnSuccessListener {
-
-                Logger.d("Geofence - Geofences added")
-                try {
-//                    getCurrentDate(context)
-                } catch (ex: Exception) {
-//                    PreferencesUtil.setString(context, "exception","timer")
-
-                }
-            }
-            addOnFailureListener {
-                Logger.e("Geofence-Failed to add geofences", it)
-//                PreferencesUtil.setString(context, "failed","timer")
-
-            }
-        }
-    } else {
-        // Request permissions here if not already granted
-    }
 }
 
 /**
@@ -153,27 +104,103 @@ fun setBatchGeoFencing(context: Context, updatedCameraList: List<Geofence>) {
  *
  * @param context The application context.
  */
-fun removeAllGeofences(context: Context) {
+fun removeAllGeofences(
+    context: Context,
+    isFromAddGeoPoints: Boolean,
+    updatedCameraList: List<Geofence>?
+) {
     val id = PreferencesUtil.getPendingIntentId(context)
     Logger.d("removeAll-Geofences - removing" + id)
-    val removeIntent = Intent(context, GeoFencingBroadcastReceiver::class.java)
-    val pendingIntent = PendingIntent.getBroadcast(
-        context,
-        id,
-        removeIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-    )
+    Logger.d("idcherz remove" + id)
+    if (id != 10) {
+        val removeIntent = Intent(context, GeoFencingBroadcastReceiver::class.java)
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            id,
+            removeIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
 
-    val geofencingClient: GeofencingClient = LocationServices.getGeofencingClient(context)
+        val geofencingClient: GeofencingClient = LocationServices.getGeofencingClient(context)
 
-    geofencingClient.removeGeofences(pendingIntent).run {
-        addOnSuccessListener {
-            // Log success or handle it according to your need
-            Logger.d("Geofence - All geofences successfully removed.")
+        geofencingClient.removeGeofences(pendingIntent).run {
+            addOnSuccessListener {
+                // Log success or handle it according to your need
+                Logger.d("Geofence - All geofences successfully removed.")
+                if (isFromAddGeoPoints) {
+                    if (updatedCameraList != null) {
+                        setNewGeoPoints(context, updatedCameraList)
+                    }
+                }
+            }
+            addOnFailureListener {
+                // Log failure or handle the error accordingly
+                Logger.d("Geofence - Failed to remove geofences")
+                if (isFromAddGeoPoints) {
+                    if (updatedCameraList != null) {
+                        setNewGeoPoints(context, updatedCameraList)
+                    }
+                }
+            }
         }
-        addOnFailureListener {
-            // Log failure or handle the error accordingly
-            Logger.d("Geofence - Failed to remove geofences")
+    } else {
+        /*This means the geo points has not been set till now so we setting it directly*/
+        if (updatedCameraList != null) {
+            setNewGeoPoints(context, updatedCameraList)
+        }
+    }
+}
+
+fun setNewGeoPoints(context: Context, updatedCameraList: List<Geofence>) {
+    if (updatedCameraList != null && updatedCameraList.isNotEmpty() && context != null) {
+        val geofencingClient = LocationServices.getGeofencingClient(context)
+        val geofencingRequest = GeofencingRequest.Builder()
+            .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+            .addGeofences(updatedCameraList)
+            .build()
+
+//    val intent = Intent(context, GeofenceBroadcastReceiver::class.java)
+//    val geofencePendingIntent: PendingIntent = PendingIntent.getBroadcast(context, 250, intent,
+//        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+
+        val broadcastintent = Intent(context, GeoFencingBroadcastReceiver::class.java)
+
+        val bundle = Bundle()
+//    Log.d(
+//        "hey1234",
+//        geoLocation.latitude + " " + geoLocation.longitude + " " + geoLocation.radius
+//    )
+//    bundle.putString("lat", updatedCameraList.ge)
+//    bundle.putString("lon", geoLocation.longitude)
+//    bundle.putString("radius", geoLocation.radius)
+        broadcastintent.putExtras(bundle)
+        val pendingIntent = getGeofencePendingIntent(context, broadcastintent)
+
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            geofencingClient.addGeofences(geofencingRequest, pendingIntent).run {
+                addOnSuccessListener {
+
+                    Logger.d("Geofence - Geofences added")
+                    try {
+//                    getCurrentDate(context)
+                    } catch (ex: Exception) {
+//                    PreferencesUtil.setString(context, "exception","timer")
+
+                    }
+                }
+                addOnFailureListener {
+                    Logger.e("Geofence-Failed to add geofences", it)
+//                PreferencesUtil.setString(context, "failed","timer")
+
+                }
+            }
+        } else {
+            // Request permissions here if not already granted
         }
     }
 }
@@ -187,8 +214,10 @@ fun removeAllGeofences(context: Context) {
  */
 @SuppressLint("SuspiciousIndentation")
 private fun getGeofencePendingIntent(context: Context, broadcastintent: Intent): PendingIntent {
-    val id = (Math.random() * 1000 + 1).toInt()
+    //val id = (Math.random() * 1000 + 1).toInt()
+    val id = 443
     Logger.d("adding$id")
+    Logger.d("idcherz adding>" + id)
 
     PreferencesUtil.setPendingIntentId(context, id)
     return PendingIntent.getBroadcast(
