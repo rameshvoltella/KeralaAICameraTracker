@@ -20,6 +20,7 @@ import com.ramzmania.aicammvd.utils.Constants
 import com.ramzmania.aicammvd.utils.Constants.CHANNEL_ID
 import com.ramzmania.aicammvd.utils.Constants.FAKE_SERVICE_NOTIFICATION_ID
 import com.ramzmania.aicammvd.utils.Logger
+import com.ramzmania.aicammvd.utils.PreferencesUtil
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -46,58 +47,61 @@ class LocationWorker @AssistedInject constructor(
     }
 
     override fun doWork(): Result {
-        val latch = CountDownLatch(1)
-        var result: Result = Result.failure()
+        if(PreferencesUtil.isTrackerRunning(applicationContext)) {
+            val latch = CountDownLatch(1)
+            var result: Result = Result.failure()
 
-        // Initialize LocationUtils for fetching location updates
-        val locationUtils = LocationUtils(applicationContext)
-        locationUtils.startLocationUpdates(object : LocationUtils.LocationListener {
-            override fun onLocationResult(location: Location?) {
-                location?.let {
-                    // Log or handle the location
+            // Initialize LocationUtils for fetching location updates
+            val locationUtils = LocationUtils(applicationContext)
+            locationUtils.startLocationUpdates(object : LocationUtils.LocationListener {
+                override fun onLocationResult(location: Location?) {
+                    location?.let {
+                        // Log or handle the location
 
-                    CoroutineScope(Dispatchers.IO).launch {
-                        Logger.d(
-                            "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}"
-                        )
+                        CoroutineScope(Dispatchers.IO).launch {
+                            Logger.d(
+                                "Current location: Latitude ${it.latitude}, Longitude ${it.longitude}"
+                            )
 
-                        // Update the AI camera circle with the new location
-                        localRepository.setNewAiCameraCircle(it.latitude, it.longitude)
-                            .collect {response->
-                                if(response.data==true)
-                                {
-                                    Logger.d("SUCCESS FULL WORKER")
+                            // Update the AI camera circle with the new location
+                            localRepository.setNewAiCameraCircle(it.latitude, it.longitude)
+                                .collect { response ->
+                                    if (response.data == true) {
+                                        Logger.d("SUCCESS FULL WORKER")
+                                    } else {
+                                        Logger.d("FAILED WORKER")
+
+                                    }
+
                                 }
-                                else{
-                                    Logger.d("FAILED WORKER")
-
-                                }
-
-                            }
+                        }
+                        Logger.d("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
+                        updateNotification()
+                        result = Result.success()
                     }
-                    Logger.d("Updated location: Latitude ${it.latitude}, Longitude ${it.longitude}")
-                    updateNotification()
-                    result = Result.success()
+                    latch.countDown()
                 }
-                latch.countDown()
-            }
 
-            override fun onLocationError(e: Exception) {
-                Logger.e("Error fetching location", e)
-                result = Result.failure()
-                latch.countDown()
-            }
-        })
+                override fun onLocationError(e: Exception) {
+                    Logger.e("Error fetching location", e)
+                    result = Result.failure()
+                    latch.countDown()
+                }
+            })
 
-        try {
-            latch.await()  // Wait for the location update to complete
-        } catch (e: InterruptedException) {
-            return Result.failure()
-        } finally {
-            locationUtils.stopLocationUpdates()  // Make sure to stop updates to avoid leaks
+            try {
+                latch.await()  // Wait for the location update to complete
+            } catch (e: InterruptedException) {
+                return Result.failure()
+            } finally {
+                locationUtils.stopLocationUpdates()  // Make sure to stop updates to avoid leaks
+            }
+            return result
+        }else
+        {
+            return Result.success()
         }
 
-        return result
     }
 
     /**

@@ -64,22 +64,30 @@ class GeoFencingBroadcastReceiver : BroadcastReceiver() {
 //        val somevalue= geofencingEvent.triggeringGeofences?.get(0)?.requestId
         when (geofencingEvent.geofenceTransition) {
             Geofence.GEOFENCE_TRANSITION_ENTER -> {
-                if (extras != null) {
-                    showNotification(
-                        context!!,
-                        "ENTERING AI ZONE",
-                        "${triggeredLocation.replace("*"," ").uppercase(Locale.getDefault())} Camera Zone",location
-                    )
+                if(PreferencesUtil.isTrackerRunning(context!!)) {
+                    if (extras != null) {
+                        showNotification(
+                            context!!,
+                            "ENTERING AI ZONE",
+                            "${
+                                triggeredLocation.replace("*", " ").uppercase(Locale.getDefault())
+                            } Camera Zone", location
+                        )
+                    }
                 }
             }
 
             Geofence.GEOFENCE_TRANSITION_EXIT -> {
-                if (extras != null)
-                    showNotification(
-                        context!!,
-                        "EXITING AI ZONE",
-                        "${triggeredLocation.replace("*"," ").uppercase(Locale.getDefault())} Camera Zone",location
-                    )
+                if(PreferencesUtil.isTrackerRunning(context!!)) {
+                    if (extras != null)
+                        showNotification(
+                            context!!,
+                            "EXITING AI ZONE",
+                            "${
+                                triggeredLocation.replace("*", " ").uppercase(Locale.getDefault())
+                            } Camera Zone", location
+                        )
+                }
             }
 
             else -> {

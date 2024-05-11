@@ -188,7 +188,7 @@ constructor(
     fun stopLocationService(context: Context) {
         PreferencesUtil.setTrackerRunning(context, false)
 
-        removeAllGeofences(context)
+        removeAllGeofences(context, false,null)
 
 //        Intent(context, AiCameraLocationUpdateService::class.java).also { intent ->
 //            context.stopService(intent)
